@@ -1,0 +1,117 @@
+@use 'sass:map';
+@use 'abstracts' as *;
+
+$desktop-token-variables: map.get($token-variables, 'desktop');
+$mobile-token-variables: map.get($token-variables, 'mobile');
+
+$typography-token-variables: map.get($token-variables, 'typography');
+$text-token-variables: map.get($token-variables, 'text');
+$text-align-list: ('left', 'center', 'right', 'justify');
+$text-transform-list: ('capitalize', 'uppercase', 'lowercase');
+$text-decoration-list: ('underline', 'dotted', 'wavy', 'overline');
+
+// Heading
+$heading-token-variables: map.get($token-variables, 'heading');
+$heading-by-devices-token-variables: (
+  'mobile': map.get($mobile-token-variables, 'heading'),
+  'desktop': map.get($desktop-token-variables, 'heading'),
+);
+
+// Text
+$text-token-variables: map.get($token-variables, 'text');
+$text-by-devices-token-variables: (
+  'mobile': map.get($mobile-token-variables, 'text'),
+  'desktop': map.get($desktop-token-variables, 'text'),
+);
+
+// Mixins
+
+@mixin text-align($name) {
+  .text-#{$name} {
+    text-align: #{$name};
+  }
+}
+
+@mixin font-weight($prefix-class-name, $property-css) {
+  .font-weight-#{$prefix-class-name} {
+    font-weight: #{$property-css};
+  }
+}
+
+@mixin text-transform($property-css) {
+  .text-transform-#{$property-css} {
+    text-transform: #{$property-css};
+  }
+}
+
+@mixin text-decoration($property-css) {
+  .text-decoration-#{$property-css} {
+    text-decoration: if($property-css == underline, #{$property-css}, underline #{$property-css});
+  }
+}
+
+@mixin heading-size($size-name, $size, $line-height, $weight) {
+  .heading-size-#{$size-name} {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+  }
+}
+
+@mixin text-size($size-name, $size, $line-height) {
+  .text-size-#{$size-name} {
+    font-size: $size;
+    line-height: $line-height;
+  }
+}
+
+// Typography Utility Classes
+
+@each $text-align in $text-align-list {
+  @include text-align($text-align);
+}
+
+@each $prefix-class-name, $property-css in map.get($typography-token-variables, 'weight') {
+  @include font-weight($prefix-class-name, $property-css);
+}
+
+@each $textTransform in $text-transform-list {
+  @include text-transform($textTransform);
+}
+
+@each $text-decoration in $text-decoration-list {
+  @include text-decoration($text-decoration);
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+@each $heading-size-name, $heading-size-variable in $heading-token-variables {
+  @each $device, $heading-by-device-token-variables in $heading-by-devices-token-variables {
+    $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+    $heading-size-variable-by-device: map.get($heading-by-device-token-variables, $heading-size-name);
+    @include create-media-queries($breakpoint-name) {
+      @include heading-size(
+          $heading-size-name,
+          map.get($heading-size-variable-by-device, 'size'),
+          map.get($heading-size-variable, 'line-height'),
+          map.get($heading-size-variable, 'weight'),
+      );
+    }
+  }
+}
+
+@each $text-size-name, $text-size-variable in $text-token-variables {
+  @each $device, $text-by-device-token-variables in $text-by-devices-token-variables {
+    $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+    $text-size-variable-by-device: map.get($text-by-device-token-variables, $text-size-name);
+    @include create-media-queries($breakpoint-name) {
+      @include text-size(
+          $text-size-name,
+          map.get($text-size-variable-by-device, 'size'),
+          map.get($text-size-variable, 'line-height'),
+      );
+    }
+  }
+}

@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs';
+import { Layout, Table } from '@storybook-components';
+import { Box, Text } from '@/components';
+import { tokenVariables } from '@/constants';
+
+export const tokenColorsByCategories = {
+    all: {
+        title: 'All',
+        colors: Object.entries(tokenVariables.color)
+    },
+};
+
+<Meta
+    title="Foundations/Design Tokens/Colors"
+    parameters={{
+        viewMode: 'docs',
+        previewTabs: {
+            canvas: { hidden: true }
+        },
+        backgrounds: {
+            disable: true,
+            grid: {
+                disable: true,
+            }
+        },
+    }}
+/>
+
+<Layout
+    title="Colors"
+    description="Past and present color palettes used by both design and engineering."
+>
+    {Object.entries(tokenColorsByCategories).map(([categoryKey, tokenColorsByCategory]) => (
+        <Table
+            key={categoryKey}
+            mb="xxs"
+            title={tokenColorsByCategory.title}
+            columns={[
+                {
+                    name: 'preview',
+                    label: 'Preview',
+                },
+                {
+                    name: 'css_variable',
+                    label: 'CSS Variable',
+                },
+                {
+                    name: 'value',
+                    label: 'Value',
+                },
+                {
+                    name: 'usage',
+                    label: 'Usage',
+                },
+            ]}
+            rows={tokenColorsByCategory.colors.map(([tokenName, token]) => ({
+                preview: (
+                    <Box
+                        bg={tokenName}
+                        style={{
+                            boxSizing: 'border-box',
+                            width: '200px',
+                            height: '50px'
+                        }}
+                    />
+                ),
+                css_variable: (
+                    <Text
+                        weight="semi-bold"
+                    >
+                        color-{tokenName}
+                    </Text>
+                ),
+                value: token.value,
+                usage: token.description,
+            }))}
+        />
+    ))}
+</Layout>

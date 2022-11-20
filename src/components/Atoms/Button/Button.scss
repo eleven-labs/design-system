@@ -1,0 +1,27 @@
+.button {
+  display: inline-block;
+  font-size: var(--typography-font-size-xxs);
+  padding: var(--spacing-xxs) var(--spacing-m);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--background-color-button, var(--color-amaranth));
+  color: var(--color-button, var(--color-white));
+  border: var(--border-button, none);
+  &--primary {
+    --background-color-button: var(--color-amaranth);
+    --color-button: var(--color-white);
+    --border-button: none;
+  }
+  &--primary-ghost {
+    --background-color-button: transparent;
+    --color-button: var(--color-amaranth);
+    --border-button: 1px solid var(--color-amaranth);
+  }
+  &--form {
+    --background-color-button: var(--color-grey-middle-dark);
+    --color-button: var(--color-white);
+    --border-button: none;
+  }
+}

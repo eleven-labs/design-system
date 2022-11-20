@@ -1,0 +1,84 @@
+{
+  "heading": {
+    "s": {
+      "line-height": {
+        "value": "1.2"
+      },
+      "weight": {
+        "value": "{typography.weight.medium.value}"
+      }
+    },
+    "m": {
+      "line-height": {
+        "value": "1.2"
+      },
+      "weight": {
+        "value": "{typography.weight.medium.value}"
+      }
+    },
+    "l": {
+      "line-height": {
+        "value": "1.2"
+      },
+      "weight": {
+        "value": "{typography.weight.medium.value}"
+      }
+    },
+    "xl": {
+      "line-height": {
+        "value": "1.2"
+      },
+      "weight": {
+        "value": "{typography.weight.bold.value}"
+      }
+    }
+  },
+  "mobile": {
+    "heading": {
+      "s": {
+        "size": {
+          "value": "16px"
+        }
+      },
+      "m": {
+        "size": {
+          "value": "20px"
+        }
+      },
+      "l": {
+        "size": {
+          "value": "22px"
+        }
+      },
+      "xl": {
+        "size": {
+          "value": "24px"
+        }
+      }
+    }
+  },
+  "desktop": {
+    "heading": {
+      "s": {
+        "size": {
+          "value": "18px"
+        }
+      },
+      "m": {
+        "size": {
+          "value": "22px"
+        }
+      },
+      "l": {
+        "size": {
+          "value": "26px"
+        }
+      },
+      "xl": {
+        "size": {
+          "value": "28px"
+        }
+      }
+    }
+  }
+}

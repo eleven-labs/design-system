@@ -1,0 +1,25 @@
+@import '../../../styles/breakpoints';
+
+.input {
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-s);
+  font-size: var(--font-size-input, var(--typography-font-size-xxs));
+  font-family: var(--typography-font-family);
+  @include createMediaQueries(map_get($breakpointPropList, 'md'), 'min') {
+    --font-size-input: var(--typography-font-size-xs);
+  }
+  &::placeholder {
+    color: var(--color-grey-middle);
+  }
+  &:focus-visible {
+    outline: none;
+    border: 2px solid var(--color-amaranth);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  }
+  &--search {
+    border-radius: 21px;
+  }
+  &--form {
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.15);
+  }
+}

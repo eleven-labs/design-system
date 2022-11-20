@@ -1,0 +1,24 @@
+{
+  "asset": {
+    "font": {
+      "WorkSans-Regular": {
+        "value": "fonts/WorkSans-Regular",
+        "family": "WorkSans",
+        "weight": "400",
+        "extensions": ["woff2", "woff"]
+      },
+      "WorkSans-Medium": {
+        "value": "fonts/WorkSans-Medium",
+        "family": "WorkSans",
+        "weight": "500",
+        "extensions": ["woff2", "woff"]
+      },
+      "WorkSans-Bold": {
+        "value": "fonts/WorkSans-Bold",
+        "family": "WorkSans",
+        "weight": "700",
+        "extensions": ["woff2", "woff"]
+      }
+    }
+  }
+}

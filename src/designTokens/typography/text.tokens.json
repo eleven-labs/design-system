@@ -1,0 +1,57 @@
+{
+  "text": {
+    "xs": {
+      "line-height": {
+        "value": "1.5"
+      }
+    },
+    "s": {
+      "line-height": {
+        "value": "1.2"
+      }
+    },
+    "m": {
+      "line-height": {
+        "value": "1.5"
+      }
+    }
+  },
+  "mobile": {
+    "text": {
+      "xs": {
+        "size": {
+          "value": "12px"
+        }
+      },
+      "s": {
+        "size": {
+          "value": "14px"
+        }
+      },
+      "m": {
+        "size": {
+          "value": "18px"
+        }
+      }
+    }
+  },
+  "desktop": {
+    "text": {
+      "xs": {
+        "size": {
+          "value": "14px"
+        }
+      },
+      "s": {
+        "size": {
+          "value": "16px"
+        }
+      },
+      "m": {
+        "size": {
+          "value": "20px"
+        }
+      }
+    }
+  }
+}

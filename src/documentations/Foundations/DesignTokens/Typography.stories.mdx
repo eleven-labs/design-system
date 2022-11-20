@@ -1,0 +1,125 @@
+import { Meta } from '@storybook/addon-docs';
+import { Layout, Table } from '@storybook-components';
+import { Heading, Text, Divider } from '@/components';
+import { tokenVariables, headingSizeTokenNameList } from '@/constants';
+
+<Meta
+    title="Foundations/Design Tokens/Typography"
+    parameters={{
+        viewMode: 'docs',
+        previewTabs: {
+            canvas: { hidden: true }
+        },
+        backgrounds: {
+            disable: true,
+            grid: {
+                disable: true,
+            }
+        },
+    }}
+/>
+
+<Layout
+    title="Typography"
+    description="Typography design guidelines and token scales"
+>
+    <Table
+        title="Fonts"
+        columns={[
+            {
+                name: 'preview',
+                label: 'Preview',
+            },
+            {
+                name: 'weight',
+                label: 'Weight',
+            }
+        ]}
+        rows={Object.entries(tokenVariables.asset.font).map(([tokenName, token]) => ({
+            preview: (
+                <Text weight={Object.entries(tokenVariables.typography.weight).find(([_, tokenWeight]) => tokenWeight.value === token.weight)[0]}>
+                    {tokenName}
+                </Text>
+            ),
+            weight: (
+                <Text>
+                    {token.weight}
+                </Text>
+            ),
+        }))}
+    />
+    <Divider
+        my="s"
+        size="m"
+    />
+    <Table
+        title="Heading"
+        columns={[
+            {
+                name: 'preview',
+                label: 'Preview',
+            },
+            {
+                name: 'css_variable',
+                label: 'CSS Variable',
+            },
+            {
+                name: 'mobile',
+                label: 'Value for mobile',
+            },
+            {
+                name: 'desktop',
+                label: 'Value for desktop',
+            },
+        ]}
+        rows={headingSizeTokenNameList.map(tokenName => ({
+            preview: (
+                <Heading size={tokenName}>
+                    Heading {tokenName}
+                </Heading>
+            ),
+            css_variable: (
+                <Text weight="semi-bold">heading-{tokenName}</Text>
+            ),
+            mobile: `${tokenVariables.mobile.heading[tokenName].size.value} / ${tokenVariables.heading[tokenName]['line-height'].value}`,
+            desktop: `${tokenVariables.desktop.heading[tokenName].size.value} / ${tokenVariables.heading[tokenName]['line-height'].value}`,
+        }))}
+    />
+    <Divider
+        my="s"
+        size="m"
+    />
+    <Table
+        title="Texts"
+        columns={[
+            {
+                name: 'preview',
+                label: 'Preview',
+            },
+            {
+                name: 'css_variable',
+                label: 'CSS Variable',
+            },
+            {
+                name: 'mobile',
+                label: 'Value for mobile',
+            },
+            {
+                name: 'desktop',
+                label: 'Value for desktop',
+            },
+        ]}
+        rows={Object.entries(tokenVariables.text).map(([tokenName, token]) => ({
+            preview: (
+                <Text size={tokenName}>
+                    Text {tokenName}
+                </Text>
+            ),
+            css_variable: (
+                <Text weight="semi-bold">text-{tokenName}</Text>
+            ),
+            mobile: `${tokenVariables.mobile.text[tokenName].size.value} / ${tokenVariables.text[tokenName]['line-height'].value}`,
+            desktop: `${tokenVariables.desktop.text[tokenName].size.value} / ${tokenVariables.text[tokenName]['line-height'].value}`,
+        }))}
+    />
+</Layout>

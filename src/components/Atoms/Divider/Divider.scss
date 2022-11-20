@@ -1,0 +1,15 @@
+.divider {
+  height: var(--height-divider, 1px);
+  width: var(--width-divider, 100%);
+  border: none;
+  &--size-s {
+    --height-divider: 1px;
+  }
+  &--size-m {
+    --height-divider: 2px;
+  }
+  &--size-l {
+    --height-divider: 16px;
+    --width-divider: 80px;
+  }
+}
