@@ -1,0 +1,2 @@
+var r=Object.defineProperty;var o=(t,e)=>r(t,"name",{value:e,configurable:!0});import{n as s,o as i,p as a}from"./flexOrGridItemPropsControls.65b2d59f.js";import{t as n}from"./BackLink.2166797e.js";const p=["underline","dotted","wavy","overline"],c=["left","center","right","justify"],l=["capitalize","uppercase","lowercase"],x=o((t=a)=>s({category:"Typography",props:n,options:{size:t,textAlign:c,weight:i,textDecoration:p,textTransform:l},controlType:{italic:"boolean"}}),"typographyPropsControls");export{x as t};
+//# sourceMappingURL=typographyPropsControls.823cccc7.js.map
