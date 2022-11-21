@@ -18,7 +18,7 @@ const config: StorybookViteConfig = {
   },
   viteFinal: (config, { configType }) => {
     if (configType === 'PRODUCTION') {
-      config.base = '/storybook/'
+      config.base = '/design-system/'
     }
 
     return mergeConfig(config, {
