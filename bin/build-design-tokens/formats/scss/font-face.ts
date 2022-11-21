@@ -19,11 +19,16 @@ const processJsonNode = (
     options: Options & { fontPathPrefix?: string; injectToHead?: string[]; }
 ): string => {
     const fontPathPrefix = options.fontPathPrefix || '../';
-    let output = `@use 'sass:map';\n\n`;
+    let output = [
+        `@use 'sass:map';\n`,
+        `@use 'sass:string';\n`,
+    ].join('');
 
     if (options?.injectToHead) {
-        output += options.injectToHead.join('\n\n');
+        output += options.injectToHead.join('\n');
     }
+
+    output += '\n\n';
 
     const fontVariables = transformedTokens.reduce<string[]>((currentFontVariables, prop) => {
         const {
@@ -66,10 +71,11 @@ const processJsonNode = (
         '@mixin font-face($path, $family, $weight, $style: normal, $display: swap, $extensions: woff2 woff) {',
         `\n\t$src: null;`,
         `\n\t@each $extension in $extensions {`,
-        `\n\t\t$src: append($src, url(quote($path + "." + $extension)) format(quote($extension)), comma);`,
+        `\n\t\t$pathWithExtension: string.quote($path + "." + $extension);`,
+        `\n\t\t$src: append($src, url($pathWithExtension) format(string.quote($extension)), comma);`,
         `\n\t}`,
         '\n\t@font-face {',
-        '\n\t\tfont-family: quote($family);',
+        '\n\t\tfont-family: #{string.quote($family)};',
         '\n\t\tfont-style: $style;',
         '\n\t\tfont-weight: $weight;',
         '\n\t\tfont-display: $display;',

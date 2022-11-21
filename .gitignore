@@ -25,6 +25,7 @@ dist-ssr
 
 # Custom
 storybook-static
+src/components/Atoms/Icons
 src/styles/_variables.scss
 src/styles/abstracts/_token-variables.scss
 src/styles/_fonts.scss

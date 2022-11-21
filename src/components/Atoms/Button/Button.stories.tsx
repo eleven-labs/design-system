@@ -1,21 +1,21 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { systemPropsControls } from '../../../constants';
-import { Button } from './Button';
+import { Button } from '@/components';
+import { marginSystemProps } from '@/constants';
 
 export default {
   title: 'Components/Atoms/Button',
   component: Button,
   argTypes: {
-    ...systemPropsControls
+    ...marginSystemProps,
   },
   args: {
-    children: 'Button Label'
+    children: 'Button Label',
   },
   parameters: {
-    layout: 'centered'
-  }
+    layout: 'centered',
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
@@ -32,11 +32,11 @@ ButtonPrimary.args = {
 export const ButtonPrimaryGhost = Template.bind({});
 ButtonPrimaryGhost.args = {
   variant: 'primary-ghost',
-  children: 'Voir plus'
+  children: 'Voir plus',
 };
 
 export const ButtonForm = Template.bind({});
 ButtonForm.args = {
   variant: 'form',
-  children: 'Je découvre'
+  children: 'Je découvre',
 };

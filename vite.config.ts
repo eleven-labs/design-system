@@ -6,7 +6,11 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import packageJson from './package.json';
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), dts({ insertTypesEntry: true })],
+  plugins: [
+    react({ jsxRuntime: 'classic', }),
+    tsconfigPaths(),
+    dts({ insertTypesEntry: true })
+  ],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),

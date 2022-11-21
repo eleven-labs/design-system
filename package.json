@@ -19,8 +19,9 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "husky install && yarn build:design-tokens",
+    "prepare": "husky install && yarn build:icons && yarn build:design-tokens",
     "compress:fonts": "ts-node bin/compress-fonts",
+    "build:icons": "svgr --typescript -d src/components/Atoms/Icons src/assets/svgs",
     "build:design-tokens": "ts-node -r dotenv/config bin/build-design-tokens",
     "build": "tsc && vite build",
     "storybook": "start-storybook -p 6009",
@@ -42,7 +43,6 @@
     "react-dom": "16.x"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.6",
     "@elevenlabs/eslint-config": "^0.0.1",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
@@ -51,6 +51,7 @@
     "@storybook/builder-vite": "^0.2.5",
     "@storybook/react": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
+    "@svgr/cli": "^6.5.1",
     "@types/jest": "^29.2.2",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",

@@ -1,32 +1,36 @@
 import './Input.scss';
 
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 
-import {
-  omitSystemProps,
-  systemClassName
-} from '../../../helpers/systemPropsHelper';
-import { SpacingSystemProps } from '../../../types';
+import { Box } from '@/components';
+import { typographySystemClassName } from '@/helpers/systemPropsHelper';
+import { MarginSystemProps, PolymorphicProps } from '@/types';
 
-export interface InputProps
-  extends SpacingSystemProps,
-    React.InputHTMLAttributes<HTMLInputElement> {
+export type InputProps = {
+  /**
+   * The input variant
+   */
   variant?: 'search' | 'form';
-}
+} & Omit<PolymorphicProps<'input'>, 'color'> &
+  MarginSystemProps;
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, ...nativeProps }, ref) =>
-    React.createElement('input', {
-      ...omitSystemProps(nativeProps),
-      className: systemClassName<SpacingSystemProps>({
-        ...nativeProps,
-        className: classNames(
-          'input',
-          { [`input--${variant}`]: variant },
-          nativeProps.className
-        )
-      }),
-      ref
-    })
-);
+export const Input: React.FC<InputProps> = ({ as, variant, children, ...boxProps }) =>
+  React.createElement(
+    Box,
+    {
+      ...boxProps,
+      as: 'input',
+      py: 'xs',
+      px: 's',
+      className: classNames(
+        boxProps?.className,
+        'input',
+        { [`input--${variant}`]: variant },
+        typographySystemClassName({
+          size: 'xs',
+        })
+      ),
+    },
+    children
+  );
