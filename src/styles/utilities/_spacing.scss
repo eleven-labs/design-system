@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+$spacing-prop-list: (
+  'm':  'margin',
+  'mt': 'margin-top',
+  'mr': 'margin-right',
+  'mb': 'margin-bottom',
+  'ml': 'margin-left',
+  'mx': ('margin-left', 'margin-right'),
+  'my': ('margin-top', 'margin-bottom'),
+  'p': 'padding',
+  'pt': 'padding-top',
+  'pr': 'padding-right',
+  'pb': 'padding-bottom',
+  'pl': 'padding-left',
+  'px': ('padding-left', 'padding-right'),
+  'py': ('padding-top', 'padding-bottom'),
+);
+
+@mixin spacing($prefix-class-name, $size-name, $property-css, $size, $modifier) {
+  .#{$prefix-class-name}-#{$size-name}\@#{$modifier} {
+    @if (type-of($property-css) == 'list') {
+      @each $current-property-css in $property-css {
+        #{$current-property-css}: #{$size};
+      }
+    } @else {
+      #{$property-css}: #{$size};
+    }
+  }
+}
+
+@each $breakpoint-name, $breakpoint-value in map.get($token-variables, 'breakpoint') {
+  @include create-media-queries($breakpoint-name) {
+    @each $prefix-class-name, $property-css in $spacing-prop-list {
+      @each $name, $size in map.get($token-variables, 'spacing') {
+        @include spacing($prefix-class-name, $name, $property-css, $size, $breakpoint-name);
+      }
+    }
+  }
+}

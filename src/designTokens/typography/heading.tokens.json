@@ -1,82 +1,69 @@
 {
-  "heading": {
-    "s": {
-      "line-height": {
-        "value": "1.2"
+  "typography": {
+    "heading": {
+      "base": {
+        "line-height": {
+          "value": "{line-height.base.value}"
+        },
+        "font-weight": {
+          "value": "{font-weight.medium.value}"
+        }
       },
-      "weight": {
-        "value": "{typography.weight.medium.value}"
-      }
-    },
-    "m": {
-      "line-height": {
-        "value": "1.2"
-      },
-      "weight": {
-        "value": "{typography.weight.medium.value}"
-      }
-    },
-    "l": {
-      "line-height": {
-        "value": "1.2"
-      },
-      "weight": {
-        "value": "{typography.weight.medium.value}"
-      }
-    },
-    "xl": {
-      "line-height": {
-        "value": "1.2"
-      },
-      "weight": {
-        "value": "{typography.weight.bold.value}"
+      "xl": {
+        "font-weight": {
+          "value": "{font-weight.bold.value}"
+        }
       }
     }
   },
   "mobile": {
-    "heading": {
-      "s": {
-        "size": {
-          "value": "16px"
-        }
-      },
-      "m": {
-        "size": {
-          "value": "20px"
-        }
-      },
-      "l": {
-        "size": {
-          "value": "22px"
-        }
-      },
-      "xl": {
-        "size": {
-          "value": "24px"
+    "typography": {
+      "heading": {
+        "s": {
+          "font-size": {
+            "value": "{font-size.s.value}"
+          }
+        },
+        "m": {
+          "font-size": {
+            "value": "{font-size.l.value}"
+          }
+        },
+        "l": {
+          "font-size": {
+            "value": "{font-size.xl.value}"
+          }
+        },
+        "xl": {
+          "font-size": {
+            "value": "{font-size.xxl.value}"
+          }
         }
       }
     }
   },
   "desktop": {
-    "heading": {
-      "s": {
-        "size": {
-          "value": "18px"
-        }
-      },
-      "m": {
-        "size": {
-          "value": "22px"
-        }
-      },
-      "l": {
-        "size": {
-          "value": "26px"
-        }
-      },
-      "xl": {
-        "size": {
-          "value": "28px"
+    "typography": {
+      "heading": {
+        "s": {
+          "font-size": {
+            "value": "{font-size.m.value}"
+          }
+        },
+        "m": {
+          "font-size": {
+            "value": "{font-size.xl.value}"
+          }
+        },
+        "l": {
+          "font-size": {
+            "value": "{font-size.xxl-2.value}"
+          }
+        },
+        "xl": {
+          "font-size": {
+            "value": "{font-size.xxl-3.value}"
+          }
         }
       }
     }

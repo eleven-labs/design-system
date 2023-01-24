@@ -3,20 +3,18 @@ import './Button.scss';
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Box, BoxElementType } from '@/components';
-import { typographySystemClassName } from '@/helpers/systemPropsHelper';
+import { Box } from '@/components';
 import { MarginSystemProps, PolymorphicProps } from '@/types';
 
-export type ButtonProps<C extends BoxElementType = 'button' | 'a'> = {
+export type ButtonProps<C extends React.ElementType = 'button'> = {
   /**
    * The button variant
    */
   variant?: 'primary' | 'primary-ghost' | 'form';
-  children?: React.ReactNode;
 } & PolymorphicProps<C> &
   MarginSystemProps;
 
-export const Button = <C extends BoxElementType = 'button'>({
+export const Button = <C extends React.ElementType = 'button'>({
   as,
   variant,
   children,
@@ -34,11 +32,8 @@ export const Button = <C extends BoxElementType = 'button'>({
         'button',
         {
           [`button--${variant}`]: variant,
-        },
-        typographySystemClassName({
-          size: 'xs',
-          weight: 'medium',
-        })
+        }
+        /*typographySystemClassName({ size: 'xs', })*/
       ),
     },
     children

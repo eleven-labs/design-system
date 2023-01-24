@@ -5,3 +5,7 @@ export * from './Button';
 export * from './Input';
 export * from './Logo';
 export * as Icons from './Icons';
+export * from './ChoiceChip';
+export * from './Link';
+export * from './ProgressBar';
+export * from './RichText';

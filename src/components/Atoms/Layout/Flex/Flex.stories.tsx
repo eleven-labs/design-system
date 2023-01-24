@@ -3,7 +3,8 @@ import React from 'react';
 
 import { Flex } from '@/components/Atoms/Layout/Flex/Flex';
 import { FlexItem } from '@/components/Atoms/Layout/Flex/FlexItem';
-import { flexDirectionList, flexWrapList, systemPropsControls } from '@/constants';
+import { flexDirectionList, flexWrapList } from '@/constants';
+import { systemPropsControls } from '@/constants/storybook';
 import { flexOrGridPropsControls } from '@/constants/storybook/flexOrGridPropsControls';
 import { createDescription } from '@/helpers/storybookHelper';
 

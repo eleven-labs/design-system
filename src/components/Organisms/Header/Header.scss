@@ -1,0 +1,27 @@
+@use '../../../styles/abstracts' as *;
+
+.header {
+  position: relative;
+  --size-logo-header: 30px;
+  &__logo {
+    height: var(--size-logo-header);
+    width: var(--size-logo-header);
+    @include create-media-queries('md') {
+      --size-logo-header: 46px;
+    }
+  }
+  &__icon-for-mobile {
+    cursor: pointer;
+    display: var(--icon-for-mobile-visibility-header, block);
+    @include create-media-queries('md', 'min') {
+      --icon-for-mobile-visibility-header: none;
+    }
+  }
+  &__input-search {
+    display: var(--input-search-visibility-header, none);
+    @include create-media-queries('md', 'min') {
+      --input-search-visibility-header: block;
+      min-width: 450px;
+    }
+  }
+}

@@ -1,23 +1,42 @@
 import classNames from 'classnames';
 
-import type { HeadingSizeType, TextSizeType, TypographySystemProps } from '@/types';
+import { classNamesWithModifiers } from '@/helpers/systemPropsHelper/classNamesWithModifiers';
+import {
+  FontWeightType,
+  MediaQueryType,
+  TextAlignType,
+  TextDecorationType,
+  TextTransformType,
+  TypographySystemProps,
+} from '@/types';
 
-export const typographySystemClassName = <TProps extends TypographySystemProps<TextSizeType | HeadingSizeType>>({
-  size,
+export const typographySystemClassName = <TProps extends TypographySystemProps>({
   textAlign,
   weight,
   textTransform,
   textDecoration,
   italic,
-  isHeading = false,
-}: TProps & { isHeading?: boolean }): string => {
-  return classNames({
-    [`text-size-${size}`]: Boolean(size) && !isHeading,
-    [`heading-size-${size}`]: Boolean(size) && isHeading,
-    [`text-${textAlign}`]: Boolean(textAlign),
-    [`text-transform-${textTransform}`]: Boolean(textTransform),
-    [`text-decoration-${textDecoration}`]: Boolean(textDecoration),
-    [`font-weight-${weight}`]: Boolean(weight),
-    'text-italic': Boolean(italic),
-  });
+}: TProps): string => {
+  return classNames(
+    ...classNamesWithModifiers<MediaQueryType, TextAlignType>({
+      propValue: textAlign,
+      className: 'text',
+    }),
+    ...classNamesWithModifiers<MediaQueryType, FontWeightType>({
+      propValue: weight,
+      className: 'font-weight',
+    }),
+    ...classNamesWithModifiers<MediaQueryType, TextTransformType>({
+      propValue: textTransform,
+      className: 'text-transform',
+    }),
+    ...classNamesWithModifiers<MediaQueryType, TextDecorationType>({
+      propValue: textDecoration,
+      className: 'text-decoration',
+    }),
+    ...classNamesWithModifiers<MediaQueryType, boolean>({
+      propValue: italic,
+      className: 'text-italic',
+    })
+  );
 };

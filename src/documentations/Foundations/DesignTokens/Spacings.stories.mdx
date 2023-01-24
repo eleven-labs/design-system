@@ -27,12 +27,12 @@ import { tokenVariables } from '@/constants';
         title="Scale"
         columns={[
             {
-                name: 'preview',
-                label: 'Preview',
+                name: 'name',
+                label: 'Name',
             },
             {
-                name: 'css_variable',
-                label: 'CSS Variable',
+                name: 'preview',
+                label: 'Preview',
             },
             {
                 name: 'value',
@@ -40,6 +40,9 @@ import { tokenVariables } from '@/constants';
             },
         ]}
         rows={Object.entries(tokenVariables.spacing).map(([tokenName, token]) => ({
+            name: (
+                <Text weight="semi-bold">{tokenName}</Text>
+            ),
             preview: (
                 <Box
                     bg="azure"
@@ -48,9 +51,6 @@ import { tokenVariables } from '@/constants';
                         width: '200px',
                     }}
                 />
-            ),
-            css_variable: (
-                <Text>spacing-{tokenName}</Text>
             ),
             value: token.value,
         }))}

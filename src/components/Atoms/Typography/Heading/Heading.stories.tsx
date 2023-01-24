@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { headingSizeTokenNameList, systemPropsControls, typographyPropsControls } from '@/constants';
+import { systemPropsControls, typographyPropsControls } from '@/constants/storybook';
 
 import { Heading } from './Heading';
 
@@ -10,13 +10,11 @@ export default {
   component: Heading,
   argTypes: {
     ...systemPropsControls,
-    ...typographyPropsControls(headingSizeTokenNameList),
+    ...typographyPropsControls,
   },
   args: {
+    size: 'm',
     children: 'Example Heading',
-  },
-  parameters: {
-    layout: 'centered',
   },
 } as ComponentMeta<typeof Heading>;
 

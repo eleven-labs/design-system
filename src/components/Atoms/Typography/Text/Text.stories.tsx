@@ -10,14 +10,11 @@ export default {
   component: Text,
   argTypes: {
     ...systemPropsControls,
-    ...typographyPropsControls(),
+    ...typographyPropsControls,
   },
   args: {
     size: 'm',
     children: 'Example Text',
-  },
-  parameters: {
-    layout: 'centered',
   },
 } as ComponentMeta<typeof Text>;
 

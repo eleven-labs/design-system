@@ -13,6 +13,10 @@
     "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
+    },
+    "./scss/abstracts": {
+      "import": "./dist/scss/abstracts/_index.scss",
+      "require": "./dist/scss/abstracts/_index.scss"
     }
   },
   "files": [
@@ -23,7 +27,8 @@
     "compress:fonts": "ts-node bin/compress-fonts",
     "build:icons": "svgr --typescript -d src/components/Atoms/Icons src/assets/svgs",
     "build:design-tokens": "ts-node -r dotenv/config bin/build-design-tokens",
-    "build": "tsc && vite build",
+    "copy-scss-output-dist": "ts-node bin/copyScssOutputDist",
+    "build": "tsc && vite build && yarn copy-scss-output-dist",
     "storybook": "start-storybook -p 6009",
     "build:storybook": "build-storybook",
     "test": "jest"
@@ -34,7 +39,9 @@
     "node": ">= 14.0"
   },
   "dependencies": {
+    "autosuggest-highlight": "^3.3.4",
     "classnames": "^2.3.2",
+    "html-react-parser": "^3.0.7",
     "react": "16.x",
     "react-dom": "16.x"
   },
@@ -52,9 +59,11 @@
     "@storybook/react": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
     "@svgr/cli": "^6.5.1",
+    "@types/autosuggest-highlight": "^3.2.0",
     "@types/jest": "^29.2.2",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "@vitejs/plugin-react": "^2.2.0",
     "eslint": "^8.26.0",
     "husky": "^8.0.1",
@@ -63,6 +72,7 @@
     "node-sass": "^7.0.3",
     "postcss-normalize": "^10.0.1",
     "prettier": "^2.7.1",
+    "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.55.0",
     "style-dictionary": "^3.7.1",
     "ts-jest": "^29.0.3",

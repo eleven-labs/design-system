@@ -13,7 +13,7 @@ export const Layout: React.FC<LayoutProps> = ({ title, description, children }) 
     <main>
       {title && (
           <Box
-              bg="blue-navy"
+              bg="navy"
               color="white"
               px="l"
               py="xxl"

@@ -1,6 +1,9 @@
 import { ControlType } from '@storybook/components';
 import { ArgTypes, InputType } from '@storybook/csf';
 
+import { tokenVariables } from '@/constants';
+import { get } from '@/helpers/objectHelper';
+
 import { kebabCase } from './stringHelper';
 
 const MDN_URL = 'https://developer.mozilla.org/en-US/docs/Web/CSS/';
@@ -65,4 +68,17 @@ export const createControls = (options: {
 
     return controls;
   }, {});
+};
+
+export const getValueOfCssPropertyInDesignTokens = (options: {
+  path: string;
+  tokenName: string;
+  device: 'mobile' | 'desktop';
+  propertyCSS: string;
+}): number | string => {
+  return (
+    get(tokenVariables, `${options.device}.${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
+    get(tokenVariables, `${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
+    get(tokenVariables, `${options.path}.base.${options.propertyCSS}.value`)
+  );
 };

@@ -13,7 +13,7 @@ export interface TableProps<TRow = any> extends BoxProps {
 
 export const Table: React.FC<TableProps> = ({ title, columns, rows, ...boxProps }) => (
     <Box {...boxProps}>
-        <Heading as="p" mb="xxs">{title}</Heading>
+        <Heading as="p" size="l" mb="xxs">{title}</Heading>
         <div
             className="storybook-table"
             style={{

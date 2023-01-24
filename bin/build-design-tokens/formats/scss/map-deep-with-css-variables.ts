@@ -17,7 +17,7 @@ const processJsonNode = (
     const transformedToken = transformedTokens as TransformedToken;
     output += transformedToken?.attributes?.category && options?.categoriesWithNotCssVariables?.includes(transformedToken.attributes.category) ?
         transformedToken.value :
-        `var(--${transformedToken.path.join('-')})`;
+        `var(--${transformedToken.name})`;
   } else {
     output += '(\n';
 

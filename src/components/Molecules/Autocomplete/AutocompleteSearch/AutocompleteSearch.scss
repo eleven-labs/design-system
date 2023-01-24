@@ -1,0 +1,45 @@
+.autocomplete-search {
+  $this: &;
+  position: relative;
+  z-index: 10;
+  &__input {
+    width: 100%;
+    padding-right: 74px !important;
+  }
+  &--has-value {
+    #{$this}__input {
+      padding-right: 106px !important;
+    }
+  }
+  &__button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: var(--spacing-xxs) 0;
+  }
+  &__button-close {
+    padding: 0 var(--spacing-s);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    &:after {
+      display: inline-block;
+      content: "\00d7"; /* This will render the 'X' */
+      font-size: var(--typography-font-size-xxl-2);
+      color: var(--color-grey-middle);
+    }
+  }
+  &__button-search {
+    padding: 0 var(--spacing-s);
+    border: none;
+    border-left: 1px solid var(--color-grey-middle);
+    background-color: transparent;
+    cursor: pointer;
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-amaranth);
+  }
+}

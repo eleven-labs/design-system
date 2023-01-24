@@ -1,0 +1,34 @@
+@use '../../../styles/abstracts' as *;
+
+.post-preview {
+  --max-height-post-preview-mask: 44px;
+  &__metadata {
+    span {
+      &:not(:first-child) {
+        &::before {
+          margin-left: var(--spacing-xxs);
+          margin-right: var(--spacing-xxs);
+          vertical-align: middle;
+          content: '•';
+          font-size: var(--typography-font-size-xxs-2);
+        }
+      }
+    }
+  }
+  &--mask {
+    max-height: var(--max-height-post-preview-mask);
+    @include create-media-queries('md', 'min') {
+      --max-height-post-preview-mask: 24px;
+    }
+    mask-image: linear-gradient(#000, transparent);
+  }
+  &--related {
+    padding: var(--spacing-s);
+    background-color: var(--color-white);
+    border-radius: 4px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 20%);
+  }
+  &__excerpt {
+    @include multi-line-ellipsis($lineHeight: 1.5em, $lineCount: 3);
+  }
+}

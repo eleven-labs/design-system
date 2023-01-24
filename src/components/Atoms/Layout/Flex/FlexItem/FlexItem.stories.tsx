@@ -2,7 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { Flex, FlexItem } from '@/components';
-import { flexBasisList, flexOrGridItemPropsControls, systemPropsControls } from '@/constants';
+import { flexBasisList } from '@/constants';
+import { flexOrGridItemPropsControls, systemPropsControls } from '@/constants/storybook';
 import { createDescription } from '@/helpers/storybookHelper';
 
 export default {
@@ -10,7 +11,7 @@ export default {
   component: FlexItem,
   args: {
     p: 'xxs',
-    bg: 'blue-navy',
+    bg: 'navy',
     color: 'white',
     align: 'center',
     children: 'Flex Item',

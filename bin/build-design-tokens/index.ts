@@ -16,12 +16,13 @@ const styleDictionary = StyleDictionary.extend({
   platforms: {
     'css/variables': {
       buildPath: './src/styles/',
+      transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item'],
       transformGroup: 'css',
       files: [
         {
           format: 'css/variables',
           filter: (token) => filterExcludesCategories(token, ['asset', 'breakpoint']),
-          destination: '_variables.scss',
+          destination: '_token-custom-properties.scss',
           options: {
             outputReferences: true,
           },
@@ -30,12 +31,12 @@ const styleDictionary = StyleDictionary.extend({
     },
     'scss/token-variables': {
       buildPath: './src/styles/',
-      transforms: ['attribute/cti'],
+      transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item'],
       files: [
         {
           format: 'scss/map-deep-with-css-variables',
           filter: (token) => filterExcludesCategories(token, ['asset']),
-          destination: 'abstracts/_token-variables.scss',
+          destination: 'abstracts/variables/_token-variables.scss',
           options: {
             outputReferences: true,
           },

@@ -2,16 +2,11 @@ import type {
   FontWeightType,
   TextAlignType,
   TextDecorationType,
-  TextSizeType,
   TextTransformType,
   TypeWithMediaQueriesType,
 } from '@/types';
 
-export interface TypographySystemProps<TypographyFontSizeType = TextSizeType> {
-  /**
-   * enum of font-size (including breakpoints modifiers)
-   */
-  size?: TypographyFontSizeType | TypeWithMediaQueriesType<TypographyFontSizeType>;
+export interface TypographySystemProps {
   /**
    * text-align (including breakpoints modifiers)
    */

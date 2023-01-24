@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { BoxElementType, Flex, Icons, Text } from '@/components';
+import { Flex, Icons, Text } from '@/components';
 import { MarginSystemProps, PolymorphicProps } from '@/types';
 
-export type BackLinkProps<C extends BoxElementType = 'a'> = {
+export type BackLinkProps<C extends React.ElementType = 'a'> = {
   label: string;
 } & Omit<PolymorphicProps<C>, 'color'> &
   MarginSystemProps;

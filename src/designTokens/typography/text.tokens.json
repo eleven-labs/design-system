@@ -1,55 +1,61 @@
 {
-  "text": {
-    "xs": {
-      "line-height": {
-        "value": "1.5"
-      }
-    },
-    "s": {
-      "line-height": {
-        "value": "1.2"
-      }
-    },
-    "m": {
-      "line-height": {
-        "value": "1.5"
+  "typography": {
+    "text": {
+      "base": {
+        "line-height": {
+          "value": "{line-height.base.value}"
+        }
+      },
+      "xs": {
+        "line-height": {
+          "value": "{line-height.large.value}"
+        }
+      },
+      "m": {
+        "line-height": {
+          "value": "{line-height.large.value}"
+        }
       }
     }
   },
   "mobile": {
-    "text": {
-      "xs": {
-        "size": {
-          "value": "12px"
-        }
-      },
-      "s": {
-        "size": {
-          "value": "14px"
-        }
-      },
-      "m": {
-        "size": {
-          "value": "18px"
+    "typography": {
+      "text": {
+        "xs": {
+          "font-size": {
+            "value": "{font-size.xxs}"
+          }
+        },
+        "s": {
+          "font-size": {
+            "value": "{font-size.xs.value}"
+          }
+        },
+        "m": {
+          "font-size": {
+            "value": "{font-size.m.value}"
+          }
         }
       }
     }
   },
   "desktop": {
-    "text": {
-      "xs": {
-        "size": {
-          "value": "14px"
-        }
-      },
-      "s": {
-        "size": {
-          "value": "16px"
-        }
-      },
-      "m": {
-        "size": {
-          "value": "20px"
+    "typography": {
+      "text": {
+        "xs": {
+          "font-size": {
+            "value": "{font-size.xs.value}"
+          }
+        },
+        "s": {
+          "font-size": {
+            "value": "{font-size.s.value}"
+          }
+        },
+        "m": {
+          "font-size": {
+            "value": "{font-size.l.value}"
+          }
         }
       }
     }
