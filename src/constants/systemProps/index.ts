@@ -4,3 +4,4 @@ export * from './systemProps';
 export * from './typographySystemProps';
 export * from './flexOrGridBoxSystemProps';
 export * from './flexOrGridItemSystemProps';
+export * from './hiddenSystemProps';

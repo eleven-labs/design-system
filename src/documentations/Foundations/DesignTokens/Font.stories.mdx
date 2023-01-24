@@ -1,0 +1,129 @@
+import { Meta } from '@storybook/addon-docs';
+import { Layout, Table } from '@storybook-components';
+import { Text } from '@/components';
+import { tokenVariables } from '@/constants';
+
+<Meta
+    title="Foundations/Design Tokens/Font"
+    parameters={{
+        viewMode: 'docs',
+        previewTabs: {
+            canvas: { hidden: true }
+        },
+        backgrounds: {
+            disable: true,
+            grid: {
+                disable: true,
+            }
+        },
+    }}
+/>
+
+<Layout
+    title="Font"
+    description="All design tokens related to fonts (font-family, font-size, line-height, font-weight)"
+>
+    <Table
+        title="Font Families"
+        columns={[
+            {
+                name: 'name',
+                label: 'Name',
+            },
+            {
+                name: 'preview',
+                label: 'Preview',
+            },
+            {
+                name: 'weight_name',
+                label: 'Weight Name',
+            },
+            {
+                name: 'weight_value',
+                label: 'Weight Value',
+            }
+        ]}
+        rows={Object.entries(tokenVariables.asset.font).map(([tokenName, token]) => {
+            const weight = Object.entries(tokenVariables['font-weight']).find(([_, tokenWeight]) => tokenWeight.value === token.weight)[0];
+            return {
+                name: (
+                    <Text weight="semi-bold">{tokenName}</Text>
+                ),
+                preview: (
+                    <Text
+                        weight={weight}
+                    >
+                        {tokenName}
+                    </Text>
+                ),
+                weight_name: (
+                    <Text>
+                        {weight}
+                    </Text>
+                ),
+                weight_value: (
+                    <Text>
+                        {token.weight}
+                    </Text>
+                ),
+            }
+        })}
+    />
+    <Table
+        title="Font Sizes"
+        columns={[
+            {
+                name: 'name',
+                label: 'Name',
+            },
+            {
+                name: 'value',
+                label: 'Value',
+            },
+        ]}
+        rows={Object.entries(tokenVariables['font-size']).map(([tokenName, token]) => ({
+            name: (
+                <Text weight="semi-bold">{tokenName}</Text>
+            ),
+            value: token.value,
+        }))}
+    />
+    <Table
+        title="Lines Height"
+        columns={[
+            {
+                name: 'name',
+                label: 'Name',
+            },
+            {
+                name: 'value',
+                label: 'Value',
+            },
+        ]}
+        rows={Object.entries(tokenVariables['line-height']).map(([tokenName, token]) => ({
+            name: (
+                <Text weight="semi-bold">{tokenName}</Text>
+            ),
+            value: token.value,
+        }))}
+    />
+    <Table
+        title="Font Weights"
+        columns={[
+            {
+                name: 'name',
+                label: 'Name',
+            },
+            {
+                name: 'value',
+                label: 'Value',
+            },
+        ]}
+        rows={Object.entries(tokenVariables['font-weight']).map(([tokenName, token]) => ({
+            name: (
+                <Text weight="semi-bold">{tokenName}</Text>
+            ),
+            value: token.value,
+        }))}
+    />
+</Layout>

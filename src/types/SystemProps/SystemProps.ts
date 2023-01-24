@@ -1,3 +1,3 @@
-import type { ColorSystemProps, SpacingSystemProps } from '@/types';
+import type { ColorSystemProps, HiddenSystemProps, SpacingSystemProps } from '@/types';
 
-export interface SystemProps extends ColorSystemProps, SpacingSystemProps {}
+export interface SystemProps extends ColorSystemProps, SpacingSystemProps, HiddenSystemProps {}

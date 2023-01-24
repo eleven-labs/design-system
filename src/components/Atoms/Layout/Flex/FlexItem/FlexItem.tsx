@@ -1,21 +1,21 @@
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 
-import { Box, BoxElementType, BoxProps } from '@/components';
+import { Box, BoxProps } from '@/components';
 import { flexOrGridItemSystemProps } from '@/constants';
-import { classNamesWithMediaQueries, flexOrGridBoxItemClassName, omitSystemProps } from '@/helpers/systemPropsHelper';
+import { classNamesWithModifiers, flexOrGridBoxItemClassName, omitSystemProps } from '@/helpers/systemPropsHelper';
 import type { FlexBasisType, FlexOrGridBoxItemSystemProps, TypeWithMediaQueriesType } from '@/types';
+import { MediaQueryType } from '@/types';
 
-export type FlexItemProps<C extends BoxElementType = 'div'> = {
+export type FlexItemProps<C extends React.ElementType = 'div'> = {
   /**
    * Defines a flex basis, auto or number (including breakpoints modifiers)
    */
   basis?: FlexBasisType | TypeWithMediaQueriesType<FlexBasisType>;
-  children?: React.ReactNode;
 } & BoxProps<C> &
   FlexOrGridBoxItemSystemProps;
 
-export const FlexItem = <C extends BoxElementType = 'div'>({
+export const FlexItem = <C extends React.ElementType = 'div'>({
   basis,
   children,
   as,
@@ -23,14 +23,17 @@ export const FlexItem = <C extends BoxElementType = 'div'>({
 }: FlexItemProps<C>): ReturnType<React.FC<C>> =>
   React.createElement(Box, {
     as: as || 'div',
-    ...omitSystemProps({ props: boxProps, systemPropNames: Object.keys(flexOrGridItemSystemProps) }),
+    ...omitSystemProps({
+      props: boxProps,
+      systemPropNames: Object.keys(flexOrGridItemSystemProps),
+    }),
     className: classNames(
-      ...classNamesWithMediaQueries<FlexBasisType>({
+      ...classNamesWithModifiers<MediaQueryType, FlexBasisType>({
         propValue: basis,
         className: 'basis',
-        withSuffixPropValue: true,
       }),
-      flexOrGridBoxItemClassName(boxProps)
+      flexOrGridBoxItemClassName(boxProps),
+      boxProps?.className
     ),
     children,
   });

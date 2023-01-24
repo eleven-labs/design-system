@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/addon-docs';
 import { Layout, Table } from '@storybook-components';
-import { Heading, Text, Divider } from '@/components';
-import { tokenVariables, headingSizeTokenNameList } from '@/constants';
+import { Heading, Text } from '@/components';
+import { tokenVariables, headingSizeTokenNameList, textSizeTokenNameList } from '@/constants';
+import { getValueOfCssPropertyInDesignTokens } from '@/helpers/storybookHelper';
 
 <Meta
     title="Foundations/Design Tokens/Typography"
@@ -24,44 +25,15 @@ import { tokenVariables, headingSizeTokenNameList } from '@/constants';
     description="Typography design guidelines and token scales"
 >
     <Table
-        title="Fonts"
-        columns={[
-            {
-                name: 'preview',
-                label: 'Preview',
-            },
-            {
-                name: 'weight',
-                label: 'Weight',
-            }
-        ]}
-        rows={Object.entries(tokenVariables.asset.font).map(([tokenName, token]) => ({
-            preview: (
-                <Text weight={Object.entries(tokenVariables.typography.weight).find(([_, tokenWeight]) => tokenWeight.value === token.weight)[0]}>
-                    {tokenName}
-                </Text>
-            ),
-            weight: (
-                <Text>
-                    {token.weight}
-                </Text>
-            ),
-        }))}
-    />
-    <Divider
-        my="s"
-        size="m"
-    />
-    <Table
         title="Heading"
         columns={[
             {
-                name: 'preview',
-                label: 'Preview',
+                name: 'name',
+                label: 'Name',
             },
             {
-                name: 'css_variable',
-                label: 'CSS Variable',
+                name: 'preview',
+                label: 'Preview',
             },
             {
                 name: 'mobile',
@@ -73,32 +45,48 @@ import { tokenVariables, headingSizeTokenNameList } from '@/constants';
             },
         ]}
         rows={headingSizeTokenNameList.map(tokenName => ({
-            preview: (
-                <Heading size={tokenName}>
-                    Heading {tokenName}
-                </Heading>
-            ),
-            css_variable: (
+            name: (
                 <Text weight="semi-bold">heading-{tokenName}</Text>
             ),
-            mobile: `${tokenVariables.mobile.heading[tokenName].size.value} / ${tokenVariables.heading[tokenName]['line-height'].value}`,
-            desktop: `${tokenVariables.desktop.heading[tokenName].size.value} / ${tokenVariables.heading[tokenName]['line-height'].value}`,
+            preview: (
+                <Heading size={tokenName}>
+                    Title
+                </Heading>
+            ),
+            mobile: `${getValueOfCssPropertyInDesignTokens({
+                path: 'typography.heading',
+                tokenName,
+                device: 'mobile',
+                propertyCSS: 'font-size'
+            })} / ${getValueOfCssPropertyInDesignTokens({
+              path: 'typography.heading',
+              tokenName,
+              device: 'mobile',
+              propertyCSS: 'line-height'
+            })}`,
+            desktop: `${getValueOfCssPropertyInDesignTokens({
+                path: 'typography.heading',
+                tokenName,
+                device: 'desktop',
+                propertyCSS: 'font-size'
+            })} / ${getValueOfCssPropertyInDesignTokens({
+              path: 'typography.heading',
+              tokenName,
+              device: 'desktop',
+              propertyCSS: 'line-height'
+            })}`,
         }))}
     />
-    <Divider
-        my="s"
-        size="m"
-    />
     <Table
-        title="Texts"
+        title="Text"
         columns={[
+            {
+                name: 'name',
+                label: 'Name',
+            },
             {
                 name: 'preview',
                 label: 'Preview',
-            },
-            {
-                name: 'css_variable',
-                label: 'CSS Variable',
             },
             {
                 name: 'mobile',
@@ -109,17 +97,37 @@ import { tokenVariables, headingSizeTokenNameList } from '@/constants';
                 label: 'Value for desktop',
             },
         ]}
-        rows={Object.entries(tokenVariables.text).map(([tokenName, token]) => ({
-            preview: (
-                <Text size={tokenName}>
-                    Text {tokenName}
-                </Text>
-            ),
-            css_variable: (
+        rows={textSizeTokenNameList.map((tokenName) => ({
+            name: (
                 <Text weight="semi-bold">text-{tokenName}</Text>
             ),
-            mobile: `${tokenVariables.mobile.text[tokenName].size.value} / ${tokenVariables.text[tokenName]['line-height'].value}`,
-            desktop: `${tokenVariables.desktop.text[tokenName].size.value} / ${tokenVariables.text[tokenName]['line-height'].value}`,
+            preview: (
+                <Text size={tokenName}>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                </Text>
+            ),
+            mobile: `${getValueOfCssPropertyInDesignTokens({
+                path: 'typography.text',
+                tokenName,
+                device: 'mobile',
+                propertyCSS: 'font-size'
+            })} / ${getValueOfCssPropertyInDesignTokens({
+              path: 'typography.text',
+              tokenName,
+              device: 'mobile',
+              propertyCSS: 'line-height'
+            })}`,
+            desktop: `${getValueOfCssPropertyInDesignTokens({
+                path: 'typography.text',
+                tokenName,
+                device: 'desktop',
+                propertyCSS: 'font-size'
+            })} / ${getValueOfCssPropertyInDesignTokens({
+              path: 'typography.text',
+              tokenName,
+              device: 'desktop',
+              propertyCSS: 'line-height'
+            })}`,
         }))}
     />
 </Layout>

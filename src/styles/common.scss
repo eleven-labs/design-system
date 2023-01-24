@@ -1,12 +1,7 @@
 @use 'reset';
 
-// Variables Design Tokens
-@use 'variables';
+@use 'token-custom-properties';
 
-// Design Tokens
-@use 'fonts';
 @use 'base';
-@use 'colors';
-@use 'spacing';
-@use 'typography';
-@use 'flexboxAndGridBox';
+@use 'fonts';
+@use 'utilities';

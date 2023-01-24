@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import * as React from 'react';
 
 import { Box } from '@/components';
-import { typographySystemClassName } from '@/helpers/systemPropsHelper';
 import { MarginSystemProps, PolymorphicProps } from '@/types';
 
 export type InputProps = {
@@ -26,10 +25,8 @@ export const Input: React.FC<InputProps> = ({ as, variant, children, ...boxProps
       className: classNames(
         boxProps?.className,
         'input',
-        { [`input--${variant}`]: variant },
-        typographySystemClassName({
-          size: 'xs',
-        })
+        { [`input--${variant}`]: variant }
+        /*typographySystemClassName({ size: 'xs', })*/
       ),
     },
     children

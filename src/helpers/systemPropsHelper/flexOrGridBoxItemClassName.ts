@@ -1,13 +1,12 @@
 import classNames from 'classnames';
 
-import { classNamesWithMediaQueries } from '@/helpers/systemPropsHelper';
-import { FlexOrGridBoxItemSystemProps } from '@/types';
+import { classNamesWithModifiers } from '@/helpers/systemPropsHelper';
+import { AlignSelfType, FlexOrGridBoxItemSystemProps, MediaQueryType } from '@/types';
 
 export const flexOrGridBoxItemClassName = <TProps extends FlexOrGridBoxItemSystemProps>(props: TProps): string =>
   classNames(
-    ...classNamesWithMediaQueries<string>({
+    ...classNamesWithModifiers<MediaQueryType, AlignSelfType>({
       propValue: props.align,
       className: 'self',
-      withSuffixPropValue: true,
     })
   );

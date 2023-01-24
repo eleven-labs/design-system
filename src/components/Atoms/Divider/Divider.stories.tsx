@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { systemPropsControls } from '@/constants';
+import { systemPropsControls } from '@/constants/storybook';
 
 import { Divider } from './Divider';
 

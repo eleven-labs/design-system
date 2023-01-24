@@ -1,0 +1,18 @@
+@use '../../../styles/abstracts' as *;
+
+.sub-header {
+  &__description-container {
+    max-width: var(--max-width-description-container-sub-header, 230px);
+    @include create-media-queries('md', 'min') {
+      --max-width-description-container-sub-header: 'auto';
+    }
+  }
+  &__choice-chip-group {
+    width: var(--width-choice-chip-group-sub-header, 100vw);
+    overflow-x: var(--overflow-x-choice-chip-group-sub-header, scroll);
+    @include create-media-queries('md', 'min') {
+      --width-choice-chip-group-sub-header: 'auto';
+      --overflow-x-choice-chip-group-sub-header: 'auto';
+    }
+  }
+}

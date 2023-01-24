@@ -1,0 +1,129 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+$font-weight-list: map.get($token-variables, 'font-weight');
+$text-align-list: ('left', 'center', 'right', 'justify');
+$text-transform-list: ('capitalize', 'uppercase', 'lowercase');
+$text-decoration-list: ('underline', 'dotted', 'wavy', 'overline');
+
+/*
+ * Mixins and functions
+ */
+
+@mixin text-align($name, $breakpoint-name) {
+  .text-#{$name}\@#{$breakpoint-name} {
+    text-align: #{$name};
+  }
+}
+
+@mixin font-weight($prefix-class-name, $value, $breakpoint-name) {
+  .font-weight-#{$prefix-class-name}\@#{$breakpoint-name} {
+    font-weight: #{$value};
+  }
+}
+
+@mixin text-transform($name, $breakpoint-name) {
+  .text-transform-#{$name}\@#{$breakpoint-name} {
+    text-transform: #{$name};
+  }
+}
+
+@mixin text-decoration($name, $breakpoint-name) {
+  .text-decoration-#{$name}\@#{$breakpoint-name} {
+    text-decoration: if($name == underline, #{$name}, underline #{$name});
+  }
+}
+
+@mixin size($prefix-name, $size-name, $font-size, $line-height, $font-weight, $text-transform: null) {
+  .#{$prefix-name}-#{$size-name} {
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $font-weight;
+    @if ($text-transform) {
+      text-transform: $text-transform;
+    }
+  }
+}
+
+@function get-token-value-by-typography-type($typography-type, $size-name, $css-property, $device: 'none') {
+  @if (map.has-key($token-variables, $device, 'typography', $typography-type, $size-name, $css-property)) {
+    @return map.get($token-variables, $device, 'typography', $typography-type, $size-name, $css-property);
+  } @else if map.has-key($token-variables, 'typography', $typography-type, $size-name, $css-property) {
+    @return map.get($token-variables, 'typography', $typography-type, $size-name, $css-property);
+  }
+  @return map.get($token-variables, 'typography', $typography-type, 'base', $css-property);
+}
+
+/*
+ * Utility classes
+ */
+
+@each $breakpoint-name, $breakpoint-value in map.get($token-variables, 'breakpoint') {
+  @include create-media-queries($breakpoint-name) {
+    @each $text-align in $text-align-list {
+      @include text-align($text-align, $breakpoint-name);
+    }
+
+    @each $font-weight, $value in $font-weight-list {
+      @include font-weight($font-weight, $value, $breakpoint-name);
+    }
+
+    @each $text-transform in $text-transform-list {
+      @include text-transform($text-transform, $breakpoint-name);
+    }
+
+    @each $text-decoration in $text-decoration-list {
+      @include text-decoration($text-decoration, $breakpoint-name);
+    }
+
+    .text-italic\@#{$breakpoint-name} {
+      font-style: italic;
+    }
+  }
+}
+
+/*
+ * Utility classes for heading
+ */
+@each $device, $heading-token-variables-by-device in (
+  'mobile': map.get($token-variables, 'mobile', 'typography', 'heading'),
+  'desktop': map.get($token-variables, 'desktop', 'typography', 'heading'),
+) {
+  $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+  @each $heading-size-name, $heading-token-variables in $heading-token-variables-by-device {
+    @if ($heading-size-name != 'base') {
+      @include create-media-queries($breakpoint-name) {
+        @include size(
+          'heading',
+          $heading-size-name,
+          map.get($heading-token-variables, 'font-size'),
+          map.get($heading-token-variables, 'line-height'),
+          get-token-value-by-typography-type('heading', $heading-size-name, 'font-weight', $device)
+        );
+      }
+    }
+  }
+}
+
+/*
+ * Utility classes for text
+ */
+@each $device, $text-token-variables-by-device in (
+  'mobile': map.get($token-variables, 'mobile', 'typography', 'text'),
+  'desktop': map.get($token-variables, 'desktop', 'typography', 'text'),
+) {
+  $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+  @each $text-size-name, $text-token-variables in $text-token-variables-by-device {
+    @if ($text-size-name != 'base') {
+      @include create-media-queries($breakpoint-name) {
+        @include size(
+          'text',
+          $text-size-name,
+          map.get($text-token-variables, 'font-size'),
+          map.get($text-token-variables, 'line-height'),
+          get-token-value-by-typography-type('text', $text-token-variables, 'font-weight', $device)
+        );
+      }
+    }
+  }
+}

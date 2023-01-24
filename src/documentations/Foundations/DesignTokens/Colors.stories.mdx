@@ -2,13 +2,7 @@ import { Meta } from '@storybook/addon-docs';
 import { Layout, Table } from '@storybook-components';
 import { Box, Text } from '@/components';
 import { tokenVariables } from '@/constants';
-
-export const tokenColorsByCategories = {
-    all: {
-        title: 'All',
-        colors: Object.entries(tokenVariables.color)
-    },
-};
+import { capitalize } from '@/helpers/stringHelper';
 
 <Meta
     title="Foundations/Design Tokens/Colors"
@@ -30,19 +24,18 @@ export const tokenColorsByCategories = {
     title="Colors"
     description="Past and present color palettes used by both design and engineering."
 >
-    {Object.entries(tokenColorsByCategories).map(([categoryKey, tokenColorsByCategory]) => (
+    {Object.entries(tokenVariables.color).map(([categoryKey, tokenColorsByCategory]) => (
         <Table
             key={categoryKey}
-            mb="xxs"
-            title={tokenColorsByCategory.title}
+            title={capitalize(categoryKey)}
             columns={[
+                {
+                    name: 'name',
+                    label: 'Name',
+                },
                 {
                     name: 'preview',
                     label: 'Preview',
-                },
-                {
-                    name: 'css_variable',
-                    label: 'CSS Variable',
                 },
                 {
                     name: 'value',
@@ -53,7 +46,14 @@ export const tokenColorsByCategories = {
                     label: 'Usage',
                 },
             ]}
-            rows={tokenColorsByCategory.colors.map(([tokenName, token]) => ({
+            rows={Object.entries(tokenColorsByCategory).map(([tokenName, token]) => ({
+                name: (
+                    <Text
+                        weight="semi-bold"
+                    >
+                        {tokenName}
+                    </Text>
+                ),
                 preview: (
                     <Box
                         bg={tokenName}
@@ -63,13 +63,6 @@ export const tokenColorsByCategories = {
                             height: '50px'
                         }}
                     />
-                ),
-                css_variable: (
-                    <Text
-                        weight="semi-bold"
-                    >
-                        color-{tokenName}
-                    </Text>
                 ),
                 value: token.value,
                 usage: token.description,

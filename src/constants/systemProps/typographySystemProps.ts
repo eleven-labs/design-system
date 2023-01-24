@@ -1,7 +1,6 @@
-import type { HeadingSizeType, TextSizeType, TypographySystemProps } from '@/types';
+import type { TypographySystemProps } from '@/types';
 
-export const typographySystemProps: Record<keyof TypographySystemProps<HeadingSizeType | TextSizeType>, string[]> = {
-  size: ['font-size'],
+export const typographySystemProps: Record<keyof TypographySystemProps, string[]> = {
   textAlign: ['text-align'],
   weight: ['font-weight'],
   italic: ['font-style'],

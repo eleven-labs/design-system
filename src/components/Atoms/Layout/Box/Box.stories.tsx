@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { Heading } from '@/components';
-import { systemPropsControls } from '@/constants';
+import { systemPropsControls } from '@/constants/storybook';
 
 import { Box } from './Box';
 

@@ -1,27 +1,32 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { systemProps } from '@/constants';
-import { omitSystemProps, systemClassName } from '@/helpers/systemPropsHelper';
-import type { PolymorphicProps, SystemProps } from '@/types';
+import { systemProps, typographySystemProps } from '@/constants';
+import { omitSystemProps, systemClassName, typographySystemClassName } from '@/helpers/systemPropsHelper';
+import { PolymorphicProps, PolymorphicRef, SystemProps, TypographySystemProps } from '@/types';
 
-export type BoxElementType = keyof JSX.IntrinsicElements | React.ForwardRefExoticComponent<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+export type BoxProps<C extends React.ElementType = 'div'> = PolymorphicProps<C> &
+  SystemProps &
+  Pick<TypographySystemProps, 'textAlign'>;
 
-export type BoxProps<C extends BoxElementType = BoxElementType> = {
-  children?: React.ReactNode;
-} & PolymorphicProps<C> &
-  SystemProps;
+export const Box = React.forwardRef(
+  <C extends React.ElementType = 'div'>({ as, children, ...nativeProps }: BoxProps<C>, ref?: PolymorphicRef<C>) =>
+    React.createElement(
+      as || 'div',
+      {
+        ...omitSystemProps({
+          props: nativeProps,
+          systemPropNames: [...Object.keys(systemProps), ...Object.keys(typographySystemProps)],
+        }),
+        className: classNames(
+          systemClassName(nativeProps),
+          typographySystemClassName(nativeProps),
+          nativeProps?.className
+        ),
+        ref,
+      },
+      children
+    )
+);
 
-export const Box = <C extends BoxElementType = 'div'>({
-  as,
-  children,
-  ...nativeProps
-}: BoxProps<C>): ReturnType<React.FC<C>> =>
-  React.createElement(as || 'div', {
-    ...omitSystemProps({
-      props: nativeProps,
-      systemPropNames: Object.keys(systemProps),
-    }),
-    className: classNames(nativeProps?.className, systemClassName(nativeProps)),
-    children,
-  });
+Box.displayName = 'Box';

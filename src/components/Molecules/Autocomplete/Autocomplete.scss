@@ -1,0 +1,9 @@
+@use '../../../styles/abstracts' as *;
+
+.autocomplete {
+  position: var(--position-autocomplete, initial);
+  @include create-media-queries('md', 'min') {
+    --position-autocomplete: relative;
+    width: 664px;
+  }
+}

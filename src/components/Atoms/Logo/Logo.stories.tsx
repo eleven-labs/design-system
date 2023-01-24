@@ -5,14 +5,14 @@ import { Logo } from '@/components';
 import { marginSystemProps } from '@/constants';
 
 export default {
-    title: 'Components/Atoms/Logo',
-    component: Logo,
-    argTypes: {
-        ...marginSystemProps,
-    },
-    parameters: {
-        layout: 'centered',
-    },
+  title: 'Components/Atoms/Logo',
+  component: Logo,
+  argTypes: {
+    ...marginSystemProps,
+  },
+  parameters: {
+    layout: 'centered',
+  },
 } as ComponentMeta<typeof Logo>;
 
 const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args} />;

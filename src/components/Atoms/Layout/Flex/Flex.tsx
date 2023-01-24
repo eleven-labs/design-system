@@ -1,12 +1,13 @@
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 
-import { Box, BoxElementType, BoxProps } from '@/components';
-import { classNamesWithMediaQueries, omitSystemProps } from '@/helpers/systemPropsHelper';
-import { flexOrGridBoxClassName } from '@/helpers/systemPropsHelper';
+import { Box, BoxProps } from '@/components';
+import { flexOrGridBoxSystemProps } from '@/constants';
+import { classNamesWithModifiers, flexOrGridBoxClassName, omitSystemProps } from '@/helpers/systemPropsHelper';
 import type { FlexDirectionType, FlexOrGridBoxSystemProps, FlexWrapType, TypeWithMediaQueriesType } from '@/types';
+import { MediaQueryType } from '@/types';
 
-export type FlexProps<C extends BoxElementType = 'div'> = {
+export type FlexProps<C extends React.ElementType = 'div'> = {
   /**
    * Defines a flex container, inline-flex or flex (including breakpoints modifiers)
    */
@@ -19,11 +20,10 @@ export type FlexProps<C extends BoxElementType = 'div'> = {
    * Can flex items wrap onto multiple lines (including breakpoints modifiers)
    */
   wrap?: FlexWrapType | TypeWithMediaQueriesType<FlexWrapType>;
-  children?: React.ReactNode;
 } & BoxProps<C> &
   FlexOrGridBoxSystemProps;
 
-export const Flex = <C extends BoxElementType = 'div'>({
+export const Flex = <C extends React.ElementType = 'div'>({
   inline = false,
   direction,
   wrap,
@@ -35,23 +35,25 @@ export const Flex = <C extends BoxElementType = 'div'>({
     Box,
     {
       as: as || 'div',
-      ...omitSystemProps({ props: boxProps, systemPropNames: Object.keys([]) }),
+      ...omitSystemProps({
+        props: boxProps,
+        systemPropNames: Object.keys(flexOrGridBoxSystemProps),
+      }),
       className: classNames(
-        ...classNamesWithMediaQueries<boolean>({
+        ...classNamesWithModifiers<MediaQueryType, boolean>({
           propValue: inline,
           className: inline ? 'inline-flex' : 'flex',
         }),
-        ...classNamesWithMediaQueries<FlexDirectionType>({
+        ...classNamesWithModifiers<MediaQueryType, FlexDirectionType>({
           propValue: direction,
           className: 'flex',
-          withSuffixPropValue: true,
         }),
-        ...classNamesWithMediaQueries<FlexWrapType>({
+        ...classNamesWithModifiers<MediaQueryType, FlexWrapType>({
           propValue: wrap,
           className: 'flex',
-          withSuffixPropValue: true,
         }),
-        flexOrGridBoxClassName(boxProps)
+        flexOrGridBoxClassName(boxProps),
+        boxProps?.className
       ),
     },
     children

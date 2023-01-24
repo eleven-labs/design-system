@@ -3,6 +3,7 @@
   border-radius: 4px;
   text-transform: uppercase;
   cursor: pointer;
+  font-weight: var(--font-weight-medium);
   background-color: var(--background-color-button, var(--color-amaranth));
   color: var(--color-button, var(--color-white));
   border: var(--border-button, none);

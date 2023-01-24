@@ -1,35 +1,32 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { Box } from '@/components';
-import { typographySystemProps } from '@/constants';
-import { omitSystemProps, typographySystemClassName } from '@/helpers/systemPropsHelper';
-import type { HeadingSizeType, TypographySystemProps } from '@/types';
+import { Typography, TypographyProps } from '@/components';
+import { HeadingSizeType } from '@/types';
 
-import type { TypographyProps } from '../TypographyProps';
+export type HeadingProps<C extends React.ElementType = 'h1'> = TypographyProps<C> & {
+  size?: HeadingSizeType;
+};
 
-export type HeadingHTMLElementType = keyof Pick<
-  JSX.IntrinsicElements,
-  'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p' | 'div'
->;
-
-export type HeadingProps<C extends HeadingHTMLElementType = 'h1'> = TypographyProps<C, HeadingSizeType>;
-
-export const Heading = <C extends HeadingHTMLElementType = 'h1'>({
+export const Heading = <C extends React.ElementType = 'h1'>({
   as,
-  size = 'l',
+  size,
   children,
   ...boxProps
 }: HeadingProps<C>): ReturnType<React.FC<C>> =>
-  React.createElement(Box, {
-    ...omitSystemProps({
-      props: boxProps,
-      systemPropNames: Object.keys(typographySystemProps),
-    }),
-    as: as || 'h1',
-    className: classNames(
-      boxProps?.className,
-      typographySystemClassName<TypographySystemProps<HeadingSizeType>>({ isHeading: true, size, ...boxProps })
-    ),
-    children,
-  });
+  React.createElement(
+    Typography,
+    {
+      as: as || 'h1',
+      ...boxProps,
+      className: classNames(
+        {
+          [`heading-${size}`]: Boolean(size),
+        },
+        boxProps?.className
+      ),
+    },
+    children
+  );
+
+Heading.displayName = 'Heading';

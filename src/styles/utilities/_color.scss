@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+@mixin bg-color($name, $color) {
+  .bg-#{$name} {
+    background-color: #{$color};
+  }
+}
+
+@mixin font-color($name, $color) {
+  .color-#{$name} {
+    color: #{$color};
+  }
+}
+
+@each $category-name, $colors in map.get($token-variables, 'color') {
+  @each $color-name, $color-value in $colors {
+    @include bg-color($color-name, $color-value);
+    @include font-color($color-name, $color-value);
+  }
+}
