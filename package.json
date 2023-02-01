@@ -41,7 +41,7 @@
   "dependencies": {
     "autosuggest-highlight": "^3.3.4",
     "classnames": "^2.3.2",
-    "html-react-parser": "^3.0.7",
+    "html-react-parser": "^3.0.8",
     "react": "18.x",
     "react-dom": "18.x"
   },
