@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Custom
+storybook-static
+public/svgs
+src/components/Atoms/Icons
+src/styles/_token-custom-properties.scss
+src/styles/abstracts/variables/_token-variables.scss
+src/styles/_fonts.scss
+src/constants/tokenVariables.ts

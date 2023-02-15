@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+$spacing-list: map.get($token-variables, 'spacing');
+$spacing-prop-list: (
+  'm':  'margin',
+  'mt': 'margin-top',
+  'mr': 'margin-right',
+  'mb': 'margin-bottom',
+  'ml': 'margin-left',
+  'mx': ('margin-left', 'margin-right'),
+  'my': ('margin-top', 'margin-bottom'),
+  'p': 'padding',
+  'pt': 'padding-top',
+  'pr': 'padding-right',
+  'pb': 'padding-bottom',
+  'pl': 'padding-left',
+  'px': ('padding-left', 'padding-right'),
+  'py': ('padding-top', 'padding-bottom'),
+);
+
+@each $prefix-class-name, $property-css in $spacing-prop-list {
+  @include utility-classes-with-modifiers($prefix-class-name, $property-css, $spacing-list);
+}

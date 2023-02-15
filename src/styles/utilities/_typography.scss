@@ -1,0 +1,92 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+$font-weight-list: map.get($token-variables, 'font-weight');
+$text-align-list: map.get($css-properties, 'text-align');
+$text-transform-list: map.get($css-properties, 'text-transform');
+
+@mixin size($prefix-name, $size-name, $font-size, $line-height, $font-weight, $text-transform: null) {
+  .#{$prefix-name}-#{$size-name} {
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: $font-weight;
+
+    @if  $text-transform {
+      text-transform: $text-transform;
+    }
+  }
+}
+
+@function get-token-value-by-typography-type($typography-type, $size-name, $css-property, $device: 'none') {
+  @if  map.has-key($token-variables, $device, 'typography', $typography-type, $size-name, $css-property) {
+    @return map.get($token-variables, $device, 'typography', $typography-type, $size-name, $css-property);
+  } @else if map.has-key($token-variables, 'typography', $typography-type, $size-name, $css-property) {
+    @return map.get($token-variables, 'typography', $typography-type, $size-name, $css-property);
+  }
+
+  @return map.get($token-variables, 'typography', $typography-type, 'base', $css-property);
+}
+
+/*
+ * Utility classes
+ */
+
+@include utility-classes-with-modifiers('text', 'text-align', $text-align-list);
+@include utility-classes('font-weight', 'font-weight', $font-weight-list);
+@include utility-classes('text', 'text-transform', $text-transform-list);
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+/*
+ * Utility classes for heading
+ */
+@each $device, $heading-token-variables-by-device in (
+  'mobile': map.get($token-variables, 'mobile', 'typography', 'heading'),
+  'desktop': map.get($token-variables, 'desktop', 'typography', 'heading'),
+) {
+  $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+
+  @each $heading-size-name, $heading-token-variables in $heading-token-variables-by-device {
+    @if  $heading-size-name != 'base' {
+      @include create-media-queries($breakpoint-name) {
+        @include size(
+          'heading',
+          $heading-size-name,
+          map.get($heading-token-variables, 'font-size'),
+          map.get($heading-token-variables, 'line-height'),
+          get-token-value-by-typography-type('heading', $heading-size-name, 'font-weight', $device)
+        );
+      }
+    }
+  }
+}
+
+/*
+ * Utility classes for text
+ */
+@each $device, $text-token-variables-by-device in (
+  'mobile': map.get($token-variables, 'mobile', 'typography', 'text'),
+  'desktop': map.get($token-variables, 'desktop', 'typography', 'text'),
+) {
+  $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+
+  @each $text-size-name, $text-token-variables in $text-token-variables-by-device {
+    @if  $text-size-name != 'base' {
+      @include create-media-queries($breakpoint-name) {
+        @include size(
+          'text',
+          $text-size-name,
+          map.get($text-token-variables, 'font-size'),
+          map.get($text-token-variables, 'line-height'),
+          get-token-value-by-typography-type('text', $text-token-variables, 'font-weight', $device)
+        );
+      }
+    }
+  }
+}

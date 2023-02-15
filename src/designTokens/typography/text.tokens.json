@@ -1,0 +1,63 @@
+{
+  "typography": {
+    "text": {
+      "base": {
+        "line-height": {
+          "value": "{line-height.base.value}"
+        }
+      },
+      "xs": {
+        "line-height": {
+          "value": "{line-height.large.value}"
+        }
+      },
+      "m": {
+        "line-height": {
+          "value": "{line-height.large.value}"
+        }
+      }
+    }
+  },
+  "mobile": {
+    "typography": {
+      "text": {
+        "xs": {
+          "font-size": {
+            "value": "{font-size.xxs}"
+          }
+        },
+        "s": {
+          "font-size": {
+            "value": "{font-size.xs.value}"
+          }
+        },
+        "m": {
+          "font-size": {
+            "value": "{font-size.m.value}"
+          }
+        }
+      }
+    }
+  },
+  "desktop": {
+    "typography": {
+      "text": {
+        "xs": {
+          "font-size": {
+            "value": "{font-size.xs.value}"
+          }
+        },
+        "s": {
+          "font-size": {
+            "value": "{font-size.s.value}"
+          }
+        },
+        "m": {
+          "font-size": {
+            "value": "{font-size.l.value}"
+          }
+        }
+      }
+    }
+  }
+}

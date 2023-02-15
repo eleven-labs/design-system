@@ -1,0 +1,12 @@
+{
+  "asset": {
+    "logo": {
+      "website": {
+        "value": "svgs/website-logo.svg"
+      },
+      "blog": {
+        "value": "svgs/blog-logo.svg"
+      }
+    }
+  }
+}

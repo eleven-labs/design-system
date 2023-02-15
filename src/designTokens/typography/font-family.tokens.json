@@ -1,0 +1,10 @@
+{
+  "font-family": {
+    "base": {
+      "value": "{font-family.work-sans.value}"
+    },
+    "work-sans": {
+      "value": "'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    }
+  }
+}

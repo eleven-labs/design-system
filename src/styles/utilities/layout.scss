@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+$display-list: map.get($css-properties, 'display');
+$width-list: map.get($token-variables, 'width');
+$height-list: map.get($token-variables, 'height');
+
+@include utility-classes-with-modifiers('display', 'display', $display-list);
+@include utility-classes-with-modifiers('width', 'width', $width-list);
+@include utility-classes-with-modifiers('height', 'height', $height-list);
+@include utility-classes-with-modifiers('min-width', 'min-width', $width-list);
+@include utility-classes-with-modifiers('max-width', 'max-width', $width-list);
+@include utility-classes-with-modifiers('min-height', 'min-height', $height-list);
+@include utility-classes-with-modifiers('max-height', 'max-height', $height-list);

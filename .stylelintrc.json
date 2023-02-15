@@ -1,0 +1,8 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "ignoreFiles": [
+    "src/styles/_fonts.scss",
+    "src/styles/abstracts/_token-custom-properties.scss",
+    "src/styles/abstracts/variables/_token-variables.scss"
+  ]
+}

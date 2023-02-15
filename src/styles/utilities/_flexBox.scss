@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+$flex-direction-list: map.get($css-properties, 'flex-direction');
+$flex-wrap-list: map.get($css-properties, 'flex-wrap');
+$align-items-list: map.get($css-properties, 'align-items');
+$align-content-list: map.get($css-properties, 'align-content');
+$justify-content-list: map.get($css-properties, 'justify-content');
+$align-self-list: map.get($css-properties, 'align-self');
+$spacing-list: map.get($token-variables, 'spacing');
+$flex-basis-list: map.get($css-properties, 'flex-basis');
+
+@include utility-classes-with-modifiers('flex', 'flex-direction', $flex-direction-list);
+@include utility-classes-with-modifiers('flex', 'flex-wrap', $flex-wrap-list);
+@include utility-classes-with-modifiers('items', 'align-items', $align-items-list);
+@include utility-classes-with-modifiers('content', 'align-content', $align-content-list);
+@include utility-classes-with-modifiers('justify', 'justify-content', $justify-content-list);
+@include utility-classes-with-modifiers('self', 'align-self', $align-self-list);
+@include utility-classes-with-modifiers('gap', 'gap', $spacing-list);
+@include utility-classes-with-modifiers('gap-x', 'gap-x', $spacing-list);
+@include utility-classes-with-modifiers('gap-y', 'gap-y', $spacing-list);
+@include utility-classes-with-modifiers('basis', 'flex-basis', $flex-basis-list);

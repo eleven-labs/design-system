@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+$color-list-by-category: map.get($token-variables, 'color');
+
+@each $category-name, $color-list in $color-list-by-category {
+  @include utility-classes('bg', 'background-color', $color-list);
+  @include utility-classes('color', 'color', $color-list);
+}
