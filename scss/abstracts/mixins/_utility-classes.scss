@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use './create-media-queries' as *;
+@use '../variables' as *;
+
+@mixin utility-classes($prefix-class-name, $property-css, $list) {
+  @each $name, $value in $list {
+    .#{$prefix-class-name}-#{$name} {
+      @if  type-of($property-css) == 'list' {
+        @each $current-property-css in $property-css {
+          #{$current-property-css}: #{$value};
+        }
+      } @else {
+        #{$property-css}: #{$value};
+      }
+    }
+  }
+}
+
+@mixin utility-classes-with-modifiers($prefix-class-name, $property-css, $list) {
+  @each $breakpoint-name, $breakpoint-value in map.get($token-variables, 'breakpoint') {
+    @include create-media-queries($breakpoint-name) {
+      @each $name, $value in $list {
+        .#{$prefix-class-name}-#{$name}\@#{$breakpoint-name} {
+          @if  type-of($property-css) == 'list' {
+            @each $current-property-css in $property-css {
+              #{$current-property-css}: #{$value};
+            }
+          } @else {
+            #{$property-css}: #{$value};
+          }
+        }
+      }
+    }
+  }
+}

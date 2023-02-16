@@ -1,0 +1,161 @@
+/**
+ * Do not edit directly
+ * Generated on Thu, 16 Feb 2023 18:10:01 GMT
+ */
+
+$token-variables: (
+	'cdn-path': "/",
+	'breakpoint': (
+		'xs': 0,
+		'sm': 571,
+		'md': 1001,
+		'lg': 1201
+	),
+	'color': (
+		'primary': (
+			'azure': var(--color-azure),
+			'navy': var(--color-navy)
+		),
+		'secondary': (
+			'lavender': var(--color-lavender),
+			'amaranth': var(--color-amaranth),
+			'yellow': var(--color-yellow)
+		),
+		'greyscale': (
+			'ultra-light-grey': var(--color-ultra-light-grey),
+			'light-grey': var(--color-light-grey),
+			'grey': var(--color-grey),
+			'dark-grey': var(--color-dark-grey),
+			'ultra-dark-grey': var(--color-ultra-dark-grey),
+			'black': var(--color-black),
+			'white': var(--color-white)
+		)
+	),
+	'height': (
+		'full': var(--height-full),
+		'screen': var(--height-screen)
+	),
+	'spacing': (
+		'0': var(--spacing-0),
+		'xxs-3': var(--spacing-xxs-3),
+		'xxs-2': var(--spacing-xxs-2),
+		'xxs': var(--spacing-xxs),
+		'xs': var(--spacing-xs),
+		's': var(--spacing-s),
+		'm': var(--spacing-m),
+		'l': var(--spacing-l),
+		'xl': var(--spacing-xl),
+		'xxl': var(--spacing-xxl),
+		'xxl-2': var(--spacing-xxl-2),
+		'xxl-3': var(--spacing-xxl-3)
+	),
+	'font-family': (
+		'base': var(--font-family-base),
+		'work-sans': var(--font-family-work-sans)
+	),
+	'font-size': (
+		'xxs': var(--font-size-xxs),
+		'xs': var(--font-size-xs),
+		's': var(--font-size-s),
+		'm': var(--font-size-m),
+		'l': var(--font-size-l),
+		'xl': var(--font-size-xl),
+		'xxl': var(--font-size-xxl),
+		'xxl-2': var(--font-size-xxl-2),
+		'xxl-3': var(--font-size-xxl-3)
+	),
+	'font-weight': (
+		'regular': var(--font-weight-regular),
+		'medium': var(--font-weight-medium),
+		'bold': var(--font-weight-bold)
+	),
+	'typography': (
+		'heading': (
+			'base': (
+				'line-height': var(--typography-heading-base-line-height),
+				'font-weight': var(--typography-heading-base-font-weight)
+			),
+			'xl': (
+				'font-weight': var(--typography-heading-xl-font-weight)
+			)
+		),
+		'text': (
+			'base': (
+				'line-height': var(--typography-text-base-line-height)
+			),
+			'xs': (
+				'line-height': var(--typography-text-xs-line-height)
+			),
+			'm': (
+				'line-height': var(--typography-text-m-line-height)
+			)
+		)
+	),
+	'mobile': (
+		'typography': (
+			'heading': (
+				's': (
+					'font-size': var(--mobile-typography-heading-s-font-size)
+				),
+				'm': (
+					'font-size': var(--mobile-typography-heading-m-font-size)
+				),
+				'l': (
+					'font-size': var(--mobile-typography-heading-l-font-size)
+				),
+				'xl': (
+					'font-size': var(--mobile-typography-heading-xl-font-size)
+				)
+			),
+			'text': (
+				'xs': (
+					'font-size': var(--mobile-typography-text-xs-font-size)
+				),
+				's': (
+					'font-size': var(--mobile-typography-text-s-font-size)
+				),
+				'm': (
+					'font-size': var(--mobile-typography-text-m-font-size)
+				)
+			)
+		)
+	),
+	'desktop': (
+		'typography': (
+			'heading': (
+				's': (
+					'font-size': var(--desktop-typography-heading-s-font-size)
+				),
+				'm': (
+					'font-size': var(--desktop-typography-heading-m-font-size)
+				),
+				'l': (
+					'font-size': var(--desktop-typography-heading-l-font-size)
+				),
+				'xl': (
+					'font-size': var(--desktop-typography-heading-xl-font-size)
+				)
+			),
+			'text': (
+				'xs': (
+					'font-size': var(--desktop-typography-text-xs-font-size)
+				),
+				's': (
+					'font-size': var(--desktop-typography-text-s-font-size)
+				),
+				'm': (
+					'font-size': var(--desktop-typography-text-m-font-size)
+				)
+			)
+		)
+	),
+	'line-height': (
+		'base': var(--line-height-base),
+		'medium': var(--line-height-medium),
+		'large': var(--line-height-large)
+	),
+	'width': (
+		'full': var(--width-full),
+		'screen': var(--width-screen)
+	)
+)
