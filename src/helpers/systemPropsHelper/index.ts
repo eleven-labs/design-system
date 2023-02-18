@@ -5,6 +5,7 @@ export * from './flexBoxSystemClassName';
 export * from './layoutSystemClassName';
 export * from './spacingSystemClassName';
 export * from './typographySystemClassName';
+export * from './hiddenSystemClassName';
 export * from './omitSystemProps';
 export * from './systemClassName';
 export * from './forwardRef';

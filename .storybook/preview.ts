@@ -34,9 +34,7 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-    exclude: [
-      'as',
-    ],
+    exclude: ['as'],
   },
   viewport: {
     viewports: customViewports,
@@ -49,24 +47,17 @@ export const parameters = {
         'Foundations',
         [
           'Design Tokens',
-          [
-              'About',
-              'Color',
-              'Spacing',
-              'Typography',
-              'Icon',
-              'Layout'
-          ],
+          ['About', 'Color', 'Spacing', 'Typography', 'Icon', 'Layout'],
           'Css Properties',
           'System Props',
           [
-              'About',
-              'As Props',
-              'Color System Props',
-              'Spacing System Props',
-              'Typography System Props',
-              'Layout System Props',
-          ]
+            'About',
+            'As Props',
+            'Color System Props',
+            'Spacing System Props',
+            'Typography System Props',
+            'Layout System Props',
+          ],
         ],
         'Components',
       ],

@@ -1,6 +1,7 @@
 import type {
   ColorSystemProps,
   FlexBoxSystemProps,
+  HiddenSystemProps,
   LayoutSystemProps,
   SpacingSystemProps,
   TypographySystemProps,
@@ -11,4 +12,5 @@ export interface SystemProps
     FlexBoxSystemProps,
     LayoutSystemProps,
     SpacingSystemProps,
-    TypographySystemProps {}
+    TypographySystemProps,
+    HiddenSystemProps {}

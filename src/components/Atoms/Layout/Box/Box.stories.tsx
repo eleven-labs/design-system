@@ -2,9 +2,8 @@ import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Heading } from '@/components';
+import { Box, Text } from '@/components';
 import { systemPropsControls } from '@/constants/storybook';
-
-import { Box } from './Box';
 
 export default {
   title: 'Components/Atoms/Layout/Box',
@@ -27,3 +26,20 @@ export default {
 const Template: StoryFn<typeof Box> = (args) => <Box {...args} />;
 
 export const Overview = Template.bind({});
+
+export const HiddenSystemProps = (): JSX.Element => (
+  <>
+    <Box hiddenAbove="md">
+      This text hides at the "md" value screen width or{' '}
+      <Text as="span" fontWeight="bold">
+        greater
+      </Text>
+    </Box>
+    <Box hiddenBelow="sm">
+      This text hides at the "sm" value screen width and{' '}
+      <Text as="span" fontWeight="bold">
+        smaller
+      </Text>
+    </Box>
+  </>
+);

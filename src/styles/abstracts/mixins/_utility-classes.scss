@@ -21,7 +21,7 @@
     @include create-media-queries($breakpoint-name) {
       @each $name, $value in $list {
         .#{$prefix-class-name}-#{$name}\@#{$breakpoint-name} {
-          @if  type-of($property-css) == 'list' {
+          @if type-of($property-css) == 'list' {
             @each $current-property-css in $property-css {
               #{$current-property-css}: #{$value};
             }
