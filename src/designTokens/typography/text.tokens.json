@@ -24,16 +24,25 @@
         "xs": {
           "font-size": {
             "value": "{font-size.xxs}"
+          },
+          "icon-size": {
+            "value": "{font-size.xs.value}"
           }
         },
         "s": {
           "font-size": {
             "value": "{font-size.xs.value}"
+          },
+          "icon-size": {
+            "value": "{font-size.s.value}"
           }
         },
         "m": {
           "font-size": {
             "value": "{font-size.m.value}"
+          },
+          "icon-size": {
+            "value": "{font-size.l.value}"
           }
         }
       }
@@ -45,16 +54,25 @@
         "xs": {
           "font-size": {
             "value": "{font-size.xs.value}"
+          },
+          "icon-size": {
+            "value": "{font-size.s.value}"
           }
         },
         "s": {
           "font-size": {
             "value": "{font-size.s.value}"
+          },
+          "icon-size": {
+            "value": "{font-size.m.value}"
           }
         },
         "m": {
           "font-size": {
             "value": "{font-size.l.value}"
+          },
+          "icon-size": {
+            "value": "{font-size.xl.value}"
           }
         }
       }

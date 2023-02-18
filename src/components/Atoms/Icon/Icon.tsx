@@ -19,7 +19,12 @@ export const Icon: React.FC<IconProps> = ({ name, size, ...svgProps }) => {
   return (
     <Svg
       {...omitSystemProps({ props: svgProps, systemPropNames: [...Object.keys(marginSystemProps), 'color'] })}
-      className={classNames(spacingSystemClassName(svgProps), colorSystemClassName(svgProps), svgProps?.className)}
+      className={classNames(
+        'icon',
+        spacingSystemClassName(svgProps),
+        colorSystemClassName(svgProps),
+        svgProps?.className
+      )}
       height={svgProps.height || size}
       width={svgProps.width || size}
     />
