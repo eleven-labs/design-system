@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 19 Feb 2023 11:42:36 GMT
+ * Generated on Sun, 19 Feb 2023 11:52:30 GMT
  */
 
 $token-variables: (
@@ -109,13 +109,16 @@ $token-variables: (
 			),
 			'text': (
 				'xs': (
-					'font-size': var(--mobile-typography-text-xs-font-size)
+					'font-size': var(--mobile-typography-text-xs-font-size),
+					'icon-size': var(--mobile-typography-text-xs-icon-size)
 				),
 				's': (
-					'font-size': var(--mobile-typography-text-s-font-size)
+					'font-size': var(--mobile-typography-text-s-font-size),
+					'icon-size': var(--mobile-typography-text-s-icon-size)
 				),
 				'm': (
-					'font-size': var(--mobile-typography-text-m-font-size)
+					'font-size': var(--mobile-typography-text-m-font-size),
+					'icon-size': var(--mobile-typography-text-m-icon-size)
 				)
 			)
 		)
@@ -138,13 +141,16 @@ $token-variables: (
 			),
 			'text': (
 				'xs': (
-					'font-size': var(--desktop-typography-text-xs-font-size)
+					'font-size': var(--desktop-typography-text-xs-font-size),
+					'icon-size': var(--desktop-typography-text-xs-icon-size)
 				),
 				's': (
-					'font-size': var(--desktop-typography-text-s-font-size)
+					'font-size': var(--desktop-typography-text-s-font-size),
+					'icon-size': var(--desktop-typography-text-s-icon-size)
 				),
 				'm': (
-					'font-size': var(--desktop-typography-text-m-font-size)
+					'font-size': var(--desktop-typography-text-m-font-size),
+					'icon-size': var(--desktop-typography-text-m-icon-size)
 				)
 			)
 		)

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 19 Feb 2023 11:42:36 GMT
+ * Generated on Sun, 19 Feb 2023 11:52:30 GMT
  */
 export declare const tokenVariables: {
     asset: {
@@ -299,14 +299,23 @@ export declare const tokenVariables: {
                     'font-size': {
                         value: string;
                     };
+                    'icon-size': {
+                        value: string;
+                    };
                 };
                 s: {
                     'font-size': {
                         value: string;
                     };
+                    'icon-size': {
+                        value: string;
+                    };
                 };
                 m: {
                     'font-size': {
+                        value: string;
+                    };
+                    'icon-size': {
                         value: string;
                     };
                 };
@@ -342,14 +351,23 @@ export declare const tokenVariables: {
                     'font-size': {
                         value: string;
                     };
+                    'icon-size': {
+                        value: string;
+                    };
                 };
                 s: {
                     'font-size': {
                         value: string;
                     };
+                    'icon-size': {
+                        value: string;
+                    };
                 };
                 m: {
                     'font-size': {
+                        value: string;
+                    };
+                    'icon-size': {
                         value: string;
                     };
                 };
