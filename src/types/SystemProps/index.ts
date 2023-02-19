@@ -6,3 +6,4 @@ export * from './FlexBoxSystemProps';
 export * from './AsProps';
 export * from './LayoutSystemProps';
 export * from './ComponentWithAs';
+export * from './HiddenSystemProps';

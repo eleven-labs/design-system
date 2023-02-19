@@ -39,6 +39,13 @@ const getStoryTitleAndDesignTokenLabelByPropName = (
     };
   }
 
+  if (['hiddenAbove', 'hiddenBelow'].includes(propName)) {
+    return {
+      storyTitle: 'Foundations/Design Tokens/Breakpoint',
+      designTokenLabel: 'Breakpoint Token',
+    };
+  }
+
   switch (designTokenName) {
     case 'color':
       return {
