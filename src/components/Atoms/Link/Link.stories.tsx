@@ -20,6 +20,8 @@ export default {
   args: {
     size: 'm',
     children: 'Link Label',
+    href: 'https://eleven-labs.com/',
+    target: '_blank',
   },
   parameters: {
     layout: 'centered',
@@ -41,4 +43,9 @@ LinkWithSizeS.args = {
 export const LinkWithSizeM = Template.bind({});
 LinkWithSizeM.args = {
   size: 'm',
+};
+
+export const LinkWithIcon = Template.bind({});
+LinkWithIcon.args = {
+  icon: 'arrow-back',
 };

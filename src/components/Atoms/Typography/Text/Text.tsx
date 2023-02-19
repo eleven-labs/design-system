@@ -13,7 +13,7 @@ export type TextProps<T extends As = 'p'> = AsProps<T> &
   Pick<ColorSystemProps, 'color'> &
   SpacingSystemProps;
 
-export const Text = forwardRef<TextProps, 'p'>(({ as = 'p', size = 'm', children, ...props }, ref) => (
+export const Text = forwardRef<TextProps, 'p'>(({ as = 'p', size, children, ...props }, ref) => (
   <Box {...props} as={as} ref={ref} textSize={size}>
     {children}
   </Box>

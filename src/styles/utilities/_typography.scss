@@ -5,15 +5,19 @@ $font-weight-list: map.get($token-variables, 'font-weight');
 $text-align-list: map.get($css-properties, 'text-align');
 $text-transform-list: map.get($css-properties, 'text-transform');
 
-@mixin size($prefix-name, $size-name, $font-size, $line-height, $font-weight, $text-transform: null) {
+@mixin size($prefix-name, $size-name, $font-size, $line-height, $font-weight, $icon-size: null) {
   .#{$prefix-name}-#{$size-name} {
     font-size: $font-size;
     line-height: $line-height;
     font-weight: $font-weight;
 
-    @if  $text-transform {
-      text-transform: $text-transform;
+    @if $icon-size {
+      .icon {
+        width: $icon-size;
+        height: $icon-size;
+      }
     }
+
   }
 }
 
@@ -60,7 +64,7 @@ $text-transform-list: map.get($css-properties, 'text-transform');
           $heading-size-name,
           map.get($heading-token-variables, 'font-size'),
           map.get($heading-token-variables, 'line-height'),
-          get-token-value-by-typography-type('heading', $heading-size-name, 'font-weight', $device)
+          get-token-value-by-typography-type('heading', $heading-size-name, 'font-weight', $device),
         );
       }
     }
@@ -84,7 +88,8 @@ $text-transform-list: map.get($css-properties, 'text-transform');
           $text-size-name,
           map.get($text-token-variables, 'font-size'),
           map.get($text-token-variables, 'line-height'),
-          get-token-value-by-typography-type('text', $text-token-variables, 'font-weight', $device)
+          get-token-value-by-typography-type('text', $text-token-variables, 'font-weight', $device),
+          map.get($text-token-variables, 'icon-size')
         );
       }
     }
