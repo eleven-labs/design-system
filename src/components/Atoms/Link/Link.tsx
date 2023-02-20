@@ -1,7 +1,7 @@
 import './Link.scss';
 
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 
 import { Flex, Icon, Text, TextProps } from '@/components';
 import { forwardRef } from '@/helpers/systemPropsHelper';

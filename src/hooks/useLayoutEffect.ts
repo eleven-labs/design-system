@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 // This hook was created to remove warnings when used with SSR
 // eslint-disable-next-line @typescript-eslint/no-empty-function

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { matchMediaQueryList } from '@/constants';
 import { useLayoutEffect } from '@/hooks/useLayoutEffect';
