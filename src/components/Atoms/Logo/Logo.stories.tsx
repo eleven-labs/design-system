@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
-import React from 'react';
+import * as React from 'react';
 
 import { Logo } from '@/components';
 import { logoTokenNameList } from '@/constants';
@@ -21,7 +21,7 @@ export default {
   args: {
     name: 'blog',
     color: 'azure',
-    width: '35rem',
+    size: '35rem',
   },
   parameters: {
     layout: 'centered',

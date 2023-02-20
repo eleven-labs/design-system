@@ -13,8 +13,7 @@ $text-transform-list: map.get($css-properties, 'text-transform');
 
     @if $icon-size {
       .icon {
-        width: $icon-size;
-        height: $icon-size;
+        font-size: $icon-size;
       }
     }
 
