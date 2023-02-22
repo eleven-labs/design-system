@@ -7,4 +7,5 @@ export declare const alignSelfCssPropertyNameList: readonly ("start" | "end" | "
 export declare const flexBasisCssPropertyNameList: readonly ("auto" | "0" | "25" | "33" | "50" | "75" | "100")[];
 export declare const flexDirectionCssPropertyNameList: readonly ("column" | "row" | "column-reverse" | "row-reverse")[];
 export declare const flexWrapCssPropertyNameList: readonly ("wrap" | "wrap-reverse" | "no-wrap")[];
+export declare const flexCssPropertyNameList: readonly ("auto" | "none" | "1" | "initial")[];
 export declare const justifyContentCssPropertyNameList: readonly ("start" | "end" | "center" | "between" | "around" | "evenly" | "stretch")[];

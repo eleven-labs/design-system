@@ -130,6 +130,20 @@ export declare const cssProperties: {
             value: string;
         };
     };
+    flex: {
+        '1': {
+            value: string;
+        };
+        auto: {
+            value: string;
+        };
+        initial: {
+            value: string;
+        };
+        none: {
+            value: string;
+        };
+    };
     'justify-content': {
         start: {
             value: string;
