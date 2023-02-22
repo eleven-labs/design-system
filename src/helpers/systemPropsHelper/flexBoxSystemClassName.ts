@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import { classNamesWithModifiers } from '@/helpers/systemPropsHelper';
-import type { FlexBoxSystemProps, FlexDirectionType, SpacingType } from '@/types';
+import type { FlexBoxSystemProps, FlexDirectionType, FlexType, SpacingType } from '@/types';
 import {
   AlignContentType,
   AlignItemsType,
@@ -53,5 +53,9 @@ export const flexBoxSystemClassName = <TProps extends FlexBoxSystemProps>(props:
     classNamesWithModifiers<MediaQueryType, FlexBasisType>({
       propValue: props.flexBasis,
       className: 'basis',
+    }),
+    classNamesWithModifiers<MediaQueryType, FlexType>({
+      propValue: props.flex,
+      className: 'flex',
     })
   );

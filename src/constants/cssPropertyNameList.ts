@@ -6,6 +6,7 @@ import {
   DisplayType,
   FlexBasisType,
   FlexDirectionType,
+  FlexType,
   FlexWrapType,
   JustifyContentType,
   TextAlignType,
@@ -32,6 +33,7 @@ export const flexDirectionCssPropertyNameList = Object.keys(
   cssProperties['flex-direction']
 ) as ReadonlyArray<FlexDirectionType>;
 export const flexWrapCssPropertyNameList = Object.keys(cssProperties['flex-wrap']) as ReadonlyArray<FlexWrapType>;
+export const flexCssPropertyNameList = Object.keys(cssProperties['flex']) as ReadonlyArray<FlexType>;
 export const justifyContentCssPropertyNameList = Object.keys(
   cssProperties['justify-content']
 ) as ReadonlyArray<JustifyContentType>;

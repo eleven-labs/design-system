@@ -9,6 +9,7 @@ $justify-content-list: map.get($css-properties, 'justify-content');
 $align-self-list: map.get($css-properties, 'align-self');
 $spacing-list: map.get($token-variables, 'spacing');
 $flex-basis-list: map.get($css-properties, 'flex-basis');
+$flex-list: map.get($css-properties, 'flex');
 
 @include utility-classes-with-modifiers('flex', 'flex-direction', $flex-direction-list);
 @include utility-classes-with-modifiers('flex', 'flex-wrap', $flex-wrap-list);
@@ -20,3 +21,4 @@ $flex-basis-list: map.get($css-properties, 'flex-basis');
 @include utility-classes-with-modifiers('gap-x', 'gap-x', $spacing-list);
 @include utility-classes-with-modifiers('gap-y', 'gap-y', $spacing-list);
 @include utility-classes-with-modifiers('basis', 'flex-basis', $flex-basis-list);
+@include utility-classes-with-modifiers('flex', 'flex', $flex-list);

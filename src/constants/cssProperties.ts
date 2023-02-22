@@ -130,6 +130,20 @@ export const cssProperties = {
       value: 'no-wrap',
     },
   },
+  flex: {
+    '1': {
+      value: '1 1 0%',
+    },
+    auto: {
+      value: '1 1 auto',
+    },
+    initial: {
+      value: '0 1 auto',
+    },
+    none: {
+      value: 'none',
+    },
+  },
   'justify-content': {
     start: {
       value: 'start',
