@@ -13,7 +13,7 @@ export type LinkOptions = {
 
 export type LinkProps<T extends As = 'a'> = Omit<TextProps<T>, 'color' | 'underline' | 'fontWeight'> & LinkOptions;
 
-export const Link = forwardRef<LinkProps, 'a'>(({ as = 'a', size = 'm', icon, children, ...props }, ref) => (
+export const Link = forwardRef<LinkProps, 'a'>(({ as = 'a', size, icon, children, ...props }, ref) => (
   <Flex
     {...(props as AsProps)}
     ref={ref}

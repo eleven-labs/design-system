@@ -1,6 +1,7 @@
 .button {
   $this: &;
 
+  display: inline-block;
   padding: var(--spacing-xxs) var(--spacing-m);
   background: var(--background-color-button, var(--color-amaranth));
   color: var(--color-button, var(--color-white));
@@ -45,5 +46,12 @@
     --border-radius-button: 24px;
 
     box-shadow: 0 4px 14px rgb(0 0 0 / 12%);
+    &#{$this}--secondary {
+      --border-width-button: 0;
+
+      &:hover {
+        --border-width-button: 2px;
+      }
+    }
   }
 }
