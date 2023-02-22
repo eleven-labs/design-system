@@ -1,4 +1,4 @@
-import { forwardRef as forwardReactRef } from 'react';
+import * as React from 'react';
 
 import { As, ComponentWithAs, PropsOf, RightJoinProps } from '@/types';
 
@@ -10,5 +10,5 @@ export function forwardRef<Props extends object, Component extends As>(
     }
   >
 ): ComponentWithAs<Component, Props> {
-  return forwardReactRef(component) as unknown as ComponentWithAs<Component, Props>;
+  return React.forwardRef(component) as unknown as ComponentWithAs<Component, Props>;
 }
