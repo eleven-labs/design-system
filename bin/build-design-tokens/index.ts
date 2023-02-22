@@ -3,7 +3,7 @@
 import './formats/register';
 import './transforms/register';
 
-import * as StyleDictionary from 'style-dictionary';
+import StyleDictionary from 'style-dictionary';
 import { TransformedToken } from 'style-dictionary/types/TransformedToken';
 
 const filterExcludesCategories = (token: TransformedToken, categories: string[]): boolean =>

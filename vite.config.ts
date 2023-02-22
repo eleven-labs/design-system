@@ -9,7 +9,7 @@ import packageJson from './package.json';
 
 export default defineConfig({
   plugins: [
-    react({ jsxRuntime: 'classic' }),
+    react(),
     tsconfigPaths(),
     dts({ insertTypesEntry: true }),
     viteStaticCopy({
@@ -30,16 +30,11 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: packageJson.name,
-      fileName: (format) => `[name].${format}.js`,
+      formats: ['es', 'umd'],
+      fileName: (format) => `[name].${format}.${format === 'umd' ? 'cjs' : 'js'}`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
+      external: [...Object.keys(packageJson.peerDependencies)],
     },
   },
 });
