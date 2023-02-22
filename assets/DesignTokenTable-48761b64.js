@@ -1,2 +1,0 @@
-import{R as e}from"./index-f1f749bf.js";import{T as n}from"./Button-b1f73e7f.js";import{T as r}from"./Table-3ef86952.js";const i=({title:a,tokenVariables:m})=>e.createElement(e.Fragment,null,e.createElement(r,{title:a,columns:[{name:"name",label:"Name"},{name:"value",label:"Value"}],rows:Object.entries(m).map(([t,l])=>({name:e.createElement(n,{fontWeight:"medium"},t),value:l.value}))}));export{i as D};
-//# sourceMappingURL=DesignTokenTable-48761b64.js.map
