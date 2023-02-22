@@ -1,6 +1,7 @@
 import type {
   AlignContentType,
   AlignItemsType,
+  FlexType,
   JustifyContentType,
   SpacingType,
   TypeWithMediaQueriesType,
@@ -48,4 +49,8 @@ export interface FlexBoxSystemProps {
    * Defines a flex basis, auto or number (including breakpoints modifiers)
    */
   flexBasis?: TypeWithMediaQueriesType<FlexBasisType>;
+  /**
+   * Defines a flex (including breakpoints modifiers)
+   */
+  flex?: TypeWithMediaQueriesType<FlexType>;
 }

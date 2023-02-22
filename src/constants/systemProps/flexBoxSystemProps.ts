@@ -10,5 +10,6 @@ export const flexBoxSystemProps: Record<keyof FlexBoxSystemProps, readonly strin
   flexDirection: ['flex-direction'],
   flexBasis: ['flex-basis'],
   flexWrap: ['flex-wrap'],
+  flex: ['flex'],
   alignSelf: ['align-self'],
 };

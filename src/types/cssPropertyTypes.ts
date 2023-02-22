@@ -14,4 +14,5 @@ export type AlignSelfType = keyof (typeof cssProperties)['align-self'];
 export type FlexBasisType = keyof (typeof cssProperties)['flex-basis'];
 export type FlexDirectionType = keyof (typeof cssProperties)['flex-direction'];
 export type FlexWrapType = keyof (typeof cssProperties)['flex-wrap'];
+export type FlexType = keyof (typeof cssProperties)['flex'];
 export type JustifyContentType = keyof (typeof cssProperties)['justify-content'];
