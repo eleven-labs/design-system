@@ -29,5 +29,6 @@ public/svgs
 src/components/Atoms/Icons
 src/styles/_token-custom-properties.scss
 src/styles/abstracts/variables/_token-variables.scss
+src/styles/abstracts/variables/_variables.scss
 src/styles/_fonts.scss
 src/constants/tokenVariables.ts

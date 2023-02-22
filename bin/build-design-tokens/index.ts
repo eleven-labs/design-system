@@ -3,8 +3,8 @@
 import './formats/register';
 import './transforms/register';
 
+import type { File, TransformedToken } from 'style-dictionary';
 import StyleDictionary from 'style-dictionary';
-import { TransformedToken } from 'style-dictionary/types/TransformedToken';
 
 const filterExcludesCategories = (token: TransformedToken, categories: string[]): boolean =>
   token?.attributes?.category ? !categories.includes(token.attributes.category) : false;
@@ -25,6 +25,21 @@ const styleDictionary = StyleDictionary.extend({
             outputReferences: true,
           },
         },
+      ],
+    },
+    'scss/variables': {
+      buildPath: './src/styles/',
+      transforms: ['attribute/cti'],
+      files: [
+        {
+          format: 'scss/map-deep',
+          filter: (token): boolean => token?.attributes?.category === 'color',
+          destination: 'abstracts/variables/_variables.scss',
+          mapName: 'variables',
+          options: {
+            outputReferences: true,
+          },
+        } as File,
       ],
     },
     'scss/token-variables': {
