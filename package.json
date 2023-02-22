@@ -1,23 +1,18 @@
 {
   "name": "@eleven-labs/design-system",
-  "version": "0.3.0",
-  "main": "./dist/index.umd.js",
+  "version": "0.3.1",
+  "type": "module",
+  "main": "./dist/index.umd.cjs",
   "module": "./dist/index.es.js",
   "source": "src/index.ts",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
+      "require": "./dist/index.umd.cjs"
     },
-    "./style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    },
-    "./scss/abstracts": {
-      "import": "./dist/scss/abstracts/_index.scss",
-      "require": "./dist/scss/abstracts/_index.scss"
-    }
+    "./style.css": "./dist/style.css",
+    "./scss/abstracts": "./dist/scss/abstracts/_index.scss"
   },
   "files": [
     "dist"
@@ -25,8 +20,8 @@
   "scripts": {
     "prepare": "husky install && yarn optimize:svgs && yarn build:icons && yarn build:design-tokens",
     "optimize:fonts": "ts-node bin/optimize-fonts",
-    "optimize:svgs": "svgo --config svgo.config.js -f src/assets/svgs -o ./public/svgs",
-    "build:icons": "svgr --config-file svgr.config.js --typescript -d src/components/Atoms/Svgs public/svgs",
+    "optimize:svgs": "svgo --config svgo.config.cjs -f src/assets/svgs -o ./public/svgs",
+    "build:icons": "svgr --config-file svgr.config.cjs --typescript -d src/components/Atoms/Svgs public/svgs",
     "build:design-tokens": "ts-node -r dotenv/config bin/build-design-tokens",
     "build": "vite build",
     "start:storybook": "storybook dev -p 6009",
@@ -50,13 +45,11 @@
     "node": ">= 14.0"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
-    "react": "18.x",
-    "react-dom": "18.x"
+    "classnames": "^2.3.2"
   },
   "peerDependencies": {
-    "react": "18.x",
-    "react-dom": "18.x"
+    "react": "16.8.0 || >=17.x",
+    "react-dom": "16.8.0 || >=17.x"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.3",
@@ -84,6 +77,8 @@
     "postcss-normalize": "^10.0.1",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.58.1",
     "storybook": "^7.0.0-beta.48",
     "style-dictionary": "^3.7.2",

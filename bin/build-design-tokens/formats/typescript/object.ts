@@ -1,5 +1,5 @@
 import type { TransformedToken } from 'style-dictionary';
-import * as StyleDictionary from 'style-dictionary';
+import StyleDictionary from 'style-dictionary';
 import type { FormatterArguments } from 'style-dictionary/types/Format';
 import type { TransformedTokens } from 'style-dictionary/types/TransformedToken';
 

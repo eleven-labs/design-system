@@ -1,4 +1,6 @@
 .link {
+  display: inline-block;
+
   &:hover {
     font-weight: var(--font-weight-medium);
     text-decoration-line: underline;

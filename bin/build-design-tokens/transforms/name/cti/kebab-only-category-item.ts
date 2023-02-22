@@ -1,4 +1,4 @@
-import * as StyleDictionary from 'style-dictionary';
+import StyleDictionary from 'style-dictionary';
 
 StyleDictionary.registerTransform({
   type: 'name',

@@ -1,4 +1,4 @@
-import * as StyleDictionary from 'style-dictionary';
+import StyleDictionary from 'style-dictionary';
 import { Options } from 'style-dictionary';
 import { FormatterArguments } from 'style-dictionary/types/Format';
 import { TransformedToken, TransformedTokens } from 'style-dictionary/types/TransformedToken';
