@@ -1,0 +1,41 @@
+
+/**
+ * Do not edit directly
+ * Generated on Wed, 22 Feb 2023 16:35:20 GMT
+ */
+
+$white: #FFFFFF !default;
+$black: #000000 !default;
+$ultra-dark-grey: #333333 !default;
+$dark-grey: #757575 !default;
+$grey: #9B9B9B !default;
+$light-grey: #C4C4C4 !default;
+$ultra-light-grey: #EDEDED !default;
+$yellow: #F3C93D !default;
+$amaranth: #DD3156 !default;
+$lavender: #E1EAF9 !default;
+$navy: #224579 !default;
+$azure: #3767B6 !default;
+
+$variables: (
+  'color': (
+    'primary': (
+      'azure': $azure,
+      'navy': $navy
+    ),
+    'secondary': (
+      'lavender': $lavender,
+      'amaranth': $amaranth,
+      'yellow': $yellow
+    ),
+    'greyscale': (
+      'ultra-light-grey': $ultra-light-grey,
+      'light-grey': $light-grey,
+      'grey': $grey,
+      'dark-grey': $dark-grey,
+      'ultra-dark-grey': $ultra-dark-grey,
+      'black': $black,
+      'white': $white
+    )
+  )
+);
