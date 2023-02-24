@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 22 Feb 2023 16:35:20 GMT
+ * Generated on Fri, 24 Feb 2023 08:32:14 GMT
  */
 export declare const tokenVariables: {
     asset: {
