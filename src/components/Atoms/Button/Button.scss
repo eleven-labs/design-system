@@ -8,8 +8,25 @@
   font-weight: var(--font-weight-button, var(--font-weight-medium));
   text-transform: uppercase;
   border-width: var(--border-width-button, 0);
+  border-style: solid;
+  border-color: var(--border-color-button, transparent);
   border-radius: var(--border-radius-button, 4px);
   cursor: pointer;
+
+  &::after {
+    content: attr(data-text);
+    content: attr(data-text) / "";
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+    font-weight: var(--font-weight-bold);
+
+    @media speech {
+      display: none;
+    }
+  }
 
   &:hover {
     --font-weight-button: var(--font-weight-bold);
@@ -30,11 +47,9 @@
     --color-button: var(--color-amaranth);
     --border-width-button: 1px;
 
-    border-style: solid;
-    border-color: var(--border-color-button, var(--color-amaranth));
-
     &:hover {
       --border-width-button: 2px;
+      --border-color-button: var(--color-amaranth);
     }
 
     &[disabled] {

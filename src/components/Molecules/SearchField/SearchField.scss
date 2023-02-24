@@ -11,7 +11,9 @@
     font-family: var(--typography-font-family);
     font-size: var(--font-size-input, var(--font-size-s));
     line-height: var(--line-height-large);
-    border: none;
+    border-width: var(--border-width-input-search-field, 2px);
+    border-style: solid;
+    border-color: var(--border-color-input-search-field, transparent);
     border-radius: 22px;
 
     @include create-media-queries('md') {
@@ -24,14 +26,17 @@
 
     &:focus-visible {
       outline: none;
-      border: 2px solid var(--color-amaranth);
+
+      --border-width-input-search-field: 2px;
+      --border-color-input-search-field: var(--color-amaranth);
+
       box-shadow: 0 4px 30px rgb(0 0 0 / 6%);
     }
   }
 
   &--has-value {
     #{$this}__input {
-      padding-right: calc(var(--spacing-xxl) + var(--spacing-l));
+      padding-right: calc(var(--spacing-xxl) + var(--spacing-xl));
     }
   }
 
@@ -47,5 +52,10 @@
     height: 100%;
     width: 1px;
     background-color: var(--color-grey);
+  }
+
+  &__button-action {
+    background: transparent;
+    border: none;
   }
 }
