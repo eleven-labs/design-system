@@ -1,27 +1,31 @@
-import classNames from 'classnames';
 import * as React from 'react';
 
-import { Svgs } from '@/components';
-import { marginSystemProps } from '@/constants';
-import { pascalCase } from '@/helpers/stringHelper';
-import { colorSystemClassName, omitSystemProps, spacingSystemClassName } from '@/helpers/systemPropsHelper';
-import { ColorSystemProps, LogoNameType, MarginSystemProps } from '@/types';
+import { Box, Flex, Svgs, Text } from '@/components';
+import { forwardRef } from '@/helpers/systemPropsHelper';
+import { AsProps, ColorSystemProps, LogoNameType, MarginSystemProps } from '@/types';
 
-export type LogoProps = Omit<React.SVGProps<SVGSVGElement>, 'color'> &
+export type LogoProps = AsProps<'div'> &
   MarginSystemProps &
   Pick<ColorSystemProps, 'color'> & {
     name: LogoNameType;
     size?: string | number;
   };
 
-export const Logo: React.FC<LogoProps> = ({ name, size, ...svgProps }) => {
-  const Svg = (Svgs as Record<string, React.FC<React.SVGProps<SVGSVGElement>>>)[`${pascalCase(name)}Logo`];
+export const Logo = forwardRef<LogoProps, 'div'>(({ name, size = '10rem', ...props }, ref) => {
+  const Svg = (Svgs as Record<string, React.FC<React.SVGProps<SVGSVGElement>>>)['Logo'];
   return (
-    <Svg
-      {...omitSystemProps({ props: svgProps, systemPropNames: [...Object.keys(marginSystemProps), 'color'] })}
-      className={classNames(spacingSystemClassName(svgProps), colorSystemClassName(svgProps), svgProps?.className)}
-      height="1em"
-      style={{ fontSize: size }}
-    />
+    <Flex {...props} ref={ref} justifyContent="center" alignItems="center" style={{ fontSize: size }}>
+      <Svg height="1em" />
+      {name === 'blog' ? (
+        <Box ml="m" style={{ lineHeight: 1, fontSize: '1ex' }}>
+          <Text fontWeight="medium">Eleven Labs</Text>
+          <Text fontWeight="bold">Le blog</Text>
+        </Box>
+      ) : (
+        <Text ml="m" fontWeight="medium" style={{ lineHeight: 1, fontSize: '1.5ex' }}>
+          Eleven Labs
+        </Text>
+      )}
+    </Flex>
   );
-};
+});
