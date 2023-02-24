@@ -1,27 +1,30 @@
-import classNames from 'classnames';
+import './Logo.scss';
+
 import * as React from 'react';
 
-import { Svgs } from '@/components';
-import { marginSystemProps } from '@/constants';
-import { pascalCase } from '@/helpers/stringHelper';
-import { colorSystemClassName, omitSystemProps, spacingSystemClassName } from '@/helpers/systemPropsHelper';
-import { ColorSystemProps, LogoNameType, MarginSystemProps } from '@/types';
+import { Box, Flex, Svgs, Text } from '@/components';
+import { forwardRef } from '@/helpers/systemPropsHelper';
+import { AsProps, ColorSystemProps, LogoNameType, MarginSystemProps } from '@/types';
 
-export type LogoProps = Omit<React.SVGProps<SVGSVGElement>, 'color'> &
+export type LogoProps = AsProps<'div'> &
   MarginSystemProps &
   Pick<ColorSystemProps, 'color'> & {
     name: LogoNameType;
     size?: string | number;
   };
 
-export const Logo: React.FC<LogoProps> = ({ name, size, ...svgProps }) => {
-  const Svg = (Svgs as Record<string, React.FC<React.SVGProps<SVGSVGElement>>>)[`${pascalCase(name)}Logo`];
-  return (
-    <Svg
-      {...omitSystemProps({ props: svgProps, systemPropNames: [...Object.keys(marginSystemProps), 'color'] })}
-      className={classNames(spacingSystemClassName(svgProps), colorSystemClassName(svgProps), svgProps?.className)}
-      height="1em"
-      style={{ fontSize: size }}
-    />
-  );
-};
+export const Logo = forwardRef<LogoProps, 'div'>(({ name, size = '10rem', ...props }, ref) => (
+  <Flex {...props} ref={ref} justifyContent="center" alignItems="center" className="logo" style={{ fontSize: size }}>
+    <Svgs.Logo height="1em" />
+    {name === 'blog' ? (
+      <Box ml="m" className="logo__blog">
+        <Text fontWeight="medium">Eleven Labs</Text>
+        <Text fontWeight="bold">Le blog</Text>
+      </Box>
+    ) : (
+      <Text ml="m" fontWeight="medium" className="logo__website">
+        Eleven Labs
+      </Text>
+    )}
+  </Flex>
+));
