@@ -21,7 +21,7 @@ export default {
   args: {
     name: 'blog',
     color: 'azure',
-    size: '35rem',
+    size: '10em',
   },
   parameters: {
     layout: 'centered',
