@@ -1,13 +1,15 @@
-const phoneLimit = 570;
-const tabletLimit = 1000;
-const desktopLimit = 1200;
+import { tokenVariables } from '@/constants/tokenVariables';
 
 export const matchMediaQueryList = {
-  mobile: `(max-width: ${phoneLimit}px)`,
-  upMobile: `(min-width:${phoneLimit + 1}px)`,
-  tablet: `(min-width:${phoneLimit + 1}px) and (max-width: ${tabletLimit}px)`,
-  upTablet: `(min-width:${tabletLimit + 1}px)`,
-  desktop: `(min-width:${tabletLimit + 1}px) and (max-width: ${desktopLimit}px)`,
-  upDesktop: `(min-width:${desktopLimit + 1}px)`,
-  large: `(min-width:${desktopLimit + 1}px)`,
+  mobile: `(max-width: ${parseInt(tokenVariables.breakpoint.sm.value, 10) - 1}px)`,
+  aboveMobile: `(min-width:${parseInt(tokenVariables.breakpoint.sm.value, 10)}px)`,
+  tablet: `(min-width:${parseInt(tokenVariables.breakpoint.sm.value, 10)}px) and (max-width: ${
+    parseInt(tokenVariables.breakpoint.md.value, 10) - 1
+  }px)`,
+  aboveTablet: `(min-width:${parseInt(tokenVariables.breakpoint.md.value, 10)}px)`,
+  desktop: `(min-width:${parseInt(tokenVariables.breakpoint.md.value, 10)}px) and (max-width: ${
+    parseInt(tokenVariables.breakpoint.lg.value, 10) - 1
+  }px)`,
+  aboveDesktop: `(min-width:${parseInt(tokenVariables.breakpoint.lg.value, 10)}px)`,
+  large: `(min-width:${parseInt(tokenVariables.breakpoint.lg.value, 10)}px)`,
 };

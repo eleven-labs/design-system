@@ -1,0 +1,61 @@
+@use '@/styles/abstracts' as *;
+
+.search-field {
+  $this: &;
+
+  position: relative;
+
+  &__input {
+    width: 100%;
+    padding: var(--spacing-xs) calc(var(--spacing-xxl) + var(--spacing-m)) var(--spacing-xs) var(--spacing-xs);
+    font-family: var(--typography-font-family);
+    font-size: var(--font-size-input, var(--font-size-s));
+    line-height: var(--line-height-large);
+    border-width: var(--border-width-input-search-field, 2px);
+    border-style: solid;
+    border-color: var(--border-color-input-search-field, transparent);
+    border-radius: 22px;
+
+    @include create-media-queries('md') {
+      --font-size-input: var(--font-size-xs);
+    }
+
+    &::placeholder {
+      color: var(--color-grey);
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      --border-width-input-search-field: 2px;
+      --border-color-input-search-field: var(--color-amaranth);
+
+      box-shadow: 0 4px 30px rgb(0 0 0 / 6%);
+    }
+  }
+
+  &--has-value {
+    #{$this}__input {
+      padding-right: calc(var(--spacing-xxl) + var(--spacing-xl));
+    }
+  }
+
+  &__actions-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: var(--spacing-xxs) 0;
+  }
+
+  &__separator-button {
+    height: 100%;
+    width: 1px;
+    background-color: var(--color-grey);
+  }
+
+  &__button-action {
+    background: transparent;
+    border: none;
+  }
+}

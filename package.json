@@ -1,6 +1,6 @@
 {
   "name": "@eleven-labs/design-system",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eleven-labs/design-system.git"
@@ -49,6 +49,7 @@
     "node": ">= 14.0"
   },
   "dependencies": {
+    "autosuggest-highlight": "^3.3.4",
     "classnames": "^2.3.2"
   },
   "peerDependencies": {
@@ -67,6 +68,7 @@
     "@storybook/react-vite": "^7.0.0-beta.48",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@svgr/cli": "^6.5.1",
+    "@types/autosuggest-highlight": "^3.2.0",
     "@types/jest": "^29.4.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",

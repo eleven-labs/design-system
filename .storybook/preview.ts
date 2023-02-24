@@ -1,5 +1,7 @@
 import '../src/styles/common.scss';
 
+import { tokenVariables } from '../src/constants';
+
 const customViewports = {
   extraSmallScreen: {
     name: 'Extra small screen (xs)',
@@ -12,7 +14,7 @@ const customViewports = {
   smallScreen: {
     name: 'Small screen (sm)',
     styles: {
-      width: '571px',
+      width: `${tokenVariables.breakpoint.sm.value}px`,
       height: '766px',
     },
     type: 'Tablet',
@@ -20,7 +22,7 @@ const customViewports = {
   mediumScreen: {
     name: 'Medium screen (md)',
     styles: {
-      width: '1001px',
+      width: `${tokenVariables.breakpoint.md.value}px`,
       height: '766px',
     },
     type: 'Desktop',
@@ -38,6 +40,17 @@ export const parameters = {
   },
   viewport: {
     viewports: customViewports,
+  },
+  backgrounds: {
+    default: 'white',
+    values: Object.entries<{ value: string }>({
+      ...tokenVariables.color.primary,
+      ...tokenVariables.color.secondary,
+      ...tokenVariables.color.greyscale,
+    }).map(([name, { value }]) => ({
+      name,
+      value,
+    })),
   },
   options: {
     storySort: {

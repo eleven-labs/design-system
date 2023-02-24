@@ -11,7 +11,7 @@ import { Link } from './Link';
 const { underline, fontWeight, ...typographySystemPropsControls } = typographySystemPropsControlsBase;
 
 export default {
-  title: 'Components/Atoms/Link',
+  title: 'Components/Molecules/Link',
   component: Link,
   argTypes: {
     ...typographySystemPropsControls,
