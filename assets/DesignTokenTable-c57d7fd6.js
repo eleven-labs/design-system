@@ -1,2 +1,0 @@
-import{j as e,F as o}from"./jsx-runtime-670450c2.js";import{T as r}from"./Button-26c55484.js";import{T as s}from"./Table-dc31a392.js";const T=({title:a,tokenVariables:m})=>e(o,{children:e(s,{title:a,columns:[{name:"name",label:"Name"},{name:"value",label:"Value"}],rows:Object.entries(m).map(([l,n])=>({name:e(r,{fontWeight:"medium",children:l}),value:n.value}))})});export{T as D};
-//# sourceMappingURL=DesignTokenTable-c57d7fd6.js.map
