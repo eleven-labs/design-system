@@ -34,7 +34,13 @@ export default defineConfig({
       fileName: (format) => `[name].${format}.${format === 'umd' ? 'cjs' : 'js'}`,
     },
     rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
     },
   },
 });
