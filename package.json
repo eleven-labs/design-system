@@ -66,7 +66,7 @@
     "@storybook/addon-links": "^7.0.0-beta.48",
     "@storybook/react": "^7.0.0-beta.48",
     "@storybook/react-vite": "^7.0.0-beta.48",
-    "@storybook/testing-library": "^0.0.14-next.1",
+    "@storybook/testing-library": "^0.0.14--canary.30.5f44d14.0",
     "@svgr/cli": "^6.5.1",
     "@types/autosuggest-highlight": "^3.2.0",
     "@types/jest": "^29.4.0",
