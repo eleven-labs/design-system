@@ -4,7 +4,7 @@ export declare const spacingTokenNameList: readonly ("0" | "xs" | "xxs-3" | "xxs
 export declare const widthTokenNameList: readonly ("full" | "screen")[];
 export declare const heightTokenNameList: readonly ("full" | "screen")[];
 export declare const fontWeightTokenNameList: readonly ("regular" | "medium" | "bold")[];
-export declare const iconTokenNameList: readonly ("access-time" | "arrow-back" | "calendar" | "close" | "facebook" | "language" | "link" | "linkedin" | "rss" | "message" | "person" | "reddit" | "search" | "twitter" | "welcometothejungle")[];
+export declare const iconTokenNameList: readonly ("access-time" | "arrow-back" | "calendar" | "close" | "facebook" | "language" | "link" | "linkedin" | "rss" | "message" | "person" | "search" | "twitter" | "welcometothejungle")[];
 export declare const logoTokenNameList: readonly ("website" | "blog")[];
 export declare const headingSizeTokenNameList: readonly ("s" | "m" | "l" | "xl")[];
 export declare const textSizeTokenNameList: readonly ("xs" | "s" | "m")[];

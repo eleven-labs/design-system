@@ -1,1 +1,1 @@
-export type MatchBreakpointsType = 'mobile' | 'tablet' | 'desktop' | 'large' | 'upMobile' | 'upTablet' | 'upDesktop';
+export type MatchBreakpointsType = 'mobile' | 'tablet' | 'desktop' | 'large' | 'aboveMobile' | 'aboveTablet' | 'aboveDesktop';

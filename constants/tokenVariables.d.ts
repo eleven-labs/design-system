@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 24 Feb 2023 08:48:59 GMT
+ * Generated on Wed, 01 Mar 2023 19:16:28 GMT
  */
 export declare const tokenVariables: {
     asset: {
@@ -56,9 +56,6 @@ export declare const tokenVariables: {
                 value: string;
             };
             person: {
-                value: string;
-            };
-            reddit: {
                 value: string;
             };
             search: {

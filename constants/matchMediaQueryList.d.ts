@@ -1,9 +1,9 @@
 export declare const matchMediaQueryList: {
     mobile: string;
-    upMobile: string;
+    aboveMobile: string;
     tablet: string;
-    upTablet: string;
+    aboveTablet: string;
     desktop: string;
-    upDesktop: string;
+    aboveDesktop: string;
     large: string;
 };

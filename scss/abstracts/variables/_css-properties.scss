@@ -9,25 +9,25 @@ $css-properties: (
 		'inline-grid': 'inline-grid'
 	),
 	'align-content': (
-		'start': 'start',
-		'end': 'end',
+		'start': 'flex-start',
+		'end': 'flex-end',
 		'center': 'center',
-		'between': 'between',
-		'around': 'around',
-		'evenly': 'evenly',
+		'between': 'space-between',
+		'around': 'space-around',
+		'evenly': 'space-evenly',
 		'stretch': 'stretch'
 	),
 	'align-items': (
-		'start': 'start',
-		'end': 'end',
+		'start': 'flex-start',
+		'end': 'flex-end',
 		'center': 'center',
 		'baseline': 'baseline',
 		'stretch': 'stretch'
 	),
 	'align-self': (
 		'auto': 'auto',
-		'start': 'start',
-		'end': 'end',
+		'start': 'self-start',
+		'end': 'self-end',
 		'center': 'center',
 		'stretch': 'stretch',
 		'baseline': 'baseline'
@@ -59,12 +59,12 @@ $css-properties: (
 		'none': 'none',
 	),
 	'justify-content': (
-		'start': 'start',
-		'end': 'end',
+		'start': 'flex-start',
+		'end': 'flex-end',
 		'center': 'center',
-		'between': 'between',
-		'around': 'around',
-		'evenly': 'evenly',
+		'between': 'space-between',
+		'around': 'space-around',
+		'evenly': 'space-evenly',
 		'stretch': 'stretch'
 	),
 	'text-align': (

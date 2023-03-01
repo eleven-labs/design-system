@@ -9,7 +9,6 @@ export { default as Linkedin } from "./Linkedin";
 export { default as Logo } from "./Logo";
 export { default as Message } from "./Message";
 export { default as Person } from "./Person";
-export { default as Reddit } from "./Reddit";
 export { default as Rss } from "./Rss";
 export { default as Search } from "./Search";
 export { default as Twitter } from "./Twitter";
