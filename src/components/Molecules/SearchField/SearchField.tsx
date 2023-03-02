@@ -9,8 +9,8 @@ import { AsProps } from '@/types';
 
 export type SearchFieldOptions = {
   input: React.ComponentPropsWithRef<'input'>;
-  buttonSearch: Omit<AsProps<'svg'>, 'name'>;
-  buttonClose?: Omit<AsProps<'svg'>, 'name'>;
+  buttonSearch: AsProps<'button'>;
+  buttonClose?: AsProps<'button'>;
 };
 
 export type SearchFieldProps = BoxProps & SearchFieldOptions;
@@ -23,9 +23,15 @@ export const SearchField = forwardRef<SearchFieldProps, 'div'>(
     >
       <Box {...(input as AsProps)} as="input" className="search-field__input" />
       <Flex justifyContent="center" alignItems="center" className="search-field__actions-container">
-        {Boolean(input.value) && <Icon {...buttonClose} name="close" color="grey" size="1.5rem" />}
+        {Boolean(input.value) && (
+          <Box as="button" className="search-field__button-action" {...(buttonClose as AsProps)}>
+            <Icon name="close" color="grey" size="1.5rem" />
+          </Box>
+        )}
         <Box className="search-field__separator-button" ml="xs" />
-        <Icon {...buttonSearch} name="search" color="amaranth" size="2.5rem" mx="xs" />
+        <Box as="button" className="search-field__button-action" {...(buttonSearch as AsProps)}>
+          <Icon name="search" color="amaranth" size="2.5rem" mx="xs" />
+        </Box>
       </Flex>
     </Box>
   )
