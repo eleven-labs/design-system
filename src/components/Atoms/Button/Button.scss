@@ -48,7 +48,6 @@
     --border-width-button: 2px;
 
     &:hover {
-      --border-width-button: 2px;
       --border-color-button: var(--color-amaranth);
     }
 
@@ -61,12 +60,5 @@
     --border-radius-button: 24px;
 
     box-shadow: 0 4px 14px rgb(0 0 0 / 12%);
-    &#{$this}--secondary {
-      --border-width-button: 0;
-
-      &:hover {
-        --border-width-button: 2px;
-      }
-    }
   }
 }
