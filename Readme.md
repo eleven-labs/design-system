@@ -16,6 +16,20 @@ Its role is to improve the UI and especially to have a graphic and functional co
 
 Subsequently, it should also allow to be faster in the developments and thus limit the expenses in the Design.
 
+
+## Install
+
+Using NPM:
+```
+npm install @eleven-labs/design-system
+
+```
+
+Using Yarn:
+```
+yarn add @eleven-labs/design-system
+```
+
 ## Documentation of Design System
 
 To see the different components of the Design System please visit [website](https://eleven-labs.github.io/design-system/).
