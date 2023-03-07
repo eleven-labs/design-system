@@ -24,6 +24,7 @@ export const Button = forwardRef<ButtonProps, 'button'>(
       as={as}
       ref={ref}
       textSize="s"
+      data-text={typeof children === 'string' ? children : ''}
       className={classNames(
         'button',
         {
