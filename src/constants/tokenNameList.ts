@@ -4,7 +4,6 @@ import type {
   HeadingSizeType,
   HeightType,
   IconNameType,
-  LogoNameType,
   SpacingType,
   TextSizeType,
   WidthType,
@@ -26,7 +25,6 @@ export const heightTokenNameList = Object.keys(tokenVariables['height']) as Read
 export const fontWeightTokenNameList = Object.keys(tokenVariables['font-weight']) as ReadonlyArray<FontWeightType>;
 
 export const iconTokenNameList = Object.keys(tokenVariables['asset']['icon']) as ReadonlyArray<IconNameType>;
-export const logoTokenNameList = Object.keys(tokenVariables['asset']['logo']) as ReadonlyArray<LogoNameType>;
 
 export const headingSizeTokenNameList = Object.keys(
   tokenVariables['mobile']['typography']['heading'] || tokenVariables['desktop']['typography']['heading']

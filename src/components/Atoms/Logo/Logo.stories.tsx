@@ -1,8 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { Logo } from '@/components';
-import { logoTokenNameList } from '@/constants';
+import { Logo, logoName } from '@/components';
 import { marginSystemPropsControls } from '@/constants/storybook';
 
 export default {
@@ -12,7 +11,7 @@ export default {
     ...marginSystemPropsControls,
     name: {
       control: 'select',
-      options: logoTokenNameList,
+      options: logoName,
     },
     size: {
       control: 'text',

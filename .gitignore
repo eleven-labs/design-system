@@ -24,6 +24,7 @@ dist-ssr
 *.sw?
 
 # Custom
+reports/*
 storybook-static
 public/svgs
 src/components/Atoms/Svgs

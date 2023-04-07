@@ -13,7 +13,6 @@ export type HeightType = keyof (typeof tokenVariables)['height'];
 export type FontWeightType = keyof (typeof tokenVariables)['font-weight'];
 
 export type IconNameType = keyof (typeof tokenVariables)['asset']['icon'];
-export type LogoNameType = keyof (typeof tokenVariables)['asset']['logo'];
 
 export type HeadingSizeType = keyof (
   | (typeof tokenVariables)['mobile']['typography']['heading']
