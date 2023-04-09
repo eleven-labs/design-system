@@ -1,0 +1,2 @@
+import{jsx as e,Fragment as o}from"react/jsx-runtime";import{T as r}from"./TextHighlight-f81efc9d.js";import"./SyntaxHighlighter-544e951a.js";import{T as t}from"./Table-718b6c12.js";const T=({title:a,tokenVariables:m})=>e(o,{children:e(t,{title:a,columns:[{name:"name",label:"Name"},{name:"value",label:"Value"}],rows:Object.entries(m).map(([l,n])=>({name:e(r,{fontWeight:"medium",children:l}),value:n.value}))})});export{T as D};
+//# sourceMappingURL=DesignTokenTable-13f4b4e5.js.map

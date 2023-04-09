@@ -1,4 +1,6 @@
-import { AsProps, ColorSystemProps, LogoNameType, MarginSystemProps } from '../../../types';
+import { AsProps, ColorSystemProps, MarginSystemProps } from '../../../types';
+export declare const logoName: readonly ["website", "blog"];
+export type LogoNameType = (typeof logoName)[number];
 export type LogoProps = AsProps<'div'> & MarginSystemProps & Pick<ColorSystemProps, 'color'> & {
     name: LogoNameType;
     size?: string | number;
