@@ -5,7 +5,10 @@ import * as React from 'react';
 
 import { Box, Flex, Svgs, Text } from '@/components';
 import { forwardRef } from '@/helpers/systemPropsHelper';
-import { AsProps, ColorSystemProps, LogoNameType, MarginSystemProps } from '@/types';
+import { AsProps, ColorSystemProps, MarginSystemProps } from '@/types';
+
+export const logoName = ['website', 'blog'] as const;
+export type LogoNameType = (typeof logoName)[number];
 
 export type LogoProps = AsProps<'div'> &
   MarginSystemProps &

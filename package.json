@@ -1,7 +1,7 @@
 {
   "name": "@eleven-labs/design-system",
   "description": "Design System for Eleven Labs",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eleven-labs/design-system.git"
@@ -58,28 +58,30 @@
   },
   "dependencies": {
     "autosuggest-highlight": "^3.3.4",
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "peerDependencies": {
-    "react": "16.8.0 || >=17.x",
-    "react-dom": "16.8.0 || >=17.x"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.3",
     "@commitlint/config-conventional": "^17.4.3",
     "@elevenlabs/eslint-config": "^0.0.1",
-    "@storybook/addon-actions": "^7.0.0-beta.48",
-    "@storybook/addon-essentials": "^7.0.0-beta.48",
-    "@storybook/addon-interactions": "^7.0.0-beta.48",
-    "@storybook/addon-links": "^7.0.0-beta.48",
-    "@storybook/react": "^7.0.0-beta.48",
-    "@storybook/react-vite": "^7.0.0-beta.48",
-    "@storybook/testing-library": "^0.0.14-next.1",
+    "@storybook/addon-actions": "^7.0.2",
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-interactions": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/react": "^7.0.2",
+    "@storybook/react-vite": "^7.0.2",
+    "@storybook/testing-library": "^0.1.0",
     "@svgr/cli": "^6.5.1",
     "@types/autosuggest-highlight": "^3.2.0",
     "@types/jest": "^29.4.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.26.0",
@@ -93,8 +95,10 @@
     "prettier": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-visualizer": "^5.9.0",
     "sass": "^1.58.1",
-    "storybook": "^7.0.0-beta.48",
+    "storybook": "^7.0.2",
     "style-dictionary": "^3.7.2",
     "stylelint": "^15.1.0",
     "stylelint-config-standard-scss": "^7.0.1",

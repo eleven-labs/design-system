@@ -1,5 +1,7 @@
 import react from '@vitejs/plugin-react';
 import * as path from 'path';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
@@ -9,6 +11,7 @@ import packageJson from './package.json';
 
 export default defineConfig({
   plugins: [
+    peerDepsExternal(),
     react(),
     tsconfigPaths(),
     dts({ insertTypesEntry: true }),
@@ -20,6 +23,7 @@ export default defineConfig({
         },
       ],
     }),
+    visualizer({ filename: `reports/bundle-stats.html`, gzipSize: true }),
   ],
   resolve: {
     alias: {
@@ -32,15 +36,6 @@ export default defineConfig({
       name: packageJson.name,
       formats: ['es', 'umd'],
       fileName: (format) => `[name].${format}.${format === 'umd' ? 'cjs' : 'js'}`,
-    },
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
     },
   },
 });
