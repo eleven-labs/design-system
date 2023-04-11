@@ -1,2 +1,0 @@
-import o from"react";const u=o.createContext({});function c(t){return e;function e(r){const n=a(r.components);return o.createElement(t,{...r,allComponents:n})}}function a(t){const e=o.useContext(u);return o.useMemo(()=>typeof t=="function"?t(e):{...e,...t},[e,t])}const f={};function s({components:t,children:e,disableParentContext:r}){let n;return r?n=typeof t=="function"?t({}):t||f:n=a(t),o.createElement(u.Provider,{value:n},e)}export{u as M,s as a,a as u,c as w};
-//# sourceMappingURL=index-340e7b91.js.map
