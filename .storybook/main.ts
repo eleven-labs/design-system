@@ -26,11 +26,11 @@ const config: StorybookConfig = {
     }
 
     if (config.plugins) {
-      config.plugins = config.plugins.filter(plugin => {
+      config.plugins = config.plugins.filter((plugin) => {
         if (Array.isArray(plugin)) {
           return plugin;
         }
-        return (plugin as { name: string; }).name !== 'peer-deps-external';
+        return (plugin as { name: string }).name !== 'peer-deps-external';
       });
     }
 

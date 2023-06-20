@@ -7,7 +7,7 @@ export default {
   title: 'Components/Atoms/Blockquote',
   component: Blockquote,
   args: {
-    content:
+    children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nisi lectus, tincidunt nec nisl ut, dapibus ornare eros.',
   },
 } as Meta<typeof Blockquote>;
