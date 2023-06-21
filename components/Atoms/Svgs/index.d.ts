@@ -3,6 +3,7 @@ export { default as ArrowBack } from "./ArrowBack";
 export { default as Calendar } from "./Calendar";
 export { default as Close } from "./Close";
 export { default as Facebook } from "./Facebook";
+export { default as Github } from "./Github";
 export { default as Language } from "./Language";
 export { default as Link } from "./Link";
 export { default as Linkedin } from "./Linkedin";

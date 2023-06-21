@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Jun 2023 14:58:40 GMT
+ * Generated on Wed, 21 Jun 2023 15:22:14 GMT
  */
 export declare const tokenVariables: {
     asset: {
@@ -65,6 +65,9 @@ export declare const tokenVariables: {
                 value: string;
             };
             welcometothejungle: {
+                value: string;
+            };
+            github: {
                 value: string;
             };
         };

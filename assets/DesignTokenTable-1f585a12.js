@@ -1,2 +1,0 @@
-import{j as e}from"./jsx-runtime-94f6e698.js";import{T as r}from"./TextHighlight-3451d783.js";import"./SyntaxHighlighter-1c0d5439.js";import{T as s}from"./Table-f84e3f6e.js";const u=({title:a,tokenVariables:m})=>e.jsx(e.Fragment,{children:e.jsx(s,{title:a,columns:[{name:"name",label:"Name"},{name:"value",label:"Value"}],rows:Object.entries(m).map(([n,o])=>({name:e.jsx(r,{fontWeight:"medium",children:n}),value:o.value}))})});export{u as D};
-//# sourceMappingURL=DesignTokenTable-1f585a12.js.map
