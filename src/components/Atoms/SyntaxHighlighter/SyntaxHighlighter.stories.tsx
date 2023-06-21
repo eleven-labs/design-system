@@ -7,7 +7,7 @@ export default {
   title: 'Components/Atoms/SyntaxHighlighter',
   component: SyntaxHighlighter,
   args: {
-    content: 'import React from React;',
+    children: 'import React from React;',
   },
 } as Meta<typeof SyntaxHighlighter>;
 
