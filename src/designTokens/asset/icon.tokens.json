@@ -45,6 +45,9 @@
       },
       "github": {
         "value": "svgs/github.svg"
+      },
+      "tuto": {
+        "value": "svgs/tuto.svg"
       }
     }
   }
