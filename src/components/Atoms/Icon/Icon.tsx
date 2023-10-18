@@ -7,7 +7,7 @@ import { pascalCase } from '@/helpers/stringHelper';
 import { colorSystemClassName, omitSystemProps, spacingSystemClassName } from '@/helpers/systemPropsHelper';
 import { ColorSystemProps, IconNameType, MarginSystemProps } from '@/types';
 
-export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'color'> &
+export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'name' | 'color'> &
   MarginSystemProps &
   Pick<ColorSystemProps, 'color'> & {
     name: IconNameType;
