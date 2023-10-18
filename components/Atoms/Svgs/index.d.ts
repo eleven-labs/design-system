@@ -12,5 +12,6 @@ export { default as Message } from "./Message";
 export { default as Person } from "./Person";
 export { default as Rss } from "./Rss";
 export { default as Search } from "./Search";
+export { default as Tuto } from "./Tuto";
 export { default as Twitter } from "./Twitter";
 export { default as Welcometothejungle } from "./Welcometothejungle";
