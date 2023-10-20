@@ -1,26 +1,16 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Box } from '@/components';
-import { forwardRef } from '@/helpers/systemPropsHelper';
-import { As, AsProps, ColorSystemProps, HeadingSizeType, SpacingSystemProps, TypographySystemProps } from '@/types';
+import { Box, BoxProps } from '@/components';
+import { polyRef } from '@/helpers/polyRef';
+import { HeadingSizeType } from '@/types';
 
-export interface HeadingOptions {
+export interface HeadingProps extends BoxProps {
   size?: HeadingSizeType;
 }
-export type HeadingProps<T extends As = 'h1'> = AsProps<T> &
-  HeadingOptions &
-  Omit<TypographySystemProps, 'textSize' | 'fontWeight'> &
-  Pick<ColorSystemProps, 'color'> &
-  SpacingSystemProps;
 
-export const Heading = forwardRef<HeadingProps, 'h1'>(({ as = 'h1', size, children, ...props }, ref) => (
-  <Box
-    {...(props as AsProps)}
-    as={as}
-    ref={ref}
-    className={classNames({ [`heading-${size}`]: Boolean(size) }, props?.className)}
-  >
+export const Heading = polyRef<'h1', HeadingProps>(({ as = 'h1', size, children, ...props }, ref) => (
+  <Box {...props} as={as} ref={ref} className={classNames({ [`heading-${size}`]: Boolean(size) }, props?.className)}>
     {children}
   </Box>
 ));

@@ -4,23 +4,23 @@ import classNames from 'classnames';
 import * as React from 'react';
 
 import { Box } from '@/components';
-import { forwardRef } from '@/helpers/systemPropsHelper';
-import { As, AsProps, SpacingSystemProps } from '@/types';
+import { polyRef } from '@/helpers/polyRef';
+import { SpacingSystemProps } from '@/types';
 
 export const buttonVariant = ['primary', 'secondary'] as const;
 export type ButtonVariantType = (typeof buttonVariant)[number];
 
-export type ButtonOptions = {
+export interface ButtonProps extends SpacingSystemProps {
+  className?: string;
   variant?: ButtonVariantType;
   isChoiceChip?: boolean;
-};
+  children: React.ReactNode;
+}
 
-export type ButtonProps<T extends As = 'button'> = AsProps<T> & SpacingSystemProps & ButtonOptions;
-
-export const Button = forwardRef<ButtonProps, 'button'>(
-  ({ as = 'button', variant = 'primary', isChoiceChip = false, children, ...props }, ref) => (
+export const Button = polyRef<'button', ButtonProps>(
+  ({ as = 'button', variant = 'primary', isChoiceChip = false, className, children, ...props }, ref) => (
     <Box
-      {...(props as AsProps)}
+      {...props}
       as={as}
       ref={ref}
       textSize="s"
@@ -31,7 +31,7 @@ export const Button = forwardRef<ButtonProps, 'button'>(
           [`button--${variant}`]: variant,
           [`button--choice-chip`]: isChoiceChip,
         },
-        props.className
+        className
       )}
     >
       {children}

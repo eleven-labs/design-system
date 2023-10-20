@@ -1,7 +1,7 @@
 {
   "name": "@eleven-labs/design-system",
   "description": "Design System for Eleven Labs",
-  "version": "0.6.3",
+  "version": "0.10.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eleven-labs/design-system.git"
@@ -59,6 +59,7 @@
   "dependencies": {
     "autosuggest-highlight": "^3.3.4",
     "classnames": "^2.3.2",
+    "react-polymorphed": "^2.2.1",
     "react-syntax-highlighter": "^15.5.0"
   },
   "peerDependencies": {

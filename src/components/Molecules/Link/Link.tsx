@@ -3,19 +3,18 @@ import './Link.scss';
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Flex, Icon, Text, TextProps } from '@/components';
-import { forwardRef } from '@/helpers/systemPropsHelper';
-import { As, AsProps, IconNameType } from '@/types';
+import { Flex, FlexProps, Icon, Text } from '@/components';
+import { polyRef } from '@/helpers/polyRef';
+import { IconNameType, TextSizeType } from '@/types';
 
-export type LinkOptions = {
+export interface LinkProps extends FlexProps {
+  size: TextSizeType;
   icon?: IconNameType;
-};
+}
 
-export type LinkProps<T extends As = 'a'> = Omit<TextProps<T>, 'color' | 'underline' | 'fontWeight'> & LinkOptions;
-
-export const Link = forwardRef<LinkProps, 'a'>(({ as = 'a', size, icon, children, ...props }, ref) => (
+export const Link = polyRef<'a', LinkProps>(({ as = 'a', size, icon, children, ...props }, ref) => (
   <Flex
-    {...(props as AsProps)}
+    {...props}
     ref={ref}
     as={as}
     alignItems="center"

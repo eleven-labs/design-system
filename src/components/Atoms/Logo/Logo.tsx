@@ -3,21 +3,18 @@ import './Logo.scss';
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Box, Flex, Svgs, Text } from '@/components';
-import { forwardRef } from '@/helpers/systemPropsHelper';
-import { AsProps, ColorSystemProps, MarginSystemProps } from '@/types';
+import { Box, Flex, FlexProps, Svgs, Text } from '@/components';
+import { polyRef } from '@/helpers/polyRef';
 
 export const logoName = ['website', 'blog'] as const;
 export type LogoNameType = (typeof logoName)[number];
 
-export type LogoProps = AsProps<'div'> &
-  MarginSystemProps &
-  Pick<ColorSystemProps, 'color'> & {
-    name: LogoNameType;
-    size?: string | number;
-  };
+export interface LogoProps extends FlexProps {
+  name: LogoNameType;
+  size?: string | number;
+}
 
-export const Logo = forwardRef<LogoProps, 'div'>(({ name, size, ...props }, ref) => (
+export const Logo = polyRef<'div', LogoProps>(({ name, size, ...props }, ref) => (
   <Flex
     {...props}
     ref={ref}

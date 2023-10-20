@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import { Box, BoxProps, Text } from '@/components';
+import { polyRef } from '@/helpers/polyRef';
 
 export const reminderVariantList = [
   'note',
@@ -22,15 +23,14 @@ export const reminderVariantList = [
 
 export type ReminderVariantType = (typeof reminderVariantList)[number];
 
-export type ReminderOptions = {
+export interface ReminderProps extends BoxProps {
   variant: ReminderVariantType;
   title: React.ReactNode;
-};
-export type ReminderProps = BoxProps & ReminderOptions;
+}
 
-export const Reminder: React.FC<ReminderProps> = ({ variant, title, children, ...nativeProps }) => (
+export const Reminder = polyRef<'div', ReminderProps>(({ variant, title, children, ...nativeProps }) => (
   <Box {...nativeProps} className={classNames('reminder', `reminder--${variant}`)}>
     <Text className="reminder__title">{title}</Text>
     <Box p="xxs">{children}</Box>
   </Box>
-);
+));

@@ -4,37 +4,34 @@ import classNames from 'classnames';
 import React from 'react';
 
 import { Box, BoxProps } from '@/components';
-import { forwardRef } from '@/helpers/systemPropsHelper';
+import { polyRef } from '@/helpers/polyRef';
 
-export interface SkeletonOptions {
+export interface SkeletonProps extends BoxProps {
   isLoading?: boolean;
 }
-export type SkeletonProps = BoxProps<'div'> & SkeletonOptions;
 
-export const Skeleton = forwardRef<SkeletonProps, 'div'>(
-  ({ as = 'div', isLoading = true, children, ...props }, ref) => (
-    <>
-      {isLoading ? (
-        <Box
-          {...props}
-          as={as}
-          ref={ref}
-          bg="ultra-light-grey"
-          className={classNames(classNames(isLoading ? ['skeleton', 'animate-pulse'] : undefined), props.className)}
-        >
-          {children ? (
-            children
-          ) : (
-            <Box>
-              <>&nbsp;</>
-            </Box>
-          )}
-        </Box>
-      ) : (
-        children
-      )}
-    </>
-  )
-);
+export const Skeleton = polyRef<'div', SkeletonProps>(({ as = 'div', isLoading = true, children, ...props }, ref) => (
+  <>
+    {isLoading ? (
+      <Box
+        {...props}
+        as={as}
+        ref={ref}
+        bg="ultra-light-grey"
+        className={classNames(classNames(isLoading ? ['skeleton', 'animate-pulse'] : undefined), props.className)}
+      >
+        {children ? (
+          children
+        ) : (
+          <Box>
+            <>&nbsp;</>
+          </Box>
+        )}
+      </Box>
+    ) : (
+      children
+    )}
+  </>
+));
 
 Skeleton.displayName = 'Skeleton';
