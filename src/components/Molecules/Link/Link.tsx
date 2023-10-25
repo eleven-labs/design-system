@@ -3,28 +3,27 @@ import './Link.scss';
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Flex, FlexProps, Icon, Text } from '@/components';
+import { Box, Flex, Icon, Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
-import { IconNameType, TextSizeType } from '@/types';
+import { IconNameType } from '@/types';
 
-export interface LinkProps extends FlexProps {
-  size: TextSizeType;
+export interface LinkProps {
+  className?: string;
   icon?: IconNameType;
+  children: React.ReactNode;
 }
 
-export const Link = polyRef<'a', LinkProps>(({ as = 'a', size, icon, children, ...props }, ref) => (
-  <Flex
-    {...props}
-    ref={ref}
-    as={as}
-    alignItems="center"
-    color="amaranth"
-    className={classNames('link', props.className)}
-    textSize={size}
-  >
-    {icon && <Icon name={icon} />}
-    <Text as="span">{children}</Text>
-  </Flex>
-));
+export const Link = polyRef<'a', LinkProps>(({ as = 'a', icon, className, children, ...props }, ref) =>
+  icon ? (
+    <Flex {...props} ref={ref} as={as} alignItems="center" color="amaranth" className={classNames('link', className)}>
+      {icon && <Icon name={icon} />}
+      <Text as="span">{children}</Text>
+    </Flex>
+  ) : (
+    <Box {...props} ref={ref} as={as} color="amaranth" className={classNames('link', className)}>
+      {children}
+    </Box>
+  )
+);
 
 Link.displayName = 'Link';

@@ -8,8 +8,10 @@ import { polyRef } from '@/helpers/polyRef';
 
 export interface BlockquoteProps extends BoxProps {}
 
-export const Blockquote = polyRef<'blockquote', BlockquoteProps>(({ as, children, className, ...props }) => (
-  <Box {...props} as="blockquote" className={classNames('blockquote', className)}>
-    {children}
-  </Box>
-));
+export const Blockquote = polyRef<'blockquote', BlockquoteProps>(
+  ({ as = 'blockquote', children, className, ...props }, ref) => (
+    <Box {...props} as={as} ref={ref} className={classNames('blockquote', className)}>
+      {children}
+    </Box>
+  )
+);

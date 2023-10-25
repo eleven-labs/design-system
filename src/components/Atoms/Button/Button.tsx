@@ -3,7 +3,7 @@ import './Button.scss';
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Box } from '@/components';
+import { Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
 import { SpacingSystemProps } from '@/types';
 
@@ -19,11 +19,11 @@ export interface ButtonProps extends SpacingSystemProps {
 
 export const Button = polyRef<'button', ButtonProps>(
   ({ as = 'button', variant = 'primary', isChoiceChip = false, className, children, ...props }, ref) => (
-    <Box
+    <Text
       {...props}
       as={as}
       ref={ref}
-      textSize="s"
+      size="s"
       data-text={typeof children === 'string' ? children : ''}
       className={classNames(
         'button',
@@ -35,7 +35,7 @@ export const Button = polyRef<'button', ButtonProps>(
       )}
     >
       {children}
-    </Box>
+    </Text>
   )
 );
 

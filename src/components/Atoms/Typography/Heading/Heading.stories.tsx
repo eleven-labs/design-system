@@ -2,21 +2,16 @@ import { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { headingSizeTokenNameList } from '@/constants';
-import {
-  spacingSystemPropsControls,
-  typographySystemPropsControls as typographySystemPropsControlsBase,
-} from '@/constants/storybook';
+import { systemPropsControls, typographySystemPropsControls } from '@/constants/storybook';
 
 import { Heading } from './Heading';
-
-const { textSize, fontWeight, ...typographySystemPropsControls } = typographySystemPropsControlsBase;
 
 export default {
   title: 'Components/Atoms/Typography/Heading',
   component: Heading,
   argTypes: {
+    ...systemPropsControls,
     ...typographySystemPropsControls,
-    ...spacingSystemPropsControls,
     size: {
       control: { type: 'radio' },
       options: headingSizeTokenNameList,

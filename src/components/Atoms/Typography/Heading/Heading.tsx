@@ -3,14 +3,14 @@ import * as React from 'react';
 
 import { Box, BoxProps } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
-import { HeadingSizeType } from '@/types';
+import { HeadingSizeType, TypographySystemProps } from '@/types';
 
-export interface HeadingProps extends BoxProps {
+export interface HeadingProps extends BoxProps, TypographySystemProps {
   size?: HeadingSizeType;
 }
 
-export const Heading = polyRef<'h1', HeadingProps>(({ as = 'h1', size, children, ...props }, ref) => (
-  <Box {...props} as={as} ref={ref} className={classNames({ [`heading-${size}`]: Boolean(size) }, props?.className)}>
+export const Heading = polyRef<'h1', HeadingProps>(({ as = 'h1', size, children, className, ...props }, ref) => (
+  <Box {...props} as={as} ref={ref} className={classNames({ [`heading-${size}`]: Boolean(size) }, className)}>
     {children}
   </Box>
 ));
