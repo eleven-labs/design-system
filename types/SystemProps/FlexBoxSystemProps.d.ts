@@ -1,5 +1,5 @@
 import type { AlignContentType, AlignItemsType, FlexType, JustifyContentType, SpacingType, TypeWithMediaQueriesType } from '../../types';
-import { AlignSelfType, FlexBasisType, FlexDirectionType, FlexWrapType } from '../../types';
+import type { AlignSelfType, FlexBasisType, FlexDirectionType, FlexWrapType } from '../../types';
 export interface FlexBoxSystemProps {
     /**
      * flex-direction (including breakpoints modifiers)

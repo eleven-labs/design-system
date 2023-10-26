@@ -1,5 +1,5 @@
-import { ControlType } from '@storybook/blocks';
-import { ArgTypes } from '@storybook/csf';
+import type { ControlType } from '@storybook/blocks';
+import type { ArgTypes } from '@storybook/csf';
 export declare const getLinkMdnByCssProperty: (cssProperty: string) => string;
 export declare const createDescription: (options: {
     cssProperties: string[];

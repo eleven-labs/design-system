@@ -1,3 +1,3 @@
-import type { ColorSystemProps, FlexBoxSystemProps, HiddenSystemProps, LayoutSystemProps, SpacingSystemProps, TypographySystemProps } from '../../types';
-export interface SystemProps extends ColorSystemProps, FlexBoxSystemProps, LayoutSystemProps, SpacingSystemProps, TypographySystemProps, HiddenSystemProps {
+import type { ColorSystemProps, HiddenSystemProps, LayoutSystemProps, SpacingSystemProps } from '../../types';
+export interface SystemProps extends ColorSystemProps, LayoutSystemProps, SpacingSystemProps, HiddenSystemProps {
 }

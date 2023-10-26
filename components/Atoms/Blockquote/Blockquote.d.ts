@@ -1,4 +1,5 @@
 import React from 'react';
-import { AsProps, ColorSystemProps, MarginSystemProps } from '../../../types';
-export type BlockquoteProps = AsProps<'blockquote'> & MarginSystemProps & Pick<ColorSystemProps, 'bg'>;
-export declare const Blockquote: React.FC<BlockquoteProps>;
+import type { BoxProps } from '../../../components';
+export interface BlockquoteProps extends BoxProps {
+}
+export declare const Blockquote: import("react-polymorphed").PolyForwardComponent<"blockquote", BlockquoteProps, React.ElementType<any>>;

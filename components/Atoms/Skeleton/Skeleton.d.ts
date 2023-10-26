@@ -1,6 +1,6 @@
-import { BoxProps } from '../../../components';
-export interface SkeletonOptions {
+import React from 'react';
+import type { BoxProps } from '../../../components';
+export interface SkeletonProps extends BoxProps {
     isLoading?: boolean;
 }
-export type SkeletonProps = BoxProps<'div'> & SkeletonOptions;
-export declare const Skeleton: import("../../../types").ComponentWithAs<"div", SkeletonProps>;
+export declare const Skeleton: import("react-polymorphed").PolyForwardComponent<"div", SkeletonProps, React.ElementType<any>>;

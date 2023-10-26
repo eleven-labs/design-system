@@ -1,6 +1,7 @@
-import { As, AsProps, ColorSystemProps, HiddenSystemProps, SpacingSystemProps, TextSizeType, TypographySystemProps } from '../../../../types';
-export interface TextOptions {
+import * as React from 'react';
+import type { BoxProps } from '../../../../components';
+import type { TextSizeType, TypographySystemProps } from '../../../../types';
+export interface TextProps extends BoxProps, TypographySystemProps {
     size?: TextSizeType;
 }
-export type TextProps<T extends As = 'p'> = AsProps<T> & TextOptions & Omit<TypographySystemProps, 'textSize'> & Pick<ColorSystemProps, 'color'> & SpacingSystemProps & HiddenSystemProps;
-export declare const Text: import('../../../../types').ComponentWithAs<"p", TextProps<"p">>;
+export declare const Text: import("react-polymorphed").PolyForwardComponent<"p", TextProps, React.ElementType<any>>;

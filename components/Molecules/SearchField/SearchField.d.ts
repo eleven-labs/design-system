@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { BoxProps } from '../../../components';
-import { AsProps } from '../../../types';
-export type SearchFieldOptions = {
-    input: React.ComponentPropsWithRef<'input'>;
-    buttonSearch: AsProps<'button'>;
-    buttonClose?: AsProps<'button'>;
-};
-export type SearchFieldProps = BoxProps & SearchFieldOptions;
-export declare const SearchField: import('../../../types').ComponentWithAs<"div", SearchFieldProps>;
+import type { PolymorphicPropsWithoutRef } from 'react-polymorphed';
+import type { BoxProps } from '../../../components';
+export interface SearchFieldProps extends BoxProps {
+    input: Omit<PolymorphicPropsWithoutRef<'input', {}>, keyof BoxProps>;
+    buttonSearch: Omit<PolymorphicPropsWithoutRef<'button', {}>, keyof BoxProps>;
+    buttonClose?: Omit<PolymorphicPropsWithoutRef<'button', {}>, keyof BoxProps>;
+}
+export declare const SearchField: import("react-polymorphed").PolyForwardComponent<"div", SearchFieldProps, React.ElementType<any>>;

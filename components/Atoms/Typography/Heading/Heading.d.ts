@@ -1,6 +1,7 @@
-import { As, AsProps, ColorSystemProps, HeadingSizeType, SpacingSystemProps, TypographySystemProps } from '../../../../types';
-export interface HeadingOptions {
+import * as React from 'react';
+import type { BoxProps } from '../../../../components';
+import type { HeadingSizeType, TypographySystemProps } from '../../../../types';
+export interface HeadingProps extends BoxProps, TypographySystemProps {
     size?: HeadingSizeType;
 }
-export type HeadingProps<T extends As = 'h1'> = AsProps<T> & HeadingOptions & Omit<TypographySystemProps, 'textSize' | 'fontWeight'> & Pick<ColorSystemProps, 'color'> & SpacingSystemProps;
-export declare const Heading: import('../../../../types').ComponentWithAs<"h1", HeadingProps<"h1">>;
+export declare const Heading: import("react-polymorphed").PolyForwardComponent<"h1", HeadingProps, React.ElementType<any>>;

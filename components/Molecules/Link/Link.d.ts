@@ -1,7 +1,8 @@
-import { TextProps } from '../../../components';
-import { As, IconNameType } from '../../../types';
-export type LinkOptions = {
+import * as React from 'react';
+import type { IconNameType } from '../../../types';
+export interface LinkProps {
+    className?: string;
     icon?: IconNameType;
-};
-export type LinkProps<T extends As = 'a'> = Omit<TextProps<T>, 'color' | 'underline' | 'fontWeight'> & LinkOptions;
-export declare const Link: import('../../../types').ComponentWithAs<"a", LinkProps<"a">>;
+    children: React.ReactNode;
+}
+export declare const Link: import("react-polymorphed").PolyForwardComponent<"a", LinkProps, React.ElementType<any>>;

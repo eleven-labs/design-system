@@ -1,4 +1,4 @@
-import { cssProperties } from '../constants';
+import type { cssProperties } from '../constants';
 export type TextAlignType = keyof (typeof cssProperties)['text-align'];
 export type TextTransformType = keyof (typeof cssProperties)['text-transform'];
 export type DisplayType = keyof (typeof cssProperties)['display'];

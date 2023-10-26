@@ -1,8 +1,7 @@
-import { TextOptions } from '../../../components';
-import { As, AsProps, HiddenSystemProps, MarginSystemProps } from '../../../types';
-export type TextHighlightOptions = {
+import * as React from 'react';
+import type { TextProps } from '../../../components';
+export interface TextHighlightProps extends TextProps {
     text: string;
     textQuery?: string;
-};
-export type TextHighlightProps<T extends As = 'p'> = AsProps<T> & MarginSystemProps & HiddenSystemProps & TextOptions & TextHighlightOptions;
-export declare const TextHighlight: import('../../../types').ComponentWithAs<"p", TextHighlightProps<"p">>;
+}
+export declare const TextHighlight: import("react-polymorphed").PolyForwardComponent<"p", TextHighlightProps, React.ElementType<any>>;

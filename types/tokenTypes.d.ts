@@ -1,4 +1,4 @@
-import { tokenVariables } from '../constants';
+import type { tokenVariables } from '../constants';
 export type ColorType = keyof (typeof tokenVariables)['color']['primary'] | keyof (typeof tokenVariables)['color']['secondary'] | keyof (typeof tokenVariables)['color']['greyscale'];
 export type SpacingType = keyof (typeof tokenVariables)['spacing'];
 export type WidthType = keyof (typeof tokenVariables)['width'];

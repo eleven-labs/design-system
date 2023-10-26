@@ -1,3 +1,7 @@
-import { As, AsProps, SystemProps } from '../../../../types';
-export type BoxProps<T extends As = 'div'> = AsProps<T> & SystemProps;
-export declare const Box: import('../../../../types').ComponentWithAs<"div", BoxProps<"div">>;
+import * as React from 'react';
+import type { SystemProps } from '../../../../types';
+export interface BoxProps extends SystemProps {
+    className?: string;
+    children?: React.ReactNode;
+}
+export declare const Box: import("react-polymorphed").PolyForwardComponent<"div", BoxProps, React.ElementType<any>>;

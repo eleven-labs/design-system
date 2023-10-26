@@ -8,4 +8,3 @@ export * from './typographySystemClassName';
 export * from './hiddenSystemClassName';
 export * from './omitSystemProps';
 export * from './systemClassName';
-export * from './forwardRef';
