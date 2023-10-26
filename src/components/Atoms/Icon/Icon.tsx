@@ -5,7 +5,7 @@ import { Svgs } from '@/components';
 import { marginSystemProps } from '@/constants';
 import { pascalCase } from '@/helpers/stringHelper';
 import { colorSystemClassName, omitSystemProps, spacingSystemClassName } from '@/helpers/systemPropsHelper';
-import { ColorSystemProps, IconNameType, MarginSystemProps } from '@/types';
+import type { ColorSystemProps, IconNameType, MarginSystemProps } from '@/types';
 
 export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'name' | 'color'> &
   MarginSystemProps &

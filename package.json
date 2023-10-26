@@ -1,18 +1,13 @@
 {
   "name": "@eleven-labs/design-system",
   "description": "Design System for Eleven Labs",
-  "version": "0.6.3",
+  "version": "0.10.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eleven-labs/design-system.git"
   },
   "author": "Eleven Labs <contact@eleven-labs.com>",
   "license": "MIT",
-  "keywords": [
-    "eslint",
-    "lint",
-    "prettier"
-  ],
   "type": "module",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.es.js",
@@ -39,7 +34,7 @@
     "start:storybook": "storybook dev -p 6009",
     "build:storybook": "yarn build && yarn storybook build",
     "lint:style": "stylelint 'src/**/*.scss'",
-    "lint:es": "eslint --ext .ts,.tsx src bin .storybook",
+    "lint:es": "eslint --ext .ts,.tsx src",
     "lint": "yarn lint:style && yarn lint:es",
     "test": "jest"
   },
@@ -56,9 +51,11 @@
     "yarn": ">= 1.2.0",
     "node": ">= 14.0"
   },
+  "prettier": "@eleven-labs/prettier-config",
   "dependencies": {
     "autosuggest-highlight": "^3.3.4",
     "classnames": "^2.3.2",
+    "react-polymorphed": "^2.2.1",
     "react-syntax-highlighter": "^15.5.0"
   },
   "peerDependencies": {
@@ -68,7 +65,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
-    "@elevenlabs/eslint-config": "^0.0.1",
+    "@eleven-labs/eslint-config": "^1.0.0",
+    "@eleven-labs/prettier-config": "^1.0.0",
     "@storybook/addon-actions": "^7.0.22",
     "@storybook/addon-essentials": "^7.0.22",
     "@storybook/addon-interactions": "^7.0.22",
@@ -84,7 +82,7 @@
     "@types/react-syntax-highlighter": "^15.5.7",
     "@vitejs/plugin-react": "^4.0.1",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.26.0",
+    "eslint": "^8.52.0",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "lint-staged": "^13.2.2",
@@ -92,7 +90,7 @@
     "postcss": "^8.4.24",
     "postcss-normalize": "^10.0.1",
     "postcss-scss": "^4.0.6",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",

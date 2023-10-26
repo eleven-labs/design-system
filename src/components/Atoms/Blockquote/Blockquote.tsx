@@ -1,13 +1,18 @@
-import './Blockquote.scss';
-
 import classNames from 'classnames';
 import React from 'react';
 
+import type { BoxProps } from '@/components';
 import { Box } from '@/components';
-import { AsProps, ColorSystemProps, MarginSystemProps } from '@/types';
+import { polyRef } from '@/helpers/polyRef';
 
-export type BlockquoteProps = AsProps<'blockquote'> & MarginSystemProps & Pick<ColorSystemProps, 'bg'>;
+import './Blockquote.scss';
 
-export const Blockquote: React.FC<BlockquoteProps> = (props) => (
-  <Box {...(props as AsProps)} as="blockquote" className={classNames('blockquote', props.className)} />
+export interface BlockquoteProps extends BoxProps {}
+
+export const Blockquote = polyRef<'blockquote', BlockquoteProps>(
+  ({ as = 'blockquote', children, className, ...props }, ref) => (
+    <Box {...props} as={as} ref={ref} className={classNames('blockquote', className)}>
+      {children}
+    </Box>
+  )
 );

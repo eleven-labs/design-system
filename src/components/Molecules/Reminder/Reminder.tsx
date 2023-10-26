@@ -1,9 +1,11 @@
-import './Reminder.scss';
-
 import classNames from 'classnames';
 import React from 'react';
 
-import { Box, BoxProps, Text } from '@/components';
+import type { BoxProps } from '@/components';
+import { Box, Text } from '@/components';
+import { polyRef } from '@/helpers/polyRef';
+
+import './Reminder.scss';
 
 export const reminderVariantList = [
   'note',
@@ -22,15 +24,14 @@ export const reminderVariantList = [
 
 export type ReminderVariantType = (typeof reminderVariantList)[number];
 
-export type ReminderOptions = {
+export interface ReminderProps extends BoxProps {
   variant: ReminderVariantType;
   title: React.ReactNode;
-};
-export type ReminderProps = BoxProps & ReminderOptions;
+}
 
-export const Reminder: React.FC<ReminderProps> = ({ variant, title, children, ...nativeProps }) => (
-  <Box {...nativeProps} className={classNames('reminder', `reminder--${variant}`)}>
+export const Reminder = polyRef<'div', ReminderProps>(({ as = 'div', variant, title, children, ...props }, ref) => (
+  <Box {...props} as={as} ref={ref} className={classNames('reminder', `reminder--${variant}`)}>
     <Text className="reminder__title">{title}</Text>
     <Box p="xxs">{children}</Box>
   </Box>
-);
+));

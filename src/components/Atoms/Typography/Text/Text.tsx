@@ -1,29 +1,17 @@
+import classNames from 'classnames';
 import * as React from 'react';
 
+import type { BoxProps } from '@/components';
 import { Box } from '@/components';
-import { forwardRef } from '@/helpers/systemPropsHelper';
-import {
-  As,
-  AsProps,
-  ColorSystemProps,
-  HiddenSystemProps,
-  SpacingSystemProps,
-  TextSizeType,
-  TypographySystemProps,
-} from '@/types';
+import { polyRef } from '@/helpers/polyRef';
+import type { TextSizeType, TypographySystemProps } from '@/types';
 
-export interface TextOptions {
+export interface TextProps extends BoxProps, TypographySystemProps {
   size?: TextSizeType;
 }
-export type TextProps<T extends As = 'p'> = AsProps<T> &
-  TextOptions &
-  Omit<TypographySystemProps, 'textSize'> &
-  Pick<ColorSystemProps, 'color'> &
-  SpacingSystemProps &
-  HiddenSystemProps;
 
-export const Text = forwardRef<TextProps, 'p'>(({ as = 'p', size, children, ...props }, ref) => (
-  <Box {...props} as={as} ref={ref} textSize={size}>
+export const Text = polyRef<'p', TextProps>(({ as = 'p', size, className, children, ...props }, ref) => (
+  <Box {...props} as={as} ref={ref} className={classNames({ [`text-${size}`]: Boolean(size) }, className)}>
     {children}
   </Box>
 ));

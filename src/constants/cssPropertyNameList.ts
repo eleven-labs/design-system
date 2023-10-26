@@ -1,5 +1,5 @@
 import { cssProperties } from '@/constants/cssProperties';
-import {
+import type {
   AlignContentType,
   AlignItemsType,
   AlignSelfType,

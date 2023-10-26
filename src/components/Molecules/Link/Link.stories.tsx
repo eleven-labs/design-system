@@ -1,24 +1,14 @@
-import { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import {
-  spacingSystemPropsControls,
-  typographySystemPropsControls as typographySystemPropsControlsBase,
-} from '@/constants/storybook';
+import { Heading, Text } from '@/components';
 
 import { Link } from './Link';
-
-const { underline, fontWeight, ...typographySystemPropsControls } = typographySystemPropsControlsBase;
 
 export default {
   title: 'Components/Molecules/Link',
   component: Link,
-  argTypes: {
-    ...typographySystemPropsControls,
-    ...spacingSystemPropsControls,
-  },
   args: {
-    size: 'm',
     children: 'Link Label',
     href: 'https://eleven-labs.com/',
     target: '_blank',
@@ -30,19 +20,16 @@ export default {
 
 const Template: StoryFn<typeof Link> = (args) => <Link {...args} />;
 
-export const LinkWithSizeXS = Template.bind({});
-LinkWithSizeXS.args = {
-  size: 'xs',
-};
-
-export const LinkWithSizeS = Template.bind({});
-LinkWithSizeS.args = {
-  size: 's',
-};
-
-export const LinkWithSizeM = Template.bind({});
-LinkWithSizeM.args = {
+export const LinkWithText = Template.bind({});
+LinkWithText.args = {
+  as: Text,
   size: 'm',
+};
+
+export const LinkWithHeading = Template.bind({});
+LinkWithHeading.args = {
+  as: Heading,
+  size: 'l',
 };
 
 export const LinkWithIcon = Template.bind({});

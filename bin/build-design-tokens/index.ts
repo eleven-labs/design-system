@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import './formats/register';
-import './transforms/register';
-
 import type { File, TransformedToken } from 'style-dictionary';
 import StyleDictionary from 'style-dictionary';
+
+import './formats/register';
+import './transforms/register';
 
 const filterExcludesCategories = (token: TransformedToken, categories: string[]): boolean =>
   token?.attributes?.category ? !categories.includes(token.attributes.category) : false;

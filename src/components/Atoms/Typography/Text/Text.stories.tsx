@@ -1,21 +1,16 @@
-import { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import {
-  spacingSystemPropsControls,
-  typographySystemPropsControls as typographySystemPropsControlsBase,
-} from '@/constants/storybook';
+import { systemPropsControls, typographySystemPropsControls } from '@/constants/storybook';
 
 import { Text } from './Text';
-
-const { textSize, ...typographySystemPropsControls } = typographySystemPropsControlsBase;
 
 export default {
   title: 'Components/Atoms/Typography/Text',
   component: Text,
   argTypes: {
+    ...systemPropsControls,
     ...typographySystemPropsControls,
-    ...spacingSystemPropsControls,
   },
   args: {
     size: 'm',

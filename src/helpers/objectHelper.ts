@@ -1,5 +1,5 @@
 export const get = <TObject extends Record<string, unknown>, TValue = unknown, TDefaultValue = unknown>(
-  obj: TObject,
+  object: TObject,
   path: string,
   defaultValue?: TDefaultValue
 ): TValue => {
@@ -7,7 +7,11 @@ export const get = <TObject extends Record<string, unknown>, TValue = unknown, T
     String.prototype.split
       .call(path, regexp)
       .filter(Boolean)
-      .reduce<TObject>((res, key) => (res !== null && res !== undefined ? (res[key] as TObject) : res), obj);
-  const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/);
-  return (result === undefined || result === obj ? defaultValue : result) as TValue;
+      .reduce<TObject>(
+        (currentResult, key) =>
+          currentResult !== null && currentResult !== undefined ? (currentResult[key] as TObject) : currentResult,
+        object
+      );
+  const result = travel(/[,[\]]+?/) || travel(/[,.[\]]+?/);
+  return (result === undefined || result === object ? defaultValue : result) as TValue;
 };

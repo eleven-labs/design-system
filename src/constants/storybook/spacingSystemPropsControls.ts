@@ -1,10 +1,9 @@
-import { ArgTypes } from '@storybook/csf';
+import type { ArgTypes } from '@storybook/csf';
 
 import { spacingTokenNameList } from '@/constants';
+import { paddingSystemProps, spacingSystemProps } from '@/constants';
 import { createControls } from '@/helpers/storybookHelper';
 import type { MarginSystemProps, PaddingSystemProps, SpacingSystemProps } from '@/types';
-
-import { paddingSystemProps, spacingSystemProps } from '../systemProps';
 
 export const marginSystemPropsControls = createControls<MarginSystemProps>({
   category: 'Spacing System Props',

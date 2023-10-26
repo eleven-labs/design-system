@@ -1,31 +1,29 @@
-import './Link.scss';
-
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Flex, Icon, Text, TextProps } from '@/components';
-import { forwardRef } from '@/helpers/systemPropsHelper';
-import { As, AsProps, IconNameType } from '@/types';
+import { Box, Flex, Icon, Text } from '@/components';
+import { polyRef } from '@/helpers/polyRef';
+import type { IconNameType } from '@/types';
 
-export type LinkOptions = {
+import './Link.scss';
+
+export interface LinkProps {
+  className?: string;
   icon?: IconNameType;
-};
+  children: React.ReactNode;
+}
 
-export type LinkProps<T extends As = 'a'> = Omit<TextProps<T>, 'color' | 'underline' | 'fontWeight'> & LinkOptions;
-
-export const Link = forwardRef<LinkProps, 'a'>(({ as = 'a', size, icon, children, ...props }, ref) => (
-  <Flex
-    {...(props as AsProps)}
-    ref={ref}
-    as={as}
-    alignItems="center"
-    color="amaranth"
-    className={classNames('link', props.className)}
-    textSize={size}
-  >
-    {icon && <Icon name={icon} />}
-    <Text as="span">{children}</Text>
-  </Flex>
-));
+export const Link = polyRef<'a', LinkProps>(({ as = 'a', icon, className, children, ...props }, ref) =>
+  icon ? (
+    <Flex {...props} ref={ref} as={as} alignItems="center" color="amaranth" className={classNames('link', className)}>
+      {icon && <Icon name={icon} />}
+      <Text as="span">{children}</Text>
+    </Flex>
+  ) : (
+    <Box {...props} ref={ref} as={as} color="amaranth" className={classNames('link', className)}>
+      {children}
+    </Box>
+  )
+);
 
 Link.displayName = 'Link';

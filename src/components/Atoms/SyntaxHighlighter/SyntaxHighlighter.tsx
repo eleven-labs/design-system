@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-  Light as SyntaxHighlighterBase,
-  SyntaxHighlighterProps as SyntaxHighlighterBaseProps,
-} from 'react-syntax-highlighter';
+import type { SyntaxHighlighterProps as SyntaxHighlighterBaseProps } from 'react-syntax-highlighter';
+import { Light as SyntaxHighlighterBase } from 'react-syntax-highlighter';
 import githubGist from 'react-syntax-highlighter/dist/cjs/styles/hljs/github-gist';
 import bash from 'react-syntax-highlighter/dist/esm/languages/hljs/bash';
 import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript';
@@ -14,7 +12,7 @@ import typescript from 'react-syntax-highlighter/dist/esm/languages/hljs/typescr
 import xml from 'react-syntax-highlighter/dist/esm/languages/hljs/xml';
 import yaml from 'react-syntax-highlighter/dist/esm/languages/hljs/yaml';
 
-import { MarginSystemProps } from '@/types';
+import type { MarginSystemProps } from '@/types';
 
 export type SyntaxHighlighterProps = MarginSystemProps & Pick<SyntaxHighlighterBaseProps, 'language' | 'children'>;
 

@@ -1,6 +1,6 @@
 import { displayCssPropertyNameList, heightTokenNameList, layoutSystemProps, widthTokenNameList } from '@/constants';
 import { createControls } from '@/helpers/storybookHelper';
-import { LayoutSystemProps } from '@/types/SystemProps';
+import type { LayoutSystemProps } from '@/types/SystemProps';
 
 export const layoutSystemPropsControls = createControls<LayoutSystemProps>({
   category: 'Layout System Props',

@@ -1,7 +1,7 @@
 import StyleDictionary from 'style-dictionary';
-import { Options } from 'style-dictionary';
-import { FormatterArguments } from 'style-dictionary/types/Format';
-import { TransformedToken, TransformedTokens } from 'style-dictionary/types/TransformedToken';
+import type { Options } from 'style-dictionary';
+import type { FormatterArguments } from 'style-dictionary/types/Format';
+import type { TransformedToken, TransformedTokens } from 'style-dictionary/types/TransformedToken';
 
 import { getDefaultHeader } from '../../helpers';
 

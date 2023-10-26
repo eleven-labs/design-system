@@ -1,4 +1,4 @@
-import { cssProperties } from '@/constants';
+import type { cssProperties } from '@/constants';
 
 /* Typography */
 export type TextAlignType = keyof (typeof cssProperties)['text-align'];

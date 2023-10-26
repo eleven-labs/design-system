@@ -1,5 +1,5 @@
-import { ControlType } from '@storybook/blocks';
-import { ArgTypes, InputType } from '@storybook/csf';
+import type { ControlType } from '@storybook/blocks';
+import type { ArgTypes, InputType } from '@storybook/csf';
 
 import { tokenVariables } from '@/constants';
 import { get } from '@/helpers/objectHelper';
@@ -12,7 +12,7 @@ export const getLinkMdnByCssProperty = (cssProperty: string): string =>
 export const createDescription = (options: { cssProperties: string[]; cssValues?: string[] }): string => {
   const description: string[] = [];
   const cssProps = options.cssProperties
-    .map(kebabCase)
+    .map((cssProp) => kebabCase(cssProp))
     .map((cssProp) => ` [${cssProp}](${getLinkMdnByCssProperty(cssProp)})`)
     .join(', ');
 
@@ -32,8 +32,8 @@ export const createControls = <T>(parameters: {
   subCategory?: string;
   controlType?: Partial<Record<keyof T, ControlType>>;
   options?: Partial<Record<keyof T, readonly string[]>> | readonly string[];
-}): Partial<ArgTypes<T>> => {
-  return (Object.entries(parameters.props) as [keyof T, string[]][]).reduce<Partial<ArgTypes<T>>>(
+}): Partial<ArgTypes<T>> =>
+  (Object.entries(parameters.props) as [keyof T, string[]][]).reduce<Partial<ArgTypes<T>>>(
     (controls, [propName, cssProperties]) => {
       controls[propName] = {
         description: createDescription({
@@ -70,17 +70,13 @@ export const createControls = <T>(parameters: {
     },
     {}
   );
-};
 
 export const getValueOfCssPropertyInDesignTokens = (options: {
   path: string;
   tokenName: string;
   device: 'mobile' | 'desktop';
   propertyCSS: string;
-}): number | string => {
-  return (
-    get(tokenVariables, `${options.device}.${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
-    get(tokenVariables, `${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
-    get(tokenVariables, `${options.path}.base.${options.propertyCSS}.value`)
-  );
-};
+}): number | string =>
+  get(tokenVariables, `${options.device}.${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
+  get(tokenVariables, `${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
+  get(tokenVariables, `${options.path}.base.${options.propertyCSS}.value`);
