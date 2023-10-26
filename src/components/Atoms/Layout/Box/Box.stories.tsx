@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { Heading } from '@/components';
@@ -27,7 +27,7 @@ const Template: StoryFn<typeof Box> = (args) => <Box {...args} />;
 
 export const Overview = Template.bind({});
 
-export const HiddenSystemProps = (): JSX.Element => (
+export const HiddenSystemProps = (): React.JSX.Element => (
   <>
     <Box hiddenAbove="md">
       This text hides at the "md" value screen width or{' '}

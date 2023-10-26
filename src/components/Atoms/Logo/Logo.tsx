@@ -1,10 +1,11 @@
-import './Logo.scss';
-
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Box, Flex, FlexProps, Svgs, Text } from '@/components';
+import type { FlexProps } from '@/components';
+import { Box, Flex, Svgs, Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
+
+import './Logo.scss';
 
 export const logoName = ['website', 'blog'] as const;
 export type LogoNameType = (typeof logoName)[number];

@@ -1,4 +1,4 @@
-import { tokenVariables } from '@/constants';
+import type { tokenVariables } from '@/constants';
 
 export type ColorType =
   | keyof (typeof tokenVariables)['color']['primary']

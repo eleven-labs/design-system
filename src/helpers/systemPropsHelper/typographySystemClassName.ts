@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 
 import { classNamesWithModifiers } from '@/helpers/systemPropsHelper/classNamesWithModifiers';
-import { MediaQueryType, TextAlignType, TypographySystemProps } from '@/types';
+import type { MediaQueryType, TextAlignType, TypographySystemProps } from '@/types';
 
 export const typographySystemClassName = <TProps extends TypographySystemProps>({
   textAlign,
   ...props
-}: TProps): string => {
-  return classNames(
+}: TProps): string =>
+  classNames(
     ...classNamesWithModifiers<MediaQueryType, TextAlignType>({
       propValue: textAlign,
       className: 'text',
@@ -19,4 +19,3 @@ export const typographySystemClassName = <TProps extends TypographySystemProps>(
       [`text-italic`]: props.italic,
     }
   );
-};

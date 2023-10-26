@@ -1,4 +1,4 @@
 import { forwardRef } from 'react';
-import { PolyRefFunction } from 'react-polymorphed';
+import type { PolyRefFunction } from 'react-polymorphed';
 
 export const polyRef = forwardRef as PolyRefFunction;

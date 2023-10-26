@@ -4,7 +4,7 @@ import { colorSystemClassName } from '@/helpers/systemPropsHelper/colorSystemCla
 import { hiddenSystemClassName } from '@/helpers/systemPropsHelper/hiddenSystemClassName';
 import { layoutSystemClassName } from '@/helpers/systemPropsHelper/layoutSystemClassName';
 import { spacingSystemClassName } from '@/helpers/systemPropsHelper/spacingSystemClassName';
-import { SystemProps } from '@/types';
+import type { SystemProps } from '@/types';
 
 export const systemClassName = <TProps extends SystemProps = SystemProps>(props: TProps): string =>
   classNames(

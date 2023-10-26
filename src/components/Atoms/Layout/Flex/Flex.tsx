@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Box, BoxProps } from '@/components';
+import type { BoxProps } from '@/components';
+import { Box } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
 import { flexBoxSystemClassName } from '@/helpers/systemPropsHelper';
-import { DisplayType, FlexBoxSystemProps, TypeWithMediaQueriesType } from '@/types';
+import type { DisplayType, FlexBoxSystemProps, TypeWithMediaQueriesType } from '@/types';
 
 export interface FlexProps extends Omit<BoxProps, 'display'>, FlexBoxSystemProps {
   display?: TypeWithMediaQueriesType<Extract<DisplayType, 'flex' | 'inline-flex'>>;

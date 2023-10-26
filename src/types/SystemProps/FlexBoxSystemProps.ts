@@ -6,7 +6,7 @@ import type {
   SpacingType,
   TypeWithMediaQueriesType,
 } from '@/types';
-import { AlignSelfType, FlexBasisType, FlexDirectionType, FlexWrapType } from '@/types';
+import type { AlignSelfType, FlexBasisType, FlexDirectionType, FlexWrapType } from '@/types';
 
 export interface FlexBoxSystemProps {
   /**

@@ -1,3 +1,12 @@
 {
-  "extends": "@elevenlabs/eslint-config"
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "@eleven-labs/eslint-config/typescript",
+    "@eleven-labs/eslint-config/react"
+  ],
+  "rules": {
+    "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}]
+  }
 }

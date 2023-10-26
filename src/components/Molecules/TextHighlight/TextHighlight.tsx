@@ -2,7 +2,8 @@ import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import * as React from 'react';
 
-import { Text, TextProps } from '@/components';
+import type { TextProps } from '@/components';
+import { Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
 
 export interface TextHighlightProps extends TextProps {

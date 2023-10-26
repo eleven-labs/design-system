@@ -1,10 +1,11 @@
-import './Skeleton.scss';
-
 import classNames from 'classnames';
 import React from 'react';
 
-import { Box, BoxProps } from '@/components';
+import type { BoxProps } from '@/components';
+import { Box } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
+
+import './Skeleton.scss';
 
 export interface SkeletonProps extends BoxProps {
   isLoading?: boolean;
@@ -18,11 +19,9 @@ export const Skeleton = polyRef<'div', SkeletonProps>(({ as = 'div', isLoading =
         as={as}
         ref={ref}
         bg="ultra-light-grey"
-        className={classNames(classNames(isLoading ? ['skeleton', 'animate-pulse'] : undefined), props.className)}
+        className={classNames(isLoading ? ['skeleton', 'animate-pulse'] : undefined, props.className)}
       >
-        {children ? (
-          children
-        ) : (
+        {children ?? (
           <Box>
             <>&nbsp;</>
           </Box>

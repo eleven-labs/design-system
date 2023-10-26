@@ -1,4 +1,4 @@
-import { SystemProps } from '@/types';
+import type { SystemProps } from '@/types';
 
 import { colorSystemProps } from './colorSystemProps';
 import { flexBoxSystemProps } from './flexBoxSystemProps';

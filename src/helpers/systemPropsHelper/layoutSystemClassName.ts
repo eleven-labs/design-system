@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { classNamesWithModifiers } from '@/helpers/systemPropsHelper';
 import type { DisplayType, LayoutSystemProps } from '@/types';
-import { HeightType, MediaQueryType, WidthType } from '@/types';
+import type { HeightType, MediaQueryType, WidthType } from '@/types';
 
 export const layoutSystemClassName = <TProps extends LayoutSystemProps>(props: TProps): string =>
   classNames(

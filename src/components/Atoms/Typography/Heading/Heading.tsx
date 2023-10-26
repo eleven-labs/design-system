@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-import { Box, BoxProps } from '@/components';
+import type { BoxProps } from '@/components';
+import { Box } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
-import { HeadingSizeType, TypographySystemProps } from '@/types';
+import type { HeadingSizeType, TypographySystemProps } from '@/types';
 
 export interface HeadingProps extends BoxProps, TypographySystemProps {
   size?: HeadingSizeType;

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { classNamesWithModifiers } from '@/helpers/systemPropsHelper';
 import type { FlexBoxSystemProps, FlexDirectionType, FlexType, SpacingType } from '@/types';
-import {
+import type {
   AlignContentType,
   AlignItemsType,
   AlignSelfType,

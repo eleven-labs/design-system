@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { HiddenSystemProps } from '@/types';
+import type { HiddenSystemProps } from '@/types';
 
 export const hiddenSystemClassName = <TProps extends HiddenSystemProps>(props: TProps): string =>
   classNames({

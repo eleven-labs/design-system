@@ -1,11 +1,11 @@
-import './Button.scss';
-
 import classNames from 'classnames';
 import * as React from 'react';
 
 import { Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
-import { SpacingSystemProps } from '@/types';
+import type { SpacingSystemProps } from '@/types';
+
+import './Button.scss';
 
 export const buttonVariant = ['primary', 'secondary'] as const;
 export type ButtonVariantType = (typeof buttonVariant)[number];

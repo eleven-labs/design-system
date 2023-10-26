@@ -1,4 +1,4 @@
-import { ArgTypes } from '@storybook/csf';
+import type { ArgTypes } from '@storybook/csf';
 
 import { hiddenSystemPropsControls } from '@/constants/storybook/hiddenSystemPropsControls';
 import type { SystemProps } from '@/types';

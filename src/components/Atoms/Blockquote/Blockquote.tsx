@@ -1,10 +1,11 @@
-import './Blockquote.scss';
-
 import classNames from 'classnames';
 import React from 'react';
 
-import { Box, BoxProps } from '@/components';
+import type { BoxProps } from '@/components';
+import { Box } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
+
+import './Blockquote.scss';
 
 export interface BlockquoteProps extends BoxProps {}
 

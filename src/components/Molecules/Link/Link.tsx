@@ -1,11 +1,11 @@
-import './Link.scss';
-
 import classNames from 'classnames';
 import * as React from 'react';
 
 import { Box, Flex, Icon, Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
-import { IconNameType } from '@/types';
+import type { IconNameType } from '@/types';
+
+import './Link.scss';
 
 export interface LinkProps {
   className?: string;

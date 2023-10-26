@@ -4,7 +4,7 @@ import * as React from 'react';
 import { systemProps } from '@/constants';
 import { polyRef } from '@/helpers/polyRef';
 import { omitSystemProps, systemClassName } from '@/helpers/systemPropsHelper';
-import { SystemProps } from '@/types';
+import type { SystemProps } from '@/types';
 
 export interface BoxProps extends SystemProps {
   className?: string;

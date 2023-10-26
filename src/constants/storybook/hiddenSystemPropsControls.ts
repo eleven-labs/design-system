@@ -1,6 +1,6 @@
 import { hiddenSystemProps, mediaQueriesList } from '@/constants';
 import { createControls } from '@/helpers/storybookHelper';
-import { HiddenSystemProps } from '@/types';
+import type { HiddenSystemProps } from '@/types';
 
 export const hiddenSystemPropsControls = createControls<HiddenSystemProps>({
   category: 'Hidden System Props',

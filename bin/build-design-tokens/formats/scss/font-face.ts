@@ -1,5 +1,5 @@
 import StyleDictionary from 'style-dictionary';
-import { FormatterArguments } from 'style-dictionary/types/Format';
+import type { FormatterArguments } from 'style-dictionary/types/Format';
 import type { Options } from 'style-dictionary/types/Options';
 import type { TransformedToken } from 'style-dictionary/types/TransformedToken';
 
@@ -53,7 +53,7 @@ const processJsonNode = (
         fontVariable.push(`\n\t\t'extensions': ${extensions},`);
       }
 
-      currentFontVariables.push(fontVariable.concat('\n\t)').join(''));
+      currentFontVariables.push([...fontVariable, '\n\t)'].join(''));
 
       return currentFontVariables;
     }, [])

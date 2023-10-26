@@ -1,4 +1,4 @@
-import { MediaQueryType } from '@/types';
+import type { MediaQueryType } from '@/types';
 
 export interface HiddenSystemProps {
   /**

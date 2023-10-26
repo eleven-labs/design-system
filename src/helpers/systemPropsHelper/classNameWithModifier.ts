@@ -1,4 +1,4 @@
-import { kebabCase } from '../stringHelper';
+import { kebabCase } from '@/helpers/stringHelper';
 
 export const classNameWithModifier = <TPropValue extends string | number | boolean>(options: {
   className: string;

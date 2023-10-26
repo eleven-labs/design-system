@@ -1,4 +1,4 @@
-import { DisplayType, HeightType, TypeWithMediaQueriesType, WidthType } from '@/types';
+import type { DisplayType, HeightType, TypeWithMediaQueriesType, WidthType } from '@/types';
 
 export interface LayoutSystemProps {
   /**

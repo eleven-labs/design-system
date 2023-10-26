@@ -1,10 +1,11 @@
-import './Reminder.scss';
-
 import classNames from 'classnames';
 import React from 'react';
 
-import { Box, BoxProps, Text } from '@/components';
+import type { BoxProps } from '@/components';
+import { Box, Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
+
+import './Reminder.scss';
 
 export const reminderVariantList = [
   'note',
