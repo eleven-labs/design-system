@@ -15,7 +15,15 @@ export interface LinkProps {
 
 export const Link = polyRef<'a', LinkProps>(({ as = 'a', icon, className, children, ...props }, ref) =>
   icon ? (
-    <Flex {...props} ref={ref} as={as} alignItems="center" color="amaranth" className={classNames('link', className)}>
+    <Flex
+      {...props}
+      ref={ref}
+      as={as}
+      display="inline-flex"
+      alignItems="center"
+      color="amaranth"
+      className={classNames('link', className)}
+    >
       {icon && <Icon name={icon} />}
       <Text as="span">{children}</Text>
     </Flex>
