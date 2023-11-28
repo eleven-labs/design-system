@@ -71,6 +71,29 @@ jobs:
       - name: Run Tests
         run: npm run test
 
+  visual-regression:
+    runs-on: ubuntu-latest
+    needs: setup
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Restore NPM Cache
+        uses: ./.github/actions/restore-npm-cache
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Build Storybook
+        run: npm run build:storybook --quiet
+
+      - name: Run Visual Regression Tests
+        run: |
+          npx --yes concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx --yes serve storybook-static -p 6006" \
+            "npx --yes wait-on tcp:6006 && npm run test-storybook"
+
   build:
     runs-on: ubuntu-latest
     needs: setup

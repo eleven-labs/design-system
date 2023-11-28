@@ -17,6 +17,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
+  tags: ['no-visual-regression-tests'],
 } as Meta<typeof Skeleton>;
 
 const Template: StoryFn<typeof Skeleton> = (args) => <Skeleton {...args} />;
