@@ -18,6 +18,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Restore NPM Cache
+        uses: ./.github/actions/restore-npm-cache
+
       - name: Build Library
         run: npm run build
 
