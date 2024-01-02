@@ -1,54 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Mon, 06 Nov 2023 12:38:47 GMT
+ * Generated on Tue, 02 Jan 2024 17:38:55 GMT
  */
 
 $token-variables: (
 	'cdn-path': "https://eleven-labs.github.io/design-system/",
-	'breakpoint': (
-		'xs': 0,
-		'sm': 571,
-		'md': 1001,
-		'lg': 1201
-	),
-	'color': (
-		'primary': (
-			'azure': var(--color-azure),
-			'navy': var(--color-navy)
-		),
-		'secondary': (
-			'lavender': var(--color-lavender),
-			'amaranth': var(--color-amaranth),
-			'yellow': var(--color-yellow)
-		),
-		'greyscale': (
-			'ultra-light-grey': var(--color-ultra-light-grey),
-			'light-grey': var(--color-light-grey),
-			'grey': var(--color-grey),
-			'dark-grey': var(--color-dark-grey),
-			'ultra-dark-grey': var(--color-ultra-dark-grey),
-			'black': var(--color-black),
-			'white': var(--color-white)
-		)
-	),
-	'height': (
-		'full': var(--height-full),
-		'screen': var(--height-screen)
-	),
-	'spacing': (
-		'0': var(--spacing-0),
-		'xxs-3': var(--spacing-xxs-3),
-		'xxs-2': var(--spacing-xxs-2),
-		'xxs': var(--spacing-xxs),
-		'xs': var(--spacing-xs),
-		's': var(--spacing-s),
-		'm': var(--spacing-m),
-		'l': var(--spacing-l),
-		'xl': var(--spacing-xl),
-		'xxl': var(--spacing-xxl),
-		'xxl-2': var(--spacing-xxl-2),
-		'xxl-3': var(--spacing-xxl-3)
-	),
 	'font-family': (
 		'base': var(--font-family-base),
 		'work-sans': var(--font-family-work-sans)
@@ -159,6 +115,50 @@ $token-variables: (
 		'base': var(--line-height-base),
 		'medium': var(--line-height-medium),
 		'large': var(--line-height-large)
+	),
+	'breakpoint': (
+		'xs': 0,
+		'sm': 571,
+		'md': 1001,
+		'lg': 1201
+	),
+	'color': (
+		'primary': (
+			'azure': var(--color-azure),
+			'navy': var(--color-navy)
+		),
+		'secondary': (
+			'lavender': var(--color-lavender),
+			'amaranth': var(--color-amaranth),
+			'yellow': var(--color-yellow)
+		),
+		'greyscale': (
+			'ultra-light-grey': var(--color-ultra-light-grey),
+			'light-grey': var(--color-light-grey),
+			'grey': var(--color-grey),
+			'dark-grey': var(--color-dark-grey),
+			'ultra-dark-grey': var(--color-ultra-dark-grey),
+			'black': var(--color-black),
+			'white': var(--color-white)
+		)
+	),
+	'height': (
+		'full': var(--height-full),
+		'screen': var(--height-screen)
+	),
+	'spacing': (
+		'0': var(--spacing-0),
+		'xxs-3': var(--spacing-xxs-3),
+		'xxs-2': var(--spacing-xxs-2),
+		'xxs': var(--spacing-xxs),
+		'xs': var(--spacing-xs),
+		's': var(--spacing-s),
+		'm': var(--spacing-m),
+		'l': var(--spacing-l),
+		'xl': var(--spacing-xl),
+		'xxl': var(--spacing-xxl),
+		'xxl-2': var(--spacing-xxl-2),
+		'xxl-3': var(--spacing-xxl-3)
 	),
 	'width': (
 		'full': var(--width-full),
