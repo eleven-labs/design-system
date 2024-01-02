@@ -26,12 +26,9 @@ const config: StorybookConfig = {
     }
 
     if (config.plugins) {
-      config.plugins = config.plugins.filter((plugin) => {
-        if (Array.isArray(plugin)) {
-          return plugin;
-        }
-        return (plugin as { name: string }).name !== 'peer-deps-external';
-      });
+      config.plugins = config.plugins.filter((plugin) =>
+        Array.isArray(plugin) ? plugin : !['peer-deps-external', 'vite:dts'].includes((plugin as { name: string }).name)
+      );
     }
 
     return mergeConfig(config, {
