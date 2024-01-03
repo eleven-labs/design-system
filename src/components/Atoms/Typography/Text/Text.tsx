@@ -4,9 +4,9 @@ import * as React from 'react';
 import type { BoxProps } from '@/components';
 import { Box } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
-import type { TextSizeType, TypographySystemProps } from '@/types';
+import type { TextSizeType } from '@/types';
 
-export interface TextProps extends BoxProps, TypographySystemProps {
+export interface TextProps extends Omit<BoxProps, 'textSize'> {
   size?: TextSizeType;
 }
 

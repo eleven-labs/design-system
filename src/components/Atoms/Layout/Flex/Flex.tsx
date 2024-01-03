@@ -5,9 +5,9 @@ import type { BoxProps } from '@/components';
 import { Box } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
 import { flexBoxSystemClassName } from '@/helpers/systemPropsHelper';
-import type { DisplayType, FlexBoxSystemProps, TypeWithMediaQueriesType } from '@/types';
+import type { DisplayType, TypeWithMediaQueriesType } from '@/types';
 
-export interface FlexProps extends Omit<BoxProps, 'display'>, FlexBoxSystemProps {
+export interface FlexProps extends Omit<BoxProps, 'display'> {
   display?: TypeWithMediaQueriesType<Extract<DisplayType, 'flex' | 'inline-flex'>>;
 }
 
