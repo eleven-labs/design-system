@@ -1,0 +1,14 @@
+# Base image
+FROM node:20-slim
+
+# Get the latest version of Playwright
+FROM mcr.microsoft.com/playwright:v1.40.0-jammy
+
+ENV NODE_ENV development
+
+# set working directory
+RUN mkdir -p /var/www/app
+
+WORKDIR /var/www/app
+
+EXPOSE 6006
