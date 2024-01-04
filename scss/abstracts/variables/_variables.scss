@@ -1,7 +1,7 @@
 
 /**
  * Do not edit directly
- * Generated on Tue, 02 Jan 2024 17:38:55 GMT
+ * Generated on Thu, 04 Jan 2024 13:08:34 GMT
  */
 
 $white: #FFFFFF !default;
@@ -14,6 +14,7 @@ $ultra-light-grey: #EDEDED !default;
 $yellow: #F3C93D !default;
 $amaranth: #DD3156 !default;
 $lavender: #E1EAF9 !default;
+$seashell: #e9f1f8 !default;
 $navy: #224579 !default;
 $azure: #3767B6 !default;
 
@@ -21,7 +22,8 @@ $variables: (
   'color': (
     'primary': (
       'azure': $azure,
-      'navy': $navy
+      'navy': $navy,
+      'seashell': $seashell
     ),
     'secondary': (
       'lavender': $lavender,
