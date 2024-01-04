@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { systemPropsControls, typographySystemPropsControls } from '@/constants/storybook';
+import { systemPropsControls } from '@/constants/storybook';
 
 import { Text } from './Text';
 
@@ -10,7 +10,6 @@ export default {
   component: Text,
   argTypes: {
     ...systemPropsControls,
-    ...typographySystemPropsControls,
   },
   args: {
     size: 'm',

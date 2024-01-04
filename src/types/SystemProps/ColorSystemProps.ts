@@ -8,5 +8,5 @@ export interface ColorSystemProps {
   /**
    * color
    */
-  color?: ColorType;
+  color?: ColorType | string;
 }

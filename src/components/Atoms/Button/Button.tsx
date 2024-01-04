@@ -1,16 +1,16 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
+import type { BoxProps } from '@/components';
 import { Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
-import type { SpacingSystemProps } from '@/types';
 
 import './Button.scss';
 
 export const buttonVariant = ['primary', 'secondary'] as const;
 export type ButtonVariantType = (typeof buttonVariant)[number];
 
-export interface ButtonProps extends SpacingSystemProps {
+export interface ButtonProps extends BoxProps {
   className?: string;
   variant?: ButtonVariantType;
   isChoiceChip?: boolean;

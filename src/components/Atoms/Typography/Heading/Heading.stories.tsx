@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { headingSizeTokenNameList } from '@/constants';
-import { systemPropsControls, typographySystemPropsControls } from '@/constants/storybook';
+import { systemPropsControls } from '@/constants/storybook';
 
 import { Heading } from './Heading';
 
@@ -11,7 +11,6 @@ export default {
   component: Heading,
   argTypes: {
     ...systemPropsControls,
-    ...typographySystemPropsControls,
     size: {
       control: { type: 'radio' },
       options: headingSizeTokenNameList,
