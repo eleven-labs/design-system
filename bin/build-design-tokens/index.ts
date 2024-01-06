@@ -58,7 +58,7 @@ const styleDictionary = StyleDictionary.extend({
       options: {
         categoriesWithNotCssVariables: ['breakpoint'],
         injectVariables: {
-          'cdn-path': process.env.CDN_PATH || '/',
+          'cdn-path': process.env.VITE_CDN_PATH || '/',
         },
       },
     },

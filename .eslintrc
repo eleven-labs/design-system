@@ -7,6 +7,8 @@
     "@eleven-labs/eslint-config/react"
   ],
   "rules": {
+    "unicorn/prevent-abbreviations": "off",
+    "no-unused-vars": "off",
     "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}]
   }
 }

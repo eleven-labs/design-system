@@ -1,0 +1,30 @@
+.pagination {
+  --item-size-pagination: 48px;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--item-size-pagination);
+    width: var(--item-size-pagination);
+    border-top: 1px solid #C5D3E9; // @todo: add to design token color
+    border-right: 1px solid #C5D3E9; // @todo: add to design token color
+    border-bottom: 1px solid #C5D3E9; // @todo: add to design token color
+    color: #194180; // @todo: add to design token color
+
+    &--active {
+      color: var(--color-amaranth);
+    }
+
+    &--disabled {
+      color: var(--color-grey);
+    }
+
+    &:first-child {
+      border-left: 1px solid #C5D3E9; // @todo: add to design token color
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.post-metadata {
+  a {
+    color: var(--color-black);
+  }
+
+  &--primary {
+    color: var(--color-amaranth);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+  }
+
+  &--secondary {
+    font-weight: var(--font-weight-medium);
+
+    a {
+      color: var(--color-amaranth);
+    }
+  }
+}

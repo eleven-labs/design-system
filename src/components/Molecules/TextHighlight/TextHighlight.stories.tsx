@@ -5,7 +5,6 @@ import { TextHighlight } from '@/components';
 import { marginSystemPropsControls } from '@/constants/storybook';
 
 export default {
-  title: 'Components/Molecules/TextHighlight',
   component: TextHighlight,
   argTypes: {
     ...marginSystemPropsControls,

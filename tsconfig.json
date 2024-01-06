@@ -19,15 +19,15 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
+      "@/storybook/*": [
+        ".storybook/*"
+      ],
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
-  }
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

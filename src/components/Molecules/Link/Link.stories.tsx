@@ -6,7 +6,6 @@ import { Heading, Text } from '@/components';
 import { Link } from './Link';
 
 export default {
-  title: 'Components/Molecules/Link',
   component: Link,
   args: {
     children: 'Link Label',
@@ -34,5 +33,5 @@ LinkWithHeading.args = {
 
 export const LinkWithIcon = Template.bind({});
 LinkWithIcon.args = {
-  icon: 'arrow-back',
+  icon: 'language',
 };

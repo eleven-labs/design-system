@@ -6,7 +6,6 @@ import { systemPropsControls } from '@/constants/storybook';
 import { Text } from './Text';
 
 export default {
-  title: 'Components/Atoms/Typography/Text',
   component: Text,
   argTypes: {
     ...systemPropsControls,

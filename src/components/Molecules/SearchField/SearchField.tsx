@@ -3,6 +3,7 @@ import * as React from 'react';
 import type { PolymorphicPropsWithoutRef } from 'react-polymorphed';
 
 import type { BoxProps } from '@/components';
+import { CloseButton } from '@/components';
 import { Box, Flex, Icon } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
 
@@ -24,12 +25,10 @@ export const SearchField = polyRef<'div', SearchFieldProps>(
       <Box {...{ as: 'input', ...input }} className="search-field__input" />
       <Flex justifyContent="center" alignItems="center" className="search-field__actions-container">
         {Boolean(input.value) && (
-          <Box {...{ as: 'button', ...buttonClose }} className="search-field__button-action">
-            <Icon name="close" color="grey" size="1.5rem" />
-          </Box>
+          <CloseButton {...buttonClose} variant="secondary" className="search-field__button-action" />
         )}
         <Box className="search-field__separator-button" ml="xs" />
-        <Box {...{ as: 'button', ...buttonSearch }} className="search-field__button-action">
+        <Box as="button" {...buttonSearch} className="search-field__button-action">
           <Icon name="search" color="navy" size="2.5rem" mx="xs" />
         </Box>
       </Flex>

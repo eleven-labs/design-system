@@ -1,6 +1,17 @@
 .blockquote {
-  margin: var(--spacing-xs) var(--spacing-0);
-  padding-left: var(--spacing-m);
-  border-left: 5px solid var(--color-yellow);
-  font-style: italic;
+  font-family: Georgia, "Times New Roman", Times, serif; // @todo: add to design token font-family
+  font-size: var(--font-size-l);
+
+  &::before, &::after {
+    content: "“";
+    display: block;
+    height: 7rem;
+    font-size: 8rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-navy);
+  }
+
+  &::after {
+    transform: rotate(180deg);
+  }
 }

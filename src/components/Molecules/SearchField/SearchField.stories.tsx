@@ -6,7 +6,6 @@ import { SearchField } from '@/components';
 import { systemPropsControls } from '@/constants/storybook';
 
 export default {
-  title: 'Components/Molecules/SearchField',
   component: SearchField,
   argTypes: {
     ...systemPropsControls,

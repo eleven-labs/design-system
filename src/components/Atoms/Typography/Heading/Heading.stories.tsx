@@ -7,7 +7,6 @@ import { systemPropsControls } from '@/constants/storybook';
 import { Heading } from './Heading';
 
 export default {
-  title: 'Components/Atoms/Typography/Heading',
   component: Heading,
   argTypes: {
     ...systemPropsControls,

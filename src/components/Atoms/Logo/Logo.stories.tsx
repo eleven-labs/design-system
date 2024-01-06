@@ -5,7 +5,6 @@ import { Logo, logoName } from '@/components';
 import { marginSystemPropsControls } from '@/constants/storybook';
 
 export default {
-  title: 'Components/Atoms/Logo',
   component: Logo,
   argTypes: {
     ...marginSystemPropsControls,

@@ -1,0 +1,118 @@
+@use '@/styles/abstracts' as *;
+
+
+.newsletter-card {
+  border-radius: 4px;
+
+  &__intro {
+      padding-bottom: var(--spacing-xl);
+      border-bottom: 1px solid rgb(0 0 0 / 20%);
+      margin-bottom: var(--spacing-xl);
+  }
+}
+
+/* stylelint-disable selector-class-pattern */
+.mauticform_wrapper {
+  --color-error: red;
+
+  .mauticform-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mauticform-checkboxgrp-row {
+    display: flex;
+    gap: var(--spacing-s);
+    margin-top: var(--spacing-m);
+
+    input {
+      margin-top: var(--spacing-xxs-3);
+    }
+
+    label {
+      flex: 1;
+    }
+  }
+
+  .mauticform-label {
+    text-transform: uppercase;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .mauticform-required {
+    .mauticform-label {
+      &::after {
+        color: var(--color-error);
+        content: " *";
+        display: inline;
+      }
+    }
+  }
+
+  .mauticform-errormsg {
+    margin-top: var(--spacing-xxs);
+    color: var(--color-error);
+  }
+
+  .mauticform-input {
+    color: var(--color-white);
+    padding: var(--spacing-s) var(--spacing-m);
+    background-color: transparent;
+    border: 1px solid var(--color-yellow);
+    border-radius: 100px;
+
+    &:focus {
+      outline: 0;
+      border-color: var(--color-white);
+    }
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: currentcolor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentcolor;
+    border-color: var(--color-yellow);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+
+    &::before {
+      color: #FFF;
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      transform: scale(0);
+      transform-origin: bottom left;
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em var(--color-yellow);
+      background-color: CanvasText;
+    }
+
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+
+  a {
+    color: var(--color-white);
+    text-decoration: underline;
+  }
+
+  .mauticform-button {
+    margin-top: var(--spacing-l);
+    padding: var(--spacing-s) var(--spacing-m);
+    background-color: var(--color-yellow);
+    border: none;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-navy);
+    text-transform: uppercase;
+    border-radius: 100px;
+  }
+}
+/* stylelint-enable */
