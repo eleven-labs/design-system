@@ -30,7 +30,7 @@ export interface ReminderProps extends BoxProps {
 }
 
 export const Reminder = polyRef<'div', ReminderProps>(({ as = 'div', variant, title, children, ...props }, ref) => (
-  <Box {...props} as={as} ref={ref} className={classNames('reminder', `reminder--${variant}`)}>
+  <Box {...props} as={as} ref={ref} bg="white" className={classNames('reminder', `reminder--${variant}`)}>
     <Text className="reminder__title">{title}</Text>
     <Box p="xxs">{children}</Box>
   </Box>

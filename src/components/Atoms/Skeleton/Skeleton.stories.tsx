@@ -5,7 +5,6 @@ import { Skeleton, Text } from '@/components';
 import { marginSystemPropsControls } from '@/constants/storybook';
 
 export default {
-  title: 'Components/Atoms/Skeleton',
   component: Skeleton,
   argTypes: {
     ...marginSystemPropsControls,

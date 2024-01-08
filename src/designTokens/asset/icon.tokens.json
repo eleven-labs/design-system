@@ -4,14 +4,8 @@
       "access-time": {
         "value": "svgs/access-time.svg"
       },
-      "arrow-back": {
-        "value": "svgs/arrow-back.svg"
-      },
       "calendar": {
         "value": "svgs/calendar.svg"
-      },
-      "close": {
-        "value": "svgs/close.svg"
       },
       "facebook": {
         "value": "svgs/facebook.svg"
@@ -46,8 +40,8 @@
       "github": {
         "value": "svgs/github.svg"
       },
-      "tuto": {
-        "value": "svgs/tuto.svg"
+      "arrow": {
+        "value": "svgs/arrow.svg"
       }
     }
   }

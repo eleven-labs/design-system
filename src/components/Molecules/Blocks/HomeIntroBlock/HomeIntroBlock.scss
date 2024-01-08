@@ -1,0 +1,22 @@
+@use '@/styles/abstracts' as *;
+
+.home-intro-block {
+  background-color: var(--color-white);
+
+  @include create-media-queries('md') {
+    background-image: url('/imgs/home-intro-block.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: auto 100%;
+  }
+
+  &__container {
+    max-width: 724px;
+  }
+
+  &__description {
+    a {
+      color: var(--color-amaranth);
+    }
+  }
+}

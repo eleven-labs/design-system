@@ -42,7 +42,7 @@ export const parameters = {
     viewports: customViewports,
   },
   backgrounds: {
-    default: 'white',
+    default: 'seashell',
     values: Object.entries<{ value: string }>({
       ...tokenVariables.color.primary,
       ...tokenVariables.color.secondary,
@@ -51,29 +51,5 @@ export const parameters = {
       name,
       value,
     })),
-  },
-  options: {
-    storySort: {
-      order: [
-        'Introduction',
-        'Concepts and Architecture',
-        'Foundations',
-        [
-          'Design Tokens',
-          ['About', 'Color', 'Spacing', 'Typography', 'Icon', 'Layout'],
-          'Css Properties',
-          'System Props',
-          [
-            'About',
-            'As Props',
-            'Color System Props',
-            'Spacing System Props',
-            'Typography System Props',
-            'Layout System Props',
-          ],
-        ],
-        'Components',
-      ],
-    },
   },
 };

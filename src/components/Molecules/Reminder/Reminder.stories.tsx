@@ -4,7 +4,6 @@ import React from 'react';
 import { Reminder, reminderVariantList } from './Reminder';
 
 export default {
-  title: 'Components/Molecules/Reminder',
   component: Reminder,
   args: {
     variant: 'note',

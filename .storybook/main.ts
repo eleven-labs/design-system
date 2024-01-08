@@ -9,14 +9,13 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-links',
+    '@storybook/addon-mdx-gfm'
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
-  core: {
-    builder: '@storybook/builder-vite',
-  },
+  core: {},
   features: {
     storyStoreV7: true,
   },
@@ -35,12 +34,12 @@ const config: StorybookConfig = {
       resolve: {
         alias: [
           {
-            find: '@',
-            replacement: resolve(__dirname, '../src'),
+            find: '@/storybook',
+            replacement: resolve(__dirname),
           },
           {
-            find: '@storybook-components',
-            replacement: resolve(__dirname, './components'),
+            find: '@',
+            replacement: resolve(__dirname, '../src'),
           },
         ],
       },

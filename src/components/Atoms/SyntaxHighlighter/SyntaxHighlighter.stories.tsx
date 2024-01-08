@@ -4,7 +4,6 @@ import React from 'react';
 import { SyntaxHighlighter } from './SyntaxHighlighter';
 
 export default {
-  title: 'Components/Atoms/SyntaxHighlighter',
   component: SyntaxHighlighter,
   args: {
     children: 'import React from React;',

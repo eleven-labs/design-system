@@ -6,7 +6,6 @@ import { iconTokenNameList } from '@/constants';
 import { marginSystemPropsControls } from '@/constants/storybook';
 
 export default {
-  title: 'Components/Atoms/Icon',
   component: Icon,
   argTypes: {
     ...marginSystemPropsControls,
