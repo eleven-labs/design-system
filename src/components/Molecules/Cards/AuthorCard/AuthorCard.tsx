@@ -11,10 +11,16 @@ export interface AuthorCardProps extends FlexProps {
   name: string;
   description: string;
   avatarImageUrl?: string;
-  link: ComponentPropsWithoutRef<'a'>;
+  link: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
 
-export const AuthorCard: React.FC<AuthorCardProps> = ({ name, avatarImageUrl, description, link, ...props }) => (
+export const AuthorCard: React.FC<AuthorCardProps> = ({
+  name,
+  avatarImageUrl,
+  description,
+  link: { label: linkLabel, ...link },
+  ...props
+}) => (
   <Flex {...props} alignItems="center" justifyContent="between" px="s" py="m" bg="white" className="author-card">
     <Flex gap="s" flex="1">
       <img
@@ -43,7 +49,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({ name, avatarImageUrl, de
       data-internal-link="author"
       className="author-card__link"
     >
-      Voir le profil
+      {linkLabel}
     </Link>
   </Flex>
 );

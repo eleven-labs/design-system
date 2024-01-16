@@ -11,6 +11,7 @@ const meta: Meta<typeof PostFooter> = {
         name: 'John Doe',
         description: 'Astronaute John Doe @ ElevenLabs_\uD83D\uDE80',
         link: {
+          label: 'Voir le profil',
           href: '/fr/authors/jdoe',
         },
       },
@@ -18,6 +19,7 @@ const meta: Meta<typeof PostFooter> = {
         name: 'Jeane Dupont',
         description: 'Astronaute Jeane Dupont @ ElevenLabs_\uD83D\uDE80',
         link: {
+          label: 'Voir le profil',
           href: '/fr/authors/jdupont',
         },
       },

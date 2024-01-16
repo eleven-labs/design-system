@@ -69,6 +69,6 @@
   }
 
   &__excerpt {
-    @include multi-line-ellipsis(1.5em, 3);
+    @include multi-line-ellipsis(1.5em, 3, var(--background-color-post-preview));
   }
 }

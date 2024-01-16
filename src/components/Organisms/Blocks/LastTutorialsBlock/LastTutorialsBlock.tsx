@@ -5,6 +5,8 @@ import { Flex, PostCard } from '@/components';
 import { Box, Button, Heading, Text } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
+import './LastTutorialsBlock.scss';
+
 export interface LastTutorialsBlockProps extends FlexProps {
   title: string;
   description: string;
@@ -30,6 +32,7 @@ export const LastTutorialsBlock: React.FC<LastTutorialsBlockProps> = ({
       mx={{ xs: 's', md: 'auto' }}
       gap="xl"
       width={{ md: 'content-container' }}
+      className="last-tutorials-block"
     >
       <Box>
         <Heading as="p" size="m">
@@ -40,13 +43,13 @@ export const LastTutorialsBlock: React.FC<LastTutorialsBlockProps> = ({
           {labelLinkSeeMore}
         </Button>
       </Box>
-      <Flex gap="l">
+      <Box gap="l" className="last-tutorials-block__post-list">
         {posts.map((post, index) => (
           <React.Fragment key={post?.slug ?? index}>
             <PostCard variant="secondary" tutorialLabel={tutorialLabel} {...(post || {})} />
           </React.Fragment>
         ))}
-      </Flex>
+      </Box>
     </Flex>
   </Box>
 );
