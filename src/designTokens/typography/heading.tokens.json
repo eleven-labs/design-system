@@ -2,6 +2,9 @@
   "typography": {
     "heading": {
       "base": {
+        "font-family": {
+          "value": "{font-family.heading.value}"
+        },
         "line-height": {
           "value": "{line-height.base.value}"
         },

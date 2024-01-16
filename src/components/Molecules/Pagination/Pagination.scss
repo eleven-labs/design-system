@@ -1,5 +1,8 @@
+@use '@/styles/abstracts' as *;
+
 .pagination {
   --item-size-pagination: 48px;
+  --border-color-pagination: #{map-get-strict($token-variables, 'color', 'secondary-dark')};
 
   &__item {
     display: flex;
@@ -7,21 +10,22 @@
     align-items: center;
     height: var(--item-size-pagination);
     width: var(--item-size-pagination);
-    border-top: 1px solid #C5D3E9; // @todo: add to design token color
-    border-right: 1px solid #C5D3E9; // @todo: add to design token color
-    border-bottom: 1px solid #C5D3E9; // @todo: add to design token color
-    color: #194180; // @todo: add to design token color
+    border-top: 1px solid var(--border-color-pagination);
+    border-right: 1px solid var(--border-color-pagination);
+    border-bottom: 1px solid var(--border-color-pagination);
+    color: #{map-get-strict($token-variables, 'color', 'primary-dark')};
 
     &--active {
-      color: var(--color-amaranth);
+      color: #{map-get-strict($token-variables, 'color', 'info')};
     }
 
     &--disabled {
-      color: var(--color-grey);
+      color: #{map-get-strict($token-variables, 'color', 'grey')};
     }
 
     &:first-child {
-      border-left: 1px solid #C5D3E9; // @todo: add to design token color
+      border-left: 1px solid var(--border-color-pagination);
+
       svg {
         transform: rotate(180deg);
       }

@@ -4,6 +4,7 @@ import React from 'react';
 import type { BoxProps } from '@/components';
 import { Divider } from '@/components';
 import { Box, Flex, Heading, Text } from '@/components';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './SummaryCard.scss';
 
@@ -14,7 +15,7 @@ export interface SummaryCardProps extends BoxProps {
   variant?: SummaryCardVariantType;
   title: string;
   sectionActive?: string;
-  sections: ({ name: string; label: string } & React.ComponentPropsWithoutRef<'a'>)[];
+  sections: ({ name: string; label: string } & ComponentPropsWithoutRef<'a'>)[];
 }
 
 export const SummaryCard: React.FC<SummaryCardProps> = ({
@@ -25,7 +26,7 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
   ...props
 }) => (
   <Box bg="white" p="m" className={classNames('summary-card', { [`summary-card--${variant}`]: variant })} {...props}>
-    <Heading size="l" fontWeight="bold" color="navy">
+    <Heading size="l" fontWeight="bold" color="primary">
       {title}
     </Heading>
     <Flex flexDirection="column" mt="m">
@@ -40,9 +41,7 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
             })}
             {...link}
           >
-            <Text color={variant === 'primary' ? 'amaranth' : undefined}>
-              {variant === 'secondary' ? index + 1 : '•'}
-            </Text>
+            <Text color={variant === 'primary' ? 'info' : undefined}>{variant === 'secondary' ? index + 1 : '•'}</Text>
             <Text>{label}</Text>
           </Flex>
           {index !== sections.length - 1 && <Divider my="xxs" />}

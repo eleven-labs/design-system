@@ -1,11 +1,13 @@
 import React from 'react';
 
-import type { ContactCardProps, SummaryCardProps } from '@/components';
+import type { BreadcrumbProps, ContactCardProps, SummaryCardProps } from '@/components';
+import { Breadcrumb } from '@/components';
 import { Button, Flex } from '@/components';
 import { SummaryCard } from '@/components';
 import { Box } from '@/components';
 import { ContactCard, Divider } from '@/components';
 import { LayoutContentWithSidebar } from '@/templates/LayoutContentWithSidebar';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import { PostFooter } from './PostFooter';
 import { PostHeader } from './PostHeader';
@@ -20,18 +22,20 @@ export type PostPageVariantType = (typeof postPageVariant)[number];
 
 export interface PostPageProps {
   variant: PostPageVariantType;
+  breadcrumb: BreadcrumbProps;
   header: Omit<PostHeaderProps, 'contentType'>;
   children: React.ReactNode;
   footer: PostFooterProps;
   contactCard: ContactCardProps;
   relatedPostList: RelatedPostListProps;
   summary: SummaryCardProps;
-  previousLink?: { label: string } & React.ComponentPropsWithoutRef<'a'>;
-  nextLink?: { label: string } & React.ComponentPropsWithoutRef<'a'>;
+  previousLink?: { label: string } & ComponentPropsWithoutRef<'a'>;
+  nextLink?: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
 
 export const PostPage: React.FC<PostPageProps> = ({
   variant = 'article',
+  breadcrumb,
   header,
   children,
   footer,
@@ -45,7 +49,8 @@ export const PostPage: React.FC<PostPageProps> = ({
     content={
       <>
         <Box>
-          <PostHeader {...header} />
+          <Breadcrumb {...breadcrumb} />
+          <PostHeader mt="m" {...header} />
           <Divider mt="m" />
           {children}
           {variant === 'tutorial' && (

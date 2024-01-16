@@ -1,6 +1,8 @@
+@use '@/styles/abstracts' as *;
+
 .link {
   &:hover {
-    font-weight: var(--font-weight-medium);
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
     text-decoration-line: underline;
   }
 }

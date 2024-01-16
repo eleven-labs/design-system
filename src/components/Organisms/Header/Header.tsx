@@ -3,17 +3,18 @@ import React from 'react';
 
 import type { AutocompleteProps } from '@/components';
 import { Autocomplete, Box, BurgerButton, Button, CloseButton, Flex, Link, Logo } from '@/components';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './Header.scss';
 
 export interface HeaderProps {
-  homeLink: React.ComponentPropsWithoutRef<'a'>;
+  homeLink: ComponentPropsWithoutRef<'a'>;
   categories: ({
     label: React.ReactNode;
-  } & React.ComponentPropsWithoutRef<'a'>)[];
+  } & ComponentPropsWithoutRef<'a'>)[];
   hasTutorial: boolean;
-  tutorialLink: { label: React.ReactNode } & React.ComponentPropsWithoutRef<'a'>;
-  contactLink: { label: React.ReactNode } & React.ComponentPropsWithoutRef<'a'>;
+  tutorialLink: { label: React.ReactNode } & ComponentPropsWithoutRef<'a'>;
+  contactLink: { label: React.ReactNode } & ComponentPropsWithoutRef<'a'>;
   autocomplete: AutocompleteProps;
   onToggleMenu: () => void;
   menuIsOpen?: boolean;
@@ -30,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
   menuIsOpen = false,
 }) => (
   <Flex as="header" justifyContent="between" alignItems="center" bg="white" p="m" className="header">
-    <Box as="a" {...homeLink} color="navy">
+    <Box as="a" {...homeLink} color="primary">
       <Logo name="blog" className="header__logo" />
     </Box>
     <Box className={classNames('header__menu', { 'header__menu--is-open': menuIsOpen })}>

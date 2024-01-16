@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { FlexProps } from '@/components';
 import { Button, Flex, Heading, Text } from '@/components';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './ContactCard.scss';
 
@@ -9,7 +10,7 @@ export type ContactCardProps = {
   title: string;
   subtitle: string;
   description: string;
-  link: { label: React.ReactNode } & React.ComponentPropsWithoutRef<'a'>;
+  link: { label: React.ReactNode } & ComponentPropsWithoutRef<'a'>;
 } & FlexProps;
 
 export const ContactCard: React.FC<ContactCardProps> = ({
@@ -27,7 +28,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({
       gap="m"
       className="contact-card__container"
     >
-      <Heading as="p" size="l" color="navy" textAlign="center">
+      <Heading as="p" size="l" color="primary" textAlign="center">
         {title}{' '}
         <Text as="span" fontWeight="bold">
           {subtitle}

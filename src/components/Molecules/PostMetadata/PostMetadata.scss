@@ -1,19 +1,21 @@
+@use '@/styles/abstracts' as *;
+
 .post-metadata {
   a {
-    color: var(--color-black);
+    color: black;
   }
 
   &--primary {
-    color: var(--color-amaranth);
-    font-weight: var(--font-weight-bold);
+    color: #{map-get-strict($token-variables, 'color', 'info')};
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
     text-transform: uppercase;
   }
 
   &--secondary {
-    font-weight: var(--font-weight-medium);
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
 
     a {
-      color: var(--color-amaranth);
+      color: #{map-get-strict($token-variables, 'color', 'info')};
     }
   }
 }

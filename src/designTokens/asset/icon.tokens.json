@@ -42,6 +42,9 @@
       },
       "arrow": {
         "value": "svgs/arrow.svg"
+      },
+      "underline": {
+        "value": "svgs/underline.svg"
       }
     }
   }

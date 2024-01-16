@@ -1,11 +1,7 @@
 @use '@/styles/abstracts' as *;
 
 .layout-content-with-sidebar {
-  margin: var(--spacing-xl) var(--spacing-s);
-
   @include create-media-queries('md') {
-    margin: var(--spacing-xl) auto;
-    width: 90rem; // @todo: add to design token size container
     &__content {
       width: 67.5rem;
     }

@@ -1,13 +1,24 @@
 @use '@/styles/abstracts' as *;
 
-
 .newsletter-card {
+  $this: &;
+
   border-radius: 4px;
 
-  &__intro {
-      padding-bottom: var(--spacing-xl);
+  &--vertical {
+    #{$this}__intro {
+      padding-bottom: #{map-get-strict($token-variables, 'spacing', 'xl')};
       border-bottom: 1px solid rgb(0 0 0 / 20%);
-      margin-bottom: var(--spacing-xl);
+      margin-bottom: #{map-get-strict($token-variables, 'spacing', 'xl')};
+    }
+  }
+
+  &--horizontal {
+    #{$this}__intro {
+      padding-right: #{map-get-strict($token-variables, 'spacing', 'xl')};
+      border-right: 1px solid rgb(0 0 0 / 20%);
+      margin-right: #{map-get-strict($token-variables, 'spacing', 'xl')};
+    }
   }
 }
 
@@ -22,11 +33,11 @@
 
   .mauticform-checkboxgrp-row {
     display: flex;
-    gap: var(--spacing-s);
-    margin-top: var(--spacing-m);
+    gap: #{map-get-strict($token-variables, 'spacing', 's')};
+    margin-top: #{map-get-strict($token-variables, 'spacing', 'm')};
 
     input {
-      margin-top: var(--spacing-xxs-3);
+      margin-top: #{map-get-strict($token-variables, 'spacing', 'xxs-2')};
     }
 
     label {
@@ -36,7 +47,7 @@
 
   .mauticform-label {
     text-transform: uppercase;
-    font-weight: var(--font-weight-medium);
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
   }
 
   .mauticform-required {
@@ -50,20 +61,20 @@
   }
 
   .mauticform-errormsg {
-    margin-top: var(--spacing-xxs);
+    margin-top: #{map-get-strict($token-variables, 'spacing', 'xxs')};
     color: var(--color-error);
   }
 
   .mauticform-input {
-    color: var(--color-white);
-    padding: var(--spacing-s) var(--spacing-m);
+    color: white;
+    padding: #{map-get-strict($token-variables, 'spacing', 's')} #{map-get-strict($token-variables, 'spacing', 'm')};
     background-color: transparent;
-    border: 1px solid var(--color-yellow);
+    border: 1px solid #{map-get-strict($token-variables, 'color', 'accent')};
     border-radius: 100px;
 
     &:focus {
       outline: 0;
-      border-color: var(--color-white);
+      border-color: white;
     }
   }
 
@@ -75,7 +86,7 @@
     width: 1.15em;
     height: 1.15em;
     border: 0.15em solid currentcolor;
-    border-color: var(--color-yellow);
+    border-color: #{map-get-strict($token-variables, 'color', 'accent')};
     border-radius: 0.15em;
     transform: translateY(-0.075em);
     display: grid;
@@ -90,7 +101,7 @@
       transform: scale(0);
       transform-origin: bottom left;
       transition: 120ms transform ease-in-out;
-      box-shadow: inset 1em 1em var(--color-yellow);
+      box-shadow: inset 1em 1em #{map-get-strict($token-variables, 'color', 'accent')};
       background-color: CanvasText;
     }
 
@@ -100,17 +111,17 @@
   }
 
   a {
-    color: var(--color-white);
+    color: white;
     text-decoration: underline;
   }
 
-  .mauticform-button {
-    margin-top: var(--spacing-l);
-    padding: var(--spacing-s) var(--spacing-m);
-    background-color: var(--color-yellow);
+  .mauticform-button-wrapper .mauticform-button.btn-default {
+    margin-top: #{map-get-strict($token-variables, 'spacing', 'l')};
+    padding: #{map-get-strict($token-variables, 'spacing', 's')} #{map-get-strict($token-variables, 'spacing', 'm')};
+    background-color: #{map-get-strict($token-variables, 'color', 'accent')};
     border: none;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-navy);
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
+    color: #{map-get-strict($token-variables, 'color', 'primary')};
     text-transform: uppercase;
     border-radius: 100px;
   }

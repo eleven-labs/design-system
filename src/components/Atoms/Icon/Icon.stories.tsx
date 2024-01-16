@@ -19,7 +19,7 @@ export default {
   },
   args: {
     size: '10rem',
-    color: 'navy',
+    color: 'primary',
     name: 'access-time',
   },
   parameters: {

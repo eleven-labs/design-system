@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@/styles/abstracts' as *;
 
 .search-field {
@@ -7,29 +8,29 @@
 
   &__input {
     width: 100%;
-    padding: var(--spacing-xs) calc(var(--spacing-xxl) + var(--spacing-m)) var(--spacing-xs) var(--spacing-xs);
-    font-family: var(--typography-font-family);
-    font-size: var(--font-size-input, var(--font-size-s));
-    line-height: var(--line-height-large);
+    padding: #{map-get-strict($token-variables, 'spacing', 'xs')} calc(#{map-get-strict($token-variables, 'spacing', 'xxl')} + #{map-get-strict($token-variables, 'spacing', 'm')}) #{map-get-strict($token-variables, 'spacing', 'xs')} #{map-get-strict($token-variables, 'spacing', 'xs')};
+    font-family: #{map-get-strict($token-variables, 'font-family', 'base')};
+    font-size: var(--font-size-input, #{map-get-strict($token-variables, 'font-size', 's')});
+    line-height: #{map-get-strict($token-variables, 'line-height', 'large')};
     border-width: var(--border-width-input-search-field, 2px);
     border-style: solid;
     border-color: var(--border-color-input-search-field, transparent);
     border-radius: 22px;
-    background-color: #E7EAF0; // @todo: add a color to tokens
+    background-color: #{map-get-strict($token-variables, 'color', 'secondary')};
 
     @include create-media-queries('md') {
-      --font-size-input: var(--font-size-xs);
+      --font-size-input: #{map-get-strict($token-variables, 'font-size', 'xs')};
     }
 
     &, &::placeholder {
-      color: var(--color-navy);
+      color: #{map-get-strict($token-variables, 'color', 'primary')};
     }
 
     &:focus-visible {
       outline: none;
 
       --border-width-input-search-field: 2px;
-      --border-color-input-search-field: var(--color-navy);
+      --border-color-input-search-field: #{map-get-strict($token-variables, 'color', 'primary')};
 
       box-shadow: 0 4px 30px rgb(0 0 0 / 6%);
     }
@@ -37,7 +38,7 @@
 
   &--has-value {
     #{$this}__input {
-      padding-right: calc(var(--spacing-xxl) + var(--spacing-xl));
+      padding-right: calc(#{map-get-strict($token-variables, 'spacing', 'xxl')} + #{map-get-strict($token-variables, 'spacing', 'xl')});
     }
   }
 
@@ -46,13 +47,13 @@
     top: 0;
     right: 0;
     height: 100%;
-    padding: var(--spacing-xxs) 0;
+    padding: #{map-get-strict($token-variables, 'spacing', 'xxs')} 0;
   }
 
   &__separator-button {
     height: 100%;
     width: 1px;
-    background-color: var(--color-grey);
+    background-color: #{map-get-strict($token-variables, 'color', 'grey')};
   }
 
   &__button-action {

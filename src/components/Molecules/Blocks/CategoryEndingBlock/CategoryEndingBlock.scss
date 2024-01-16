@@ -1,9 +1,11 @@
+@use '@/styles/abstracts' as *;
+
 .category-ending-block {
   &__description {
     a {
-      color: var(--color-black);
+      color: black;
       text-decoration: underline;
-      font-weight: var(--font-weight-medium);
+      font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
     }
   }
 }

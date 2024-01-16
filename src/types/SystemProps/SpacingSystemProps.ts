@@ -4,31 +4,31 @@ export interface MarginSystemProps {
   /**
    * margin (including breakpoints modifiers)
    */
-  m?: TypeWithMediaQueriesType<SpacingType>;
+  m?: TypeWithMediaQueriesType<SpacingType | 'auto'>;
   /**
    * margin-top (including breakpoints modifiers)
    */
-  mt?: TypeWithMediaQueriesType<SpacingType>;
+  mt?: TypeWithMediaQueriesType<SpacingType | 'auto'>;
   /**
    * margin-right (including breakpoints modifiers)
    */
-  mr?: TypeWithMediaQueriesType<SpacingType>;
+  mr?: TypeWithMediaQueriesType<SpacingType | 'auto'>;
   /**
    * margin-bottom (including breakpoints modifiers)
    */
-  mb?: TypeWithMediaQueriesType<SpacingType>;
+  mb?: TypeWithMediaQueriesType<SpacingType | 'auto'>;
   /**
    * margin-left (including breakpoints modifiers)
    */
-  ml?: TypeWithMediaQueriesType<SpacingType>;
+  ml?: TypeWithMediaQueriesType<SpacingType | 'auto'>;
   /**
    * horizontal margin: margin-left and margin-right (including breakpoints modifiers)
    */
-  mx?: TypeWithMediaQueriesType<SpacingType>;
+  mx?: TypeWithMediaQueriesType<SpacingType | 'auto'>;
   /**
    * vertical margin: margin-top and margin-bottom (including breakpoints modifiers)
    */
-  my?: TypeWithMediaQueriesType<SpacingType>;
+  my?: TypeWithMediaQueriesType<SpacingType | 'auto'>;
 }
 
 export interface PaddingSystemProps {

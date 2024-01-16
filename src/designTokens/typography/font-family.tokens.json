@@ -1,10 +1,19 @@
 {
   "font-family": {
     "base": {
-      "value": "{font-family.work-sans.value}"
+      "value": "'Montserrat', sans-serif",
+      "name": "Montserrat",
+      "weights": ["regular", "medium", "semi-bold"]
     },
-    "work-sans": {
-      "value": "'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    "heading": {
+      "value": "'Agdasima', sans-serif",
+      "name": "Agdasima",
+      "weights": ["regular", "bold"]
+    },
+    "blockquote": {
+      "value": "Georgia, 'Times New Roman', Times, serif",
+      "name": "Georgia",
+      "weights": ["regular"]
     }
   }
 }

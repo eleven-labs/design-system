@@ -9,3 +9,4 @@ export * from './Skeleton';
 export * from './Divider';
 export * from './BurgerButton';
 export * from './CloseButton';
+export * from './Breadcrumb';

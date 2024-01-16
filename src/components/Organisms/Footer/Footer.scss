@@ -1,12 +1,8 @@
 @use '@/styles/abstracts' as *;
 
 .footer {
-  &__intro {
-    background-color: #093670; // @todo: add to design token color
-  }
-
   &__intro-link {
-    color: var(--color-white);
+    color: white;
     text-decoration: underline;
   }
 

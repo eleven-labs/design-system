@@ -1,17 +1,17 @@
 import React from 'react';
 
-import type { FooterProps, HeaderProps } from '@/components';
-import { Flex, Footer, Header } from '@/components';
+import type { FooterProps } from '@/components';
+import { Flex, Footer } from '@/components';
 
 export type LayoutTemplateProps = {
-  header: HeaderProps;
+  header: React.ReactNode;
   footer: FooterProps;
   children: React.ReactNode;
 };
 
 export const LayoutTemplate: React.FC<LayoutTemplateProps> = ({ header, footer, children }) => (
   <Flex flexDirection="column" minHeight="screen">
-    <Header {...header} />
+    {header}
     {children}
     <Footer {...footer} />
   </Flex>

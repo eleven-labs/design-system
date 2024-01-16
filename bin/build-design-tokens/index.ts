@@ -62,29 +62,6 @@ const styleDictionary = StyleDictionary.extend({
         },
       },
     },
-    'scss/font-face': {
-      buildPath: './src/styles/',
-      transforms: ['attribute/font'],
-      files: [
-        {
-          format: 'scss/font-face',
-          filter: {
-            attributes: {
-              category: 'asset',
-              type: 'font',
-            },
-          },
-          destination: '_fonts.scss',
-          options: {
-            outputReferences: true,
-          },
-        },
-      ],
-      options: {
-        fontPathPrefix: `#{map.get($token-variables, 'cdn-path')}`,
-        injectToHead: [`@use 'abstracts' as *;`],
-      },
-    },
     'typescript/token-variables': {
       buildPath: './src/',
       transforms: ['attribute/cti'],

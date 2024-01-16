@@ -12,9 +12,11 @@ export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'name' | 'color'> &
   Pick<ColorSystemProps, 'color'> & {
     name: IconNameType;
     size?: string | number;
+    width?: string | number;
+    height?: string | number;
   };
 
-export const Icon: React.FC<IconProps> = ({ name, size, ...svgProps }) => {
+export const Icon: React.FC<IconProps> = ({ name, size, width, height, ...svgProps }) => {
   const Svg = (Svgs as Record<string, React.FC<React.SVGProps<SVGSVGElement>>>)[pascalCase(name)];
   return (
     <Svg
@@ -25,8 +27,8 @@ export const Icon: React.FC<IconProps> = ({ name, size, ...svgProps }) => {
         colorSystemClassName(svgProps),
         svgProps?.className
       )}
-      height="1em"
-      width="1em"
+      height={height ?? '1em'}
+      width={width ?? '1em'}
       style={{ fontSize: size }}
     />
   );

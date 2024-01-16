@@ -3,6 +3,7 @@ import React from 'react';
 import type { FlexProps } from '@/components';
 import { Box, Flex, Heading, Link, Text } from '@/components';
 import { getCdnAssetsFile } from '@/helpers/getCdnAssetsFile';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './AuthorCard.scss';
 
@@ -10,7 +11,7 @@ export interface AuthorCardProps extends FlexProps {
   name: string;
   description: string;
   avatarImageUrl?: string;
-  link: React.ComponentPropsWithoutRef<'a'>;
+  link: ComponentPropsWithoutRef<'a'>;
 }
 
 export const AuthorCard: React.FC<AuthorCardProps> = ({ name, avatarImageUrl, description, link, ...props }) => (
@@ -22,7 +23,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({ name, avatarImageUrl, de
         className="author-card__avatar-img"
       />
       <Box>
-        <Heading color="navy" size="s">
+        <Heading color="primary" size="s">
           {name}
         </Heading>
         <Text

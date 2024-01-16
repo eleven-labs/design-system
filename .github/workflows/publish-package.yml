@@ -5,7 +5,7 @@ on:
     types: [created]
 
 env:
-  VITE_CDN_PATH: https://eleven-labs.github.io/design-system/
+  VITE_CDN_PATH: /
 
 jobs:
   setup:

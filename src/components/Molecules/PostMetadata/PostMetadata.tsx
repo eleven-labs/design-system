@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { Fragment } from 'react';
 
 import { Flex, Icon, Skeleton, Text } from '@/components';
-import type { SpacingSystemProps } from '@/types';
+import type { ComponentPropsWithoutRef, SpacingSystemProps } from '@/types';
 
 import './PostMetadata.scss';
 
@@ -16,7 +16,7 @@ export interface PostMetadataProps extends SpacingSystemProps {
   authors?: {
     username: string;
     name: string;
-    link?: React.ComponentPropsWithoutRef<'a'>;
+    link?: ComponentPropsWithoutRef<'a'>;
   }[];
   isLoading?: boolean;
   displayedFields?: ('date' | 'readingTime' | 'authors')[];

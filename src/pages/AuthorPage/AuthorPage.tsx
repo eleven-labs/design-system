@@ -35,6 +35,7 @@ export const AuthorPage: React.FC<AuthorPageProps> = ({
   newsletterCard,
 }) => (
   <LayoutContentWithSidebar
+    className="author-page"
     content={
       <>
         <Flex
@@ -49,7 +50,7 @@ export const AuthorPage: React.FC<AuthorPageProps> = ({
             className={author.avatarImageUrl ? 'author-page__avatar-img' : 'author-page__empty-avatar-img'}
           />
           <Box mt="s" ml="s">
-            <Text size="m" fontWeight="medium" color="amaranth">
+            <Text size="m" fontWeight="medium" color="info">
               {author.name}
             </Text>
             <Box dangerouslySetInnerHTML={{ __html: author.content }} />

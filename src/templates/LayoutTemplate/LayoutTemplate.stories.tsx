@@ -1,7 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { Flex } from '@/components';
+import type { HeaderProps } from '@/components';
+import { Flex, Header } from '@/components';
 import FooterStories from '@/components/Organisms/Footer/Footer.stories';
 import HeaderStories from '@/components/Organisms/Header/Header.stories';
 
@@ -10,7 +11,7 @@ import { LayoutTemplate } from './LayoutTemplate';
 export default {
   component: LayoutTemplate,
   args: {
-    header: HeaderStories.args,
+    header: React.createElement<HeaderProps>(Header, HeaderStories.args as HeaderProps),
     footer: FooterStories.args,
     children: (
       <Flex flex="1" justifyContent="center" alignItems="center" p="l">

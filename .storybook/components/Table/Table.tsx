@@ -27,7 +27,7 @@ export const Table: React.FC<TableProps> = ({ title, columns, rows, ...boxProps 
         } as React.CSSProperties
       }
     >
-      <Box py="xs" bg="ultra-light-grey" color="grey" className="storybook-table__head">
+      <Box py="xs" bg="secondary" color="primary-light" className="storybook-table__head">
         {columns.map((column) => (
           <Box key={column.name} px="xxs">
             {column.label}

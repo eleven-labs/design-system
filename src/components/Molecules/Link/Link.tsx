@@ -22,14 +22,14 @@ export const Link = polyRef<'a', LinkProps>(({ as = 'a', icon, className, childr
       as={as}
       display="inline-flex"
       alignItems="center"
-      color="amaranth"
+      color="info"
       className={classNames('link', className)}
     >
       {icon && <Icon name={icon} />}
       <Text as="span">{children}</Text>
     </Flex>
   ) : (
-    <Box {...props} ref={ref} as={as} color="amaranth" className={classNames('link', className)}>
+    <Box {...props} ref={ref} as={as} color="info" className={classNames('link', className)}>
       {children}
     </Box>
   )
