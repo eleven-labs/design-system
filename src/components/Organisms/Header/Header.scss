@@ -2,7 +2,8 @@
 
 .header {
   position: relative;
-  border-bottom: 0.5px solid #D8D8D8; // @todo: add to design token colors
+  border-bottom: 0.5px solid #{map-get-strict($token-variables, 'color', 'ultra-light-grey')};
+
   &__logo {
     font-size: var(--header-logo-size, 2rem);
 
@@ -13,7 +14,7 @@
 
   &__separator {
     width: 1px;
-    background-color: #3E3E3E; // @todo: add to design token color
+    background-color: #{map-get-strict($token-variables, 'color', 'primary')};
   }
 
   &__menu {
@@ -32,23 +33,24 @@
       background: white;
       left: 0;
       width: 100%;
-      border-top: 0.5px solid #C5D3E9; // @todo: add to design token color
+      border-top: 0.5px solid #{map-get-strict($token-variables, 'color', 'secondary-dark')};
+
       &--is-open {
         display: flex;
       }
     }
 
     &__menu-item {
-        padding: var(--spacing-xs) var(--spacing-m);
-        color: var(--color-black);
-        border-bottom: 0.5px solid #C5D3E9; // @todo: add to design token color
+        padding: #{map-get-strict($token-variables, 'spacing', 'xs')} #{map-get-strict($token-variables, 'spacing', 'm')};
+        color: black;
+        border-bottom: 0.5px solid #{map-get-strict($token-variables, 'color', 'secondary-dark')};
     }
   }
 
   @include create-media-queries('md') {
     &__menu {
-      gap: var(--spacing-xl);
-      font-weight: var(--font-weight-bold);
+      gap: #{map-get-strict($token-variables, 'spacing', 'xl')};
+      font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
     }
   }
 }

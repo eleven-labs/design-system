@@ -1,6 +1,6 @@
 @use '@/styles/abstracts' as *;
 
-@mixin multi-line-ellipsis($line-height: 1.2em, $line-count: 1, $bg-color: var(--color-white)) {
+@mixin multi-line-ellipsis($line-height: 1.2em, $line-count: 1, $bg-color: white) {
   overflow: hidden;
   position: relative;
   line-height: $line-height;
@@ -27,20 +27,30 @@
 }
 
 .post-preview {
-  --max-height-post-preview-mask: 44px;
+  $this: &;
 
-  background-color: var(--color-white);
+  --max-height-post-preview-mask: 44px;
+  --background-color-post-preview: white;
+
+  background-color: var(--background-color-post-preview);
   position: relative;
+
+  &--secondary {
+    --background-color-post-preview: rgb(0 0 0 / 15%);
+    #{$this}__link {
+      color: white;
+    }
+  }
 
   &__heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-xxs);
+    gap: #{map-get-strict($token-variables, 'spacing', 'xxs')};
   }
 
   &__link {
-    color: var(--color-black);
+    color: black;
 
     &::before {
       content: " ";
@@ -54,11 +64,11 @@
   }
 
   &__tutoriel-tag {
-    background-color: #F8FA9B; // @todo: add to design token color
+    background-color: #{map-get-strict($token-variables, 'color', 'accent')};
     border-radius: 2px;
   }
 
   &__excerpt {
-    @include multi-line-ellipsis(1.5em, 3);
+    @include multi-line-ellipsis(1.5em, 3, var(--background-color-post-preview));
   }
 }

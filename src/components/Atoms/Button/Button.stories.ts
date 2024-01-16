@@ -30,8 +30,3 @@ export const ButtonWithVariantSecondary: Story = {};
 ButtonWithVariantSecondary.args = {
   variant: 'secondary',
 };
-
-export const ButtonIsChoiceChip: Story = {};
-ButtonIsChoiceChip.args = {
-  isChoiceChip: true,
-};

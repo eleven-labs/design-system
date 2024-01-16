@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import BreadcrumbStories from '@/components/Atoms/Breadcrumb/Breadcrumb.stories';
 import ContactCardStories from '@/components/Molecules/Cards/ContactCard/ContactCard.stories';
 import * as SummaryCardStories from '@/components/Molecules/Cards/SummaryCard/SummaryCard.stories';
 import PostFooterStories from '@/pages/PostPage/PostFooter/PostFooter.stories';
@@ -15,6 +16,7 @@ const meta: Meta<typeof PostPage> = {
   component: PostPage,
   args: {
     variant: 'article',
+    breadcrumb: BreadcrumbStories.args as PostPageProps['breadcrumb'],
     header: PostHeaderStories.args as PostPageProps['header'],
     children: 'content',
     footer: PostFooterStories.args as PostPageProps['footer'],

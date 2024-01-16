@@ -74,7 +74,7 @@ const meta: Meta<typeof NewsletterCard> = {
                 </div>
               </div>
 
-              <div id="mauticform_abonnementnewsletter_submit">
+              <div id="mauticform_abonnementnewsletter_submit" className="mauticform-button-wrapper">
                 <button
                   type="submit"
                   name="mauticform[submit]"

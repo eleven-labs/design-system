@@ -42,11 +42,9 @@ export const parameters = {
     viewports: customViewports,
   },
   backgrounds: {
-    default: 'seashell',
+    default: 'secondary',
     values: Object.entries<{ value: string }>({
-      ...tokenVariables.color.primary,
-      ...tokenVariables.color.secondary,
-      ...tokenVariables.color.greyscale,
+      ...tokenVariables.color,
     }).map(([name, { value }]) => ({
       name,
       value,

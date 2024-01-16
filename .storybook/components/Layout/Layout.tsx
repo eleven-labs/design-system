@@ -20,7 +20,7 @@ export const Layout: React.FC<LayoutProps> = ({ title, description, children }) 
     <Canvas>
       <main>
         {title && (
-          <Box bg="navy" color="white" px="l" py="xxl">
+          <Box bg="primary" color="white" px="l" py="xxl">
             <Heading as="p" size="xl">
               {title}
             </Heading>

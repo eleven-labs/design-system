@@ -1,14 +1,16 @@
+@use '@/styles/abstracts' as *;
+
 .blockquote {
-  font-family: Georgia, "Times New Roman", Times, serif; // @todo: add to design token font-family
-  font-size: var(--font-size-l);
+  font-family: Georgia, #{map-get-strict($token-variables, 'font-family', 'blockquote')};
+  font-size: #{map-get-strict($token-variables, 'font-size', 'l')};
 
   &::before, &::after {
     content: "“";
     display: block;
     height: 7rem;
     font-size: 8rem;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-navy);
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
+    color: #{map-get-strict($token-variables, 'color', 'primary')};
   }
 
   &::after {

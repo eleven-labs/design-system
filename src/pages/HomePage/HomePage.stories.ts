@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 
-import type { PostCardListProps } from '@/components';
-import { PostCardList } from '@/components';
 import HomeIntroBlockStories from '@/components/Molecules/Blocks/HomeIntroBlock/HomeIntroBlock.stories';
 import NewsletterCardStories from '@/components/Molecules/Cards/NewsletterCard/NewsletterCard.stories';
-import * as PostCardListStories from '@/components/Organisms/PostCardList/PostCardList.stories';
+import LastArticlesBlockStories from '@/components/Organisms/Blocks/LastArticlesBlock/LastArticlesBlock.stories';
+import LastTutorialsBlockStories from '@/components/Organisms/Blocks/LastTutorialsBlock/LastTutorialsBlock.stories';
 import type { CategoryPageProps } from '@/pages/CategoryPage';
 import { LayoutTemplateDecorator } from '@/storybook/decorators';
 
@@ -17,11 +15,8 @@ const meta: Meta<typeof HomePage> = {
   component: HomePage,
   args: {
     homeIntroBlock: HomeIntroBlockStories.args as HomePageProps['homeIntroBlock'],
-    title: 'Tous nos articles',
-    postCardList: React.createElement<PostCardListProps>(PostCardList, {
-      ...PostCardListStories.default.args,
-      ...PostCardListStories.WithPagination.args,
-    } as PostCardListProps),
+    lastArticlesBlock: LastArticlesBlockStories.args as HomePageProps['lastArticlesBlock'],
+    lastTutorialsBlock: LastTutorialsBlockStories.args as HomePageProps['lastTutorialsBlock'],
     newsletterCard: NewsletterCardStories.args as CategoryPageProps['newsletterCard'],
   },
   parameters: {

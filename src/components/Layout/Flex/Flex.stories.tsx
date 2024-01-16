@@ -13,7 +13,7 @@ const meta: Meta<typeof Flex> = {
     gap: 'm',
     justifyContent: 'center',
     children: Array.from({ length: 3 }).map((v, index) => (
-      <Box key={index} p="m" bg="azure" color="white">
+      <Box key={index} p="m" bg="primary" color="white">
         {(index + 1).toString().padStart(2, '0')}
       </Box>
     )),

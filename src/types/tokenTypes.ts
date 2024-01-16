@@ -1,9 +1,6 @@
 import type { tokenVariables } from '@/constants';
 
-export type ColorType =
-  | keyof (typeof tokenVariables)['color']['primary']
-  | keyof (typeof tokenVariables)['color']['secondary']
-  | keyof (typeof tokenVariables)['color']['greyscale'];
+export type ColorType = keyof (typeof tokenVariables)['color'];
 
 export type SpacingType = keyof (typeof tokenVariables)['spacing'];
 

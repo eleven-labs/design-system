@@ -2,12 +2,13 @@ import React from 'react';
 
 import type { BoxProps } from '@/components';
 import { Box, Button, Text } from '@/components';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './CategoryEndingBlock.scss';
 export interface CategoryEndingBlockProps extends BoxProps {
   title: string;
   description: string;
-  expertiseLink: { label: string } & React.ComponentPropsWithoutRef<'a'>;
+  expertiseLink: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
 
 export const CategoryEndingBlock: React.FC<CategoryEndingBlockProps> = ({

@@ -1,7 +1,7 @@
 {
   "name": "@eleven-labs/design-system",
   "description": "Design System for Eleven Labs",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eleven-labs/design-system.git"
@@ -26,7 +26,6 @@
   ],
   "scripts": {
     "prepare": "husky install && npm run optimize:svgs && npm run build:icons && npm run build:design-tokens",
-    "optimize:fonts": "tsx bin/optimize-fonts",
     "optimize:svgs": "svgo --config svgo.config.cjs -f src/assets/svgs -o ./public/svgs",
     "build:icons": "svgr --config-file svgr.config.cjs --typescript -d src/components/Atoms/Svgs public/svgs",
     "build:design-tokens": "tsx -r dotenv/config bin/build-design-tokens",

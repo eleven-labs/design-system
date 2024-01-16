@@ -3,13 +3,14 @@ import React from 'react';
 
 import type { FlexProps } from '@/components';
 import { Box, Flex } from '@/components';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './CloseButton.scss';
 
 export const closeButtonVariant = ['primary', 'secondary'] as const;
 export type CloseButtonVariantType = (typeof closeButtonVariant)[number];
 
-export interface CloseButtonProps extends FlexProps, React.ComponentPropsWithoutRef<'button'> {
+export interface CloseButtonProps extends FlexProps, ComponentPropsWithoutRef<'button'> {
   variant?: CloseButtonVariantType;
 }
 

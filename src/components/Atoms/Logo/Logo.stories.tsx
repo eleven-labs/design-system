@@ -18,7 +18,7 @@ export default {
   },
   args: {
     name: 'blog',
-    color: 'azure',
+    color: 'primary',
     size: '10em',
   },
   parameters: {

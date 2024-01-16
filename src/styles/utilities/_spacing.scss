@@ -2,7 +2,7 @@
 @use '../abstracts' as *;
 
 $spacing-list: map.get($token-variables, 'spacing');
-$spacing-prop-list: (
+$margin-prop-list: (
   'm':  'margin',
   'mt': 'margin-top',
   'mr': 'margin-right',
@@ -10,6 +10,8 @@ $spacing-prop-list: (
   'ml': 'margin-left',
   'mx': ('margin-left', 'margin-right'),
   'my': ('margin-top', 'margin-bottom'),
+);
+$padding-prop-list: (
   'p': 'padding',
   'pt': 'padding-top',
   'pr': 'padding-right',
@@ -19,6 +21,10 @@ $spacing-prop-list: (
   'py': ('padding-top', 'padding-bottom'),
 );
 
-@each $prefix-class-name, $property-css in $spacing-prop-list {
+@each $prefix-class-name, $property-css in $margin-prop-list {
+  @include utility-classes-with-modifiers($prefix-class-name, $property-css, map.merge($spacing-list, ('auto': 'auto')));
+}
+
+@each $prefix-class-name, $property-css in $padding-prop-list {
   @include utility-classes-with-modifiers($prefix-class-name, $property-css, $spacing-list);
 }

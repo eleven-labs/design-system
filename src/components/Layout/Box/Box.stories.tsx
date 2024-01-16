@@ -9,7 +9,7 @@ const meta: Meta<typeof Box> = {
   component: Box,
   args: {
     p: 'm',
-    bg: 'azure',
+    bg: 'primary',
     color: 'white',
     children: <Heading textAlign="center">I'm a div Box ;</Heading>,
   },

@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use '@/styles/abstracts' as *;
 
 $reminder-variant-list: (
   'note': (
@@ -60,15 +60,15 @@ $reminder-variant-list: (
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
 
   &__title {
-    padding: var(--spacing-xxs);
-    font-weight: var(--font-weight-bold);
+    padding: #{map-get-strict($token-variables, 'spacing', 'xxs')};
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
     background-color: var(--background-color-title-reminder);
 
     &::before {
       display: inline-block;
       content: "";
-      margin-left: var(--spacing-xxs-2);
-      margin-right: var(--spacing-xxs);
+      margin-left: #{map-get-strict($token-variables, 'spacing', 'xxs-2')};
+      margin-right: #{map-get-strict($token-variables, 'spacing', 'xxs')};
       height: 1.2rem;
       width: 1.2rem;
       background-color: var(--border-or-icon-color-reminder);
@@ -81,11 +81,11 @@ $reminder-variant-list: (
 
   @each $variant-name, $variables in $reminder-variant-list {
     &--#{$variant-name} {
-      --background-color-title-reminder: #{rgba(map.get($variables, 'color'), 0.1)};
-      --border-or-icon-color-reminder: #{map.get($variables, 'color')};
+      --background-color-title-reminder: #{rgba(map-get-strict($variables, 'color'), 0.1)};
+      --border-or-icon-color-reminder: #{map-get-strict($variables, 'color')};
       #{$this}__title {
         &::before {
-          mask-image: url('#{map.get($variables, 'iconUrl')}');
+          mask-image: url('#{map-get-strict($variables, 'iconUrl')}');
         }
       }
     }

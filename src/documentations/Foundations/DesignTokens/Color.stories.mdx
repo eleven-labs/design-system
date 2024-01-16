@@ -2,71 +2,67 @@ import { Meta } from '@storybook/addon-docs';
 import { Layout, Table } from '@/storybook/components';
 import { Box, Text } from '@/components';
 import { tokenVariables } from '@/constants';
-import { capitalize } from '@/helpers/stringHelper';
 
 <Meta
-    title="Foundations/Design Tokens/Color"
-    parameters={{
-        viewMode: 'docs',
-        previewTabs: {
-            canvas: { hidden: true }
-        },
-        backgrounds: {
-            disable: true,
-            grid: {
-                disable: true,
-            }
-        },
-    }}
+  title="Foundations/Design Tokens/Color"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    },
+    backgrounds: {
+      disable: true,
+      grid: {
+        disable: true,
+      }
+    },
+  }}
 />
 
 <Layout
-    title="Color"
-    description="Color palettes used by both design and engineering"
+  title="Color"
+  description="Color palettes used by both design and engineering"
 >
-    {Object.entries(tokenVariables.color).map(([categoryKey, tokenColorsByCategory]) => (
-        <Table
-            key={categoryKey}
-            title={capitalize(categoryKey)}
-            columns={[
-                {
-                    name: 'name',
-                    label: 'Name',
-                },
-                {
-                    name: 'preview',
-                    label: 'Preview',
-                },
-                {
-                    name: 'value',
-                    label: 'Value',
-                },
-                {
-                    name: 'usage',
-                    label: 'Usage',
-                },
-            ]}
-            rows={Object.entries(tokenColorsByCategory).map(([tokenName, token]) => ({
-                name: (
-                    <Text
-                        fontWeight="medium"
-                    >
-                        {tokenName}
-                    </Text>
-                ),
-                preview: (
-                    <Box
-                        bg={tokenName}
-                        style={{
-                            boxSizing: 'border-box',
-                            width: '200px',
-                            height: '50px'
-                        }}
-                    />
-                ),
-                value: token.value,
-                usage: token.description,
-            }))}
+  <Table
+    columns={[
+      {
+        name: 'name',
+        label: 'Name',
+      },
+      {
+        name: 'preview',
+        label: 'Preview',
+      },
+      {
+        name: 'value',
+        label: 'Value',
+      },
+      {
+        name: 'usage',
+        label: 'Usage',
+      },
+    ]}
+    rows={Object.entries(tokenVariables.color).map(([tokenName, token]) => ({
+      name: (
+        <Text
+          weight="medium"
+        >
+          {tokenName}
+        </Text>
+      ),
+      preview: (
+        <Box
+          bg={tokenName}
+          style={{
+            boxSizing: 'border-box',
+            width: '200px',
+            height: '50px',
+            border: '1px solid'
+          }}
         />
-    ))}
+      ),
+      value: token?.value,
+      usage: token?.description,
+    }))}
+  />
 </Layout>

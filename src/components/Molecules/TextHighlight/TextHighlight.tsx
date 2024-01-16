@@ -24,7 +24,7 @@ export const TextHighlight = polyRef<'p', TextHighlightProps>(({ text, textQuery
           as="span"
           key={index}
           fontWeight={part.highlight ? 'medium' : 'regular'}
-          color={part.highlight ? 'amaranth' : 'black'}
+          color={part.highlight ? 'info' : 'black'}
         >
           {part.text}
         </Text>

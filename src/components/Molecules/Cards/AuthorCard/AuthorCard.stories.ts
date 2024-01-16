@@ -8,6 +8,7 @@ const meta: Meta<typeof AuthorCard> = {
     name: 'John Doe',
     description: 'Astronaute John Doe @ ElevenLabs_\uD83D\uDE80',
     link: {
+      label: 'Voir le profil',
       href: '/fr/authors/jdoe',
     },
   },

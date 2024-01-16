@@ -11,11 +11,7 @@ import type {
 
 import { tokenVariables } from './tokenVariables';
 
-export const colorTokenNameList = [
-  ...Object.keys(tokenVariables['color']['primary']),
-  ...Object.keys(tokenVariables['color']['secondary']),
-  ...Object.keys(tokenVariables['color']['greyscale']),
-] as ReadonlyArray<ColorType>;
+export const colorTokenNameList = Object.keys(tokenVariables['color']) as ReadonlyArray<ColorType>;
 
 export const spacingTokenNameList = Object.keys(tokenVariables['spacing']) as ReadonlyArray<SpacingType>;
 

@@ -1,3 +1,5 @@
+@use '@/styles/abstracts' as *;
+
 .burger-button {
   border: none;
   background: none;
@@ -5,6 +7,6 @@
   &__line {
     width: 30px;
     height: 2px;
-    background: var(--color-azure);
+    background: #{map-get-strict($token-variables, 'color', 'primary')};
   }
 }

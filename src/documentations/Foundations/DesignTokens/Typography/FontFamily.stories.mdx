@@ -43,17 +43,14 @@ import { tokenVariables } from '@/constants';
                 label: 'Weight Value',
             }
         ]}
-        rows={Object.entries(tokenVariables.asset.font).map(([tokenName, token]) => {
-            const weight = Object.entries(tokenVariables['font-weight']).find(([_, tokenWeight]) => tokenWeight.value === token.weight)[0];
-            return {
+        rows={Object.entries(tokenVariables["font-family"]).reduce((rows, [tokenName, token]) => {
+            const rowsByWeight = token.weights.map(weight => ({
                 name: (
-                    <Text fontWeight="medium">{tokenName}</Text>
+                    <Text>{tokenName} - {weight}</Text>
                 ),
                 preview: (
-                    <Text
-                        fontWeight={weight}
-                    >
-                        {tokenName}
+                    <Text style={{ fontFamily: token.value }} fontWeight={weight}>
+                        {token.name} {weight}
                     </Text>
                 ),
                 weight_name: (
@@ -63,10 +60,12 @@ import { tokenVariables } from '@/constants';
                 ),
                 weight_value: (
                     <Text>
-                        {token.weight}
+                        {tokenVariables['font-weight'][weight].value}
                     </Text>
                 ),
-            }
-        })}
+            }));
+
+          return [...rows, ...rowsByWeight];
+        }, [])}
     />
 </Layout>

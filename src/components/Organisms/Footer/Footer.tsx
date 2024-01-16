@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box, Button, Flex, Icon, Link, Logo, Text } from '@/components';
-import type { IconNameType } from '@/types';
+import type { ComponentPropsWithoutRef, IconNameType } from '@/types';
 
 import './Footer.scss';
 
@@ -10,16 +10,16 @@ export interface FooterProps {
     title: React.ReactNode;
     description: React.ReactNode;
   };
-  elevenLabsSiteLink: React.ComponentPropsWithoutRef<'a'>;
+  elevenLabsSiteLink: ComponentPropsWithoutRef<'a'>;
   addressList: { title?: React.ReactNode; description: React.ReactNode }[];
-  contactLink: { label: React.ReactNode } & React.ComponentPropsWithoutRef<'a'>;
+  contactLink: { label: React.ReactNode } & ComponentPropsWithoutRef<'a'>;
   socialLinks: ({
     iconName: Extract<IconNameType, 'rss' | 'facebook' | 'twitter' | 'linkedin' | 'welcometothejungle'>;
-  } & React.ComponentPropsWithoutRef<'a'>)[];
+  } & ComponentPropsWithoutRef<'a'>)[];
   languageLinks: ({
     label: React.ReactNode;
     isActive?: boolean;
-  } & React.ComponentPropsWithoutRef<'a'>)[];
+  } & ComponentPropsWithoutRef<'a'>)[];
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -30,12 +30,20 @@ export const Footer: React.FC<FooterProps> = ({
   socialLinks,
   languageLinks,
 }) => (
-  <Box as="footer" bg="navy" color="white" textAlign={{ xs: 'center', md: 'left' }} textSize="s" className="footer">
+  <Box
+    as="footer"
+    bg="primary-dark"
+    color="white"
+    textAlign={{ xs: 'center', md: 'left' }}
+    textSize="s"
+    className="footer"
+  >
     <Flex
       flexDirection={{ xs: 'column', md: 'row' }}
       justifyContent="center"
       alignItems="center"
       py="xs"
+      bg="primary-very-dark"
       className="footer__intro"
     >
       <Text fontWeight="bold">{introBlock.title}</Text>
@@ -94,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({
     </Flex>
     <Flex py="s" justifyContent="center" alignItems="center" className="footer__language-links-container">
       <Box mr="xxs">
-        <Icon name="language" />
+        <Icon size="28px" name="language" />
       </Box>
       {languageLinks.map(({ label, isActive, ...linkProps }, index) => (
         <React.Fragment key={index}>

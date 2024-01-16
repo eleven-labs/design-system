@@ -4,20 +4,20 @@ import React, { Fragment } from 'react';
 import type { BoxProps } from '@/components';
 import { Box, Flex, Icon } from '@/components';
 import { DOTS, usePagination } from '@/hooks/usePagination';
-import type { SpacingSystemProps } from '@/types';
+import type { ComponentPropsWithoutRef, SpacingSystemProps } from '@/types';
 
 import './Pagination.scss';
 
 export interface PaginationProps extends SpacingSystemProps {
   currentPage: number;
   totalPages: number;
-  getLink: (page: number) => React.ComponentPropsWithoutRef<'a'>;
+  getLink: (page: number) => ComponentPropsWithoutRef<'a'>;
   siblingCount?: number;
 }
 
 const getPaginationItem = (options: {
   currentPage: number;
-  getLink: (currentPage: number) => React.ComponentPropsWithoutRef<'a'>;
+  getLink: (currentPage: number) => ComponentPropsWithoutRef<'a'>;
   disabled?: boolean;
   active?: boolean;
 }): BoxProps => ({

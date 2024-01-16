@@ -1,31 +1,33 @@
 import React from 'react';
 
-import { Text } from '@/components';
 import type { HomeIntroBlockProps } from '@/components';
+import { Box } from '@/components';
 import { HomeIntroBlock } from '@/components';
 import { NewsletterCard, type NewsletterCardProps } from '@/components/Molecules/Cards/NewsletterCard';
-import { LayoutContentWithSidebar } from '@/templates/LayoutContentWithSidebar';
+import type { LastArticlesBlockProps } from '@/components/Organisms/Blocks/LastArticlesBlock/LastArticlesBlock';
+import { LastArticlesBlock } from '@/components/Organisms/Blocks/LastArticlesBlock/LastArticlesBlock';
+import type { LastTutorialsBlockProps } from '@/components/Organisms/Blocks/LastTutorialsBlock/LastTutorialsBlock';
+import { LastTutorialsBlock } from '@/components/Organisms/Blocks/LastTutorialsBlock/LastTutorialsBlock';
 
 export type HomePageProps = {
   homeIntroBlock: HomeIntroBlockProps;
-  title: React.ReactNode;
-  postCardList: React.ReactNode;
+  lastArticlesBlock: LastArticlesBlockProps;
+  lastTutorialsBlock: LastTutorialsBlockProps;
   newsletterCard: NewsletterCardProps;
 };
 
-export const HomePage: React.FC<HomePageProps> = ({ homeIntroBlock, title, postCardList, newsletterCard }) => (
+export const HomePage: React.FC<HomePageProps> = ({
+  homeIntroBlock,
+  lastArticlesBlock,
+  lastTutorialsBlock,
+  newsletterCard,
+}) => (
   <>
     <HomeIntroBlock {...homeIntroBlock} />
-    <LayoutContentWithSidebar
-      content={
-        <>
-          <Text size="m" mb="l" fontWeight="medium">
-            {title}
-          </Text>
-          {postCardList}
-        </>
-      }
-      sidebar={<NewsletterCard {...newsletterCard} />}
-    />
+    <LastArticlesBlock {...lastArticlesBlock} />
+    <LastTutorialsBlock {...lastTutorialsBlock} />
+    <Box my="xl" mx={{ xs: 's', md: 'auto' }} width={{ md: 'content-container' }}>
+      <NewsletterCard variant="horizontal" {...newsletterCard} />
+    </Box>
   </>
 );

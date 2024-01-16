@@ -1,3 +1,5 @@
+@use '@/styles/abstracts' as *;
+
 .summary-card {
   $this: &;
 
@@ -5,18 +7,18 @@
 
   &--primary {
     #{$this}__section {
-      color: var(--color-black);
+      color: black;
     }
   }
 
   &--secondary {
     #{$this}__section {
-      color: var(--color-grey);
+      color: #{map-get-strict($token-variables, 'color', 'grey')};
 
       &--active {
-        color: var(--color-navy);
+        color: #{map-get-strict($token-variables, 'color', 'primary')};
         ~ #{$this}__section {
-          color: var(--color-black);
+          color: black;
         }
       }
     }

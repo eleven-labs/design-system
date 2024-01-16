@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Box, Button, Flex, Heading, Text } from '@/components';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './HomeIntroBlock.scss';
 
@@ -8,7 +9,7 @@ export interface HomeIntroBlockProps {
   intro: string;
   title: string;
   description: string;
-  elevenLabsLink: { label: string } & React.ComponentPropsWithoutRef<'a'>;
+  elevenLabsLink: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
 
 export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
@@ -26,10 +27,10 @@ export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
       ml={{ xs: '0', md: 'xxl' }}
       className="home-intro-block__container"
     >
-      <Text size="m" fontWeight="bold" color="amaranth" textTransform="uppercase">
+      <Text size="m" fontWeight="bold" color="info" textTransform="uppercase">
         {intro}
       </Text>
-      <Heading color="navy" textTransform="uppercase" dangerouslySetInnerHTML={{ __html: title }} />
+      <Heading color="primary" textTransform="uppercase" dangerouslySetInnerHTML={{ __html: title }} />
       <Text className="home-intro-block__description" dangerouslySetInnerHTML={{ __html: description }} />
       <Button as="a" {...elevenLabsLink}>
         {elevelLabsLinkLabel}

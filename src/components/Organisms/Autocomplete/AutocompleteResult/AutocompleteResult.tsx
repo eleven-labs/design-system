@@ -6,22 +6,23 @@ import { PostMetadata } from '@/components';
 import { Box, Flex, Heading, Link, Text, TextHighlight } from '@/components';
 import { polyRef } from '@/helpers';
 import { getCdnAssetsFile } from '@/helpers/getCdnAssetsFile';
+import type { ComponentPropsWithoutRef } from '@/types';
 
 import './AutocompleteResult.scss';
 
 export interface AutocompleteItem {
   slug: string;
   title: string;
-  description: string;
   date: string;
   authors?: { username: string; name: string }[];
+  link: ComponentPropsWithoutRef<'a'>;
 }
 
 export type AutocompleteResultOptions = {
   isOpen?: boolean;
-  items: (React.ComponentPropsWithoutRef<'a'> & AutocompleteItem)[];
+  items: AutocompleteItem[];
   searchValue?: string;
-  searchLink?: React.ComponentPropsWithoutRef<'a'> & { label: string };
+  searchLink?: ComponentPropsWithoutRef<'a'> & { label: string };
   searchNotFound?: {
     title: string;
     description: string;
@@ -47,13 +48,13 @@ export const AutocompleteResult = polyRef<'div', AutocompleteResultProps>(
     <Box className={classNames('autocomplete-result', props.className)} ref={ref} hidden={!isOpen}>
       {items.length > 0 && (
         <>
-          {items.map(({ slug, title, description, date, authors, ...itemProps }, index) => {
+          {items.map(({ slug, title, date, authors, link }, index) => {
             const isHighlighted = highlightedIndex === index;
             return (
               <React.Fragment key={slug}>
-                <Box
-                  as="a"
-                  {...itemProps}
+                <Flex
+                  alignItems="center"
+                  gap="xxs"
                   pt={{ xs: 'xxs' }}
                   pb={{ xs: 'xs' }}
                   px={{ xs: 'm' }}
@@ -61,12 +62,16 @@ export const AutocompleteResult = polyRef<'div', AutocompleteResultProps>(
                     'autocomplete-result__item--is-highlighted': isHighlighted,
                   })}
                 >
-                  <Flex alignItems="center" gap="xxs">
-                    <TextHighlight size="s" text={title} textQuery={searchValue} />
-                  </Flex>
-                  <TextHighlight size="xs" text={description} textQuery={searchValue} hiddenBelow="sm" />
+                  <TextHighlight
+                    as="a"
+                    {...link}
+                    size="s"
+                    text={title}
+                    textQuery={searchValue}
+                    className="autocomplete-result__link"
+                  />
                   <PostMetadata mt="xxs-3" date={date} authors={authors} displayedFields={['date', 'authors']} />
-                </Box>
+                </Flex>
               </React.Fragment>
             );
           })}

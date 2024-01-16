@@ -1,4 +1,3 @@
-@use 'sass:map';
 @use '@/styles/abstracts' as *;
 
 .category-intro-block {
@@ -7,13 +6,8 @@
   background-position: bottom;
 
   &__container {
-    background-color: #0A4084; // @todo: add to design token color
+    background-color: #{map-get-strict($token-variables, 'color', 'primary')};
     opacity: 0.9;
-
-    > div {
-      width: 90rem; // @todo: add to design token size container
-      box-sizing: content-box;
-    }
   }
 
   @include create-media-queries('md') {
