@@ -1,13 +1,14 @@
 /**
  * Do not edit directly
- * Generated on Mon, 08 Jan 2024 16:39:55 GMT
+ * Generated on Tue, 16 Jan 2024 14:05:04 GMT
  */
 
 $token-variables: (
 	'cdn-path': "https://eleven-labs.github.io/design-system/",
 	'font-family': (
 		'base': var(--font-family-base),
-		'work-sans': var(--font-family-work-sans)
+		'heading': var(--font-family-heading),
+		'blockquote': var(--font-family-blockquote)
 	),
 	'font-size': (
 		'xxs': var(--font-size-xxs),
@@ -23,11 +24,13 @@ $token-variables: (
 	'font-weight': (
 		'regular': var(--font-weight-regular),
 		'medium': var(--font-weight-medium),
+		'semi-bold': var(--font-weight-semi-bold),
 		'bold': var(--font-weight-bold)
 	),
 	'typography': (
 		'heading': (
 			'base': (
+				'font-family': var(--typography-heading-base-font-family),
 				'line-height': var(--typography-heading-base-line-height),
 				'font-weight': var(--typography-heading-base-font-weight)
 			),
@@ -123,25 +126,20 @@ $token-variables: (
 		'lg': 1201
 	),
 	'color': (
-		'primary': (
-			'azure': var(--color-azure),
-			'navy': var(--color-navy),
-			'seashell': var(--color-seashell)
-		),
-		'secondary': (
-			'lavender': var(--color-lavender),
-			'amaranth': var(--color-amaranth),
-			'yellow': var(--color-yellow)
-		),
-		'greyscale': (
-			'ultra-light-grey': var(--color-ultra-light-grey),
-			'light-grey': var(--color-light-grey),
-			'grey': var(--color-grey),
-			'dark-grey': var(--color-dark-grey),
-			'ultra-dark-grey': var(--color-ultra-dark-grey),
-			'black': var(--color-black),
-			'white': var(--color-white)
-		)
+		'primary': var(--color-primary),
+		'primary-dark': var(--color-primary-dark),
+		'primary-very-dark': var(--color-primary-very-dark),
+		'secondary': var(--color-secondary),
+		'secondary-dark': var(--color-secondary-dark),
+		'info': var(--color-info),
+		'accent': var(--color-accent),
+		'ultra-light-grey': var(--color-ultra-light-grey),
+		'light-grey': var(--color-light-grey),
+		'grey': var(--color-grey),
+		'dark-grey': var(--color-dark-grey),
+		'ultra-dark-grey': var(--color-ultra-dark-grey),
+		'black': var(--color-black),
+		'white': var(--color-white)
 	),
 	'height': (
 		'full': var(--height-full),
@@ -163,6 +161,7 @@ $token-variables: (
 	),
 	'width': (
 		'full': var(--width-full),
-		'screen': var(--width-screen)
+		'screen': var(--width-screen),
+		'content-container': var(--width-content-container)
 	)
 )

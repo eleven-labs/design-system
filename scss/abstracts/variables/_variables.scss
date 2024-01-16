@@ -1,43 +1,39 @@
 
 /**
  * Do not edit directly
- * Generated on Mon, 08 Jan 2024 16:39:55 GMT
+ * Generated on Tue, 16 Jan 2024 14:05:04 GMT
  */
 
-$white: #FFFFFF !default;
-$black: #000000 !default;
+$white: #FFF !default;
+$black: #000 !default;
 $ultra-dark-grey: #333333 !default;
 $dark-grey: #757575 !default;
 $grey: #9B9B9B !default;
 $light-grey: #C4C4C4 !default;
 $ultra-light-grey: #EDEDED !default;
-$yellow: #F8FA9B !default;
-$amaranth: #DD3156 !default;
-$lavender: #E1EAF9 !default;
-$seashell: #e9f1f8 !default;
-$navy: #224579 !default;
-$azure: #3767B6 !default;
+$accent: #F8FA9B !default; // A distinct accent color for content.
+$info: #DD3156 !default; // Used to provide additional information to the user without conveying any particular level of importance.
+$secondary-dark: #C5D3E9 !default;
+$secondary: #E9F1F8 !default;
+$primary-very-dark: #093670 !default;
+$primary-dark: #194180 !default;
+$primary: #0A4084 !default;
 
 $variables: (
   'color': (
-    'primary': (
-      'azure': $azure,
-      'navy': $navy,
-      'seashell': $seashell
-    ),
-    'secondary': (
-      'lavender': $lavender,
-      'amaranth': $amaranth,
-      'yellow': $yellow
-    ),
-    'greyscale': (
-      'ultra-light-grey': $ultra-light-grey,
-      'light-grey': $light-grey,
-      'grey': $grey,
-      'dark-grey': $dark-grey,
-      'ultra-dark-grey': $ultra-dark-grey,
-      'black': $black,
-      'white': $white
-    )
+    'primary': $primary,
+    'primary-dark': $primary-dark,
+    'primary-very-dark': $primary-very-dark,
+    'secondary': $secondary,
+    'secondary-dark': $secondary-dark,
+    'info': $info,
+    'accent': $accent,
+    'ultra-light-grey': $ultra-light-grey,
+    'light-grey': $light-grey,
+    'grey': $grey,
+    'dark-grey': $dark-grey,
+    'ultra-dark-grey': $ultra-dark-grey,
+    'black': $black,
+    'white': $white
   )
 );
