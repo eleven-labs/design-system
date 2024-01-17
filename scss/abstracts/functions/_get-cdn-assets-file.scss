@@ -1,9 +1,0 @@
-@use 'sass:map';
-@use 'sass:string';
-@use '../variables' as *;
-
-@function get-cdn-assets-file($path) {
-  $full-path: #{map.get($token-variables, 'cdn-path')}#{$path};
-
-  @return string.slice($full-path, 2);
-}

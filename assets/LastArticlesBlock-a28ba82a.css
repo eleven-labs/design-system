@@ -1,0 +1,1 @@
+.last-articles-block__post-list{display:grid}@media screen and (min-width: 1001px){.last-articles-block__post-list{grid-template-columns:repeat(4,1fr)}}
