@@ -1,31 +1,5 @@
 @use '@/styles/abstracts' as *;
 
-@mixin multi-line-ellipsis($line-height: 1.2em, $line-count: 1, $bg-color: white) {
-  overflow: hidden;
-  position: relative;
-  line-height: $line-height;
-  max-height: $line-height * $line-count;
-  text-align: justify;
-  padding-right: 1em;
-
-  &::before {
-    content: '...';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
-    background: $bg-color;
-  }
-}
-
 .post-preview {
   $this: &;
 
@@ -66,9 +40,5 @@
   &__tutoriel-tag {
     background-color: #{map-get-strict($token-variables, 'color', 'accent')};
     border-radius: 2px;
-  }
-
-  &__excerpt {
-    @include multi-line-ellipsis(1.5em, 3, var(--background-color-post-preview));
   }
 }

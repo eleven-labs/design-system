@@ -2,7 +2,6 @@ import React from 'react';
 
 import type { FlexProps } from '@/components';
 import { Box, Flex, Heading, Link, Text } from '@/components';
-import { getCdnAssetsFile } from '@/helpers/getCdnAssetsFile';
 import type { ComponentPropsWithoutRef } from '@/types';
 
 import './AuthorCard.scss';
@@ -23,11 +22,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({
 }) => (
   <Flex {...props} alignItems="center" justifyContent="between" px="s" py="m" bg="white" className="author-card">
     <Flex gap="s" flex="1">
-      <img
-        src={avatarImageUrl ?? getCdnAssetsFile('/imgs/astronaut.png')}
-        alt={name}
-        className="author-card__avatar-img"
-      />
+      <img src={avatarImageUrl ?? '/imgs/astronaut.png'} alt={name} className="author-card__avatar-img" />
       <Box>
         <Heading color="primary" size="s">
           {name}

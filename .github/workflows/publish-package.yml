@@ -4,9 +4,6 @@ on:
   release:
     types: [created]
 
-env:
-  VITE_CDN_PATH: /
-
 jobs:
   setup:
     uses: ./.github/workflows/setup-nodejs-and-install-dependencies.yml

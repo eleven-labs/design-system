@@ -3,6 +3,11 @@
 .last-articles-block {
   &__post-list {
     display: grid; // @todo: add component for grid
-    grid-template-columns: repeat(4, 1fr); // @todo: add component for grid
+  }
+
+  @include create-media-queries('md') {
+    &__post-list {
+      grid-template-columns: repeat(4, 1fr); // @todo: add component for grid
+    }
   }
 }

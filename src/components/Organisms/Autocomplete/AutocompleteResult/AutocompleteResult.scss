@@ -28,7 +28,7 @@
     display: block;
 
     &--is-highlighted {
-      background-color: map-get-strict($token-variables, 'color', 'info');
+      background-color: map-get-strict($token-variables, 'color', 'secondary');
     }
   }
 

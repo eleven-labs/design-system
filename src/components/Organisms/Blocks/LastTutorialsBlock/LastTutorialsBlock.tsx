@@ -25,6 +25,7 @@ export const LastTutorialsBlock: React.FC<LastTutorialsBlockProps> = ({
 }) => (
   <Box bg="primary" color="white">
     <Flex
+      flexDirection={{ xs: 'column', md: 'row' }}
       justifyContent="center"
       alignItems="center"
       {...props}

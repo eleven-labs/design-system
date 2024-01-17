@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { Flex, Link, Text } from '@/components';
 import type { ComponentPropsWithoutRef, MarginSystemProps } from '@/types';
+
+import './Breadcrumb.scss';
 
 export interface BreadcrumbProps extends MarginSystemProps {
   items: ({ label: string } & ComponentPropsWithoutRef<'a'>)[];
 }
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...props }) => (
-  <Flex {...props} gap="xxs-3">
+  <Flex {...props} as="ol" itemScope itemType="https://schema.org/BreadcrumbList" gap="xxs-3" className="breadcrumb">
     {items.map(({ label, ...itemLink }, index) => (
-      <>
-        {itemLink.href ? <Link {...itemLink}>{label}</Link> : <Text>{label}</Text>}
-        {index < items.length - 1 && <Text>{'>'}</Text>}
-      </>
+      <Fragment key={index}>
+        <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+          {itemLink.href ? (
+            <Link itemProp="item" {...itemLink}>
+              <Text as="span" itemProp="name">
+                {label}
+              </Text>
+            </Link>
+          ) : (
+            <Text as="span" itemProp="name">
+              {label}
+            </Text>
+          )}
+          <meta itemProp="position" content={(index + 1).toString()} />
+        </li>
+        {index < items.length - 1 && <Text as="span">{'>'}</Text>}
+      </Fragment>
     ))}
   </Flex>
 );

@@ -16,7 +16,6 @@ export type AutocompleteOptions = {
   placeholder: string;
   searchLink: Exclude<AutocompleteResultOptions['searchLink'], undefined>;
   defaultValue?: string;
-  // eslint-disable-next-line no-unused-vars
   onEnter?: (value: string) => void;
 };
 
