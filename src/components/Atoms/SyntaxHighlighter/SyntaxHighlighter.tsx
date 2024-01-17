@@ -37,7 +37,6 @@ export const SyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({ language, 
     language={language}
     style={githubGist}
     customStyle={{
-      backgroundColor: 'var(--color-ultra-light-grey)',
       padding: 'var(--spacing-s)',
       borderRadius: '4px',
     }}

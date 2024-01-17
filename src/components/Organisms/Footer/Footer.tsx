@@ -45,9 +45,10 @@ export const Footer: React.FC<FooterProps> = ({
       py="xs"
       bg="primary-very-dark"
       className="footer__intro"
+      gap="s"
     >
       <Text fontWeight="bold">{introBlock.title}</Text>
-      <Box as="a" ml="s" {...elevenLabsSiteLink} className="footer__intro-link">
+      <Box as="a" {...elevenLabsSiteLink} className="footer__intro-link">
         {introBlock.description}
       </Box>
     </Flex>

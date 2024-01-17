@@ -68,7 +68,7 @@ export const PostCard: React.FC<PostCardProps> = ({
       isLoading={isLoading}
     />
     <Skeleton isLoading={isLoading}>
-      <Text mt="xs" size="s" hiddenBelow="md" className="post-preview__excerpt">
+      <Text mt="xs" size="s" hiddenBelow="md">
         {excerpt}
       </Text>
     </Skeleton>

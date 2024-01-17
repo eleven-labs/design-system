@@ -5,7 +5,6 @@ import type { BoxProps } from '@/components';
 import { PostMetadata } from '@/components';
 import { Box, Flex, Heading, Link, Text, TextHighlight } from '@/components';
 import { polyRef } from '@/helpers';
-import { getCdnAssetsFile } from '@/helpers/getCdnAssetsFile';
 import type { ComponentPropsWithoutRef } from '@/types';
 
 import './AutocompleteResult.scss';
@@ -90,7 +89,7 @@ export const AutocompleteResult = polyRef<'div', AutocompleteResultProps>(
       )}
       {items.length === 0 && searchNotFound && (
         <Box textAlign="center" px="xl" py="m">
-          <img src={getCdnAssetsFile('/imgs/not-found.png')} alt="not-found" />
+          <img src="/imgs/not-found.png" alt="not-found" />
           <Heading as="p" size="m" mt="s">
             {searchNotFound.title}
           </Heading>

@@ -6,6 +6,7 @@ import { Icon } from '@/components';
 import { Box, Flex, Heading, Text } from '@/components';
 
 import './NewsletterCard.scss';
+import './webmecanik.scss';
 
 export const newsletterCardVariant = ['horizontal', 'vertical'] as const;
 export type NewsletterCardVariantType = (typeof newsletterCardVariant)[number];
@@ -26,7 +27,6 @@ export const NewsletterCard: React.FC<NewsletterCardProps> = ({
 }) => (
   <Flex
     {...props}
-    flexDirection={variant === 'vertical' ? 'column' : 'row'}
     p="l"
     bg="primary"
     color="white"

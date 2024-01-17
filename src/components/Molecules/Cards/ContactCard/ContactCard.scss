@@ -1,7 +1,7 @@
 @use '@/styles/abstracts' as *;
 
 .contact-card {
-  background-image: url('#{get-cdn-assets-file('/imgs/contact-background.png')}');
+  background-image: url('/imgs/contact-background.png');
   background-size: contain;
   background-position: right;
   background-repeat: no-repeat;
