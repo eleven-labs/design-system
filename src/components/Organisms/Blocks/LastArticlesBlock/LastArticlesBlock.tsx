@@ -7,7 +7,7 @@ import type { ComponentPropsWithoutRef } from '@/types';
 import './LastArticlesBlock.scss';
 
 export interface LastArticlesBlockProps extends BoxProps {
-  title: string;
+  title: React.ReactNode;
   posts: Partial<PostCardProps>[];
   linkSeeMore: { label: string } & ComponentPropsWithoutRef<'a'>;
 }

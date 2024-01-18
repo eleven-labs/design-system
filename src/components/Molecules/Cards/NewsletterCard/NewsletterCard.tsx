@@ -12,8 +12,8 @@ export const newsletterCardVariant = ['horizontal', 'vertical'] as const;
 export type NewsletterCardVariantType = (typeof newsletterCardVariant)[number];
 
 export interface NewsletterCardProps extends Omit<FlexProps, 'title'> {
-  title: string;
-  description: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
   children: React.ReactNode;
   variant?: NewsletterCardVariantType;
 }
@@ -33,9 +33,11 @@ export const NewsletterCard: React.FC<NewsletterCardProps> = ({
     className={classNames('newsletter-card', `newsletter-card--${variant}`)}
   >
     <Box className="newsletter-card__intro">
-      <Heading as="p" size="l" color="accent" dangerouslySetInnerHTML={{ __html: title }} />
+      <Heading as="p" size="l" color="accent">
+        {title}
+      </Heading>
       <Icon name="underline" color="accent" width="56px" />
-      <Text mt="m" dangerouslySetInnerHTML={{ __html: description }} />
+      <Text mt="m">{description}</Text>
     </Box>
     <Box>{children}</Box>
   </Flex>

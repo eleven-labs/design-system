@@ -13,10 +13,4 @@
   &__container {
     max-width: 724px;
   }
-
-  &__description {
-    a {
-      color: #{map-get-strict($token-variables, 'color', 'info')};
-    }
-  }
 }

@@ -8,7 +8,7 @@ import './AuthorCard.scss';
 
 export interface AuthorCardProps extends FlexProps {
   name: string;
-  description: string;
+  description: React.ReactNode;
   avatarImageUrl?: string;
   link: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
@@ -27,13 +27,9 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({
         <Heading color="primary" size="s">
           {name}
         </Heading>
-        <Text
-          as="div"
-          size="xs"
-          mt="xxs-3"
-          style={{ fontStyle: 'italic' }}
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <Text as="div" size="xs" mt="xxs-3" style={{ fontStyle: 'italic' }}>
+          {description}
+        </Text>
       </Box>
     </Flex>
     <Link
