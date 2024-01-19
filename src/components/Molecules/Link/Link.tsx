@@ -11,7 +11,7 @@ import './Link.scss';
 export interface LinkProps extends BoxProps {
   className?: string;
   icon?: IconNameType;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Link = polyRef<'a', LinkProps>(({ as = 'a', icon, className, children, ...props }, ref) =>

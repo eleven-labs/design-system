@@ -23,8 +23,8 @@ export type AutocompleteResultOptions = {
   searchValue?: string;
   searchLink?: ComponentPropsWithoutRef<'a'> & { label: string };
   searchNotFound?: {
-    title: string;
-    description: string;
+    title: React.ReactNode;
+    description: React.ReactNode;
   };
   highlightedIndex?: number;
 };

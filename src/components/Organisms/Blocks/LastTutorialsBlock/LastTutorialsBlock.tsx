@@ -8,8 +8,8 @@ import type { ComponentPropsWithoutRef } from '@/types';
 import './LastTutorialsBlock.scss';
 
 export interface LastTutorialsBlockProps extends FlexProps {
-  title: string;
-  description: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
   posts: Partial<PostCardProps>[];
   tutorialLabel: string;
   linkSeeMore: { label: string } & ComponentPropsWithoutRef<'a'>;

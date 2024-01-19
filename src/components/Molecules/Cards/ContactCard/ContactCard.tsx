@@ -7,9 +7,9 @@ import type { ComponentPropsWithoutRef } from '@/types';
 import './ContactCard.scss';
 
 export type ContactCardProps = {
-  title: string;
-  subtitle: string;
-  description: string;
+  title: React.ReactNode;
+  subtitle: React.ReactNode;
+  description: React.ReactNode;
   link: { label: React.ReactNode } & ComponentPropsWithoutRef<'a'>;
 } & FlexProps;
 
@@ -34,7 +34,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({
           {subtitle}
         </Text>
       </Heading>
-      <Text size="s" dangerouslySetInnerHTML={{ __html: description }} />
+      <Text size="s">{description}</Text>
       <Button as="a" {...link}>
         {linkLabel}
       </Button>

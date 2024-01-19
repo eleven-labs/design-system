@@ -6,9 +6,9 @@ import type { ComponentPropsWithoutRef } from '@/types';
 import './HomeIntroBlock.scss';
 
 export interface HomeIntroBlockProps {
-  intro: string;
-  title: string;
-  description: string;
+  intro: React.ReactNode;
+  title: React.ReactNode;
+  description: React.ReactNode;
   elevenLabsLink: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
 
@@ -30,8 +30,10 @@ export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
       <Text size="m" fontWeight="bold" color="info" textTransform="uppercase">
         {intro}
       </Text>
-      <Heading color="primary" textTransform="uppercase" dangerouslySetInnerHTML={{ __html: title }} />
-      <Text className="home-intro-block__description" dangerouslySetInnerHTML={{ __html: description }} />
+      <Heading color="primary" textTransform="uppercase">
+        {title}
+      </Heading>
+      <Text>{description}</Text>
       <Button as="a" {...elevenLabsLink}>
         {elevelLabsLinkLabel}
       </Button>

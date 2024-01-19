@@ -4,10 +4,9 @@ import type { BoxProps } from '@/components';
 import { Box, Button, Text } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
-import './CategoryEndingBlock.scss';
 export interface CategoryEndingBlockProps extends BoxProps {
-  title: string;
-  description: string;
+  title: React.ReactNode;
+  description: React.ReactNode;
   expertiseLink: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
 
@@ -17,9 +16,11 @@ export const CategoryEndingBlock: React.FC<CategoryEndingBlockProps> = ({
   expertiseLink: { label: expertiseLinkLabel, ...expertiseLink },
   ...props
 }) => (
-  <Box {...props} className="category-ending-block">
-    <Text size="m" fontWeight="bold" dangerouslySetInnerHTML={{ __html: title }} />
-    <Text mt="m" className="category-ending-block__description" dangerouslySetInnerHTML={{ __html: description }} />
+  <Box {...props}>
+    <Text size="m" fontWeight="bold">
+      {title}
+    </Text>
+    <Text mt="m">{description}</Text>
     <Button as="a" mt="l" {...expertiseLink}>
       {expertiseLinkLabel}
     </Button>

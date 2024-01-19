@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import type { PostCardListProps } from '@/components';
+import type { NewsletterCardProps, PostCardListProps } from '@/components';
+import { NewsletterCard } from '@/components';
 import { PostCardList } from '@/components';
 import NewsletterCardStories from '@/components/Molecules/Cards/NewsletterCard/NewsletterCard.stories';
 import * as PostCardListStories from '@/components/Organisms/PostCardList/PostCardList.stories';
-import type { CategoryPageProps } from '@/pages/CategoryPage';
 import { LayoutTemplateDecorator } from '@/storybook/decorators';
 
 import { SearchPage } from './SearchPage';
@@ -19,7 +19,9 @@ const meta: Meta<typeof SearchPage> = {
       ...PostCardListStories.default.args,
       ...PostCardListStories.WithPagination.args,
     } as PostCardListProps),
-    newsletterCard: NewsletterCardStories.args as CategoryPageProps['newsletterCard'],
+    sidebar: [
+      React.createElement<NewsletterCardProps>(NewsletterCard, NewsletterCardStories.args as NewsletterCardProps),
+    ],
     isLoading: false,
   },
   parameters: {
