@@ -1,5 +1,0 @@
-import{j as a}from"./jsx-runtime-ffb262ed.js";import{R as s,r as d}from"./Blockquote-6dff93c1.js";import"./index-76fb7be0.js";import"./_commonjsHelpers-de833af9.js";import"./SyntaxHighlighter-7746f185.js";import"./extends-98964cd2.js";import"./index-8d47fad6.js";import"./matchMediaQueryList-c2e31f26.js";const f={component:s,args:{variant:"note",title:"Title",children:"Lorem ipsum"}},l=r=>a.jsx(s,{...r}),e=l.bind({}),t=()=>a.jsx(a.Fragment,{children:d.map(r=>a.jsx(s,{variant:r,title:r,mb:"m",children:"Lorem ipsum"},r))});var i,m,o;e.parameters={...e.parameters,docs:{...(i=e.parameters)==null?void 0:i.docs,source:{originalSource:"args => <Reminder {...args} />",...(o=(m=e.parameters)==null?void 0:m.docs)==null?void 0:o.source}}};var n,p,c;t.parameters={...t.parameters,docs:{...(n=t.parameters)==null?void 0:n.docs,source:{originalSource:`() => <>
-    {reminderVariantList.map(variant => <Reminder key={variant} variant={variant} title={variant} mb="m">
-        Lorem ipsum
-      </Reminder>)}
-  </>`,...(c=(p=t.parameters)==null?void 0:p.docs)==null?void 0:c.source}}};const h=["Overview","All"];export{t as All,e as Overview,h as __namedExportsOrder,f as default};
