@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 19 Jan 2024 10:37:23 GMT
+ * Generated on Fri, 19 Jan 2024 17:00:31 GMT
  */
 
 $token-variables: (
@@ -8,17 +8,6 @@ $token-variables: (
 		'base': var(--font-family-base),
 		'heading': var(--font-family-heading),
 		'blockquote': var(--font-family-blockquote)
-	),
-	'font-size': (
-		'xxs': var(--font-size-xxs),
-		'xs': var(--font-size-xs),
-		's': var(--font-size-s),
-		'm': var(--font-size-m),
-		'l': var(--font-size-l),
-		'xl': var(--font-size-xl),
-		'xxl': var(--font-size-xxl),
-		'xxl-2': var(--font-size-xxl-2),
-		'xxl-3': var(--font-size-xxl-3)
 	),
 	'font-weight': (
 		'regular': var(--font-weight-regular),
@@ -30,11 +19,24 @@ $token-variables: (
 		'heading': (
 			'base': (
 				'font-family': var(--typography-heading-base-font-family),
-				'line-height': var(--typography-heading-base-line-height),
-				'font-weight': var(--typography-heading-base-font-weight)
+				'line-height': var(--typography-heading-base-line-height)
+			),
+			's': (
+				'font-size': var(--typography-heading-s-font-size),
+				'font-weight': var(--typography-heading-s-font-weight),
+				'text-transform': var(--typography-heading-s-text-transform)
+			),
+			'm': (
+				'font-size': var(--typography-heading-m-font-size),
+				'font-weight': var(--typography-heading-m-font-weight)
+			),
+			'l': (
+				'font-size': var(--typography-heading-l-font-size)
 			),
 			'xl': (
-				'font-weight': var(--typography-heading-xl-font-weight)
+				'font-size': var(--typography-heading-xl-font-size),
+				'font-weight': var(--typography-heading-xl-font-weight),
+				'text-transform': var(--typography-heading-xl-text-transform)
 			)
 		),
 		'text': (
@@ -42,42 +44,16 @@ $token-variables: (
 				'line-height': var(--typography-text-base-line-height)
 			),
 			'xs': (
-				'line-height': var(--typography-text-xs-line-height)
+				'font-size': var(--typography-text-xs-font-size),
+				'icon-size': var(--typography-text-xs-icon-size)
+			),
+			's': (
+				'font-size': var(--typography-text-s-font-size),
+				'icon-size': var(--typography-text-s-icon-size)
 			),
 			'm': (
-				'line-height': var(--typography-text-m-line-height)
-			)
-		)
-	),
-	'mobile': (
-		'typography': (
-			'heading': (
-				's': (
-					'font-size': var(--mobile-typography-heading-s-font-size)
-				),
-				'm': (
-					'font-size': var(--mobile-typography-heading-m-font-size)
-				),
-				'l': (
-					'font-size': var(--mobile-typography-heading-l-font-size)
-				),
-				'xl': (
-					'font-size': var(--mobile-typography-heading-xl-font-size)
-				)
-			),
-			'text': (
-				'xs': (
-					'font-size': var(--mobile-typography-text-xs-font-size),
-					'icon-size': var(--mobile-typography-text-xs-icon-size)
-				),
-				's': (
-					'font-size': var(--mobile-typography-text-s-font-size),
-					'icon-size': var(--mobile-typography-text-s-icon-size)
-				),
-				'm': (
-					'font-size': var(--mobile-typography-text-m-font-size),
-					'icon-size': var(--mobile-typography-text-m-icon-size)
-				)
+				'font-size': var(--typography-text-m-font-size),
+				'icon-size': var(--typography-text-m-icon-size)
 			)
 		)
 	),
