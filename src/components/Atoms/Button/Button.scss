@@ -3,37 +3,14 @@
 .button {
   $this: &;
 
-  display: inline-flex;
-  flex-direction: column;
-  padding: map-get-strict($token-variables, 'spacing', 'xxs') map-get-strict($token-variables, 'spacing', 'm');
   background: var(--background-color-button, map-get-strict($token-variables, 'color', 'info'));
   color: var(--color-button, white);
-  font-weight: var(--font-weight-button, map-get-strict($token-variables, 'font-weight', 'medium'));
-  text-transform: uppercase;
+  font-family: map-get-strict($token-variables, 'font-family', 'heading');
   border-width: var(--border-width-button, 0);
   border-style: solid;
   border-color: var(--border-color-button, transparent);
-  border-radius: var(--border-radius-button, 4px);
+  border-radius: var(--border-radius-button, 100px);
   cursor: pointer;
-
-  &::after {
-    content: attr(data-text);
-    content: attr(data-text) / "";
-    height: 0;
-    visibility: hidden;
-    overflow: hidden;
-    user-select: none;
-    pointer-events: none;
-    font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
-
-    @media speech {
-      display: none;
-    }
-  }
-
-  &:hover {
-    --font-weight-button: #{map-get-strict($token-variables, 'font-weight', 'bold')};
-  }
 
   &[disabled] {
     cursor: not-allowed;
@@ -57,5 +34,10 @@
     &[disabled] {
       --border-color-button: #{map-get-strict($token-variables, 'color', 'dark-grey')};
     }
+  }
+
+  &--accent {
+    --background-color-button: #{map-get-strict($token-variables, 'color', 'accent')};
+    --color-button: #{map-get-strict($token-variables, 'color', 'primary')};
   }
 }

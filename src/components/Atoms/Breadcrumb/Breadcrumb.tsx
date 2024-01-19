@@ -10,7 +10,15 @@ export interface BreadcrumbProps extends MarginSystemProps {
 }
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...props }) => (
-  <Flex {...props} as="ol" itemScope itemType="https://schema.org/BreadcrumbList" gap="xxs-3" className="breadcrumb">
+  <Flex
+    {...props}
+    as="ol"
+    itemScope
+    itemType="https://schema.org/BreadcrumbList"
+    gap="xxs-3"
+    fontWeight="semi-bold"
+    className="breadcrumb"
+  >
     {items.map(({ label, ...itemLink }, index) => (
       <Fragment key={index}>
         <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
@@ -21,7 +29,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...props }) => (
               </Text>
             </Link>
           ) : (
-            <Text as="span" itemProp="name">
+            <Text as="span" itemProp="name" fontWeight="regular">
               {label}
             </Text>
           )}

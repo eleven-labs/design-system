@@ -30,3 +30,8 @@ export const ButtonWithVariantSecondary: Story = {};
 ButtonWithVariantSecondary.args = {
   variant: 'secondary',
 };
+
+export const ButtonWithVariantAccent: Story = {};
+ButtonWithVariantAccent.args = {
+  variant: 'accent',
+};

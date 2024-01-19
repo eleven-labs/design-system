@@ -10,7 +10,7 @@
     width: 100%;
     padding: #{map-get-strict($token-variables, 'spacing', 'xs')} calc(#{map-get-strict($token-variables, 'spacing', 'xxl')} + #{map-get-strict($token-variables, 'spacing', 'm')}) #{map-get-strict($token-variables, 'spacing', 'xs')} #{map-get-strict($token-variables, 'spacing', 'xs')};
     font-family: #{map-get-strict($token-variables, 'font-family', 'base')};
-    font-size: var(--font-size-input, #{map-get-strict($token-variables, 'font-size', 's')});
+    font-size: var(--font-size-input, #{map-get-strict($token-variables, 'typography', 'text', 'xs', 'font-size')});
     line-height: #{map-get-strict($token-variables, 'line-height', 'large')};
     border-width: var(--border-width-input-search-field, 2px);
     border-style: solid;
@@ -19,7 +19,7 @@
     background-color: #{map-get-strict($token-variables, 'color', 'secondary')};
 
     @include create-media-queries('md') {
-      --font-size-input: #{map-get-strict($token-variables, 'font-size', 'xs')};
+      --font-size-input: #{map-get-strict($token-variables, 'desktop', 'typography', 'text', 'xs', 'font-size')};
     }
 
     &, &::placeholder {

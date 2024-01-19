@@ -25,16 +25,16 @@ export const LastArticlesBlock: React.FC<LastArticlesBlockProps> = ({
     width={{ md: 'content-container' }}
     className="last-articles-block"
   >
-    <Heading as="p" size="m" color="primary">
+    <Heading size="m" color="primary">
       {title}
     </Heading>
-    <Box mt="l" gap="m" className="last-articles-block__post-list">
+    <Flex mt="l" gap="m" className="last-articles-block__post-list">
       {posts.map((post, index) => (
         <React.Fragment key={post?.slug ?? index}>
           <PostCard {...(post || {})} />
         </React.Fragment>
       ))}
-    </Box>
+    </Flex>
     <Flex justifyContent="center" alignItems="center">
       <Button mt="l" as="a" {...linkSeeMore}>
         {labelLinkSeeMore}

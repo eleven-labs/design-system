@@ -1,13 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+
+import { Text } from '@/components';
 
 import { ContactCard } from './ContactCard';
 
 const meta: Meta<typeof ContactCard> = {
   component: ContactCard,
   args: {
-    title: 'Vous avez un projet ?',
-    subtitle: 'Contactez nous !',
-    description: `Vous souhaitez en savoir plus sur le sujet ? Organisons un échange !<br />Notre équipe d'experts répond à toutes vos questions.`,
+    title: (
+      <>
+        Vous souhaitez en savoir plus sur le sujet ?<br />
+        <Text as="span" fontWeight="bold">
+          Organisons un échange !
+        </Text>
+      </>
+    ),
+    description: "Notre équipe d'experts répond à toutes vos questions.",
     link: {
       label: 'Nous contacter',
       href: '#',

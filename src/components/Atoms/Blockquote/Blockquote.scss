@@ -2,7 +2,6 @@
 
 .blockquote {
   font-family: Georgia, #{map-get-strict($token-variables, 'font-family', 'blockquote')};
-  font-size: #{map-get-strict($token-variables, 'font-size', 'l')};
 
   &::before, &::after {
     content: "“";

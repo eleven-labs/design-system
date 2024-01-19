@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Button, Flex, Icon, Link, Logo, Text } from '@/components';
+import { Box, Button, Flex, Heading, Icon, Link, Logo, Text } from '@/components';
 import type { ComponentPropsWithoutRef, IconNameType } from '@/types';
 
 import './Footer.scss';
@@ -42,12 +42,12 @@ export const Footer: React.FC<FooterProps> = ({
       flexDirection={{ xs: 'column', md: 'row' }}
       justifyContent="center"
       alignItems="center"
-      py="xs"
+      py="m"
       bg="primary-very-dark"
       className="footer__intro"
       gap="s"
     >
-      <Text fontWeight="bold">{introBlock.title}</Text>
+      <Heading size="s">{introBlock.title}</Heading>
       <Box as="a" {...elevenLabsSiteLink} className="footer__intro-link">
         {introBlock.description}
       </Box>

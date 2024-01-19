@@ -1,22 +1,12 @@
 import type {
   AlignContentType,
   AlignItemsType,
-  FlexType,
   JustifyContentType,
   SpacingType,
   TypeWithMediaQueriesType,
 } from '@/types';
-import type { AlignSelfType, FlexBasisType, FlexDirectionType, FlexWrapType } from '@/types';
 
-export interface FlexBoxSystemProps {
-  /**
-   * flex-direction (including breakpoints modifiers)
-   */
-  flexDirection?: TypeWithMediaQueriesType<FlexDirectionType>;
-  /**
-   * Can flex items wrap onto multiple lines (including breakpoints modifiers)
-   */
-  flexWrap?: TypeWithMediaQueriesType<FlexWrapType>;
+export interface FlexOrGridSystemProps {
   /**
    * align-items (including breakpoints modifiers)
    */
@@ -30,10 +20,6 @@ export interface FlexBoxSystemProps {
    */
   justifyContent?: TypeWithMediaQueriesType<JustifyContentType>;
   /**
-   * Defines a align self (including breakpoints modifiers)
-   */
-  alignSelf?: TypeWithMediaQueriesType<AlignSelfType>;
-  /**
    * Defines gap for col and row (including breakpoints modifiers)
    */
   gap?: TypeWithMediaQueriesType<SpacingType>;
@@ -45,12 +31,4 @@ export interface FlexBoxSystemProps {
    * Defines col gap (including breakpoints modifiers)
    */
   gapY?: TypeWithMediaQueriesType<SpacingType>;
-  /**
-   * Defines a flex basis, auto or number (including breakpoints modifiers)
-   */
-  flexBasis?: TypeWithMediaQueriesType<FlexBasisType>;
-  /**
-   * Defines a flex (including breakpoints modifiers)
-   */
-  flex?: TypeWithMediaQueriesType<FlexType>;
 }

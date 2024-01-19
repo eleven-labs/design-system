@@ -2,10 +2,11 @@
 @use './create-media-queries' as *;
 @use '../variables' as *;
 
-@mixin utility-classes($prefix-class-name, $property-css, $list) {
+@mixin utility-classes($property-css, $list, $prefix-class-name: null) {
   @each $name, $value in $list {
+    $class-name: if($prefix-class-name, #{$prefix-class-name}-#{$name}, #{$name});
     .#{$prefix-class-name}-#{$name} {
-      @if  type-of($property-css) == 'list' {
+      @if type-of($property-css) == 'list' {
         @each $current-property-css in $property-css {
           #{$current-property-css}: #{$value};
         }
@@ -16,11 +17,16 @@
   }
 }
 
-@mixin utility-classes-with-modifiers($prefix-class-name, $property-css, $list) {
+@mixin utility-classes-with-breakpoints($property-css, $list, $prefix-class-name: null) {
   @each $breakpoint-name, $breakpoint-value in map.get($token-variables, 'breakpoint') {
     @include create-media-queries($breakpoint-name) {
       @each $name, $value in $list {
-        .#{$prefix-class-name}-#{$name}\@#{$breakpoint-name} {
+        $class-name: if(
+            $prefix-class-name,
+            #{$prefix-class-name}-#{$name}\@#{$breakpoint-name},
+            #{$name}\@#{$breakpoint-name}
+        );
+        .#{$class-name} {
           @if type-of($property-css) == 'list' {
             @each $current-property-css in $property-css {
               #{$current-property-css}: #{$value};

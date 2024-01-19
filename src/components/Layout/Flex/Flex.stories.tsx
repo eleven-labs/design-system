@@ -2,13 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import * as React from 'react';
 
 import { Box, Flex } from '@/components';
-import { systemPropsControls } from '@/constants/storybook';
+import { flexOrGridSystemPropsControls, flexSystemPropsControls, systemPropsControls } from '@/constants/storybook';
 
 const meta: Meta<typeof Flex> = {
   component: Flex,
   args: {
     display: 'flex',
-    bg: 'ultra-light-grey',
     p: 'xxs',
     gap: 'm',
     justifyContent: 'center',
@@ -24,6 +23,8 @@ const meta: Meta<typeof Flex> = {
   },
   argTypes: {
     ...systemPropsControls,
+    ...flexOrGridSystemPropsControls,
+    ...flexSystemPropsControls,
   },
 };
 

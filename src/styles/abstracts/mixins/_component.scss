@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../variables' as *;
+
+@mixin component($component-name, $config) {
+  @each $component-variant-name, $properties in $config {
+    @if $component-variant-name != 'base' {
+      .#{$component-name}-#{$component-variant-name} {
+        @each $property-name, $property-value in map.merge(map.get($config, 'base'), $properties) {
+          #{$property-name}: #{$property-value};
+        }
+      }
+    }
+  }
+}

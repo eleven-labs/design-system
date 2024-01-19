@@ -15,6 +15,9 @@ const meta: Meta<typeof LastArticlesBlock> = {
       authors: [{ username: 'jdoe', name: 'J. Doe' }],
       excerpt:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit vel tellus in molestie. Curabitur malesuada sodales consectetur. Aliquam convallis nec lacus in euismod. Vestibulum id eros vitae tellus sodales ultricies eget eu ipsum.',
+      link: {
+        href: '#',
+      },
     })),
     linkSeeMore: { label: 'Voir tous les articles', href: '#' },
   },

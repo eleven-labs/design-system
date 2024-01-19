@@ -3,6 +3,7 @@ import { Layout, Table } from '@/storybook/components';
 import { Heading, Text } from '@/components';
 import { tokenVariables, headingSizeTokenNameList } from '@/constants';
 import { getValueOfCssPropertyInDesignTokens } from '@/helpers/storybookHelper';
+import { get } from '@/helpers/objectHelper';
 
 <Meta
     title="Foundations/Design Tokens/Typography/Heading"
@@ -36,6 +37,10 @@ import { getValueOfCssPropertyInDesignTokens } from '@/helpers/storybookHelper';
                 label: 'Preview',
             },
             {
+              name: 'fontFamily',
+              label: 'Font Family',
+            },
+            {
                 name: 'mobile',
                 label: 'Value for mobile',
             },
@@ -44,7 +49,9 @@ import { getValueOfCssPropertyInDesignTokens } from '@/helpers/storybookHelper';
                 label: 'Value for desktop',
             },
         ]}
-        rows={headingSizeTokenNameList.map(tokenName => ({
+        rows={headingSizeTokenNameList
+          .filter(tokenName => tokenName !== 'base')
+          .map(tokenName => ({
             name: (
                 <Text fontWeight="medium">heading-{tokenName}</Text>
             ),
@@ -53,27 +60,26 @@ import { getValueOfCssPropertyInDesignTokens } from '@/helpers/storybookHelper';
                     Title
                 </Heading>
             ),
+            fontFamily: get(tokenVariables, 'typography.heading.base.font-family.value'),
             mobile: `${getValueOfCssPropertyInDesignTokens({
                 path: 'typography.heading',
                 tokenName,
-                device: 'mobile',
                 propertyCSS: 'font-size'
             })} / ${getValueOfCssPropertyInDesignTokens({
               path: 'typography.heading',
               tokenName,
-              device: 'mobile',
               propertyCSS: 'line-height'
             })}`,
             desktop: `${getValueOfCssPropertyInDesignTokens({
                 path: 'typography.heading',
                 tokenName,
-                device: 'desktop',
-                propertyCSS: 'font-size'
+                propertyCSS: 'font-size',
+                isDesktop: true,
             })} / ${getValueOfCssPropertyInDesignTokens({
               path: 'typography.heading',
               tokenName,
-              device: 'desktop',
-              propertyCSS: 'line-height'
+              propertyCSS: 'line-height',
+              isDesktop: true,
             })}`,
         }))}
     />

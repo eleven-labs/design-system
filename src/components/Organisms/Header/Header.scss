@@ -20,6 +20,19 @@
   &__menu {
     display: flex;
     text-transform: uppercase;
+    font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
+  }
+
+  &__menu-item {
+    color: #{map-get-strict($token-variables, 'color', 'info')};
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
+    text-decoration: none;
+
+    &:hover {
+      color: #{map-get-strict($token-variables, 'color', 'primary')};
+      text-decoration: underline;
+    }
   }
 
   @include create-media-queries('md', 'max') {
@@ -42,7 +55,6 @@
 
     &__menu-item {
         padding: #{map-get-strict($token-variables, 'spacing', 'xs')} #{map-get-strict($token-variables, 'spacing', 'm')};
-        color: black;
         border-bottom: 0.5px solid #{map-get-strict($token-variables, 'color', 'secondary-dark')};
     }
   }

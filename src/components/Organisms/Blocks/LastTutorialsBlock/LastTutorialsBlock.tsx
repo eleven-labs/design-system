@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { FlexProps, PostCardProps } from '@/components';
+import { Icon } from '@/components';
 import { Flex, PostCard } from '@/components';
 import { Box, Button, Heading, Text } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
@@ -36,21 +37,20 @@ export const LastTutorialsBlock: React.FC<LastTutorialsBlockProps> = ({
       className="last-tutorials-block"
     >
       <Box>
-        <Heading as="p" size="m">
-          {title}
-        </Heading>
+        <Heading size="m">{title}</Heading>
+        <Icon name="underline" color="white" width="56px" />
         <Text mt="l">{description}</Text>
-        <Button mt="l" as="a" {...linkSeeMore}>
+        <Button mt="l" as="a" variant="accent" {...linkSeeMore}>
           {labelLinkSeeMore}
         </Button>
       </Box>
-      <Box gap="l" className="last-tutorials-block__post-list">
+      <Flex gap="l" className="last-tutorials-block__post-list">
         {posts.map((post, index) => (
           <React.Fragment key={post?.slug ?? index}>
             <PostCard variant="secondary" tutorialLabel={tutorialLabel} {...(post || {})} />
           </React.Fragment>
         ))}
-      </Box>
+      </Flex>
     </Flex>
   </Box>
 );

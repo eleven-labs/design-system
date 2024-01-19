@@ -11,7 +11,7 @@ export interface PostFooterProps extends BoxProps {
 
 export const PostFooter: React.FC<PostFooterProps> = ({ title, authors, ...props }) => (
   <Box {...props}>
-    <Heading mb="xxs" size="l" fontWeight="bold" color="primary">
+    <Heading mb="xxs" size="m" color="primary">
       {title}
     </Heading>
     <Flex mt="l" flexDirection="column" gap="s">

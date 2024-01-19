@@ -1,4 +1,4 @@
-import type { DisplayType, HeightType, TypeWithMediaQueriesType, WidthType } from '@/types';
+import type { DisplayType, HeightType, MediaQueryType, TypeWithMediaQueriesType, WidthType } from '@/types';
 
 export interface LayoutSystemProps {
   /**
@@ -14,19 +14,11 @@ export interface LayoutSystemProps {
    */
   height?: TypeWithMediaQueriesType<HeightType>;
   /**
-   * min-width (including breakpoints modifiers)
+   * Defines hidden above strategy with media queries (is similar to "min-width") (including breakpoints modifiers)
    */
-  minWidth?: TypeWithMediaQueriesType<WidthType>;
+  hiddenAbove?: MediaQueryType;
   /**
-   * max-width (including breakpoints modifiers)
+   * Defines hidden below strategy with media queries (is similar to "max-width") (including breakpoints modifiers)
    */
-  maxWidth?: TypeWithMediaQueriesType<WidthType>;
-  /**
-   * min-height (including breakpoints modifiers)
-   */
-  minHeight?: TypeWithMediaQueriesType<HeightType>;
-  /**
-   * max-height (including breakpoints modifiers)
-   */
-  maxHeight?: TypeWithMediaQueriesType<HeightType>;
+  hiddenBelow?: MediaQueryType;
 }

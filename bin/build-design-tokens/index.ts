@@ -14,16 +14,12 @@ const styleDictionary = StyleDictionary.extend({
   platforms: {
     'css/variables': {
       buildPath: './src/styles/',
-      transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item'],
-      transformGroup: 'css',
+      transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item', 'math', 'size/px'],
       files: [
         {
           format: 'css/variables',
           filter: (token): boolean => filterExcludesCategories(token, ['asset', 'breakpoint']),
           destination: '_token-custom-properties.scss',
-          options: {
-            outputReferences: true,
-          },
         },
       ],
     },
@@ -36,9 +32,6 @@ const styleDictionary = StyleDictionary.extend({
           filter: (token): boolean => token?.attributes?.category === 'color',
           destination: 'abstracts/variables/_variables.scss',
           mapName: 'variables',
-          options: {
-            outputReferences: true,
-          },
         } as File,
       ],
     },
@@ -50,9 +43,6 @@ const styleDictionary = StyleDictionary.extend({
           format: 'scss/map-deep-with-css-variables',
           filter: (token): boolean => filterExcludesCategories(token, ['asset']),
           destination: 'abstracts/variables/_token-variables.scss',
-          options: {
-            outputReferences: true,
-          },
         },
       ],
       options: {
@@ -61,14 +51,11 @@ const styleDictionary = StyleDictionary.extend({
     },
     'typescript/token-variables': {
       buildPath: './src/',
-      transforms: ['attribute/cti'],
+      transforms: ['attribute/cti', 'math', 'size/px'],
       files: [
         {
           format: 'typescript/object',
           destination: 'constants/tokenVariables.ts',
-          options: {
-            outputReferences: true,
-          },
         },
       ],
     },
