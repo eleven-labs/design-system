@@ -1,16 +1,18 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-import type { BoxProps } from '@/components';
+import type { FlexProps } from '@/components';
+import { Flex } from '@/components';
+import { Icon } from '@/components';
 import { Text } from '@/components';
 import { polyRef } from '@/helpers/polyRef';
 
 import './Button.scss';
 
-export const buttonVariant = ['primary', 'secondary'] as const;
+export const buttonVariant = ['primary', 'secondary', 'accent'] as const;
 export type ButtonVariantType = (typeof buttonVariant)[number];
 
-export interface ButtonProps extends BoxProps {
+export interface ButtonProps extends FlexProps {
   className?: string;
   variant?: ButtonVariantType;
   isChoiceChip?: boolean;
@@ -19,11 +21,19 @@ export interface ButtonProps extends BoxProps {
 
 export const Button = polyRef<'button', ButtonProps>(
   ({ as = 'button', variant = 'primary', isChoiceChip = false, className, children, ...props }, ref) => (
-    <Text
+    <Flex
       {...props}
+      display="inline-flex"
+      flexDirection="row"
+      justifyContent="center"
+      alignItems="center"
       as={as}
       ref={ref}
+      px="m"
+      py="xs"
       size="s"
+      fontWeight="bold"
+      textTransform="uppercase"
       data-text={typeof children === 'string' ? children : ''}
       className={classNames(
         'button',
@@ -34,8 +44,9 @@ export const Button = polyRef<'button', ButtonProps>(
         className
       )}
     >
-      {children}
-    </Text>
+      <Text as="span">{children}</Text>
+      <Icon name="arrow" />
+    </Flex>
   )
 );
 

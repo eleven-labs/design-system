@@ -7,43 +7,27 @@
         }
       },
       "xs": {
-        "line-height": {
-          "value": "{line-height.large.value}"
+        "font-size": {
+          "value": "12px"
+        },
+        "icon-size": {
+          "value": "{typography.text.xs.font-size.value} + 2"
+        }
+      },
+      "s": {
+        "font-size": {
+          "value": "{typography.text.xs.font-size.value} + 2"
+        },
+        "icon-size": {
+          "value": "{typography.text.s.font-size.value} + 2"
         }
       },
       "m": {
-        "line-height": {
-          "value": "{line-height.large.value}"
-        }
-      }
-    }
-  },
-  "mobile": {
-    "typography": {
-      "text": {
-        "xs": {
-          "font-size": {
-            "value": "{font-size.xxs}"
-          },
-          "icon-size": {
-            "value": "{font-size.xs.value}"
-          }
+        "font-size": {
+          "value": "{typography.text.s.font-size.value} + 4"
         },
-        "s": {
-          "font-size": {
-            "value": "{font-size.xs.value}"
-          },
-          "icon-size": {
-            "value": "{font-size.s.value}"
-          }
-        },
-        "m": {
-          "font-size": {
-            "value": "{font-size.m.value}"
-          },
-          "icon-size": {
-            "value": "{font-size.l.value}"
-          }
+        "icon-size": {
+          "value": "{typography.text.m.font-size.value} + 2"
         }
       }
     }
@@ -53,26 +37,26 @@
       "text": {
         "xs": {
           "font-size": {
-            "value": "{font-size.xs.value}"
+            "value": "14px"
           },
           "icon-size": {
-            "value": "{font-size.s.value}"
+            "value": "{desktop.typography.text.s.font-size.value} + 2"
           }
         },
         "s": {
           "font-size": {
-            "value": "{font-size.s.value}"
+            "value": "{desktop.typography.text.xs.font-size.value} + 2"
           },
           "icon-size": {
-            "value": "{font-size.m.value}"
+            "value": "{desktop.typography.text.s.font-size.value} + 2"
           }
         },
         "m": {
           "font-size": {
-            "value": "{font-size.l.value}"
+            "value": "{desktop.typography.text.s.font-size.value} + 4"
           },
           "icon-size": {
-            "value": "{font-size.xl.value}"
+            "value": "{desktop.typography.text.m.font-size.value} + 2"
           }
         }
       }

@@ -1,42 +1,56 @@
 @use 'sass:map';
 @use '../abstracts' as *;
 
-$font-weight-list: map.get($token-variables, 'font-weight');
 $text-align-list: map.get($css-properties, 'text-align');
+$font-weight-list: map.get($token-variables, 'font-weight');
 $text-transform-list: map.get($css-properties, 'text-transform');
+$typography-prop-list: (
+  'fontWeight': (
+    'prefix-class-name': 'font-weight',
+    'property-css': 'font-weight',
+    'value-list': $font-weight-list,
+  ),
+  'textTransform': (
+    'prefix-class-name': text,
+    'property-css': 'text-transform',
+    'value-list': $text-transform-list,
+  ),
+);
+$typography-prop-list-with-breakpoints: (
+  'textAlign':  (
+    'prefix-class-name': 'text',
+    'property-css': 'text-align',
+    'value-list': $text-align-list,
+  ),
+);
 
-@mixin size($prefix-name, $size-name, $font-size, $line-height, $font-weight, $icon-size: null) {
-  .#{$prefix-name}-#{$size-name} {
-    font-size: $font-size;
-    line-height: $line-height;
-    font-weight: $font-weight;
 
-    @if $icon-size {
-      .icon {
-        font-size: $icon-size;
+@mixin text-component($config) {
+  @each $component-variant-name, $properties in $config {
+    @if $component-variant-name != 'base' {
+      $icon-size: map.get($properties, 'icon-size');
+      .text-#{$component-variant-name} {
+        @each $property-name, $property-value in map.merge(map.get($config, 'base'), $properties) {
+          @if $property-name != 'icon-size' {
+            #{$property-name}: #{$property-value};
+          }
+        }
+
+        @if $icon-size {
+          .icon {
+            font-size: $icon-size;
+          }
+        }
       }
     }
-
   }
-}
-
-@function get-token-value-by-typography-type($typography-type, $size-name, $css-property, $device: 'none') {
-  @if  map.has-key($token-variables, $device, 'typography', $typography-type, $size-name, $css-property) {
-    @return map.get($token-variables, $device, 'typography', $typography-type, $size-name, $css-property);
-  } @else if map.has-key($token-variables, 'typography', $typography-type, $size-name, $css-property) {
-    @return map.get($token-variables, 'typography', $typography-type, $size-name, $css-property);
-  }
-
-  @return map.get($token-variables, 'typography', $typography-type, 'base', $css-property);
 }
 
 /*
- * Utility classes
+ * Typography System Class Names
  */
-
-@include utility-classes-with-modifiers('text', 'text-align', $text-align-list);
-@include utility-classes('font-weight', 'font-weight', $font-weight-list);
-@include utility-classes('text', 'text-transform', $text-transform-list);
+@include system-classes($typography-prop-list);
+@include system-classes-with-breakpoints($typography-prop-list-with-breakpoints);
 
 .text-underline {
   text-decoration: underline;
@@ -46,51 +60,19 @@ $text-transform-list: map.get($css-properties, 'text-transform');
   font-style: italic;
 }
 
-/*
- * Utility classes for heading
- */
-@each $device, $heading-token-variables-by-device in (
-  'mobile': map.get($token-variables, 'mobile', 'typography', 'heading'),
-  'desktop': map.get($token-variables, 'desktop', 'typography', 'heading'),
-) {
-  $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+$heading-config: map.get($token-variables, 'typography', 'heading');
+$heading-desktop-config: map.get($token-variables, 'desktop', 'typography', 'heading');
+$text-config: map.get($token-variables, 'typography', 'text');
+$text-desktop-config: map.get($token-variables, 'desktop', 'typography', 'text');
 
-  @each $heading-size-name, $heading-token-variables in $heading-token-variables-by-device {
-    @if  $heading-size-name != 'base' {
-      @include create-media-queries($breakpoint-name) {
-        @include size(
-          'heading',
-          $heading-size-name,
-          map.get($heading-token-variables, 'font-size'),
-          map.get($heading-token-variables, 'line-height'),
-          get-token-value-by-typography-type('heading', $heading-size-name, 'font-weight', $device),
-        );
-      }
-    }
-  }
+@include component('heading', $heading-config);
+
+@include create-media-queries('md') {
+  @include component('heading', map.merge($heading-config, $heading-desktop-config));
 }
 
-/*
- * Utility classes for text
- */
-@each $device, $text-token-variables-by-device in (
-  'mobile': map.get($token-variables, 'mobile', 'typography', 'text'),
-  'desktop': map.get($token-variables, 'desktop', 'typography', 'text'),
-) {
-  $breakpoint-name: if($device == 'desktop', 'md', 'xs');
+@include text-component($text-config);
 
-  @each $text-size-name, $text-token-variables in $text-token-variables-by-device {
-    @if  $text-size-name != 'base' {
-      @include create-media-queries($breakpoint-name) {
-        @include size(
-          'text',
-          $text-size-name,
-          map.get($text-token-variables, 'font-size'),
-          map.get($text-token-variables, 'line-height'),
-          get-token-value-by-typography-type('text', $text-token-variables, 'font-weight', $device),
-          map.get($text-token-variables, 'icon-size')
-        );
-      }
-    }
-  }
+@include create-media-queries('md') {
+  @include text-component(map.merge($text-config, $text-desktop-config));
 }

@@ -38,6 +38,7 @@
   }
 
   &__tutoriel-tag {
+    font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
     background-color: #{map-get-strict($token-variables, 'color', 'accent')};
     border-radius: 2px;
   }

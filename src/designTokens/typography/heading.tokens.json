@@ -7,40 +7,41 @@
         },
         "line-height": {
           "value": "{line-height.base.value}"
-        },
-        "font-weight": {
-          "value": "{font-weight.medium.value}"
         }
       },
-      "xl": {
+      "s": {
+        "font-size": {
+          "value": "20px"
+        },
+        "font-weight": {
+          "value": "{font-weight.bold.value}"
+        },
+        "text-transform": {
+          "value": "uppercase"
+        }
+      },
+      "m": {
+        "font-size": {
+          "value": "{typography.heading.s.font-size.value} + 8"
+        },
         "font-weight": {
           "value": "{font-weight.bold.value}"
         }
-      }
-    }
-  },
-  "mobile": {
-    "typography": {
-      "heading": {
-        "s": {
-          "font-size": {
-            "value": "{font-size.s.value}"
-          }
+      },
+      "l": {
+        "font-size": {
+          "value": "{typography.heading.m.font-size.value} + 8"
+        }
+      },
+      "xl": {
+        "font-size": {
+          "value": "{typography.heading.m.font-size.value} * 2"
         },
-        "m": {
-          "font-size": {
-            "value": "{font-size.l.value}"
-          }
+        "font-weight": {
+          "value": "{font-weight.regular.value}"
         },
-        "l": {
-          "font-size": {
-            "value": "{font-size.xl.value}"
-          }
-        },
-        "xl": {
-          "font-size": {
-            "value": "{font-size.xxl.value}"
-          }
+        "text-transform": {
+          "value": "uppercase"
         }
       }
     }
@@ -50,22 +51,22 @@
       "heading": {
         "s": {
           "font-size": {
-            "value": "{font-size.m.value}"
+            "value": "24px"
           }
         },
         "m": {
           "font-size": {
-            "value": "{font-size.xl.value}"
+            "value": "{desktop.typography.heading.s.font-size.value} + 8"
           }
         },
         "l": {
           "font-size": {
-            "value": "{font-size.xxl-2.value}"
+            "value": "{desktop.typography.heading.m.font-size.value} + 8"
           }
         },
         "xl": {
           "font-size": {
-            "value": "{font-size.xxl-3.value}"
+            "value": "{desktop.typography.heading.m.font-size.value} * 2"
           }
         }
       }

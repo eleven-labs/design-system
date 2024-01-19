@@ -13,7 +13,7 @@ export type NotFoundBlockProps = Omit<FlexProps, 'title'> & NotFoundBlockOptions
 export const NotFoundBlock: React.FC<NotFoundBlockProps> = ({ title, description, ...props }) => (
   <Flex {...props} flexDirection="column" alignItems="center">
     <img src="/imgs/not-found.png" alt="not-found" />
-    <Heading as="p" size="l" mt="s">
+    <Heading size="xl" mt="s">
       {title}
     </Heading>
     <Text size="s" mt="xxs">

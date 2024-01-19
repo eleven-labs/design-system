@@ -1,3 +1,5 @@
+@use '@/styles/abstracts' as *;
+
 .author-card {
   --avatar-img-author-card: 72px;
 
@@ -5,6 +7,8 @@
   position: relative;
 
   &__link {
+    font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
+
     &::before {
       content: " ";
       position: absolute;

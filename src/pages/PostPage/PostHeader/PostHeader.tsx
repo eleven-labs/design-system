@@ -19,7 +19,7 @@ export interface PostHeaderProps extends BoxProps {
 
 export const PostHeader: React.FC<PostHeaderProps> = ({ title, date, readingTime, authors, shareLinks, ...props }) => (
   <Box {...props} textSize="xs">
-    <Heading as="h1" size="xl">
+    <Heading as="h1" size="xl" color="primary">
       {title}
     </Heading>
     <Flex flexDirection={{ xs: 'column', md: 'row' }} justifyContent="between" gap="xs" mt="m">

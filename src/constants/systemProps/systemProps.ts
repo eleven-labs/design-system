@@ -1,17 +1,17 @@
 import type { SystemProps } from '@/types';
 
 import { colorSystemProps } from './colorSystemProps';
-import { flexBoxSystemProps } from './flexBoxSystemProps';
-import { hiddenSystemProps } from './hiddenSystemProps';
+import { flexItemSystemProps } from './flexItemSystemProps';
+import { flexOrGridItemSystemProps } from './flexOrGridItemSystemProps';
 import { layoutSystemProps } from './layoutSystemProps';
 import { spacingSystemProps } from './spacingSystemProps';
 import { typographySystemProps } from './typographySystemProps';
 
 export const systemProps: Record<keyof SystemProps, readonly string[]> = {
   ...spacingSystemProps,
-  ...flexBoxSystemProps,
+  ...flexOrGridItemSystemProps,
   ...colorSystemProps,
   ...typographySystemProps,
   ...layoutSystemProps,
-  ...hiddenSystemProps,
+  ...flexItemSystemProps,
 };

@@ -10,7 +10,7 @@ export interface HeadingProps extends Omit<BoxProps, 'textSize'> {
   size?: HeadingSizeType;
 }
 
-export const Heading = polyRef<'h1', HeadingProps>(({ as = 'h1', size, children, className, ...props }, ref) => (
+export const Heading = polyRef<'p', HeadingProps>(({ as = 'p', size, children, className, ...props }, ref) => (
   <Box {...props} as={as} ref={ref} className={classNames({ [`heading-${size}`]: Boolean(size) }, className)}>
     {children}
   </Box>

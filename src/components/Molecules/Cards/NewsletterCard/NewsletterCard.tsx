@@ -33,7 +33,7 @@ export const NewsletterCard: React.FC<NewsletterCardProps> = ({
     className={classNames('newsletter-card', `newsletter-card--${variant}`)}
   >
     <Box className="newsletter-card__intro">
-      <Heading as="p" size="l" color="accent">
+      <Heading size="m" color="accent">
         {title}
       </Heading>
       <Icon name="underline" color="accent" width="56px" />

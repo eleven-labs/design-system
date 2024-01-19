@@ -1,8 +1,10 @@
 @use '@/styles/abstracts' as *;
 
 .link {
+  text-decoration-line: underline;
+  font-weight: #{map-get-strict($token-variables, 'font-weight', 'semi-bold')};
+
   &:hover {
-    font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
-    text-decoration-line: underline;
+    text-decoration-line: none;
   }
 }

@@ -6,7 +6,11 @@ import { NewsletterCard } from './NewsletterCard';
 const meta: Meta<typeof NewsletterCard> = {
   component: NewsletterCard,
   args: {
-    title: 'Abonnez-vous <br />à notre AstroNews !',
+    title: (
+      <>
+        Abonnez-vous <br />à notre AstroNews !
+      </>
+    ),
     description:
       'Retrouvez dans notre newsletter mensuelle les dernières actualités tech, une sélection de ressources et le meilleur de twitter !',
     children: (

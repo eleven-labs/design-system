@@ -26,7 +26,7 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
   ...props
 }) => (
   <Box bg="white" p="m" className={classNames('summary-card', { [`summary-card--${variant}`]: variant })} {...props}>
-    <Heading size="l" fontWeight="bold" color="primary">
+    <Heading size="m" color="primary">
       {title}
     </Heading>
     <Flex flexDirection="column" mt="m">
@@ -35,7 +35,7 @@ export const SummaryCard: React.FC<SummaryCardProps> = ({
           <Flex
             as="a"
             gap="s"
-            fontWeight="medium"
+            fontWeight="semi-bold"
             className={classNames('summary-card__section', {
               'summary-card__section--active': sectionActive === name,
             })}

@@ -1,4 +1,10 @@
-import { displayCssPropertyNameList, heightTokenNameList, layoutSystemProps, widthTokenNameList } from '@/constants';
+import {
+  displayCssPropertyNameList,
+  heightTokenNameList,
+  layoutSystemProps,
+  mediaQueriesList,
+  widthTokenNameList,
+} from '@/constants';
 import { createControls } from '@/helpers/storybookHelper';
 import type { LayoutSystemProps } from '@/types/SystemProps';
 
@@ -9,9 +15,7 @@ export const layoutSystemPropsControls = createControls<LayoutSystemProps>({
     display: displayCssPropertyNameList,
     width: widthTokenNameList,
     height: heightTokenNameList,
-    minWidth: widthTokenNameList,
-    maxWidth: widthTokenNameList,
-    minHeight: heightTokenNameList,
-    maxHeight: heightTokenNameList,
+    hiddenAbove: mediaQueriesList,
+    hiddenBelow: mediaQueriesList,
   },
 });

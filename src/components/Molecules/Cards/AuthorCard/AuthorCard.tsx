@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type { FlexProps } from '@/components';
-import { Box, Flex, Heading, Link, Text } from '@/components';
+import { Box, Flex, Link, Text } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
 import './AuthorCard.scss';
@@ -24,22 +24,15 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({
     <Flex gap="s" flex="1">
       <img src={avatarImageUrl ?? '/imgs/astronaut.png'} alt={name} className="author-card__avatar-img" />
       <Box>
-        <Heading color="primary" size="s">
+        <Text color="primary" size="m" fontWeight="semi-bold">
           {name}
-        </Heading>
-        <Text as="div" size="xs" mt="xxs-3" style={{ fontStyle: 'italic' }}>
+        </Text>
+        <Text as="div" size="xs" mt="xxs-3" italic>
           {description}
         </Text>
       </Box>
     </Flex>
-    <Link
-      {...link}
-      px="m"
-      fontWeight="medium"
-      textTransform="uppercase"
-      data-internal-link="author"
-      className="author-card__link"
-    >
+    <Link {...link} px="m" textTransform="uppercase" data-internal-link="author" className="author-card__link">
       {linkLabel}
     </Link>
   </Flex>

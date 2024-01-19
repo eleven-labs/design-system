@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import type { BoxProps } from '@/components';
-import { Box, Heading, Skeleton, Text } from '@/components';
+import { Box, Skeleton, Text } from '@/components';
 import { PostMetadata } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
@@ -40,10 +40,10 @@ export const PostCard: React.FC<PostCardProps> = ({
 }) => (
   <Box as="article" {...props} p="m" className={classNames('post-preview', `post-preview--${variant}`)}>
     <Skeleton isLoading={isLoading}>
-      <Heading as="h2" size="s" className="post-preview__heading">
-        <Heading as="a" {...link} size="m" data-internal-link="post" className="post-preview__link">
+      <Box as="h2" className="post-preview__heading">
+        <Text as="a" {...link} size="m" data-internal-link="post" className="post-preview__link">
           {title}
-        </Heading>
+        </Text>
         {contentType === 'tutorial' && (
           <Text
             size="xs"
@@ -57,7 +57,7 @@ export const PostCard: React.FC<PostCardProps> = ({
             {tutorialLabel}
           </Text>
         )}
-      </Heading>
+      </Box>
     </Skeleton>
     <PostMetadata
       variant="primary"

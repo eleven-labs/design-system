@@ -90,7 +90,7 @@ export const AutocompleteResult = polyRef<'div', AutocompleteResultProps>(
       {items.length === 0 && searchNotFound && (
         <Box textAlign="center" px="xl" py="m">
           <img src="/imgs/not-found.png" alt="not-found" />
-          <Heading as="p" size="m" mt="s">
+          <Heading size="m" mt="s">
             {searchNotFound.title}
           </Heading>
           <Text size="xs" mt="xxs">

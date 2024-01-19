@@ -1,6 +1,6 @@
 import type { ColorSystemProps } from './ColorSystemProps';
-import type { FlexBoxSystemProps } from './FlexBoxSystemProps';
-import type { HiddenSystemProps } from './HiddenSystemProps';
+import type { FlexItemSystemProps } from './FlexItemSystemProps';
+import type { FlexOrGridItemSystemProps } from './FlexOrGridItemSystemProps';
 import type { LayoutSystemProps } from './LayoutSystemProps';
 import type { SpacingSystemProps } from './SpacingSystemProps';
 import type { TypographySystemProps } from './TypographySystemProps';
@@ -10,5 +10,5 @@ export interface SystemProps
     ColorSystemProps,
     TypographySystemProps,
     LayoutSystemProps,
-    FlexBoxSystemProps,
-    HiddenSystemProps {}
+    FlexOrGridItemSystemProps,
+    FlexItemSystemProps {}

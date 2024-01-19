@@ -74,9 +74,12 @@ export const createControls = <T>(parameters: {
 export const getValueOfCssPropertyInDesignTokens = (options: {
   path: string;
   tokenName: string;
-  device: 'mobile' | 'desktop';
   propertyCSS: string;
+  isDesktop?: boolean;
 }): number | string =>
-  get(tokenVariables, `${options.device}.${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
+  get(
+    tokenVariables,
+    `${options.isDesktop ? 'desktop.' : ''}${options.path}.${options.tokenName}.${options.propertyCSS}.value`
+  ) ||
   get(tokenVariables, `${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
   get(tokenVariables, `${options.path}.base.${options.propertyCSS}.value`);

@@ -43,9 +43,9 @@ export const Header: React.FC<HeaderProps> = ({
       {hasTutorial && (
         <>
           <Box className="header__separator" />
-          <Link as="a" {...tutorialLink} data-internal-link="category" className="header__menu-item">
+          <Box as="a" {...tutorialLink} data-internal-link="category" className="header__menu-item">
             {tutorialLinkLabel}
-          </Link>
+          </Box>
         </>
       )}
       <Flex justifyContent="center" alignItems="center" mt="m" hiddenAbove="md">

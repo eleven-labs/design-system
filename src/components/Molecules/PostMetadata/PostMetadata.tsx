@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { Fragment } from 'react';
 
-import { Flex, Icon, Skeleton, Text } from '@/components';
+import { Flex, Icon, Link, Skeleton, Text } from '@/components';
 import type { ComponentPropsWithoutRef, SpacingSystemProps } from '@/types';
 
 import './PostMetadata.scss';
@@ -63,7 +63,7 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
                 {variant === 'secondary' && <Icon name="person" size="24px" color="light-grey" />}
                 {authors.map(({ username, name, link }, authorIndex) => (
                   <Fragment key={username}>
-                    <Text {...(link ? { as: 'a', ...link } : { as: 'span' })}>{name}</Text>
+                    {link ? <Link {...link}>{name}</Link> : <Text as="span">{name}</Text>}
                     {authorIndex !== authors.length - 1 && <Text as="span">{'&'}</Text>}
                   </Fragment>
                 ))}
@@ -90,7 +90,7 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
     <Flex
       {...props}
       alignItems="center"
-      textSize="xs"
+      textSize="s"
       flexWrap="wrap"
       gap={variant === 'secondary' ? 's' : 'xxs'}
       className={classNames('post-metadata', { [`post-metadata--${variant}`]: variant })}

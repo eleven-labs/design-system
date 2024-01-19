@@ -1,14 +1,21 @@
 @use 'sass:map';
 @use '../abstracts' as *;
 
+$color-list: map.get($token-variables, 'color');
 $color-prop-list: (
-  'bg':  'background-color',
-  'color': 'color',
+  'bg':  (
+    'prefix-class-name': 'bg',
+    'property-css': 'background-color',
+    'value-list': $color-list,
+  ),
+  'color': (
+    'prefix-class-name': 'color',
+    'property-css': 'color',
+    'value-list': $color-list,
+  ),
 );
 
 /*
  * Color System Class Names
  */
-@each $prefix-class-name, $property-css in $color-prop-list {
-  @include utility-classes($prefix-class-name, $property-css, map.get($token-variables, 'color'));
-}
+@include system-classes($color-prop-list);

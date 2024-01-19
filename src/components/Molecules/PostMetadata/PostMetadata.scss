@@ -2,12 +2,14 @@
 
 .post-metadata {
   &--primary {
+    font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
     color: #{map-get-strict($token-variables, 'color', 'info')};
     font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
     text-transform: uppercase;
   }
 
   &--secondary {
-    font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
+    color: #{map-get-strict($token-variables, 'color', 'primary')};
+    font-weight: #{map-get-strict($token-variables, 'font-weight', 'semi-bold')};
   }
 }

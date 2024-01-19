@@ -25,10 +25,10 @@ const getStoryTitleAndDesignTokenLabelByPropName = (
   if (Object.keys(spacingSystemProps).includes(propName) || ['gap', 'gapX', 'gapY'].includes(propName)) {
     designTokenName = 'spacing';
   }
-  if (['width', 'minWidth', 'maxWidth'].includes(propName)) {
+  if (['width'].includes(propName)) {
     designTokenName = 'width';
   }
-  if (['height', 'minHeight', 'maxHeight'].includes(propName)) {
+  if (['height'].includes(propName)) {
     designTokenName = 'height';
   }
 
