@@ -57,32 +57,6 @@ const styleDictionary = StyleDictionary.extend({
       ],
       options: {
         categoriesWithNotCssVariables: ['breakpoint'],
-        injectVariables: {
-          'cdn-path': process.env.CDN_PATH || '/',
-        },
-      },
-    },
-    'scss/font-face': {
-      buildPath: './src/styles/',
-      transforms: ['attribute/font'],
-      files: [
-        {
-          format: 'scss/font-face',
-          filter: {
-            attributes: {
-              category: 'asset',
-              type: 'font',
-            },
-          },
-          destination: '_fonts.scss',
-          options: {
-            outputReferences: true,
-          },
-        },
-      ],
-      options: {
-        fontPathPrefix: `#{map.get($token-variables, 'cdn-path')}`,
-        injectToHead: [`@use 'abstracts' as *;`],
       },
     },
     'typescript/token-variables': {
