@@ -7,13 +7,13 @@ import type { ComponentPropsWithoutRef } from '@/types';
 export interface CategoryEndingBlockProps extends BoxProps {
   title: React.ReactNode;
   description: React.ReactNode;
-  expertiseLink: { label: string } & ComponentPropsWithoutRef<'a'>;
+  expertiseLink?: { label: string } & ComponentPropsWithoutRef<'a'>;
 }
 
 export const CategoryEndingBlock: React.FC<CategoryEndingBlockProps> = ({
   title,
   description,
-  expertiseLink: { label: expertiseLinkLabel, ...expertiseLink },
+  expertiseLink: { label: expertiseLinkLabel, ...expertiseLink } = {},
   ...props
 }) => (
   <Box {...props}>
@@ -21,8 +21,10 @@ export const CategoryEndingBlock: React.FC<CategoryEndingBlockProps> = ({
       {title}
     </Text>
     <Text mt="m">{description}</Text>
-    <Button as="a" mt="l" {...expertiseLink}>
-      {expertiseLinkLabel}
-    </Button>
+    {expertiseLinkLabel && (
+      <Button as="a" mt="l" {...expertiseLink}>
+        {expertiseLinkLabel}
+      </Button>
+    )}
   </Box>
 );
