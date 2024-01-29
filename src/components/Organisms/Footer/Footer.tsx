@@ -92,7 +92,12 @@ export const Footer: React.FC<FooterProps> = ({
                     'data-social-link': iconName,
                   })}
             >
-              <Icon name={iconName} size="2.5em" color="white" className="footer__social-icon" />
+              <Icon
+                name={iconName}
+                size="36"
+                color={iconName === 'twitter' ? 'black' : 'white'}
+                className="footer__social-icon"
+              />
             </a>
           ))}
           <Button as="a" {...contactLink}>
