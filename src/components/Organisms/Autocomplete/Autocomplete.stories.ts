@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Autocomplete } from './Autocomplete';
@@ -9,7 +8,7 @@ const meta: Meta<typeof Autocomplete> = {
     placeholder: 'Rechercher par nom d’article ou d’auteur',
     searchLink: {
       label: 'Voir tous les résultats',
-      onClick: action('search'),
+      href: '#',
     },
   },
   parameters: {
