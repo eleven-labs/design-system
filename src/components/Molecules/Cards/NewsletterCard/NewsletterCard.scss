@@ -27,6 +27,9 @@
   $this: &;
 
   border-radius: 4px;
+  background-image: url('/imgs/wave-background.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
 
   @include create-media-queries('md', 'max') {
     @include newsletter-variant($this, 'vertical');
