@@ -22,7 +22,7 @@ export type AutocompleteOptions = {
 export type AutocompleteProps = BoxProps &
   AutocompleteOptions &
   Omit<AutocompleteResultOptions, 'highlightedIndex' | 'searchLink'> &
-  Pick<UseComboboxProps<AutocompleteItem>, 'onInputValueChange' | 'onSelectedItemChange'>;
+  Pick<UseComboboxProps<AutocompleteItem>, 'onInputValueChange' | 'onSelectedItemChange' | 'isOpen'>;
 
 export const Autocomplete = polyRef<'div', AutocompleteProps>(
   (
@@ -35,6 +35,7 @@ export const Autocomplete = polyRef<'div', AutocompleteProps>(
       onInputValueChange,
       onSelectedItemChange,
       onEnter,
+      isOpen: defaultIsOpen,
       ...props
     },
     ref
@@ -52,6 +53,7 @@ export const Autocomplete = polyRef<'div', AutocompleteProps>(
         onSelectedItemChange,
         items,
         itemToString: (item) => (item ? item.title : ''),
+        isOpen: defaultIsOpen,
       });
 
     const onClose = (): void => selectItem(null);

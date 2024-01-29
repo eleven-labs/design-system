@@ -35,7 +35,12 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
     switch (displayedField) {
       case 'date': {
         currentFields.push(
-          <Skeleton key={displayedField} isLoading={isLoading} display="inline-block" style={{ width: 100 }}>
+          <Skeleton
+            key={displayedField}
+            isLoading={isLoading}
+            display="inline-block"
+            style={{ minWidth: 60, minHeight: 16 }}
+          >
             <Flex alignContent="center" alignItems="center" gap="xxs">
               {variant === 'secondary' && <Icon name="calendar" size="24px" color="light-grey" />}
               {date && <Text as="span">{date}</Text>}
@@ -46,7 +51,12 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
       }
       case 'readingTime': {
         currentFields.push(
-          <Skeleton key={displayedField} isLoading={isLoading} display="inline-block" style={{ width: 50 }}>
+          <Skeleton
+            key={displayedField}
+            isLoading={isLoading}
+            display="inline-block"
+            style={{ minWidth: 26, minHeight: 16 }}
+          >
             <Flex alignContent="center" alignItems="center" gap="xxs">
               {variant === 'secondary' && <Icon name="access-time" size="24px" color="light-grey" />}
               {readingTime && <Text as="span">{`${readingTime}mn`}</Text>}
@@ -57,7 +67,12 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
       }
       case 'authors': {
         currentFields.push(
-          <Skeleton key={displayedField} isLoading={isLoading} display="inline-block" style={{ width: 100 }}>
+          <Skeleton
+            key={displayedField}
+            isLoading={isLoading}
+            display="inline-block"
+            style={{ minWidth: 50, minHeight: 16 }}
+          >
             {authors && (
               <Flex alignContent="center" alignItems="center" gap="xxs">
                 {variant === 'secondary' && <Icon name="person" size="24px" color="light-grey" />}

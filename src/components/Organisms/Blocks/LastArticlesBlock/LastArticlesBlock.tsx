@@ -31,7 +31,7 @@ export const LastArticlesBlock: React.FC<LastArticlesBlockProps> = ({
     <Flex mt="l" gap="m" className="last-articles-block__post-list">
       {posts.map((post, index) => (
         <React.Fragment key={post?.slug ?? index}>
-          <PostCard {...(post || {})} />
+          <PostCard variant="highlight-light" {...(post || {})} />
         </React.Fragment>
       ))}
     </Flex>

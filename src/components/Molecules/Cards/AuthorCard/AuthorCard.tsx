@@ -21,8 +21,12 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({
   ...props
 }) => (
   <Flex {...props} alignItems="center" justifyContent="between" px="s" py="m" bg="white" className="author-card">
-    <Flex gap="s" flex="1">
-      <img src={avatarImageUrl ?? '/imgs/astronaut.png'} alt={name} className="author-card__avatar-img" />
+    <Flex gap="s" flex="1" alignItems="center">
+      {avatarImageUrl ? (
+        <img src={avatarImageUrl} alt={name} className="author-card__avatar-img" />
+      ) : (
+        <div className="author-card__avatar-img author-card__avatar-img--empty" />
+      )}
       <Box>
         <Text color="primary" size="m" fontWeight="semi-bold">
           {name}

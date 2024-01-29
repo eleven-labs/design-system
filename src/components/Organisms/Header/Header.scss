@@ -22,6 +22,7 @@
     text-transform: uppercase;
     font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
     font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
+    letter-spacing: 0.5px;
   }
 
   &__menu-item {

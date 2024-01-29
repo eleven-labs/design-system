@@ -1,7 +1,7 @@
 {
   "name": "@eleven-labs/design-system",
   "description": "Design System for Eleven Labs",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eleven-labs/design-system.git"
@@ -55,7 +55,6 @@
     "copy-to-clipboard": "^3.3.3",
     "downshift": "^8.3.1",
     "react-polymorphed": "^2.2.1",
-    "react-share": "^5.0.3",
     "react-syntax-highlighter": "^15.5.0"
   },
   "peerDependencies": {

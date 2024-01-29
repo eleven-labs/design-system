@@ -45,4 +45,12 @@
       height: 100%;
     }
   }
+
+  &__background-not-found {
+    height: 135px;
+    width: 100%;
+    background-image: url('/imgs/not-found.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }

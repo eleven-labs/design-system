@@ -7,6 +7,9 @@
         },
         "line-height": {
           "value": "{line-height.base.value}"
+        },
+        "letter-spacing": {
+          "value": "2px"
         }
       },
       "s": {
@@ -42,6 +45,9 @@
         },
         "text-transform": {
           "value": "uppercase"
+        },
+        "letter-spacing": {
+          "value": "3px"
         }
       }
     }
