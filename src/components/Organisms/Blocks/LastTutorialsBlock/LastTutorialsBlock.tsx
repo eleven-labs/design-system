@@ -36,7 +36,7 @@ export const LastTutorialsBlock: React.FC<LastTutorialsBlockProps> = ({
       width={{ md: 'content-container' }}
       className="last-tutorials-block"
     >
-      <Box>
+      <Box className="last-tutorials-block__content">
         <Heading size="m">{title}</Heading>
         <Icon name="underline" color="white" width="56px" />
         <Text mt="l">{description}</Text>
@@ -47,7 +47,7 @@ export const LastTutorialsBlock: React.FC<LastTutorialsBlockProps> = ({
       <Flex gap="l" className="last-tutorials-block__post-list">
         {posts.map((post, index) => (
           <React.Fragment key={post?.slug ?? index}>
-            <PostCard variant="secondary" tutorialLabel={tutorialLabel} {...(post || {})} />
+            <PostCard variant="highlight-dark" tutorialLabel={tutorialLabel} {...(post || {})} />
           </React.Fragment>
         ))}
       </Flex>

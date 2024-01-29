@@ -6,7 +6,7 @@
   &::before, &::after {
     content: "“";
     display: block;
-    height: 7rem;
+    height: 5rem;
     font-size: 8rem;
     font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
     color: #{map-get-strict($token-variables, 'color', 'primary')};

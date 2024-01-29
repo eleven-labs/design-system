@@ -56,6 +56,7 @@ export const WithMenuIsOpen: Story = {
 export const WithAutocompleteIsOpen: Story = {
   args: {
     autocomplete: {
+      isOpen: true,
       ...AutocompleteStories.default.args,
       ...AutocompleteStories.WithResult.args,
     } as HeaderProps['autocomplete'],
@@ -70,6 +71,7 @@ export const WithAutocompleteIsOpen: Story = {
 export const WithAutocompleteAndResultNotFound: Story = {
   args: {
     autocomplete: {
+      isOpen: true,
       ...AutocompleteStories.default.args,
       ...AutocompleteStories.WithNoResult.args,
     } as HeaderProps['autocomplete'],

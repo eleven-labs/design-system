@@ -6,6 +6,7 @@
   background: var(--background-color-button, map-get-strict($token-variables, 'color', 'info'));
   color: var(--color-button, white);
   font-family: map-get-strict($token-variables, 'font-family', 'heading');
+  letter-spacing: 1px;
   border-width: var(--border-width-button, 0);
   border-style: solid;
   border-color: var(--border-color-button, transparent);

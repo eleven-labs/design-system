@@ -6,6 +6,8 @@
   }
 
   &__social-media-icon {
-    border-radius: 2px;
+    &--twitter {
+      color: black;
+    }
   }
 }

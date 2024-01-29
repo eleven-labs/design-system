@@ -1,18 +1,96 @@
 @use '@/styles/abstracts' as *;
 
-.post-preview {
+@mixin cover-image-square($isDesktop: false) {
+  $size: var(--cover-size-square-mobile-post-card);
+  $margin: #{map-get-strict($token-variables, 'spacing', 's')} #{map-get-strict($token-variables, 'spacing', 's')} 0 0;
+  $border-radius: #{map-get-strict($token-variables, 'radius', 's')};
+
+  @if $isDesktop {
+    $margin: 0;
+    $size: var(--cover-size-square-desktop-post-card);
+    $border-radius: #{map-get-strict($token-variables, 'radius', 's')} 0 0 #{map-get-strict($token-variables, 'radius', 's')};
+  }
+
+  margin: $margin;
+  width: $size;
+  height: $size;
+  border-radius: $border-radius;
+}
+
+@mixin cover-image-horizontal($height) {
+  margin: 0;
+  width: 100%;
+  height: $height;
+  border-radius: 0;
+}
+
+.post-card {
   $this: &;
 
-  --max-height-post-preview-mask: 44px;
-  --background-color-post-preview: white;
+  --background-color-post-card: white;
+  --cover-size-square-mobile-post-card: 74px;
+  --cover-size-square-desktop-post-card: 185px;
+  --cover-height-horizontal-mobile-post-card: 130px;
+  --cover-height-horizontal-medium-desktop-post-card: 175px;
+  --cover-height-horizontal-large-desktop-post-card: 245px;
 
-  background-color: var(--background-color-post-preview);
+
   position: relative;
+  display: flex;
+  background-color: var(--background-color-post-card);
+  border-radius: #{map-get-strict($token-variables, 'radius', 's')};
 
-  &--secondary {
-    --background-color-post-preview: rgb(0 0 0 / 15%);
+  #{$this}__cover {
+    object-fit: cover;
+  }
+
+  &--highlight-light {
+    flex-direction: row-reverse;
+    #{$this}__cover {
+      @include cover-image-square;
+    }
+
+    @include create-media-queries('md') {
+      flex-direction: column;
+      #{$this}__cover {
+        @include cover-image-horizontal(var(--cover-height-horizontal-medium-desktop-post-card));
+      }
+    }
+  }
+
+  &--highlight-dark {
+    flex-direction: column;
+
+    --background-color-post-card: rgb(0 0 0 / 15%);
+
+    color: white;
+    #{$this}__cover {
+      height: var(--cover-height-horizontal-mobile-post-card);
+    }
     #{$this}__link {
       color: white;
+    }
+
+    @include create-media-queries('md') {
+      #{$this}__cover {
+        @include cover-image-horizontal(var(--cover-height-horizontal-large-desktop-post-card));
+      }
+    }
+  }
+
+  &--side-image {
+    flex-direction: row-reverse;
+
+    @include create-media-queries('md') {
+      flex-direction: row;
+      max-height: var(--cover-size-square-desktop-post-card);
+    }
+    #{$this}__cover {
+      @include cover-image-square;
+
+      @include create-media-queries('md') {
+        @include cover-image-square(true);
+      }
     }
   }
 
@@ -38,8 +116,12 @@
   }
 
   &__tutoriel-tag {
+    position: absolute;
+    top: #{map-get-strict($token-variables, 'spacing', 's')};
+    right: #{map-get-strict($token-variables, 'spacing', 's')};
     font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
+    letter-spacing: 0.5px;
     background-color: #{map-get-strict($token-variables, 'color', 'accent')};
-    border-radius: 2px;
+    border-radius: #{map-get-strict($token-variables, 'radius', 'xs')};
   }
 }

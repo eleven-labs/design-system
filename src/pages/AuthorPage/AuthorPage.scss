@@ -3,14 +3,16 @@
 .author-page {
   --avatar-img-author-page: 120px;
 
-  &__avatar-img, &__empty-avatar-img {
-    height: var(--avatar-img-author-page);
-    width: var(--avatar-img-author-page);
-  }
-
   &__avatar-img {
     border-radius: 100%;
-    background-color: var(--color-light-grey);
+    height: var(--avatar-img-author-page);
+    width: var(--avatar-img-author-page);
+
+    &--empty {
+      background-image: url('/imgs/astronaut.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 
   &__divider {

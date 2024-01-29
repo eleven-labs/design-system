@@ -17,6 +17,10 @@ const meta: Meta<typeof PostPage> = {
   args: {
     variant: 'article',
     breadcrumb: BreadcrumbStories.args as PostPageProps['breadcrumb'],
+    cover: {
+      src: 'https://i.ibb.co/gPtFC17/pexels-matheus-bertelli-1830252.jpg',
+      alt: 'cover',
+    },
     header: PostHeaderStories.args as PostPageProps['header'],
     children: 'content',
     footer: PostFooterStories.args as PostPageProps['footer'],

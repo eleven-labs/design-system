@@ -44,8 +44,9 @@ export const Button = polyRef<'button', ButtonProps>(
         className
       )}
     >
+      {variant === 'secondary' && <Icon name="arrow" style={{ transform: 'scaleX(-1)' }} />}
       <Text as="span">{children}</Text>
-      <Icon name="arrow" />
+      {variant !== 'secondary' && <Icon name="arrow" />}
     </Flex>
   )
 );

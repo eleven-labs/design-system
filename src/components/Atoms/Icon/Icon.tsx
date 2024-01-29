@@ -29,7 +29,7 @@ export const Icon: React.FC<IconProps> = ({ name, size, width, height, ...svgPro
       )}
       height={height ?? '1em'}
       width={width ?? '1em'}
-      style={{ fontSize: size }}
+      style={{ fontSize: size, ...svgProps.style }}
     />
   );
 };

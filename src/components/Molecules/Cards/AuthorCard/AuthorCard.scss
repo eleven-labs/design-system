@@ -8,6 +8,7 @@
 
   &__link {
     font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
+    letter-spacing: 1px;
 
     &::before {
       content: " ";
@@ -24,5 +25,11 @@
     border-radius: 50px;
     height: var(--avatar-img-author-card);
     width: var(--avatar-img-author-card);
+
+    &--empty {
+      background-image: url('/imgs/astronaut.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
 }

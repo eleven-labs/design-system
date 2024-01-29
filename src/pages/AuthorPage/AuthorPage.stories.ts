@@ -35,7 +35,6 @@ const meta: Meta<typeof AuthorPage> = {
         },
       ],
     },
-    emptyAvatarImageUrl: '/imgs/astronaut.png',
     title: `Article de l'auteur`,
     postCardList: React.createElement<PostCardListProps>(PostCardList, {
       ...PostCardListStories.default.args,

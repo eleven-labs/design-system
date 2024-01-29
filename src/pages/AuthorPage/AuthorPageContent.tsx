@@ -18,17 +18,11 @@ export type AuthorPageContentProps = {
       username: string;
     }[];
   };
-  emptyAvatarImageUrl: string;
   title: React.ReactNode;
   postCardList: React.ReactNode;
 };
 
-export const AuthorPageContent: React.FC<AuthorPageContentProps> = ({
-  author,
-  emptyAvatarImageUrl,
-  title,
-  postCardList,
-}) => (
+export const AuthorPageContent: React.FC<AuthorPageContentProps> = ({ author, title, postCardList }) => (
   <>
     <Flex
       flexDirection={{ xs: 'column', md: 'row' }}
@@ -36,11 +30,11 @@ export const AuthorPageContent: React.FC<AuthorPageContentProps> = ({
       alignItems="center"
       textAlign={{ xs: 'center', md: 'left' }}
     >
-      <img
-        src={author.avatarImageUrl ?? emptyAvatarImageUrl}
-        alt={author.name}
-        className={author.avatarImageUrl ? 'author-page__avatar-img' : 'author-page__empty-avatar-img'}
-      />
+      {author.avatarImageUrl ? (
+        <img src={author.avatarImageUrl} alt={author.name} className="author-page__avatar-img" />
+      ) : (
+        <div className="author-page__avatar-img author-page__avatar-img--empty" />
+      )}
       <Box mt="s" ml="s">
         <Text size="m" fontWeight="medium" color="info">
           {author.name}

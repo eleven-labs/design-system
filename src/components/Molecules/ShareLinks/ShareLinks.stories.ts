@@ -7,13 +7,10 @@ const meta: Meta<typeof ShareLinks> = {
   args: {
     urlToShare: 'https://eleven-labs.com/',
     shares: {
-      copyLink: true,
       twitter: true,
       facebook: true,
       linkedIn: true,
-      reddit: true,
     },
-    copiedLabel: 'Copié !',
   },
 };
 

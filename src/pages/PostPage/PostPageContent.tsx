@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { BreadcrumbProps, ContactCardProps } from '@/components';
+import { SummaryCard, type SummaryCardProps } from '@/components';
 import { Breadcrumb } from '@/components';
 import { Button, Flex } from '@/components';
 import { Box } from '@/components';
@@ -21,6 +22,8 @@ export type PostPageVariantType = (typeof postPageVariant)[number];
 export interface PostPageContentProps {
   variant: PostPageVariantType;
   breadcrumb: BreadcrumbProps;
+  summary: SummaryCardProps;
+  cover: ComponentPropsWithoutRef<'img'>;
   header: Omit<PostHeaderProps, 'contentType'>;
   children: React.ReactNode;
   footer: PostFooterProps;
@@ -33,6 +36,8 @@ export interface PostPageContentProps {
 export const PostPageContent: React.FC<PostPageContentProps> = ({
   variant = 'article',
   breadcrumb,
+  cover,
+  summary,
   header,
   children,
   footer,
@@ -44,9 +49,11 @@ export const PostPageContent: React.FC<PostPageContentProps> = ({
   <>
     <Box>
       <Breadcrumb {...breadcrumb} />
+      <img className="post-page__cover" {...cover} alt={cover.alt} />
       <PostHeader mt="m" {...header} />
       <Divider mt="m" />
-      {children}
+      <SummaryCard mt="l" hiddenAbove="md" variant={variant === 'tutorial' ? 'secondary' : 'primary'} {...summary} />
+      <Box mt={{ xs: 'l', md: 'm' }}>{children}</Box>
       {variant === 'tutorial' && (
         <>
           <Flex gap="l">
