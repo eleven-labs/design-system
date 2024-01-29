@@ -12,7 +12,7 @@ import { LastTutorialsBlock } from '@/components/Organisms/Blocks/LastTutorialsB
 export type HomePageProps = {
   homeIntroBlock: HomeIntroBlockProps;
   lastArticlesBlock: LastArticlesBlockProps;
-  lastTutorialsBlock: LastTutorialsBlockProps;
+  lastTutorialsBlock?: LastTutorialsBlockProps;
   newsletterCard: NewsletterCardProps;
 };
 
@@ -25,7 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   <>
     <HomeIntroBlock {...homeIntroBlock} />
     <LastArticlesBlock {...lastArticlesBlock} />
-    <LastTutorialsBlock {...lastTutorialsBlock} />
+    {lastTutorialsBlock && <LastTutorialsBlock {...lastTutorialsBlock} />}
     <Box my="xl" mx={{ xs: 's', md: 'auto' }} width={{ md: 'content-container' }}>
       <NewsletterCard variant="horizontal" {...newsletterCard} />
     </Box>

@@ -39,6 +39,6 @@ export const NewsletterCard: React.FC<NewsletterCardProps> = ({
       <Icon name="underline" color="accent" width="56px" />
       <Text mt="m">{description}</Text>
     </Box>
-    <Box>{children}</Box>
+    <Box className="newsletter-card__form">{children}</Box>
   </Flex>
 );
