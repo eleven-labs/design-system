@@ -23,8 +23,6 @@ export const fontWeightTokenNameList = Object.keys(tokenVariables['font-weight']
 export const iconTokenNameList = Object.keys(tokenVariables['asset']['icon']) as ReadonlyArray<IconNameType>;
 
 export const headingSizeTokenNameList = Object.keys(
-  tokenVariables['typography']['heading'] || tokenVariables['desktop']['typography']['heading']
+  tokenVariables['typography']['heading']
 ) as ReadonlyArray<HeadingSizeType>;
-export const textSizeTokenNameList = Object.keys(
-  tokenVariables['typography']['text'] || tokenVariables['desktop']['typography']['text']
-) as ReadonlyArray<TextSizeType>;
+export const textSizeTokenNameList = Object.keys(tokenVariables['typography']['text']) as ReadonlyArray<TextSizeType>;

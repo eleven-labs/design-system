@@ -50,6 +50,48 @@ const meta: Meta<typeof PostPage> = {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt erat sit amet justo maximus, gravida
           ultricies lorem vestibulum. Nullam scelerisque erat non est blandit, a tincidunt enim laoreet.
         </p>
+        <p>
+          I just love <strong>bold text</strong>.
+        </p>
+        <p>
+          Italicized text is the <em>cat's meow</em>.
+        </p>
+        <p>
+          <code>Use `code` in your Markdown file.</code>
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt erat sit amet justo maximus, gravida
+          ultricies lorem vestibulum. Nullam scelerisque erat non est blandit, a tincidunt enim laoreet.
+        </p>
+        <blockquote>Dorothy followed her through many of the beautiful rooms in her castle.</blockquote>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt erat sit amet justo maximus, gravida
+          ultricies lorem vestibulum. Nullam scelerisque erat non est blandit, a tincidunt enim laoreet.
+        </p>
+        <ol>
+          <li>First item</li>
+          <li>Second item</li>
+          <li>
+            Third item
+            <ol>
+              <li>Indented item</li>
+              <li>Indented item</li>
+            </ol>
+          </li>
+          <li>Fourth item</li>
+        </ol>
+        <ul>
+          <li>First item</li>
+          <li>Second item</li>
+          <li>
+            Third item
+            <ul>
+              <li>Indented item</li>
+              <li>Indented item</li>
+            </ul>
+          </li>
+          <li>Fourth item</li>
+        </ul>
       </>
     ),
     footer: PostFooterStories.args as PostPageProps['footer'],

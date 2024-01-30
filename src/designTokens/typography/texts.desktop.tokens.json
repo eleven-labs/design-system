@@ -1,17 +1,12 @@
 {
   "typography": {
     "text": {
-      "base": {
-        "line-height": {
-          "value": "{line-height.base.value}"
-        }
-      },
       "xs": {
         "font-size": {
-          "value": "12px"
+          "value": "14px"
         },
         "icon-size": {
-          "value": "{typography.text.xs.font-size.value} + 2"
+          "value": "{typography.text.s.font-size.value} + 2"
         }
       },
       "s": {

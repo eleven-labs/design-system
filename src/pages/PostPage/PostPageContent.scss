@@ -2,7 +2,6 @@
 @use '@/styles/abstracts' as *;
 
 $heading-markup-config: map-get-strict($token-variables, 'typography', 'heading-markup');
-$heading-markup-desktop-config: map-get-strict($token-variables, 'desktop', 'typography', 'heading-markup');
 $headings-by-compoent-variant-name: (
     's': 'h5',
     'm': 'h4',
@@ -45,11 +44,38 @@ $headings-by-compoent-variant-name: (
 
   @include heading($heading-markup-config);
 
-  @include create-media-queries('md') {
-    @include heading($heading-markup-desktop-config);
+  p, ul, ol, blockquote {
+    margin: 0 0 #{map-get-strict($token-variables, 'spacing', 'xs')} 0;
   }
 
-  p {
-    margin-bottom: #{map-get-strict($token-variables, 'spacing', 'xs')};
+  blockquote {
+    padding: 0 var(--spacing-xxl);
+    font-family: Georgia, #{map-get-strict($token-variables, 'font-family', 'blockquote')};
+    font-size: #{map-get-strict($token-variables, 'typography', 'text', 'm', 'font-size')};
+    font-style: italic;
+    line-height: #{map-get-strict($token-variables, 'line-height', 'base')};
+
+    &::before, &::after {
+      content: "“";
+      display: block;
+      height: 3rem;
+      line-height: 6rem;
+      font-size: 8rem;
+      font-weight: #{map-get-strict($token-variables, 'font-weight', 'medium')};
+      color: #{map-get-strict($token-variables, 'color', 'primary')};
+    }
+
+    &::before {
+      margin-left: calc(var(--spacing-xxl) * -1);
+    }
+
+    &::after {
+      margin-right: calc(var(--spacing-xxl) * -1);
+      transform: rotate(180deg);
+    }
+  }
+
+  figure {
+    text-align: center;
   }
 }

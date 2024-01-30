@@ -67,18 +67,7 @@ $typography-prop-list-with-breakpoints: (
 }
 
 $heading-config: map.get($token-variables, 'typography', 'heading');
-$heading-desktop-config: map.get($token-variables, 'desktop', 'typography', 'heading');
 $text-config: map.get($token-variables, 'typography', 'text');
-$text-desktop-config: map.get($token-variables, 'desktop', 'typography', 'text');
 
 @include component('heading', $heading-config);
-
-@include create-media-queries('md') {
-  @include component('heading', map.merge($heading-config, $heading-desktop-config));
-}
-
 @include text-component($text-config);
-
-@include create-media-queries('md') {
-  @include text-component(map.merge($text-config, $text-desktop-config));
-}

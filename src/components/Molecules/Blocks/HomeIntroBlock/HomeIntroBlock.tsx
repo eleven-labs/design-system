@@ -29,7 +29,7 @@ export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
       ml={{ xs: '0', md: 'xxl' }}
       className="home-intro-block__container"
     >
-      <Heading size="s" color="info">
+      <Heading size="s" color="info" textTransform="uppercase">
         {intro}
       </Heading>
       <Heading size="xl" color="primary">
