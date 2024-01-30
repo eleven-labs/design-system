@@ -9,12 +9,12 @@
           "value": "{line-height.base.value}"
         },
         "letter-spacing": {
-          "value": "2px"
+          "value": "1px"
         }
       },
       "s": {
         "font-size": {
-          "value": "20px"
+          "value": "16px"
         },
         "font-weight": {
           "value": "{font-weight.bold.value}"
@@ -38,7 +38,7 @@
       },
       "xl": {
         "font-size": {
-          "value": "{typography.heading.m.font-size.value} * 2"
+          "value": "{typography.heading.m.font-size.value} + 8"
         },
         "font-weight": {
           "value": "{font-weight.regular.value}"
@@ -47,12 +47,17 @@
           "value": "uppercase"
         },
         "letter-spacing": {
-          "value": "3px"
+          "value": "2px"
         }
       }
     }
   },
   "desktop": {
+    "base": {
+      "letter-spacing": {
+        "value": "2px"
+      }
+    },
     "typography": {
       "heading": {
         "s": {
@@ -73,6 +78,9 @@
         "xl": {
           "font-size": {
             "value": "{desktop.typography.heading.m.font-size.value} * 2"
+          },
+          "letter-spacing": {
+            "value": "3px"
           }
         }
       }

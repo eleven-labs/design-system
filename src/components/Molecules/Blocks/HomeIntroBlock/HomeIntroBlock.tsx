@@ -1,11 +1,12 @@
 import React from 'react';
 
+import type { BoxProps } from '@/components';
 import { Box, Button, Flex, Heading, Text } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
 import './HomeIntroBlock.scss';
 
-export interface HomeIntroBlockProps {
+export interface HomeIntroBlockProps extends BoxProps {
   intro: React.ReactNode;
   title: React.ReactNode;
   description: React.ReactNode;
@@ -17,8 +18,9 @@ export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
   title,
   description,
   elevenLabsLink: { label: elevelLabsLinkLabel, ...elevenLabsLink },
+  ...props
 }) => (
-  <Box py="xl" className="home-intro-block">
+  <Box className="home-intro-block" {...props}>
     <Flex
       alignItems="baseline"
       flexDirection="column"
