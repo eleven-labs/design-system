@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, NotFoundBlock, Skeleton, Text } from '@/components';
+import { Box, Heading, NotFoundBlock, Skeleton } from '@/components';
 import type { NotFoundBlockProps } from '@/components';
 
 export type SearchPageContentProps = {
@@ -23,14 +23,14 @@ export const SearchPageContent: React.FC<SearchPageContentProps> = ({
   ) : (
     <Box>
       <Skeleton isLoading={isLoading}>
-        <Text size="m" fontWeight="medium">
+        <Heading size="m" fontWeight="medium" color="primary">
           {title}
-        </Text>
+        </Heading>
       </Skeleton>
       <Skeleton isLoading={isLoading}>
-        <Text size="s" mb="l">
+        <Heading size="s" mb="l">
           {description}
-        </Text>
+        </Heading>
       </Skeleton>
       {postCardList}
     </Box>

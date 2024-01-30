@@ -3,7 +3,6 @@ import React from 'react';
 import { SummaryCard } from '@/components';
 import { LayoutContentWithSidebar } from '@/templates/LayoutContentWithSidebar';
 
-import './PostPage.scss';
 import { PostPageContent } from './PostPageContent';
 
 import type { PostPageContentProps } from './PostPageContent';
