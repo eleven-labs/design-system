@@ -20,13 +20,19 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({
   link: { label: linkLabel, ...link },
   ...props
 }) => (
-  <Flex {...props} alignItems="center" justifyContent="between" px="s" py="m" bg="white" className="author-card">
-    <Flex gap="s" flex="1" alignItems="center">
-      {avatarImageUrl ? (
-        <img src={avatarImageUrl} alt={name} className="author-card__avatar-img" />
-      ) : (
-        <div className="author-card__avatar-img author-card__avatar-img--empty" />
-      )}
+  <Flex {...props} alignItems="center" gap="s" px="s" py="m" bg="white" className="author-card">
+    {avatarImageUrl ? (
+      <img src={avatarImageUrl} alt={name} className="author-card__avatar-img" />
+    ) : (
+      <div className="author-card__avatar-img author-card__avatar-img--empty" />
+    )}
+    <Flex
+      flexDirection={{ xs: 'column', md: 'row' }}
+      flex="1"
+      justifyContent="between"
+      alignItems={{ xs: 'start', md: 'center' }}
+      gap="s"
+    >
       <Box>
         <Text color="primary" size="m" fontWeight="semi-bold">
           {name}
@@ -35,9 +41,15 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({
           {description}
         </Text>
       </Box>
+      <Link
+        {...link}
+        px={{ xs: '0', md: 'm' }}
+        textTransform="uppercase"
+        data-internal-link="author"
+        className="author-card__link"
+      >
+        {linkLabel}
+      </Link>
     </Flex>
-    <Link {...link} px="m" textTransform="uppercase" data-internal-link="author" className="author-card__link">
-      {linkLabel}
-    </Link>
   </Flex>
 );

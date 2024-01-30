@@ -23,7 +23,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   newsletterCard,
 }) => (
   <>
-    <HomeIntroBlock {...homeIntroBlock} />
+    <HomeIntroBlock py={{ xs: '0', md: 'xl' }} {...homeIntroBlock} />
     <LastArticlesBlock {...lastArticlesBlock} />
     {lastTutorialsBlock && <LastTutorialsBlock {...lastTutorialsBlock} />}
     <Box my="xl" mx={{ xs: 's', md: 'auto' }} width={{ md: 'content-container' }}>

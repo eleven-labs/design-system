@@ -26,6 +26,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({
       gap="m"
       textAlign="center"
       className="contact-card__container"
+      px="m"
     >
       <Heading size="l" color="primary">
         {title}
