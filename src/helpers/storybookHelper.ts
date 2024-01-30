@@ -1,7 +1,7 @@
 import type { ControlType } from '@storybook/blocks';
 import type { ArgTypes, InputType } from '@storybook/csf';
 
-import { tokenVariables } from '@/constants';
+import { tokenVariables, tokenVariablesDesktop } from '@/constants';
 import { get } from '@/helpers/objectHelper';
 
 import { kebabCase } from './stringHelper';
@@ -78,8 +78,8 @@ export const getValueOfCssPropertyInDesignTokens = (options: {
   isDesktop?: boolean;
 }): number | string =>
   get(
-    tokenVariables,
-    `${options.isDesktop ? 'desktop.' : ''}${options.path}.${options.tokenName}.${options.propertyCSS}.value`
+    options.isDesktop ? tokenVariablesDesktop : tokenVariables,
+    `${options.path}.${options.tokenName}.${options.propertyCSS}.value`
   ) ||
   get(tokenVariables, `${options.path}.${options.tokenName}.${options.propertyCSS}.value`) ||
   get(tokenVariables, `${options.path}.base.${options.propertyCSS}.value`);

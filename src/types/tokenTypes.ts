@@ -11,11 +11,5 @@ export type FontWeightType = keyof (typeof tokenVariables)['font-weight'];
 
 export type IconNameType = keyof (typeof tokenVariables)['asset']['icon'];
 
-export type HeadingSizeType = keyof (
-  | (typeof tokenVariables)['typography']['heading']
-  | (typeof tokenVariables)['desktop']['typography']['heading']
-);
-export type TextSizeType = keyof (
-  | (typeof tokenVariables)['typography']['text']
-  | (typeof tokenVariables)['desktop']['typography']['text']
-);
+export type HeadingSizeType = keyof (typeof tokenVariables)['typography']['heading'];
+export type TextSizeType = keyof (typeof tokenVariables)['typography']['text'];

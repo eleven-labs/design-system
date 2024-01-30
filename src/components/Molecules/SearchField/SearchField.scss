@@ -18,10 +18,6 @@
     border-radius: 22px;
     background-color: #{map-get-strict($token-variables, 'color', 'secondary')};
 
-    @include create-media-queries('md') {
-      --font-size-input: #{map-get-strict($token-variables, 'desktop', 'typography', 'text', 'xs', 'font-size')};
-    }
-
     &, &::placeholder {
       color: #{map-get-strict($token-variables, 'color', 'primary')};
     }

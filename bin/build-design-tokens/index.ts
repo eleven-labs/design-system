@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import type { File, TransformedToken } from 'style-dictionary';
+import { Config, File, TransformedToken } from 'style-dictionary';
 import StyleDictionary from 'style-dictionary';
 
 import './formats/register';
@@ -9,57 +9,92 @@ import './transforms/register';
 const filterExcludesCategories = (token: TransformedToken, categories: string[]): boolean =>
   token?.attributes?.category ? !categories.includes(token.attributes.category) : false;
 
-const styleDictionary = StyleDictionary.extend({
-  source: ['src/designTokens/**/*.tokens.json'],
-  platforms: {
-    'css/variables': {
-      buildPath: './src/styles/',
-      transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item', 'math', 'size/px'],
-      files: [
-        {
-          format: 'css/variables',
-          filter: (token): boolean => filterExcludesCategories(token, ['asset', 'breakpoint']),
-          destination: '_token-custom-properties.scss',
+const sdConfigs: Config[] = [
+  {
+    source: ['src/designTokens/**/!(*.desktop).tokens.json'],
+    platforms: {
+      'css/variables': {
+        buildPath: './src/styles/',
+        transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item', 'math', 'size/px'],
+        files: [
+          {
+            format: 'css/variables',
+            filter: (token): boolean => filterExcludesCategories(token, ['asset', 'breakpoint']),
+            destination: '_token-custom-properties.scss',
+          },
+        ],
+      },
+      'scss/variables': {
+        buildPath: './src/styles/',
+        transforms: ['attribute/cti'],
+        files: [
+          {
+            format: 'scss/map-deep',
+            filter: (token): boolean => token?.attributes?.category === 'color',
+            destination: 'abstracts/variables/_variables.scss',
+            mapName: 'variables',
+          } as File,
+        ],
+      },
+      'scss/token-variables': {
+        buildPath: './src/styles/',
+        transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item'],
+        files: [
+          {
+            format: 'scss/map-deep-with-css-variables',
+            filter: (token): boolean => filterExcludesCategories(token, ['asset']),
+            destination: 'abstracts/variables/_token-variables.scss',
+          },
+        ],
+        options: {
+          categoriesWithNotCssVariables: ['breakpoint'],
         },
-      ],
-    },
-    'scss/variables': {
-      buildPath: './src/styles/',
-      transforms: ['attribute/cti'],
-      files: [
-        {
-          format: 'scss/map-deep',
-          filter: (token): boolean => token?.attributes?.category === 'color',
-          destination: 'abstracts/variables/_variables.scss',
-          mapName: 'variables',
-        } as File,
-      ],
-    },
-    'scss/token-variables': {
-      buildPath: './src/styles/',
-      transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item'],
-      files: [
-        {
-          format: 'scss/map-deep-with-css-variables',
-          filter: (token): boolean => filterExcludesCategories(token, ['asset']),
-          destination: 'abstracts/variables/_token-variables.scss',
-        },
-      ],
-      options: {
-        categoriesWithNotCssVariables: ['breakpoint'],
+      },
+      'typescript/token-variables': {
+        buildPath: './src/',
+        transforms: ['attribute/cti', 'math', 'size/px'],
+        files: [
+          {
+            format: 'typescript/object',
+            destination: 'constants/tokenVariables.ts',
+          },
+        ],
       },
     },
-    'typescript/token-variables': {
-      buildPath: './src/',
-      transforms: ['attribute/cti', 'math', 'size/px'],
-      files: [
-        {
-          format: 'typescript/object',
-          destination: 'constants/tokenVariables.ts',
-        },
-      ],
+  },
+  {
+    include: ['src/designTokens/**/!(*.desktop).tokens.json'],
+    source: ['src/designTokens/**/*.desktop.tokens.json'],
+    platforms: {
+      'css/variables': {
+        buildPath: './src/styles/',
+        transforms: ['attribute/cti', 'name/cti/kebab', 'name/cti/kebab-only-category-item', 'math', 'size/px'],
+        files: [
+          {
+            format: 'css/variables',
+            filter: (token): boolean => filterExcludesCategories(token, ['asset', 'breakpoint']) && token.filePath.indexOf(`.desktop`) > -1,
+            destination: '_token-custom-properties-desktop.scss',
+            options: {
+              mediaQuery: 'md',
+            },
+          },
+        ],
+      },
+      'typescript/token-variables': {
+        buildPath: './src/',
+        transforms: ['attribute/cti', 'math', 'size/px'],
+        files: [
+          {
+            format: 'typescript/object',
+            filter: (token): boolean => token.filePath.indexOf(`.desktop`) > -1,
+            destination: 'constants/tokenVariablesDesktop.ts',
+          },
+        ],
+      },
     },
   },
-});
+];
 
-styleDictionary.buildAllPlatforms();
+for (const sdConfig of sdConfigs) {
+  StyleDictionary.extend(sdConfig).buildAllPlatforms();
+}

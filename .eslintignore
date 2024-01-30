@@ -1,5 +1,6 @@
 vite.config.ts
 vitest.config.ts
 src/constants/tokenVariables.ts
+src/constants/tokenVariablesDesktop.ts
 src/components/Atoms/Svgs
 bin
