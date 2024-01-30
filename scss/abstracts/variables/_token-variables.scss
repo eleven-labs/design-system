@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 30 Jan 2024 07:17:45 GMT
+ * Generated on Tue, 30 Jan 2024 09:44:24 GMT
  */
 
 $token-variables: (
@@ -16,6 +16,31 @@ $token-variables: (
 		'bold': var(--font-weight-bold)
 	),
 	'typography': (
+		'heading-markup': (
+			'base': (
+				'line-height': var(--typography-heading-markup-base-line-height),
+				'font-weight': var(--typography-heading-markup-base-font-weight),
+				'margin-top': var(--typography-heading-markup-base-margin-top)
+			),
+			's': (
+				'font-size': var(--typography-heading-markup-s-font-size),
+				'margin-bottom': var(--typography-heading-markup-s-margin-bottom)
+			),
+			'm': (
+				'font-size': var(--typography-heading-markup-m-font-size),
+				'margin-bottom': var(--typography-heading-markup-m-margin-bottom)
+			),
+			'l': (
+				'font-size': var(--typography-heading-markup-l-font-size),
+				'font-weight': var(--typography-heading-markup-l-font-weight),
+				'margin-bottom': var(--typography-heading-markup-l-margin-bottom)
+			),
+			'xl': (
+				'font-size': var(--typography-heading-markup-xl-font-size),
+				'font-weight': var(--typography-heading-markup-xl-font-weight),
+				'margin-bottom': var(--typography-heading-markup-xl-margin-bottom)
+			)
+		),
 		'heading': (
 			'base': (
 				'font-family': var(--typography-heading-base-font-family),
@@ -60,10 +85,21 @@ $token-variables: (
 		)
 	),
 	'desktop': (
-		'base': (
-			'letter-spacing': var(--desktop-base-letter-spacing)
-		),
 		'typography': (
+			'heading-markup': (
+				's': (
+					'font-size': var(--desktop-typography-heading-markup-s-font-size)
+				),
+				'm': (
+					'font-size': var(--desktop-typography-heading-markup-m-font-size)
+				),
+				'l': (
+					'font-size': var(--desktop-typography-heading-markup-l-font-size)
+				),
+				'xl': (
+					'font-size': var(--desktop-typography-heading-markup-xl-font-size)
+				)
+			),
 			'heading': (
 				's': (
 					'font-size': var(--desktop-typography-heading-s-font-size)
@@ -93,6 +129,9 @@ $token-variables: (
 					'icon-size': var(--desktop-typography-text-m-icon-size)
 				)
 			)
+		),
+		'base': (
+			'letter-spacing': var(--desktop-base-letter-spacing)
 		)
 	),
 	'line-height': (

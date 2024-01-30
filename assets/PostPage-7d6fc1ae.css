@@ -1,1 +1,0 @@
-.post-page{--height-cover-post-page: 160px}.post-page__cover{margin-top:var(--spacing-s);-o-object-fit:cover;object-fit:cover;width:100%;height:var(--height-cover-post-page);border-radius:var(--radius-xs)}@media screen and (min-width: 1001px){.post-page__cover{--height-cover-post-page: 335px}}
