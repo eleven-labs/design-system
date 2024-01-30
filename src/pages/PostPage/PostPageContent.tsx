@@ -10,6 +10,7 @@ import type { ComponentPropsWithoutRef } from '@/types';
 
 import { PostFooter } from './PostFooter';
 import { PostHeader } from './PostHeader';
+import './PostPageContent.scss';
 import { RelatedPostList } from './RelatedPostList';
 
 import type { PostFooterProps } from './PostFooter';
@@ -47,9 +48,9 @@ export const PostPageContent: React.FC<PostPageContentProps> = ({
   nextLink: { label: nextLinkLabel, ...nextLink } = {},
 }) => (
   <>
-    <Box>
+    <Box className="post-page-content">
       <Breadcrumb {...breadcrumb} />
-      <img className="post-page__cover" {...cover} alt={cover.alt} />
+      <img className="post-page-content__cover" {...cover} alt={cover.alt} />
       <PostHeader mt="m" {...header} />
       <Divider mt="m" />
       <SummaryCard mt="l" hiddenAbove="md" variant={variant === 'tutorial' ? 'secondary' : 'primary'} {...summary} />

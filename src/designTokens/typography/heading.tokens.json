@@ -38,7 +38,7 @@
       },
       "xl": {
         "font-size": {
-          "value": "{typography.heading.m.font-size.value} + 8"
+          "value": "{typography.heading.l.font-size.value} + 8"
         },
         "font-weight": {
           "value": "{font-weight.regular.value}"

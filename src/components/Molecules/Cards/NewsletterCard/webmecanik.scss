@@ -4,6 +4,8 @@
 .mauticform_wrapper {
   --color-error: red;
 
+  font-size: map-get-strict($token-variables, 'typography', 'text', 's', 'font-size');
+
   .mauticform-row {
     display: flex;
     flex-direction: column;

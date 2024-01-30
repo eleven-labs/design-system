@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import BreadcrumbStories from '@/components/Atoms/Breadcrumb/Breadcrumb.stories';
 import ContactCardStories from '@/components/Molecules/Cards/ContactCard/ContactCard.stories';
@@ -22,7 +23,35 @@ const meta: Meta<typeof PostPage> = {
       alt: 'cover',
     },
     header: PostHeaderStories.args as PostPageProps['header'],
-    children: 'content',
+    children: (
+      <>
+        <h2>Heading 1</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt erat sit amet justo maximus, gravida
+          ultricies lorem vestibulum. Nullam scelerisque erat non est blandit, a tincidunt enim laoreet.
+        </p>
+        <p>
+          Vivamus gravida feugiat lorem, quis pharetra tellus dignissim vel. Fusce dapibus sodales efficitur. Curabitur
+          nec semper dolor. Integer dignissim leo magna, sit amet mollis arcu auctor id. Fusce sapien dolor, porta a
+          dictum eget, posuere et arcu. Nam mattis facilisis est id dignissim
+        </p>
+        <h3>Sub-heading 1.1</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt erat sit amet justo maximus, gravida
+          ultricies lorem vestibulum. Nullam scelerisque erat non est blandit, a tincidunt enim laoreet.
+        </p>
+        <h4>Sub-heading 1.1.1</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt erat sit amet justo maximus, gravida
+          ultricies lorem vestibulum. Nullam scelerisque erat non est blandit, a tincidunt enim laoreet.
+        </p>
+        <h5>Sub-heading 1.1.1.1</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt erat sit amet justo maximus, gravida
+          ultricies lorem vestibulum. Nullam scelerisque erat non est blandit, a tincidunt enim laoreet.
+        </p>
+      </>
+    ),
     footer: PostFooterStories.args as PostPageProps['footer'],
     contactCard: ContactCardStories.args as PostPageProps['contactCard'],
     relatedPostList: RelatedPostListStories.args as PostPageProps['relatedPostList'],
