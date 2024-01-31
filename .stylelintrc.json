@@ -3,6 +3,7 @@
   "ignoreFiles": [
     "src/styles/_fonts.scss",
     "src/styles/_token-custom-properties.scss",
+    "src/styles/_token-custom-properties-desktop.scss",
     "src/styles/abstracts/variables/_token-variables.scss",
     "src/styles/abstracts/variables/_variables.scss"
   ]

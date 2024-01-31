@@ -1,13 +1,12 @@
 import React from 'react';
 
-import type { HomeIntroBlockProps } from '@/components';
-import { Box } from '@/components';
-import { HomeIntroBlock } from '@/components';
-import { NewsletterCard, type NewsletterCardProps } from '@/components/Molecules/Cards/NewsletterCard';
-import type { LastArticlesBlockProps } from '@/components/Organisms/Blocks/LastArticlesBlock/LastArticlesBlock';
-import { LastArticlesBlock } from '@/components/Organisms/Blocks/LastArticlesBlock/LastArticlesBlock';
-import type { LastTutorialsBlockProps } from '@/components/Organisms/Blocks/LastTutorialsBlock/LastTutorialsBlock';
-import { LastTutorialsBlock } from '@/components/Organisms/Blocks/LastTutorialsBlock/LastTutorialsBlock';
+import type {
+  HomeIntroBlockProps,
+  LastArticlesBlockProps,
+  LastTutorialsBlockProps,
+  NewsletterCardProps,
+} from '@/components';
+import { Box, HomeIntroBlock, LastArticlesBlock, LastTutorialsBlock, NewsletterCard } from '@/components';
 
 export type HomePageProps = {
   homeIntroBlock: HomeIntroBlockProps;
