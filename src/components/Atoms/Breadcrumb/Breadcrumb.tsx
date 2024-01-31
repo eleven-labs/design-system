@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { Fragment } from 'react';
 
 import { Flex, Link, Text } from '@/components';
@@ -7,6 +8,7 @@ import './Breadcrumb.scss';
 
 export interface BreadcrumbProps extends MarginSystemProps {
   items: ({ label: string } & ComponentPropsWithoutRef<'a'>)[];
+  className?: string;
 }
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...props }) => (
@@ -17,7 +19,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...props }) => (
     itemType="https://schema.org/BreadcrumbList"
     gap="xxs-3"
     fontWeight="semi-bold"
-    className="breadcrumb"
+    className={classNames('breadcrumb', props.className)}
   >
     {items.map(({ label, ...itemLink }, index) => (
       <Fragment key={index}>

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import type { BreadcrumbProps, ContactCardProps } from '@/components';
+import type { ContactCardProps } from '@/components';
 import { SummaryCard, type SummaryCardProps } from '@/components';
-import { Breadcrumb } from '@/components';
 import { Button, Flex } from '@/components';
 import { Box } from '@/components';
 import { ContactCard, Divider } from '@/components';
@@ -10,7 +9,6 @@ import type { ComponentPropsWithoutRef } from '@/types';
 
 import { PostFooter } from './PostFooter';
 import { PostHeader } from './PostHeader';
-import './PostPageContent.scss';
 import { RelatedPostList } from './RelatedPostList';
 
 import type { PostFooterProps } from './PostFooter';
@@ -22,9 +20,7 @@ export type PostPageVariantType = (typeof postPageVariant)[number];
 
 export interface PostPageContentProps {
   variant: PostPageVariantType;
-  breadcrumb: BreadcrumbProps;
   summary: SummaryCardProps;
-  cover: ComponentPropsWithoutRef<'img'>;
   header: Omit<PostHeaderProps, 'contentType'>;
   children: React.ReactNode;
   footer: PostFooterProps;
@@ -32,12 +28,12 @@ export interface PostPageContentProps {
   relatedPostList: RelatedPostListProps;
   previousLink?: { label: string } & ComponentPropsWithoutRef<'a'>;
   nextLink?: { label: string } & ComponentPropsWithoutRef<'a'>;
+  className?: string;
 }
 
 export const PostPageContent: React.FC<PostPageContentProps> = ({
   variant = 'article',
-  breadcrumb,
-  cover,
+
   summary,
   header,
   children,
@@ -48,13 +44,13 @@ export const PostPageContent: React.FC<PostPageContentProps> = ({
   nextLink: { label: nextLinkLabel, ...nextLink } = {},
 }) => (
   <>
-    <Box className="post-page-content">
-      <Breadcrumb {...breadcrumb} />
-      <img className="post-page-content__cover" {...cover} alt={cover.alt} />
-      <PostHeader mt="m" {...header} />
+    <Box>
+      <PostHeader {...header} />
       <Divider mt="m" />
       <SummaryCard mt="l" hiddenAbove="md" variant={variant === 'tutorial' ? 'secondary' : 'primary'} {...summary} />
-      <Box mt={{ xs: 'l', md: 'm' }}>{children}</Box>
+      <Box mt={{ xs: 'l', md: 'm' }} className="post-page__content">
+        {children}
+      </Box>
       {variant === 'tutorial' && (
         <>
           <Flex gap="l">

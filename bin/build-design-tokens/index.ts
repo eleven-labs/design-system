@@ -6,6 +6,9 @@ import StyleDictionary from 'style-dictionary';
 import './formats/register';
 import './transforms/register';
 
+
+const defaultFilter = (token: TransformedToken) => token.type !== 'scale';
+
 const filterExcludesCategories = (token: TransformedToken, categories: string[]): boolean =>
   token?.attributes?.category ? !categories.includes(token.attributes.category) : false;
 
@@ -19,7 +22,7 @@ const sdConfigs: Config[] = [
         files: [
           {
             format: 'css/variables',
-            filter: (token): boolean => filterExcludesCategories(token, ['asset', 'breakpoint']),
+            filter: (token): boolean => defaultFilter(token) && filterExcludesCategories(token, ['asset', 'breakpoint']),
             destination: '_token-custom-properties.scss',
           },
         ],
@@ -30,7 +33,7 @@ const sdConfigs: Config[] = [
         files: [
           {
             format: 'scss/map-deep',
-            filter: (token): boolean => token?.attributes?.category === 'color',
+            filter: (token): boolean => defaultFilter(token) && token?.attributes?.category === 'color',
             destination: 'abstracts/variables/_variables.scss',
             mapName: 'variables',
           } as File,
@@ -42,7 +45,7 @@ const sdConfigs: Config[] = [
         files: [
           {
             format: 'scss/map-deep-with-css-variables',
-            filter: (token): boolean => filterExcludesCategories(token, ['asset']),
+            filter: (token): boolean => defaultFilter(token) && filterExcludesCategories(token, ['asset']),
             destination: 'abstracts/variables/_token-variables.scss',
           },
         ],
@@ -56,6 +59,7 @@ const sdConfigs: Config[] = [
         files: [
           {
             format: 'typescript/object',
+            filter: defaultFilter,
             destination: 'constants/tokenVariables.ts',
           },
         ],
@@ -72,7 +76,7 @@ const sdConfigs: Config[] = [
         files: [
           {
             format: 'css/variables',
-            filter: (token): boolean => filterExcludesCategories(token, ['asset', 'breakpoint']) && token.filePath.indexOf(`.desktop`) > -1,
+            filter: (token): boolean => defaultFilter(token) && filterExcludesCategories(token, ['asset', 'breakpoint']),
             destination: '_token-custom-properties-desktop.scss',
             options: {
               mediaQuery: 'md',
@@ -86,7 +90,7 @@ const sdConfigs: Config[] = [
         files: [
           {
             format: 'typescript/object',
-            filter: (token): boolean => token.filePath.indexOf(`.desktop`) > -1,
+            filter: defaultFilter,
             destination: 'constants/tokenVariablesDesktop.ts',
           },
         ],
