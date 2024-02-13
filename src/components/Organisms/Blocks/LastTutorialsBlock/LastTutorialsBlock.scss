@@ -10,6 +10,7 @@
     width: 100%;
 
     @include create-media-queries('md') {
+      margin-top: 56px;
       flex: 2;
     }
   }

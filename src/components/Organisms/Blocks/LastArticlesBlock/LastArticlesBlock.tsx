@@ -18,13 +18,7 @@ export const LastArticlesBlock: React.FC<LastArticlesBlockProps> = ({
   linkSeeMore: { label: labelLinkSeeMore, ...linkSeeMore },
   ...props
 }) => (
-  <Box
-    {...props}
-    my="xl"
-    mx={{ xs: 's', md: 'auto' }}
-    width={{ md: 'content-container' }}
-    className="last-articles-block"
-  >
+  <Box {...props} my="xl" mx={{ xs: 's', md: 'm' }} width={{ md: 'full' }} className="last-articles-block">
     <Heading size="m" color="primary">
       {title}
     </Heading>

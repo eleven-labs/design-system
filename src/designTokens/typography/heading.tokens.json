@@ -7,9 +7,6 @@
         },
         "line-height": {
           "value": "{line-height.base.value}"
-        },
-        "letter-spacing": {
-          "value": "1px"
         }
       },
       "s": {

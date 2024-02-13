@@ -25,7 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({
     <HomeIntroBlock py={{ xs: '0', md: 'xl' }} {...homeIntroBlock} />
     <LastArticlesBlock {...lastArticlesBlock} />
     {lastTutorialsBlock && <LastTutorialsBlock {...lastTutorialsBlock} />}
-    <Box my="xl" mx={{ xs: 's', md: 'auto' }} width={{ md: 'content-container' }}>
+    <Box my="xl" mx={{ xs: 's', md: 'auto' }} width={{ md: 'full' }}>
       <NewsletterCard variant="horizontal" {...newsletterCard} />
     </Box>
   </>
