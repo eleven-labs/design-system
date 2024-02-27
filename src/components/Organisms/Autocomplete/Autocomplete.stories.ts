@@ -5,7 +5,7 @@ import { Autocomplete } from './Autocomplete';
 const meta: Meta<typeof Autocomplete> = {
   component: Autocomplete,
   args: {
-    placeholder: 'Rechercher par nom d’article ou d’auteur',
+    placeholder: 'Nom d’article, auteur ...',
     searchLink: {
       label: 'Voir tous les résultats',
       href: '#',

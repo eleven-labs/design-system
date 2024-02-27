@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Box, Breadcrumb, type BreadcrumbProps, SummaryCard } from '@/components';
+import type { PictureProps } from '@/components';
+import { Box, Breadcrumb, type BreadcrumbProps, Picture, SummaryCard } from '@/components';
 import { LayoutContentWithSidebar } from '@/templates/LayoutContentWithSidebar';
-import type { ComponentPropsWithoutRef } from '@/types';
 
 import './PostPage.scss';
 import { PostPageContent } from './PostPageContent';
@@ -11,7 +11,7 @@ import type { PostPageContentProps } from './PostPageContent';
 
 export interface PostPageProps extends PostPageContentProps {
   breadcrumb: BreadcrumbProps;
-  cover: ComponentPropsWithoutRef<'img'>;
+  cover: PictureProps;
 }
 
 export const PostPage: React.FC<PostPageProps> = ({
@@ -22,9 +22,9 @@ export const PostPage: React.FC<PostPageProps> = ({
   children,
   ...postPageContent
 }) => (
-  <Box mx="auto" width="content-container" className="post-page">
+  <Box mx="auto" className="post-page">
     <Breadcrumb {...breadcrumb} className="post-page__breadcrumb" />
-    <img className="post-page__cover" {...cover} alt={cover.alt} />
+    <Picture {...cover} img={{ className: 'post-page__cover', ...cover?.img }} />
     <LayoutContentWithSidebar
       content={
         <PostPageContent {...postPageContent} variant={variant} summary={summary}>

@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import type { BoxProps } from '@/components';
-import { Box, Skeleton, Text } from '@/components';
+import type { BoxProps, PictureProps } from '@/components';
+import { Box, Heading, Picture, Skeleton, Text } from '@/components';
 import { PostMetadata } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
@@ -14,7 +14,7 @@ export type PostCardVariantType = (typeof postCardVariant)[number];
 export interface PostCardProps extends BoxProps {
   contentType?: 'article' | 'tutorial';
   variant?: PostCardVariantType;
-  cover?: ComponentPropsWithoutRef<'img'>;
+  cover?: PictureProps;
   slug?: string;
   title?: string;
   excerpt?: string;
@@ -29,7 +29,7 @@ export interface PostCardProps extends BoxProps {
 export const PostCard: React.FC<PostCardProps> = ({
   contentType,
   variant = 'side-image',
-  cover,
+  cover = {},
   title,
   excerpt,
   date,
@@ -42,7 +42,7 @@ export const PostCard: React.FC<PostCardProps> = ({
 }) => (
   <Box as="article" {...props} className={classNames('post-card', `post-card--${variant}`)}>
     <Skeleton isLoading={isLoading}>
-      <img className="post-card__cover" {...cover} alt={cover?.alt} />
+      <Picture {...cover} img={{ className: 'post-card__cover', ...cover?.img }} />
     </Skeleton>
     <Box
       my={{ xs: 's', md: 'm' }}
@@ -52,7 +52,7 @@ export const PostCard: React.FC<PostCardProps> = ({
       style={{ display: 'grid' }}
     >
       <Skeleton isLoading={isLoading}>
-        <Box as="h2" className="post-card__heading">
+        <Heading as="h2" size="xs" className="post-card__heading">
           <Text as="a" {...link} size="m" data-internal-link="post" className="post-card__link">
             {title}
           </Text>
@@ -69,7 +69,7 @@ export const PostCard: React.FC<PostCardProps> = ({
               {tutorialLabel}
             </Text>
           )}
-        </Box>
+        </Heading>
       </Skeleton>
       <PostMetadata
         variant="primary"

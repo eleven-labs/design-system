@@ -20,8 +20,10 @@ Overview.args = {
   contentType: 'article',
   slug: 'slug',
   cover: {
-    src: 'https://i.ibb.co/gPtFC17/pexels-matheus-bertelli-1830252.jpg',
-    alt: 'cover',
+    img: {
+      src: 'https://i.ibb.co/gPtFC17/pexels-matheus-bertelli-1830252.jpg',
+      alt: 'cover',
+    },
   },
   title: `REX Studio : Intégration de composants React avec Varnish ESI dans un site No Code`,
   date: '09 fév. 2021',

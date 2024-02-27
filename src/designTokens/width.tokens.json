@@ -5,9 +5,6 @@
     },
     "screen": {
       "value": "100vw"
-    },
-    "content-container": {
-      "value": "90rem"
     }
   }
 }

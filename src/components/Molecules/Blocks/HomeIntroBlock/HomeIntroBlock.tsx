@@ -1,12 +1,13 @@
+import classNames from 'classnames';
 import React from 'react';
 
-import type { BoxProps } from '@/components';
+import type { FlexProps } from '@/components';
 import { Box, Button, Flex, Heading, Text } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
 import './HomeIntroBlock.scss';
 
-export interface HomeIntroBlockProps extends BoxProps {
+export interface HomeIntroBlockProps extends FlexProps {
   intro: React.ReactNode;
   title: React.ReactNode;
   description: React.ReactNode;
@@ -20,25 +21,25 @@ export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
   elevenLabsLink: { label: elevelLabsLinkLabel, ...elevenLabsLink },
   ...props
 }) => (
-  <Box className="home-intro-block" {...props}>
+  <Flex {...props} className={classNames('home-intro-block', props.className)}>
     <Flex
       alignItems="baseline"
       flexDirection="column"
-      gap="l"
-      p="l"
-      ml={{ xs: '0', md: 'xxl' }}
       className="home-intro-block__container"
+      flex="1"
+      py={{ xs: '0', md: 'xl' }}
     >
       <Heading size="s" color="info" textTransform="uppercase">
         {intro}
       </Heading>
-      <Heading size="xl" color="primary">
+      <Heading size="xl" mt="m" color="primary">
         {title}
       </Heading>
-      <Text>{description}</Text>
-      <Button as="a" {...elevenLabsLink}>
+      <Text mt="l">{description}</Text>
+      <Button {...elevenLabsLink} as="a" mt="l">
         {elevelLabsLinkLabel}
       </Button>
     </Flex>
-  </Box>
+    <Box flex="1" className="home-intro-block__background" hiddenBelow="md" />
+  </Flex>
 );
