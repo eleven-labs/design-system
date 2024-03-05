@@ -29,6 +29,7 @@
     color: #{map-get-strict($token-variables, 'color', 'info')};
     font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
     text-decoration: none;
+    align-self: center;
 
     &:hover {
       color: #{map-get-strict($token-variables, 'color', 'primary')};

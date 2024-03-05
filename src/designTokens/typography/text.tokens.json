@@ -3,7 +3,7 @@
     "text": {
       "base": {
         "line-height": {
-          "value": "{line-height.base.value}"
+          "value": "{line-height.large}"
         }
       },
       "xs": {

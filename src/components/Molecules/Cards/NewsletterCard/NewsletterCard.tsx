@@ -30,7 +30,7 @@ export const NewsletterCard: React.FC<NewsletterCardProps> = ({
     p="l"
     bg="primary"
     color="white"
-    className={classNames('newsletter-card', `newsletter-card--${variant}`)}
+    className={classNames('newsletter-card', `newsletter-card--${variant}`, props.className)}
   >
     <Box className="newsletter-card__intro">
       <Heading size="m" color="accent">

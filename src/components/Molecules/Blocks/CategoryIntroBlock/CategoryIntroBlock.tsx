@@ -20,9 +20,9 @@ export const CategoryIntroBlock: React.FC<CategoryIntroBlockProps> = ({ title, d
       px={{ xs: 'l', md: '0' }}
       className="category-intro-block__container"
     >
-      <Box width="content-container" pt="m" pb="xxl">
+      <Box pt="m" pb="xxl">
         <Breadcrumb {...breadcrumb} />
-        <Heading mt="xl" size="xl">
+        <Heading size="xl" mt="xl">
           {title}
         </Heading>
         <Text mt="l">{description}</Text>

@@ -33,8 +33,7 @@ export const LastTutorialsBlock: React.FC<LastTutorialsBlockProps> = ({
       py="xl"
       mx={{ xs: 's', md: 'auto' }}
       gap="xl"
-      width={{ md: 'content-container' }}
-      className="last-tutorials-block"
+      className="last-tutorials-block container-content"
     >
       <Box className="last-tutorials-block__content">
         <Heading size="m">{title}</Heading>

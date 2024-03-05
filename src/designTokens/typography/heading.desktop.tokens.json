@@ -6,24 +6,29 @@
       }
     },
     "heading": {
+      "xs": {
+        "font-size": {
+          "value": "20px"
+        }
+      },
       "s": {
         "font-size": {
-          "value": "24px"
+          "value": "{typography.heading.xs.font-size} + 4"
         }
       },
       "m": {
         "font-size": {
-          "value": "{typography.heading.s.font-size.value} + 8"
+          "value": "{typography.heading.s.font-size} + 8"
         }
       },
       "l": {
         "font-size": {
-          "value": "{typography.heading.m.font-size.value} + 8"
+          "value": "{typography.heading.m.font-size} + 8"
         }
       },
       "xl": {
         "font-size": {
-          "value": "{typography.heading.m.font-size.value} * 2"
+          "value": "{typography.heading.m.font-size} * 2"
         },
         "letter-spacing": {
           "value": "3px"

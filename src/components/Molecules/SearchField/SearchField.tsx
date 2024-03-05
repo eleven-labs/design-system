@@ -27,7 +27,6 @@ export const SearchField = polyRef<'div', SearchFieldProps>(
         {Boolean(input.value) && (
           <CloseButton {...buttonClose} variant="secondary" className="search-field__button-action" />
         )}
-        <Box className="search-field__separator-button" ml="xs" />
         <Box as="button" {...buttonSearch} className="search-field__button-action">
           <Icon name="search" color="primary" size="2.5rem" mx="xs" />
         </Box>

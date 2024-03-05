@@ -12,7 +12,7 @@ export default {
   },
   args: {
     input: {
-      placeholder: 'Rechercher par nom d’article ou d’auteur',
+      placeholder: 'Nom d’article, auteur ...',
     },
     buttonClose: {
       onClick: action('onClose'),
