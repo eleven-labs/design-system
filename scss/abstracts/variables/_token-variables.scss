@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 31 Jan 2024 08:43:49 GMT
+ * Generated on Tue, 05 Mar 2024 13:16:50 GMT
  */
 
 $token-variables: (
@@ -46,6 +46,11 @@ $token-variables: (
 				'font-family': var(--typography-heading-base-font-family),
 				'line-height': var(--typography-heading-base-line-height),
 				'letter-spacing': var(--typography-heading-base-letter-spacing)
+			),
+			'xs': (
+				'font-family': var(--typography-heading-xs-font-family),
+				'font-size': var(--typography-heading-xs-font-size),
+				'font-weight': var(--typography-heading-xs-font-weight)
 			),
 			's': (
 				'font-size': var(--typography-heading-s-font-size),
@@ -135,7 +140,6 @@ $token-variables: (
 	),
 	'width': (
 		'full': var(--width-full),
-		'screen': var(--width-screen),
-		'content-container': var(--width-content-container)
+		'screen': var(--width-screen)
 	)
 )
