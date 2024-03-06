@@ -3,11 +3,11 @@
 .layout-content-with-sidebar {
   @include create-media-queries('md') {
     &__content {
-      width: 67.5rem;
+      width: 70%;
     }
 
     &__sidebar {
-      width: 22.5rem;
+      width: 30%;
     }
   }
 }

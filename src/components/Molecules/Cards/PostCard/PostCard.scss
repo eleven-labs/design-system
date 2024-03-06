@@ -57,6 +57,19 @@
         @include cover-image-horizontal(var(--cover-height-horizontal-medium-desktop-post-card));
       }
     }
+
+    #{$this}__heading {
+      -webkit-line-clamp: 3;
+    }
+    #{$this}__excerpt {
+      -webkit-line-clamp: 4;
+    }
+
+    @include create-media-queries('md') {
+      #{$this}__heading {
+        min-height: 6rem;
+      }
+    }
   }
 
   &--highlight-dark {
@@ -77,6 +90,10 @@
         @include cover-image-horizontal(var(--cover-height-horizontal-large-desktop-post-card));
       }
     }
+
+    #{$this}__heading {
+      -webkit-line-clamp: 3;
+    }
   }
 
   &--side-image {
@@ -93,14 +110,30 @@
         @include cover-image-square(true);
       }
     }
+
+    #{$this}__heading {
+      -webkit-line-clamp: 2;
+    }
+    #{$this}__excerpt {
+      -webkit-line-clamp: 2;
+    }
   }
 
   &__heading {
-    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: #{map-get-strict($token-variables, 'spacing', 'xxs')};
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
   }
+
+  &__excerpt {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
 
   &__link {
     color: black;

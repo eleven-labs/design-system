@@ -22,7 +22,7 @@ const meta: Meta<typeof PostCardList> = {
   },
   decorators: [
     (Story): React.ReactElement => (
-      <Box p="s" style={{ maxWidth: '764px', margin: 'var(--spacing-l) auto' }}>
+      <Box p="s" mx="auto" style={{ maxWidth: '764px' }}>
         <Story />
       </Box>
     ),

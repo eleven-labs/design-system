@@ -30,11 +30,6 @@ $headings-by-compoent-variant-name: (
 .post-page {
   --height-cover-post-page: 160px;
 
-  &__breadcrumb {
-    margin: #{map-get-strict($token-variables, 'spacing', 's')} 0;
-    padding: 0;
-  }
-
   &__cover {
     object-fit: cover;
     width: 100%;
@@ -53,8 +48,22 @@ $headings-by-compoent-variant-name: (
       margin: 0 0 #{map-get-strict($token-variables, 'spacing', 'xs')} 0;
     }
 
+    pre {
+      font-size: #{map-get-strict($token-variables, 'typography', 'text', 'xs', 'font-size')};
+    }
+
+    figure {
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      margin: #{map-get-strict($token-variables, 'spacing', 'xs')} auto,
+    }
+
     blockquote {
-      padding: 0 var(--spacing-xxl);
+      padding: 0 #{map-get-strict($token-variables, 'spacing', 'xxl')};
       font-family: Georgia, #{map-get-strict($token-variables, 'font-family', 'blockquote')};
       font-size: #{map-get-strict($token-variables, 'typography', 'text', 'm', 'font-size')};
       font-style: italic;
@@ -71,17 +80,13 @@ $headings-by-compoent-variant-name: (
       }
 
       &::before {
-        margin-left: calc(var(--spacing-xxl) * -1);
+        margin-left: calc(#{map-get-strict($token-variables, 'spacing', 'xxl')} * -1);
       }
 
       &::after {
-        margin-right: calc(var(--spacing-xxl) * -1);
+        margin-right: calc(#{map-get-strict($token-variables, 'spacing', 'xxl')} * -1);
         transform: rotate(180deg);
       }
-    }
-
-    figure {
-      text-align: center;
     }
   }
 }

@@ -17,6 +17,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...props }) => (
     as="ol"
     itemScope
     itemType="https://schema.org/BreadcrumbList"
+    p="0"
     gap="xxs-3"
     fontWeight="semi-bold"
     className={classNames('breadcrumb', props.className)}
