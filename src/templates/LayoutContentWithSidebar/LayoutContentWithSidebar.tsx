@@ -25,7 +25,7 @@ export const LayoutContentWithSidebar: React.FC<LayoutContentWithSidebarProps> =
     gap="xl"
     my="xl"
     mx={{ xs: 's', md: 'auto' }}
-    className={classNames('layout-content-with-sidebar', className)}
+    className={classNames('layout-content-with-sidebar', 'container-content', className)}
   >
     <Flex flexDirection="column" as="main" flex="1" gap="xl" className="layout-content-with-sidebar__content">
       {content}

@@ -44,13 +44,7 @@ export const PostCard: React.FC<PostCardProps> = ({
     <Skeleton isLoading={isLoading}>
       <Picture {...cover} img={{ className: 'post-card__cover', ...cover?.img }} />
     </Skeleton>
-    <Box
-      my={{ xs: 's', md: 'm' }}
-      pl={{ xs: 's', md: 'm' }}
-      pr={{ xs: 'xs', md: 'm' }}
-      flex="1"
-      style={{ display: 'grid' }}
-    >
+    <Box my={{ xs: 's', md: 'm' }} pl={{ xs: 's', md: 'm' }} pr={{ xs: 'xs', md: 'm' }} flex="1">
       <Skeleton isLoading={isLoading}>
         <Heading as="h2" size="xs" className="post-card__heading">
           <Text as="a" {...link} size="m" data-internal-link="post" className="post-card__link">
@@ -81,7 +75,7 @@ export const PostCard: React.FC<PostCardProps> = ({
       />
       {variant !== 'highlight-dark' && (
         <Skeleton isLoading={isLoading}>
-          <Text mt="xs" size="s" hiddenBelow="md">
+          <Text mt="xs" size="s" hiddenBelow="md" className="post-card__excerpt">
             {excerpt}
           </Text>
         </Skeleton>

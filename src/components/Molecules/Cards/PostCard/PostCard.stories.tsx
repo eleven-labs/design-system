@@ -25,12 +25,15 @@ Overview.args = {
       alt: 'cover',
     },
   },
-  title: `REX Studio : Intégration de composants React avec Varnish ESI dans un site No Code`,
+  title: `Phasellus quis mollis ex. Nullam tristique nisl eu orci ullamcorper hendrerit vestibulum elementum metus nulla, scelerisque finibus`,
   date: '09 fév. 2021',
   readingTime: 24,
-  authors: [{ username: 'jdoe', name: 'J. Doe' }],
+  authors: [
+    { username: 'jdoe', name: 'John Doe' },
+    { username: 'jdupont', name: 'Jane Dupont' },
+  ],
   excerpt:
-    'Svelte est en fait un framework et un compilateur, et c’est la principale différence. Svelte est en fait un framework et un compilateur, et c’est la principale différence...',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus tempor suscipit. Fusce ac sapien sit amet velit auctor dapibus. Maecenas dui sem, suscipit sagittis leo eget, porta euismod enim.',
   link: {
     href: '#',
   },

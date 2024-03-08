@@ -18,13 +18,11 @@ export const CategoryIntroBlock: React.FC<CategoryIntroBlockProps> = ({ title, d
       justifyContent="center"
       alignItems="center"
       px={{ xs: 'l', md: '0' }}
-      className="category-intro-block__container"
+      className="category-intro-block__container c"
     >
-      <Box pt="m" pb="xxl">
+      <Box pt="m" pb="xxl" className="container-content">
         <Breadcrumb {...breadcrumb} />
-        <Heading size="xl" mt="xl">
-          {title}
-        </Heading>
+        <Heading size="xl">{title}</Heading>
         <Text mt="l">{description}</Text>
       </Box>
     </Flex>

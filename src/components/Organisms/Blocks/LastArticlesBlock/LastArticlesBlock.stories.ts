@@ -10,7 +10,18 @@ const meta: Meta<typeof LastArticlesBlock> = {
   component: LastArticlesBlock,
   args: {
     title: 'Nos articles récents autour des dernières tendances technologiques',
-    posts: Array.from({ length: 4 }).map((_) => PostCardStories.Overview.args as LastArticlesBlockProps['posts'][0]),
+    posts: [
+      ...Array.from({ length: 3 }).map((_) => PostCardStories.Overview.args as LastArticlesBlockProps['posts'][0]),
+      {
+        ...(PostCardStories.Overview.args as LastArticlesBlockProps['posts'][0]),
+        title: `Quisque at libero lorem etiam tristique eros magna`,
+        authors: [
+          { username: 'jdoe', name: 'John Doe' },
+          { username: 'jdupont', name: 'Jane Dupont' },
+          { username: 'phowell', name: 'Patricia Howell' },
+        ],
+      },
+    ],
     linkSeeMore: { label: 'Voir tous les articles', href: '#' },
   },
 };

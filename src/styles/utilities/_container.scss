@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '@/styles/abstracts' as *;
+
+.container-content {
+  margin-left: #{map-get-strict($token-variables, 'spacing', 's')};
+  margin-right: #{map-get-strict($token-variables, 'spacing', 's')};
+
+  @include create-media-queries('md') {
+    max-width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

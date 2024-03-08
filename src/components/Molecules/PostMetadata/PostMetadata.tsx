@@ -41,7 +41,7 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
             display="inline-block"
             style={{ minWidth: 60, minHeight: 16 }}
           >
-            <Flex alignContent="center" alignItems="center" gap="xxs">
+            <Flex alignContent="center" alignItems="center" gap="xxs" className="post-metadata__date">
               {variant === 'secondary' && <Icon name="calendar" size="24px" color="light-grey" />}
               {date && <Text as="span">{date}</Text>}
             </Flex>
@@ -74,12 +74,12 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
             style={{ minWidth: 50, minHeight: 16 }}
           >
             {authors && (
-              <Flex alignContent="center" alignItems="center" gap="xxs">
+              <Flex alignContent="center" alignItems="center" gap="xxs" className="post-metadata__authors">
                 {variant === 'secondary' && <Icon name="person" size="24px" color="light-grey" />}
                 {authors.map(({ username, name, link }, authorIndex) => (
                   <Fragment key={username}>
                     {link ? <Link {...link}>{name}</Link> : <Text as="span">{name}</Text>}
-                    {authorIndex !== authors.length - 1 && <Text as="span">{'&'}</Text>}
+                    {authorIndex !== authors.length - 1 && <Text as="span">{' & '}</Text>}
                   </Fragment>
                 ))}
               </Flex>
@@ -106,7 +106,7 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
       {...props}
       alignItems="center"
       textSize="s"
-      flexWrap="wrap"
+      flexWrap="no-wrap"
       gap={variant === 'secondary' ? 's' : 'xxs'}
       className={classNames('post-metadata', { [`post-metadata--${variant}`]: variant })}
     >

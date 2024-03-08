@@ -13,4 +13,15 @@
     color: #{map-get-strict($token-variables, 'color', 'primary')};
     font-weight: #{map-get-strict($token-variables, 'font-weight', 'semi-bold')};
   }
+
+  &__date {
+    min-width: max-content;
+  }
+
+  &__authors {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
 }
