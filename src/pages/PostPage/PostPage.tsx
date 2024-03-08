@@ -23,8 +23,8 @@ export const PostPage: React.FC<PostPageProps> = ({
   ...postPageContent
 }) => (
   <Box mx="auto" className="post-page">
-    <Breadcrumb {...breadcrumb} />
-    <Picture {...cover} img={{ className: 'post-page__cover', ...cover?.img }} />
+    <Breadcrumb mx={{ xs: 'xs', md: '0' }} {...breadcrumb} />
+    <Picture {...cover} mx={{ xs: 'xs', md: '0' }} img={{ className: 'post-page__cover', ...cover?.img }} />
     <LayoutContentWithSidebar
       content={
         <PostPageContent {...postPageContent} variant={variant} summary={summary}>
