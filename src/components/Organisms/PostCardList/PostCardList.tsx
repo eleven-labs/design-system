@@ -17,7 +17,7 @@ export const PostCardList: React.FC<PostCardListProps> = ({ posts, pagination, i
           <PostCard {...(post || {})} isLoading={isLoading} />
         </React.Fragment>
       ))}
-      {pagination && pagination?.totalPages > 1 && <Pagination {...pagination} />}
+      {pagination && pagination?.totalPages > 1 && <Pagination mx="auto" {...pagination} />}
     </Flex>
   </>
 );

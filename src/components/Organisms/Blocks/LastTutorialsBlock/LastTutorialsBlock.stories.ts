@@ -13,9 +13,15 @@ const meta: Meta<typeof LastTutorialsBlock> = {
     description:
       'Avec nos tutoriels, apprenez pas à pas à créer de nouvelles features : créer un chat avec Mercure et Symfony, mettre en place un CI/CD avec GitLab-CI pour une application Javascript et bien plus encore. Suivez le guide !',
     tutorialLabel: 'Tutoriel',
-    posts: Array.from({ length: 2 }).map(
-      () => PostCardStories.WithContentTypeTutorial.args as LastTutorialsBlockProps['posts'][0]
-    ),
+    posts: [
+      {
+        ...(PostCardStories.WithContentTypeTutorial.args as LastTutorialsBlockProps['posts'][0]),
+      },
+      {
+        ...(PostCardStories.WithContentTypeTutorial.args as LastTutorialsBlockProps['posts'][0]),
+        title: 'Nam molestie elementum libero, ut sollicitudin lorem placerat',
+      },
+    ],
     linkSeeMore: { label: 'Découvrir tous nos tutoriels', href: '#' },
   },
 };

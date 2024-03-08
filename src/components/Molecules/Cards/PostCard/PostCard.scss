@@ -93,6 +93,7 @@
 
     #{$this}__heading {
       -webkit-line-clamp: 3;
+      min-height: 5.5rem;
     }
   }
 
@@ -113,6 +114,10 @@
 
     #{$this}__heading {
       -webkit-line-clamp: 2;
+
+      @include create-media-queries('md') {
+        width: calc(100% - 55px);
+      }
     }
     #{$this}__excerpt {
       -webkit-line-clamp: 2;
