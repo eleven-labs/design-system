@@ -3,7 +3,7 @@
 .layout-content-with-sidebar {
   @include create-media-queries('md') {
     &__content {
-      width: 70%;
+      width: calc(70% - #{map-get-strict($token-variables, 'spacing', 'xl')});
     }
 
     &__sidebar {

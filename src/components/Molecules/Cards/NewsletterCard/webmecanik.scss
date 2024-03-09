@@ -60,7 +60,7 @@
 
   input[type="checkbox"] {
     appearance: none;
-    margin: 0;
+    margin: calc(0.15em * 2) 0 0;
     font: inherit;
     color: currentcolor;
     width: 1.15em;
