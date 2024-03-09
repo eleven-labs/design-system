@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({
     <Flex
       flexDirection={{ xs: 'column', md: 'row' }}
       justifyContent="center"
-      alignItems="end"
+      alignItems={{ xs: 'center', md: 'end' }}
       py="m"
       bg="primary-very-dark"
       className="footer__intro"
