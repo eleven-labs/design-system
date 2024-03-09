@@ -21,7 +21,7 @@ Overview.args = {
   slug: 'slug',
   cover: {
     img: {
-      src: 'https://i.ibb.co/gPtFC17/pexels-matheus-bertelli-1830252.jpg',
+      src: '/imgs/default-cover.jpg',
       alt: 'cover',
     },
   },

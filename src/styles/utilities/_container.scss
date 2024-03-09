@@ -2,6 +2,7 @@
 @use '@/styles/abstracts' as *;
 
 .container-content {
+  width: calc(100vw - #{map-get-strict($token-variables, 'spacing', 's')} * 2);
   margin-left: #{map-get-strict($token-variables, 'spacing', 's')};
   margin-right: #{map-get-strict($token-variables, 'spacing', 's')};
 
