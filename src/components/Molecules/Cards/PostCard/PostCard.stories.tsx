@@ -18,7 +18,6 @@ type Story = StoryObj<typeof PostCard>;
 export const Overview: Story = {};
 Overview.args = {
   contentType: 'article',
-  slug: 'slug',
   cover: {
     img: {
       src: '/imgs/default-cover.jpg',

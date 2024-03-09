@@ -12,10 +12,10 @@ export const postCardVariant = ['highlight-light', 'highlight-dark', 'side-image
 export type PostCardVariantType = (typeof postCardVariant)[number];
 
 export interface PostCardProps extends BoxProps {
+  slug?: string;
   contentType?: 'article' | 'tutorial';
   variant?: PostCardVariantType;
   cover?: PictureProps;
-  slug?: string;
   title?: string;
   excerpt?: string;
   date?: string;

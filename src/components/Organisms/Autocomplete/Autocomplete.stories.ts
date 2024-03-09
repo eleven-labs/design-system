@@ -25,67 +25,23 @@ export const Overview: Story = {};
 
 export const WithResult: Story = {};
 WithResult.args = {
+  isOpen: true,
   defaultValue: 'React',
-  items: [
-    {
-      slug: 'react-ssr',
-      title: 'React SSR',
-      date: '24 fév. 2021',
-      authors: [{ username: 'jdoe', name: 'J. Doe' }],
-      link: {
-        href: '#',
-      },
+  items: Array.from({ length: 4 }).map((_, index) => ({
+    slug: `slug-${index}`,
+    title:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget elit turpis. Aliquam sit amet leo mauris vehicula enim id ante aliquam',
+    date: '24 fév. 2021',
+    authors: [{ username: 'jdoe', name: 'J. Doe' }],
+    link: {
+      href: '#',
     },
-    {
-      slug: 'react-ssg',
-      title: 'React SSG',
-      date: '22 fév. 2021',
-      authors: [{ username: 'jdoe', name: 'J. Doe' }],
-      link: {
-        href: '#',
-      },
-    },
-    {
-      slug: 'react-astro',
-      title: 'React + Astro',
-      date: '18 fév. 2021',
-      authors: [{ username: 'jdoe', name: 'J. Doe' }],
-      link: {
-        href: '#',
-      },
-    },
-    {
-      slug: 'react-nextjs',
-      title: 'React + NextJS',
-      date: '16 fév. 2021',
-      authors: [{ username: 'jdoe', name: 'J. Doe' }],
-      link: {
-        href: '#',
-      },
-    },
-    {
-      slug: 'react-apollo-client',
-      title: 'React + Apollo Client',
-      date: '12 fév. 2021',
-      authors: [{ username: 'jdoe', name: 'J. Doe' }],
-      link: {
-        href: '#',
-      },
-    },
-    {
-      slug: 'react-vs-vue',
-      title: 'React vs Vue',
-      date: '09 fév. 2021',
-      authors: [{ username: 'jdoe', name: 'J. Doe' }],
-      link: {
-        href: '#',
-      },
-    },
-  ],
+  })),
 };
 
 export const WithNoResult: Story = {};
 WithNoResult.args = {
+  isOpen: true,
   defaultValue: 'React',
   items: [],
   searchNotFound: {
