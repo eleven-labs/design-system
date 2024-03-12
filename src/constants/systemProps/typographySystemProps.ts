@@ -7,4 +7,5 @@ export const typographySystemProps: Record<keyof TypographySystemProps, readonly
   italic: ['font-style'],
   underline: ['text-decoration'],
   textTransform: ['text-transform'],
+  lineClamp: ['-webkit-line-clamp'],
 };

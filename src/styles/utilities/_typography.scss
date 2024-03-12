@@ -52,6 +52,14 @@ $typography-prop-list-with-breakpoints: (
   }
 }
 
+@mixin line-clamp($number-of-lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $number-of-lines;
+  text-overflow: ellipsis;
+}
+
 /*
  * Typography System Class Names
  */
@@ -71,3 +79,9 @@ $text-config: map.get($token-variables, 'typography', 'text');
 
 @include component('heading', $heading-config);
 @include text-component($text-config);
+
+@for $number-of-lines from 1 to 4 {
+  .line-clamp-#{$number-of-lines} {
+    @include line-clamp($number-of-lines);
+  }
+}

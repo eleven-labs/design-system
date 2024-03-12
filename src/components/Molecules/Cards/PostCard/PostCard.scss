@@ -29,7 +29,7 @@
 
   --background-color-post-card: white;
   --cover-size-square-mobile-post-card: 74px;
-  --cover-size-square-desktop-post-card: 185px;
+  --cover-size-square-desktop-post-card: 200px;
   --cover-height-horizontal-mobile-post-card: 130px;
   --cover-height-horizontal-medium-desktop-post-card: 175px;
   --cover-height-horizontal-large-desktop-post-card: 245px;
@@ -57,19 +57,6 @@
         @include cover-image-horizontal(var(--cover-height-horizontal-medium-desktop-post-card));
       }
     }
-
-    #{$this}__heading {
-      -webkit-line-clamp: 3;
-    }
-    #{$this}__excerpt {
-      -webkit-line-clamp: 4;
-    }
-
-    @include create-media-queries('md') {
-      #{$this}__heading {
-        min-height: 6rem;
-      }
-    }
   }
 
   &--highlight-dark {
@@ -90,11 +77,6 @@
         @include cover-image-horizontal(var(--cover-height-horizontal-large-desktop-post-card));
       }
     }
-
-    #{$this}__heading {
-      -webkit-line-clamp: 3;
-      min-height: 5.5rem;
-    }
   }
 
   &--side-image {
@@ -102,7 +84,6 @@
 
     @include create-media-queries('md') {
       flex-direction: row;
-      max-height: var(--cover-size-square-desktop-post-card);
     }
     #{$this}__cover {
       @include cover-image-square;
@@ -112,31 +93,13 @@
       }
     }
 
-    #{$this}__heading {
-      -webkit-line-clamp: 2;
-
-      @include create-media-queries('md') {
-        width: calc(100% - 55px);
+    &#{$this}--with-tutorial {
+      #{$this}__heading {
+        @include create-media-queries('md') {
+          width: calc(100% - 55px);
+        }
       }
     }
-    #{$this}__excerpt {
-      -webkit-line-clamp: 2;
-    }
-  }
-
-  &__heading {
-    align-items: center;
-    justify-content: space-between;
-    gap: #{map-get-strict($token-variables, 'spacing', 'xxs')};
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-  }
-
-  &__excerpt {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
   }
 
 

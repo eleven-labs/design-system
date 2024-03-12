@@ -13,3 +13,4 @@ export type IconNameType = keyof (typeof tokenVariables)['asset']['icon'];
 
 export type HeadingSizeType = keyof (typeof tokenVariables)['typography']['heading'];
 export type TextSizeType = keyof (typeof tokenVariables)['typography']['text'];
+export type LineClampType = 1 | 2 | 3 | 4;

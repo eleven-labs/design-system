@@ -11,7 +11,7 @@ const meta: Meta<typeof LastArticlesBlock> = {
   args: {
     title: 'Nos articles récents autour des dernières tendances technologiques',
     posts: [
-      ...Array.from({ length: 3 }).map((_) => PostCardStories.Overview.args as LastArticlesBlockProps['posts'][0]),
+      ...Array.from({ length: 2 }).map((_) => PostCardStories.Overview.args as LastArticlesBlockProps['posts'][0]),
       {
         ...(PostCardStories.Overview.args as LastArticlesBlockProps['posts'][0]),
         title: `Quisque at libero lorem etiam tristique eros magna`,

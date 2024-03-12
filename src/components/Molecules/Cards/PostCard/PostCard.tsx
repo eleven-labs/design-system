@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import type { BoxProps, PictureProps } from '@/components';
-import { Box, Heading, Picture, Skeleton, Text } from '@/components';
+import { Box, Flex, Heading, Picture, Skeleton, Text } from '@/components';
 import { PostMetadata } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
@@ -27,6 +27,7 @@ export interface PostCardProps extends BoxProps {
 }
 
 export const PostCard: React.FC<PostCardProps> = ({
+  slug,
   contentType,
   variant = 'side-image',
   cover = {},
@@ -40,13 +41,26 @@ export const PostCard: React.FC<PostCardProps> = ({
   tutorialLabel,
   ...props
 }) => (
-  <Box as="article" {...props} className={classNames('post-card', `post-card--${variant}`)}>
+  <Box
+    as="article"
+    {...props}
+    className={classNames('post-card', `post-card--${variant}`, {
+      ['post-card--with-tutorial']: contentType === 'tutorial',
+    })}
+  >
     <Skeleton isLoading={isLoading}>
       <Picture {...cover} img={{ className: 'post-card__cover', ...cover?.img }} />
     </Skeleton>
-    <Box my={{ xs: 's', md: 'm' }} pl={{ xs: 's', md: 'm' }} pr={{ xs: 'xs', md: 'm' }} flex="1">
+    <Flex
+      flexDirection="column"
+      justifyContent="between"
+      my={{ xs: 's', md: 'm' }}
+      pl={{ xs: 's', md: 'm' }}
+      pr={{ xs: 'xs', md: 'm' }}
+      flex="1"
+    >
       <Skeleton isLoading={isLoading}>
-        <Heading as="h2" size="xs" className="post-card__heading">
+        <Heading as="h2" size="xs" lineClamp={2} className="post-card__heading">
           <Text as="a" {...link} size="m" data-internal-link="post" className="post-card__link">
             {title}
           </Text>
@@ -75,11 +89,11 @@ export const PostCard: React.FC<PostCardProps> = ({
       />
       {variant !== 'highlight-dark' && (
         <Skeleton isLoading={isLoading}>
-          <Text mt="xs" size="s" hiddenBelow="md" className="post-card__excerpt">
+          <Text mt="xs" size="s" hiddenBelow="md" lineClamp={2} className="post-card__excerpt">
             {excerpt}
           </Text>
         </Skeleton>
       )}
-    </Box>
+    </Flex>
   </Box>
 );
