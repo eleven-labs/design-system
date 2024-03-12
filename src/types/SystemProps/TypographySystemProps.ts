@@ -1,4 +1,11 @@
-import type { FontWeightType, TextAlignType, TextSizeType, TextTransformType, TypeWithMediaQueriesType } from '@/types';
+import type {
+  FontWeightType,
+  LineClampType,
+  TextAlignType,
+  TextSizeType,
+  TextTransformType,
+  TypeWithMediaQueriesType,
+} from '@/types';
 
 export interface TypographySystemProps {
   /**
@@ -25,4 +32,8 @@ export interface TypographySystemProps {
    * text-size
    */
   textSize?: TextSizeType;
+  /**
+   * clamping text to a specific number of lines
+   */
+  lineClamp?: LineClampType;
 }

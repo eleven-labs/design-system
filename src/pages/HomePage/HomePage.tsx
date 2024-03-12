@@ -6,7 +6,7 @@ import type {
   LastTutorialsBlockProps,
   NewsletterCardProps,
 } from '@/components';
-import { Box, HomeIntroBlock, LastArticlesBlock, LastTutorialsBlock, NewsletterCard } from '@/components';
+import { HomeIntroBlock, LastArticlesBlock, LastTutorialsBlock, NewsletterCard } from '@/components';
 
 export type HomePageProps = {
   homeIntroBlock: HomeIntroBlockProps;
@@ -25,8 +25,6 @@ export const HomePage: React.FC<HomePageProps> = ({
     <HomeIntroBlock {...homeIntroBlock} />
     <LastArticlesBlock {...lastArticlesBlock} />
     {lastTutorialsBlock && <LastTutorialsBlock {...lastTutorialsBlock} />}
-    <Box my="xl" mx={{ xs: 's', md: 'auto' }}>
-      <NewsletterCard variant="horizontal" className="container-content" {...newsletterCard} />
-    </Box>
+    <NewsletterCard my="xl" variant="horizontal" className="container-content" {...newsletterCard} />
   </>
 );

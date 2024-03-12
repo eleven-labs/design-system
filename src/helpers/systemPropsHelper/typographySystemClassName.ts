@@ -6,6 +6,7 @@ import type { MediaQueryType, TextAlignType, TypographySystemProps } from '@/typ
 export const typographySystemClassName = <TProps extends TypographySystemProps>({
   textAlign,
   textSize,
+  lineClamp,
   ...props
 }: TProps): string =>
   classNames(
@@ -19,5 +20,6 @@ export const typographySystemClassName = <TProps extends TypographySystemProps>(
       [`text-underline`]: props.underline,
       [`text-italic`]: props.italic,
       [`text-${textSize}`]: textSize,
+      [`line-clamp-${lineClamp}`]: lineClamp,
     }
   );

@@ -67,6 +67,7 @@ export const AutocompleteResult = polyRef<'div', AutocompleteResultProps>(
                     size="s"
                     text={title}
                     textQuery={searchValue}
+                    lineClamp={2}
                     className="autocomplete-result__link"
                   />
                   <PostMetadata mt="xxs-3" date={date} authors={authors} displayedFields={['date', 'authors']} />
