@@ -28,17 +28,19 @@
   $this: &;
 
   --background-color-post-card: white;
-  --cover-size-square-mobile-post-card: 74px;
-  --cover-size-square-desktop-post-card: 200px;
+  --cover-size-square-mobile-post-card: 67px;
+  --cover-size-square-desktop-post-card: 190px;
   --cover-height-horizontal-mobile-post-card: 130px;
   --cover-height-horizontal-medium-desktop-post-card: 175px;
   --cover-height-horizontal-large-desktop-post-card: 245px;
+  --max-height-post-card: auto;
 
 
   position: relative;
   display: flex;
   background-color: var(--background-color-post-card);
   border-radius: #{map-get-strict($token-variables, 'radius', 's')};
+  max-height: var(--max-height-post-card);
 
   #{$this}__cover {
     width: 100%;
@@ -80,9 +82,13 @@
   }
 
   &--side-image {
+    --max-height-post-card: var(--cover-size-square-mobile-post-card);
+
     flex-direction: row-reverse;
 
     @include create-media-queries('md') {
+      --max-height-post-card: var(--cover-size-square-desktop-post-card);
+
       flex-direction: row;
     }
     #{$this}__cover {
