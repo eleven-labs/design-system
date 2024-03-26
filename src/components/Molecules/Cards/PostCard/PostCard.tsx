@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import type { BoxProps, PictureProps } from '@/components';
-import { Box, Flex, Heading, Picture, Skeleton, Text } from '@/components';
+import { Box, Heading, Picture, Skeleton, Text } from '@/components';
 import { PostMetadata } from '@/components';
 import type { ComponentPropsWithoutRef } from '@/types';
 
@@ -49,18 +49,16 @@ export const PostCard: React.FC<PostCardProps> = ({
     })}
   >
     <Skeleton isLoading={isLoading}>
-      <Picture {...cover} img={{ className: 'post-card__cover', ...cover?.img }} />
+      <Picture {...cover} img={{ ...cover?.img, className: 'post-card__cover' }} />
     </Skeleton>
-    <Flex
-      flexDirection="column"
-      justifyContent="between"
-      my={{ xs: 's', md: 'm' }}
-      pl={{ xs: 's', md: 'm' }}
-      pr={{ xs: 'xs', md: 'm' }}
-      flex="1"
-    >
+    <Box my={{ xs: 's', md: 'm' }} pl={{ xs: 's', md: 'm' }} pr={{ xs: 'xs', md: 'm' }} flex="1">
       <Skeleton isLoading={isLoading}>
-        <Heading as="h2" size="xs" lineClamp={2} className="post-card__heading">
+        <Heading
+          as="h2"
+          size="xs"
+          lineClamp={{ xs: variant === 'highlight-dark' ? 2 : 4, md: variant === 'highlight-light' ? 3 : 2 }}
+          className="post-card__heading"
+        >
           <Text as="a" {...link} size="m" data-internal-link="post" className="post-card__link">
             {title}
           </Text>
@@ -89,11 +87,11 @@ export const PostCard: React.FC<PostCardProps> = ({
       />
       {variant !== 'highlight-dark' && (
         <Skeleton isLoading={isLoading}>
-          <Text mt="xs" size="s" hiddenBelow="md" lineClamp={2} className="post-card__excerpt">
+          <Text mt="xs" size="s" hiddenBelow="md" lineClamp={{ xs: 4, md: 2 }} className="post-card__excerpt">
             {excerpt}
           </Text>
         </Skeleton>
       )}
-    </Flex>
+    </Box>
   </Box>
 );

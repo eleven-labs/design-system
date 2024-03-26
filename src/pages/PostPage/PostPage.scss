@@ -37,7 +37,7 @@ $headings-by-compoent-variant-name: (
     border-radius: #{map-get-strict($token-variables, 'radius', 'xs')};
 
     @include create-media-queries('md') {
-      --height-cover-post-page: 335px;
+      --height-cover-post-page: 330px;
     }
   }
 

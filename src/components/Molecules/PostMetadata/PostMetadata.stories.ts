@@ -26,10 +26,16 @@ WithVariantSecondary.args = {
     {
       username: 'jdoe',
       name: 'J. Doe',
+      link: {
+        href: '/fr/authors/jdoe',
+      },
     },
     {
       username: 'jdupont',
       name: 'J. Dupont',
+      link: {
+        href: '/fr/authors/jdupont',
+      },
     },
   ],
   variant: 'secondary',

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import { classNamesWithModifiers } from '@/helpers/systemPropsHelper/classNamesWithModifiers';
-import type { MediaQueryType, TextAlignType, TypographySystemProps } from '@/types';
+import type { LineClampType, MediaQueryType, TextAlignType, TypographySystemProps } from '@/types';
 
 export const typographySystemClassName = <TProps extends TypographySystemProps>({
   textAlign,
@@ -20,6 +20,9 @@ export const typographySystemClassName = <TProps extends TypographySystemProps>(
       [`text-underline`]: props.underline,
       [`text-italic`]: props.italic,
       [`text-${textSize}`]: textSize,
-      [`line-clamp-${lineClamp}`]: lineClamp,
-    }
+    },
+    ...classNamesWithModifiers<MediaQueryType, LineClampType>({
+      propValue: lineClamp,
+      className: 'line-clamp',
+    })
   );

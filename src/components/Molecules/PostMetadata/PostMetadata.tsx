@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import React, { Fragment } from 'react';
 
-import { Flex, Icon, Skeleton, Text } from '@/components';
-import type { SpacingSystemProps } from '@/types';
+import { Flex, Icon, Link, Skeleton, Text } from '@/components';
+import type { ComponentPropsWithoutRef, SpacingSystemProps } from '@/types';
 
 import './PostMetadata.scss';
 
@@ -16,6 +16,7 @@ export interface PostMetadataProps extends SpacingSystemProps {
   authors?: {
     username: string;
     name: string;
+    link?: ComponentPropsWithoutRef<'a'>;
   }[];
   isLoading?: boolean;
   displayedFields?: ('date' | 'readingTime' | 'authors')[];
@@ -73,15 +74,15 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
             style={{ minWidth: 50, minHeight: 16 }}
           >
             {authors && (
-              <>
+              <Flex alignContent="center" alignItems="center" gap="xxs" className="post-metadata__authors">
                 {variant === 'secondary' && <Icon name="person" size="24px" color="light-grey" />}
-                {authors.map(({ username, name }, authorIndex) => (
+                {authors.map(({ username, name, link }, authorIndex) => (
                   <Fragment key={username}>
-                    <Text as="span">{name}</Text>
+                    {link ? <Link {...link}>{name}</Link> : <Text as="span">{name}</Text>}
                     {authorIndex !== authors.length - 1 && <Text as="span">{' & '}</Text>}
                   </Fragment>
                 ))}
-              </>
+              </Flex>
             )}
           </Skeleton>
         );

@@ -35,5 +35,5 @@ export interface TypographySystemProps {
   /**
    * clamping text to a specific number of lines
    */
-  lineClamp?: LineClampType;
+  lineClamp?: TypeWithMediaQueriesType<LineClampType>;
 }
