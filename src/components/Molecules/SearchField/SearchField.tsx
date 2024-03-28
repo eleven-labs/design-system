@@ -17,11 +17,7 @@ export interface SearchFieldProps extends BoxProps {
 
 export const SearchField = polyRef<'div', SearchFieldProps>(
   ({ input, buttonClose = {}, buttonSearch, className, ...props }, ref) => (
-    <Box
-      {...props}
-      className={classNames('search-field', { 'search-field--has-value': Boolean(input.value) }, className)}
-      ref={ref}
-    >
+    <Box {...props} className={classNames('search-field', className)} ref={ref}>
       <Box {...{ as: 'input', ...input }} className="search-field__input" />
       <Flex justifyContent="center" alignItems="center" className="search-field__actions-container">
         {Boolean(input.value) && (

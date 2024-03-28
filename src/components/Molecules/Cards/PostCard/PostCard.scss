@@ -82,8 +82,6 @@
   }
 
   &--side-image {
-    --max-height-post-card: var(--cover-size-square-mobile-post-card);
-
     flex-direction: row-reverse;
 
     @include create-media-queries('md') {
