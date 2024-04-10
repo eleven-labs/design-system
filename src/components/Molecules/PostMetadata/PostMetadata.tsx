@@ -66,6 +66,17 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
         break;
       }
       case 'authors': {
+        const authorChildren = authors && (
+          <>
+            {variant === 'secondary' && <Icon name="person" size="24px" color="light-grey" />}
+            {authors.map(({ username, name, link }, authorIndex) => (
+              <Fragment key={username}>
+                {link ? <Link {...link}>{name}</Link> : <Text as="span">{name}</Text>}
+                {authorIndex !== authors.length - 1 && <Text as="span">{' & '}</Text>}
+              </Fragment>
+            ))}
+          </>
+        );
         currentFields.push(
           <Skeleton
             key={displayedField}
@@ -73,16 +84,12 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
             display="inline-block"
             style={{ minWidth: 50, minHeight: 16 }}
           >
-            {authors && (
+            {variant === 'secondary' ? (
               <Flex alignContent="center" alignItems="center" gap="xxs" className="post-metadata__authors">
-                {variant === 'secondary' && <Icon name="person" size="24px" color="light-grey" />}
-                {authors.map(({ username, name, link }, authorIndex) => (
-                  <Fragment key={username}>
-                    {link ? <Link {...link}>{name}</Link> : <Text as="span">{name}</Text>}
-                    {authorIndex !== authors.length - 1 && <Text as="span">{' & '}</Text>}
-                  </Fragment>
-                ))}
+                {authorChildren}
               </Flex>
+            ) : (
+              <>{authorChildren}</>
             )}
           </Skeleton>
         );

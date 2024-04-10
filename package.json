@@ -1,7 +1,7 @@
 {
   "name": "@eleven-labs/design-system",
   "description": "Design System for Eleven Labs",
-  "version": "0.34.0",
+  "version": "0.35.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eleven-labs/design-system.git"

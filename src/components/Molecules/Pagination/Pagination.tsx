@@ -33,7 +33,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   getLink,
-  siblingCount = 1,
+  siblingCount = 0,
   ...props
 }) => {
   const pagination = usePagination({ currentPage, totalPages, siblingCount });

@@ -82,7 +82,7 @@ $text-config: map.get($token-variables, 'typography', 'text');
 
 @each $breakpoint-name, $breakpoint-value in map.get($token-variables, 'breakpoint') {
   @include create-media-queries($breakpoint-name) {
-    @for $number-of-lines from 1 to 4 {
+    @for $number-of-lines from 1 to 5 {
       .line-clamp-#{$number-of-lines}\@#{$breakpoint-name} {
         @include line-clamp($number-of-lines);
       }

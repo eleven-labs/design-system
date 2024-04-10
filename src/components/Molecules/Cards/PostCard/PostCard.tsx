@@ -56,7 +56,7 @@ export const PostCard: React.FC<PostCardProps> = ({
         <Heading
           as="h2"
           size="xs"
-          lineClamp={{ xs: variant === 'highlight-dark' ? 2 : 4, md: variant === 'highlight-light' ? 3 : 2 }}
+          lineClamp={variant === 'highlight-dark' ? 2 : { xs: 4, md: variant === 'side-image' ? 2 : 3 }}
           className="post-card__heading"
         >
           <Text as="a" {...link} size="m" data-internal-link="post" className="post-card__link">
@@ -87,7 +87,13 @@ export const PostCard: React.FC<PostCardProps> = ({
       />
       {variant !== 'highlight-dark' && (
         <Skeleton isLoading={isLoading}>
-          <Text mt="xs" size="s" hiddenBelow="md" lineClamp={{ xs: 4, md: 2 }} className="post-card__excerpt">
+          <Text
+            mt="xs"
+            size="s"
+            hiddenBelow="md"
+            lineClamp={variant === 'side-image' ? 2 : 4}
+            className="post-card__excerpt"
+          >
             {excerpt}
           </Text>
         </Skeleton>
