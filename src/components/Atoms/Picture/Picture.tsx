@@ -4,7 +4,7 @@ import { Box } from '@/components';
 import type { SpacingSystemProps } from '@/types';
 
 export interface PictureProps extends SpacingSystemProps {
-  img: React.ComponentPropsWithoutRef<'img'>;
+  img: React.ComponentPropsWithoutRef<'img'> & { fetchPriority?: 'high' | 'low' | 'auto' };
   sources?: React.ComponentPropsWithoutRef<'source'>[];
 }
 

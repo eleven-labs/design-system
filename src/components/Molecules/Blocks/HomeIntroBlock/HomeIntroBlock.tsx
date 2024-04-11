@@ -32,7 +32,7 @@ export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
       <Heading size="s" color="info" textTransform="uppercase">
         {intro}
       </Heading>
-      <Heading size="xl" mt="m" color="primary">
+      <Heading as="h1" size="xl" mt="m" color="primary">
         {title}
       </Heading>
       <Text mt="l">{description}</Text>
