@@ -49,7 +49,7 @@ export const PostCard: React.FC<PostCardProps> = ({
     })}
   >
     <Skeleton isLoading={isLoading}>
-      <Picture {...cover} img={{ ...cover?.img, className: 'post-card__cover' }} />
+      <Picture {...cover} img={{ ...cover?.img, className: 'post-card__cover', fetchPriority: 'high' }} />
     </Skeleton>
     <Box my={{ xs: 's', md: 'm' }} pl={{ xs: 's', md: 'm' }} pr={{ xs: 'xs', md: 'm' }} flex="1">
       <Skeleton isLoading={isLoading}>
