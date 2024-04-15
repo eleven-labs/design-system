@@ -88,5 +88,30 @@ $headings-by-compoent-variant-name: (
         transform: rotate(180deg);
       }
     }
+
+    table {
+      text-align: left;
+      width: 100%;
+
+      thead {
+        background-color: map-get-strict($token-variables, 'color', 'primary');
+        color: map-get-strict($token-variables, 'color', 'secondary');
+      }
+
+      th, td {
+        padding: map-get-strict($token-variables, 'spacing', 'xs');
+        border: 1px solid map-get-strict($token-variables, 'color', 'primary-very-dark');
+      }
+
+      tbody {
+        tr {
+          background-color: map-get-strict($token-variables, 'color', 'white');
+        }
+
+        tr + tr {
+          background-color: map-get-strict($token-variables, 'color', 'secondary-dark');
+        }
+      }
+    }
   }
 }
