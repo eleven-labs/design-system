@@ -94,6 +94,24 @@ const meta: Meta<typeof PostPage> = {
           </li>
           <li>Fourth item</li>
         </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Syntax</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Header</td>
+              <td>Title</td>
+            </tr>
+            <tr>
+              <td>Paragraph</td>
+              <td>Text</td>
+            </tr>
+          </tbody>
+        </table>
       </>
     ),
     footer: PostFooterStories.args as PostPageProps['footer'],
