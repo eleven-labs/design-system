@@ -108,7 +108,7 @@ $headings-by-compoent-variant-name: (
           background-color: map-get-strict($token-variables, 'color', 'white');
         }
 
-        tr + tr {
+        tr:nth-child(even) {
           background-color: map-get-strict($token-variables, 'color', 'secondary-dark');
         }
       }
