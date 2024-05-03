@@ -113,5 +113,11 @@ $headings-by-compoent-variant-name: (
         }
       }
     }
+
+    iframe {
+      display: block;
+      max-width: 100%;
+      margin: #{map-get-strict($token-variables, 'spacing', 'xs')} auto;
+    }
   }
 }
