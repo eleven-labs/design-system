@@ -33,7 +33,7 @@ export const ShareLinks: React.FC<ShareLinksProps> = ({ urlToShare, shares, ...f
         <Icon
           name="twitter"
           className="share-links__social-media-icon share-links__social-media-icon--twitter"
-          size="36"
+          size="36px"
         />
       </a>
     )}
@@ -43,7 +43,7 @@ export const ShareLinks: React.FC<ShareLinksProps> = ({ urlToShare, shares, ...f
         target="_blank"
         rel="noreferrer"
       >
-        <Icon name="facebook" className="share-links__social-media-icon" size="36" />
+        <Icon name="facebook" className="share-links__social-media-icon" size="36px" />
       </a>
     )}
     {shares.linkedIn && (
@@ -52,7 +52,7 @@ export const ShareLinks: React.FC<ShareLinksProps> = ({ urlToShare, shares, ...f
         target="_blank"
         rel="noreferrer"
       >
-        <Icon name="linkedin" className="share-links__social-media-icon" size="36" />
+        <Icon name="linkedin" className="share-links__social-media-icon" size="36px" />
       </a>
     )}
   </Flex>
