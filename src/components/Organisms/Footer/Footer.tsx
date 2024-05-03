@@ -94,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({
             >
               <Icon
                 name={iconName}
-                size="36"
+                size="36px"
                 color={iconName === 'twitter' ? 'black' : 'white'}
                 className="footer__social-icon"
               />
