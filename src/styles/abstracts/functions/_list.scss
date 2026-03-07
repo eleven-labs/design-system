@@ -1,9 +1,12 @@
 @use 'sass:list';
+@use 'sass:meta';
 
 @function to-list($value, $keep: 'both') {
-  $keep: if(list.index('keys' 'values', $keep), $keep, 'both');
+  @if not list.index('keys' 'values', $keep) {
+    $keep: 'both';
+  }
 
-  @if type-of($value) == 'map' {
+  @if meta.type-of($value) == 'map' {
     $keys: ();
     $values: ();
 
@@ -21,5 +24,9 @@
     }
   }
 
-  @return if(type-of($value) != 'list', ($value,), $value);
+  @if meta.type-of($value) != 'list' {
+    @return ($value,);
+  }
+
+  @return $value;
 }

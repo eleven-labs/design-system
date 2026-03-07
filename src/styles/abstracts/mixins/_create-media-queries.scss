@@ -14,7 +14,7 @@
 @mixin create-media-queries($breakpoint-name, $min-or-max: 'min') {
   $breakpoints: map.get($token-variables, 'breakpoint');
 
-  @if map-has-key($breakpoints, $breakpoint-name) {
+  @if map.has-key($breakpoints, $breakpoint-name) {
     $breakpoint-value: map.get($breakpoints, $breakpoint-name);
 
     @if $breakpoint-value == 0 or $breakpoint-value == -1 {
