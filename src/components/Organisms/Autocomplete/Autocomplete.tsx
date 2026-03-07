@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import type { UseComboboxProps } from 'downshift';
 import { useCombobox } from 'downshift';

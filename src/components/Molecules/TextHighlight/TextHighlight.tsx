@@ -1,3 +1,5 @@
+'use client';
+
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import * as React from 'react';
