@@ -14,7 +14,7 @@ export default defineConfig({
     peerDepsExternal(),
     react(),
     tsconfigPaths(),
-    dts({ insertTypesEntry: true }),
+    dts(),
     viteStaticCopy({
       targets: [
         {
@@ -25,6 +25,13 @@ export default defineConfig({
     }),
     visualizer({ filename: `reports/bundle-stats.html`, gzipSize: true }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

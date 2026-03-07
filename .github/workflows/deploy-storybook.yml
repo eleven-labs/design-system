@@ -24,7 +24,7 @@ jobs:
         uses: ./.github/actions/restore-npm-cache
 
       - name: Build Storybook
-        run: npm run build:storybook
+        run: pnpm build:storybook
 
       - name: Deploy Storybook
         uses: peaceiris/actions-gh-pages@v3

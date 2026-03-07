@@ -22,7 +22,7 @@ jobs:
         uses: ./.github/actions/restore-npm-cache
 
       - name: Build Library
-        run: npm run build
+        run: pnpm build
 
       - uses: actions/setup-node@v3
         with:

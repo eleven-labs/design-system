@@ -30,7 +30,7 @@ jobs:
         uses: ./.github/actions/restore-npm-cache
 
       - name: Lint code
-        run: npm run lint:es
+        run: pnpm lint:es
 
   stylelint:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         uses: ./.github/actions/restore-npm-cache
 
       - name: Lint code
-        run: npm run lint:style
+        run: pnpm lint:style
 
   compile:
     runs-on: ubuntu-latest
@@ -69,7 +69,7 @@ jobs:
         uses: ./.github/actions/restore-npm-cache
 
       - name: Run Tests
-        run: npm run test
+        run: pnpm test
 
   build:
     runs-on: ubuntu-latest
@@ -82,7 +82,7 @@ jobs:
         uses: ./.github/actions/restore-npm-cache
 
       - name: Build Design System
-        run: npm run build
+        run: pnpm build
 
   build-storybook:
     runs-on: ubuntu-latest
@@ -95,4 +95,4 @@ jobs:
         uses: ./.github/actions/restore-npm-cache
 
       - name: Build Storybook
-        run: npm run build:storybook
+        run: pnpm build:storybook

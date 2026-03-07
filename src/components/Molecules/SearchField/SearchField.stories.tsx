@@ -1,6 +1,6 @@
-import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
+import { fn } from 'storybook/test';
 
 import { SearchField } from '@/components';
 import { systemPropsControls } from '@/constants/storybook';
@@ -15,10 +15,10 @@ export default {
       placeholder: 'Nom d’article, auteur ...',
     },
     buttonClose: {
-      onClick: action('onClose'),
+      onClick: fn(),
     },
     buttonSearch: {
-      onClick: action('onSearch'),
+      onClick: fn(),
     },
   },
   parameters: {

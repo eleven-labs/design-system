@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from 'storybook/test';
 
 import * as AutocompleteStories from '@/components/Organisms/Autocomplete/Autocomplete.stories';
 
@@ -32,7 +32,7 @@ const meta: Meta<typeof Header> = {
       href: '#',
     },
     autocomplete: AutocompleteStories.default.args as HeaderProps['autocomplete'],
-    onToggleMenu: action('toggleMenu'),
+    onToggleMenu: fn(),
   },
   parameters: {
     layout: 'full',

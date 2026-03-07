@@ -25,7 +25,7 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "husky install && npm run optimize:svgs && npm run build:icons && npm run build:design-tokens",
+    "prepare": "husky install && pnpm optimize:svgs && pnpm build:icons && pnpm build:design-tokens",
     "optimize:svgs": "svgo --config svgo.config.cjs -f src/assets/svgs -o ./public/svgs",
     "build:icons": "svgr --config-file svgr.config.cjs --typescript -d src/components/Atoms/Svgs public/svgs",
     "build:design-tokens": "tsx -r dotenv/config bin/build-design-tokens",
@@ -45,8 +45,13 @@
       "stylelint --fix"
     ]
   },
+  "packageManager": "pnpm@10.28.2",
+  "pnpm": {
+    "onlyBuiltDependencies": ["@parcel/watcher", "esbuild"]
+  },
   "engines": {
-    "node": ">= 20.0"
+    "node": ">= 20.0",
+    "pnpm": ">= 10.0"
   },
   "prettier": "@eleven-labs/prettier-config",
   "dependencies": {
@@ -66,14 +71,10 @@
     "@commitlint/config-conventional": "^17.6.5",
     "@eleven-labs/eslint-config": "^1.0.0",
     "@eleven-labs/prettier-config": "^1.0.0",
-    "@storybook/addon-actions": "^7.0.22",
-    "@storybook/addon-essentials": "^7.0.22",
-    "@storybook/addon-interactions": "^7.0.22",
-    "@storybook/addon-links": "^7.0.22",
-    "@storybook/addon-mdx-gfm": "^7.6.7",
-    "@storybook/react": "^7.0.22",
-    "@storybook/react-vite": "^7.0.22",
-    "@storybook/testing-library": "^0.2.2",
+    "@storybook/addon-docs": "^10.0.0",
+    "@storybook/addon-links": "^10.0.0",
+    "@storybook/react": "^10.0.0",
+    "@storybook/react-vite": "^10.0.0",
     "@svgr/cli": "^8.0.1",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
@@ -97,16 +98,16 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.69.7",
-    "storybook": "^7.0.22",
+    "storybook": "^10.0.0",
     "style-dictionary": "^3.8.0",
     "stylelint": "^15.8.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "svgo": "^3.0.2",
     "tsx": "^4.7.0",
     "typescript": "^4.9.5",
-    "vite": "^4.3.9",
-    "vite-plugin-dts": "^2.3.0",
-    "vite-plugin-static-copy": "^0.16.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^4.0.0",
+    "vite-plugin-static-copy": "^3.0.0",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^1.1.3"
   }

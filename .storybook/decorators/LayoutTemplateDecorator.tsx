@@ -1,11 +1,10 @@
 import React  from 'react';
-import { DecoratorFunction } from '@storybook/types';
-import { ReactRenderer } from '@storybook/react';
+import type { Decorator } from '@storybook/react';
 
 import { LayoutTemplate, LayoutTemplateProps } from '@/templates/LayoutTemplate';
 import LayoutTemplateStories from '@/templates/LayoutTemplate/LayoutTemplate.stories';
 
-export const LayoutTemplateDecorator: DecoratorFunction<ReactRenderer> = (Story): React.ReactElement => (
+export const LayoutTemplateDecorator: Decorator = (Story): React.ReactElement => (
     <LayoutTemplate {...LayoutTemplateStories.args as LayoutTemplateProps}>
         <Story />
     </LayoutTemplate>

@@ -1,4 +1,4 @@
-import { Canvas } from '@storybook/addon-docs';
+import { Canvas } from '@storybook/addon-docs/blocks';
 import React from 'react';
 
 import { Box, Heading, Text } from '@/components';
