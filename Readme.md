@@ -33,3 +33,32 @@ yarn add @eleven-labs/design-system
 ## Documentation of Design System
 
 To see the different components of the Design System please visit [website](https://eleven-labs.github.io/design-system/).
+
+## Visual Regression Tests (Storybook + Playwright)
+
+Install Playwright browser (once):
+```bash
+pnpm exec playwright install chromium
+```
+
+Run visual regression tests:
+```bash
+pnpm test:visual:storybook
+```
+
+Run visual regression test on a single story:
+```bash
+STORYBOOK_STORY_ID=components-atoms-button--button-with-variant-primary pnpm test:visual:storybook:story
+```
+
+Update visual snapshots:
+```bash
+pnpm test:visual:storybook:update
+```
+
+Snapshots are stored in:
+```text
+__tests__/visual-regression/__screenshots__/
+```
+
+When you intentionally change UI rendering, run the update command and commit the updated screenshots.

@@ -8,6 +8,9 @@ dist
 dist-ssr
 *.local
 coverage
+playwright-report
+test-results
+.playwright-browsers
 
 # Editor directories and files
 .vscode/*

@@ -6,6 +6,21 @@
     "@eleven-labs/eslint-config/typescript",
     "@eleven-labs/eslint-config/react"
   ],
+  "overrides": [
+    {
+      "files": ["playwright.config.ts", "__tests__/visual-regression/**/*.ts"],
+      "env": {
+        "node": true
+      },
+      "parserOptions": {
+        "project": null
+      },
+      "rules": {
+        "max-nested-callbacks": "off",
+        "no-undef": "off"
+      }
+    }
+  ],
   "rules": {
     "unicorn/prevent-abbreviations": "off",
     "no-unused-vars": "off",
