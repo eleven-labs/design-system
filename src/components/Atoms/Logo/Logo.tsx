@@ -1,39 +1,33 @@
-import classNames from 'classnames';
 import * as React from 'react';
 
-import type { FlexProps } from '@/components';
-import { Box, Flex, Svgs, Text } from '@/components';
-import { polyRef } from '@/helpers/polyRef';
-
-import './Logo.scss';
+import { Svgs } from '@/components';
+import { cn } from '@/helpers';
 
 export const logoName = ['website', 'blog'] as const;
 export type LogoNameType = (typeof logoName)[number];
 
-export interface LogoProps extends FlexProps {
+export interface LogoProps extends React.ComponentPropsWithoutRef<'div'> {
   name: LogoNameType;
   size?: string | number;
 }
 
-export const Logo = polyRef<'div', LogoProps>(({ name, size, ...props }, ref) => (
-  <Flex
+export const Logo = React.forwardRef<HTMLDivElement, LogoProps>(({ name, size, className, style, ...props }, ref) => (
+  <div
     {...props}
     ref={ref}
-    justifyContent="center"
-    alignItems="center"
-    className={classNames('logo', props.className)}
-    style={{ fontSize: size }}
+    className={cn('flex items-center justify-center', className)}
+    style={{ fontSize: size, ...style }}
   >
     <Svgs.Logo height="1em" />
     {name === 'blog' ? (
-      <Box className="logo__blog">
-        <Text fontWeight="medium">Eleven Labs</Text>
-        <Text fontWeight="bold">Le blog</Text>
-      </Box>
+      <div className="ml-[0.2ex] text-[1ex] leading-none">
+        <p className="font-medium">Eleven Labs</p>
+        <p className="font-bold">Le blog</p>
+      </div>
     ) : (
-      <Text fontWeight="medium" className="logo__website">
-        Eleven Labs
-      </Text>
+      <p className="ml-[0.2ex] text-[1.5ex] leading-none font-medium">Eleven Labs</p>
     )}
-  </Flex>
+  </div>
 ));
+
+Logo.displayName = 'Logo';

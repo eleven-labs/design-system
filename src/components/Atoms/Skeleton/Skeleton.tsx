@@ -1,36 +1,35 @@
-import classNames from 'classnames';
+import { Slot } from '@radix-ui/react-slot';
 import React from 'react';
 
-import type { BoxProps } from '@/components';
-import { Box } from '@/components';
-import { polyRef } from '@/helpers/polyRef';
+import { cn } from '@/helpers';
 
-import './Skeleton.scss';
-
-export interface SkeletonProps extends BoxProps {
+export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+  asChild?: boolean;
   isLoading?: boolean;
 }
 
-export const Skeleton = polyRef<'div', SkeletonProps>(({ as = 'div', isLoading = true, children, ...props }, ref) => (
-  <>
-    {isLoading ? (
-      <Box
+export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
+  ({ asChild = false, isLoading = true, children, className, ...props }, ref) => {
+    if (!isLoading) return <>{children}</>;
+
+    const Comp = asChild ? Slot : 'div';
+
+    return (
+      <Comp
         {...props}
-        as={as}
         ref={ref}
-        bg="ultra-light-grey"
-        className={classNames(isLoading ? ['skeleton', 'animate-pulse'] : undefined, props.className)}
-      >
-        {children ?? (
-          <Box>
-            <>&nbsp;</>
-          </Box>
+        className={cn(
+          `
+            animate-pulse bg-ultra-light-grey
+            *:invisible *:cursor-default
+          `,
+          className
         )}
-      </Box>
-    ) : (
-      children
-    )}
-  </>
-));
+      >
+        {children ?? <span>&nbsp;</span>}
+      </Comp>
+    );
+  }
+);
 
 Skeleton.displayName = 'Skeleton';

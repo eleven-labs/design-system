@@ -1,32 +1,44 @@
 import React from 'react';
 
-import type { BoxProps, BreadcrumbProps } from '@/components';
+import type { BreadcrumbProps } from '@/components';
 import { Breadcrumb } from '@/components';
-import { Box, Flex, Heading, Text } from '@/components';
+import { cn } from '@/helpers';
 
-import './CategoryIntroBlock.scss';
-
-export interface CategoryIntroBlockProps extends BoxProps {
+export interface CategoryIntroBlockProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   title: React.ReactNode;
   description: React.ReactNode;
   breadcrumb: BreadcrumbProps;
 }
 
-export const CategoryIntroBlock: React.FC<CategoryIntroBlockProps> = ({ title, description, breadcrumb, ...props }) => (
-  <Box {...props} className="category-intro-block" color="white">
-    <Flex
-      justifyContent="center"
-      alignItems="center"
-      px={{ xs: 'l', md: '0' }}
-      className="category-intro-block__container c"
+export const CategoryIntroBlock: React.FC<CategoryIntroBlockProps> = ({
+  title,
+  description,
+  breadcrumb,
+  className,
+  ...props
+}) => (
+  <div
+    {...props}
+    className={cn(
+      `
+        bg-[url('/imgs/category-intro-block-mobile.jpg')] bg-cover bg-bottom
+        text-white
+        md:bg-[url('/imgs/category-intro-block-desktop.jpg')]
+      `,
+      className
+    )}
+  >
+    <div
+      className="
+        flex items-center justify-center bg-primary/90 px-l
+        md:px-0
+      "
     >
-      <Box pt="m" pb="xxl" className="container-content">
-        <Breadcrumb {...breadcrumb} />
-        <Heading as="h1" size="xl">
-          {title}
-        </Heading>
-        <Text mt="l">{description}</Text>
-      </Box>
-    </Flex>
-  </Box>
+      <div className="container-content pt-m pb-xxl">
+        <Breadcrumb {...breadcrumb} className="my-s" />
+        <h1 className="typography-heading-xl">{title}</h1>
+        <p className="mt-l">{description}</p>
+      </div>
+    </div>
+  </div>
 );

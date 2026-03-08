@@ -1,11 +1,10 @@
 import React from 'react';
 
-import type { BoxProps } from '@/components';
-import { Box, Flex, Heading, PostMetadata } from '@/components';
+import { PostMetadata } from '@/components';
 import { ShareLinks, type ShareLinksProps } from '@/components/Molecules/ShareLinks';
-import type { ComponentPropsWithoutRef } from '@/types';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-export interface PostHeaderProps extends BoxProps {
+export interface PostHeaderProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   title: React.ReactNode;
   date: string;
   readingTime: number;
@@ -17,14 +16,25 @@ export interface PostHeaderProps extends BoxProps {
   shareLinks: ShareLinksProps;
 }
 
-export const PostHeader: React.FC<PostHeaderProps> = ({ title, date, readingTime, authors, shareLinks, ...props }) => (
-  <Box {...props} textSize="xs">
-    <Heading as="h1" size="xl" color="primary">
-      {title}
-    </Heading>
-    <Flex flexDirection={{ xs: 'column', md: 'row' }} justifyContent="between" gap="xs" mt="m">
+export const PostHeader: React.FC<PostHeaderProps> = ({
+  title,
+  date,
+  readingTime,
+  authors,
+  shareLinks,
+  className,
+  ...props
+}) => (
+  <div {...props} className={className}>
+    <h1 className="typography-heading-xl text-primary">{title}</h1>
+    <div
+      className="
+        mt-m flex flex-col gap-xs
+        md:flex-row md:justify-between
+      "
+    >
       <PostMetadata variant="secondary" date={date} readingTime={readingTime} authors={authors} />
       <ShareLinks {...shareLinks} />
-    </Flex>
-  </Box>
+    </div>
+  </div>
 );

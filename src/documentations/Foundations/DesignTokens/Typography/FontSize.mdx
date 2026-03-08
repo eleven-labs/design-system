@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { Layout, Table } from '@/storybook/components';
-import { Text } from '@/components';
-import { tokenVariables } from '@/constants';
+import { tokenVariables } from '@/tokens';
 
 <Meta
     title="Foundations/Design Tokens/Typography/FontSize"
@@ -21,7 +20,7 @@ import { tokenVariables } from '@/constants';
 
 <Layout
     title="Typography"
-    description="Font size token scales"
+    description="Font size values used by typography text and heading tokens"
 >
     <Table
         title="Font Size"
@@ -35,11 +34,19 @@ import { tokenVariables } from '@/constants';
                 label: 'Value',
             },
         ]}
-        rows={Object.entries(tokenVariables['font-size']).map(([tokenName, token]) => ({
-            name: (
-                <Text fontWeight="medium">{tokenName}</Text>
-            ),
-            value: token.value,
-        }))}
+        rows={[
+          ...Object.entries(tokenVariables.typography.text)
+            .filter(([tokenName]) => tokenName !== 'base')
+            .map(([tokenName, token]) => ({
+              name: `typography-text-${tokenName}`,
+              value: token['font-size']?.value || '-',
+            })),
+          ...Object.entries(tokenVariables.typography.heading)
+            .filter(([tokenName]) => tokenName !== 'base')
+            .map(([tokenName, token]) => ({
+              name: `typography-heading-${tokenName}`,
+              value: token['font-size']?.value || '-',
+            })),
+        ]}
     />
 </Layout>

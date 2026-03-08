@@ -1,10 +1,30 @@
 {
-  "extends": "stylelint-config-standard-scss",
+  "extends": "stylelint-config-standard",
   "ignoreFiles": [
-    "src/styles/_fonts.scss",
-    "src/styles/_token-custom-properties.scss",
-    "src/styles/_token-custom-properties-desktop.scss",
-    "src/styles/abstracts/variables/_token-variables.scss",
-    "src/styles/abstracts/variables/_variables.scss"
-  ]
+    "src/styles/_tailwind-theme.css",
+    "src/styles/tailwind.css",
+    "src/styles/_token-custom-properties.css",
+    "src/styles/_token-custom-properties-desktop.css"
+  ],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "theme",
+          "utility",
+          "source",
+          "import-normalize",
+          "import-sanitize"
+        ]
+      }
+    ],
+    "selector-class-pattern": null,
+    "media-feature-range-notation": null,
+    "rule-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "declaration-block-single-line-max-declarations": null,
+    "no-descending-specificity": null,
+    "import-notation": null
+  }
 }

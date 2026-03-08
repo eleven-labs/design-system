@@ -1,15 +1,13 @@
-import classNames from 'classnames';
 import React, { Fragment } from 'react';
 
-import { Flex, Icon, Link, Skeleton, Text } from '@/components';
-import type { ComponentPropsWithoutRef, SpacingSystemProps } from '@/types';
-
-import './PostMetadata.scss';
+import { Icon, Link, Skeleton } from '@/components';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
 export const postMetadataVariant = ['primary', 'secondary'] as const;
 export type PostMetadataVariantType = (typeof postMetadataVariant)[number];
 
-export interface PostMetadataProps extends SpacingSystemProps {
+export interface PostMetadataProps extends React.ComponentPropsWithoutRef<'div'> {
   variant?: PostMetadataVariantType;
   date?: string;
   readingTime?: number;
@@ -29,6 +27,7 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
   authors,
   isLoading = false,
   displayedFields = ['date', 'readingTime', 'authors'],
+  className,
   ...props
 }) => {
   const fields = displayedFields.reduce<React.ReactNode[]>((currentFields, displayedField, index) => {
@@ -38,13 +37,13 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
           <Skeleton
             key={displayedField}
             isLoading={isLoading}
-            display="inline-block"
+            className="inline-block"
             style={{ minWidth: 60, minHeight: 16 }}
           >
-            <Flex alignContent="center" alignItems="center" gap="xxs" className="post-metadata__date">
+            <div className="flex min-w-max items-center gap-xxs">
               {variant === 'secondary' && <Icon name="calendar" size="24px" color="light-grey" />}
-              {date && <Text as="span">{date}</Text>}
-            </Flex>
+              {date && <span>{date}</span>}
+            </div>
           </Skeleton>
         );
         break;
@@ -54,13 +53,13 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
           <Skeleton
             key={displayedField}
             isLoading={isLoading}
-            display="inline-block"
+            className="inline-block"
             style={{ minWidth: 26, minHeight: 16 }}
           >
-            <Flex alignContent="center" alignItems="center" gap="xxs">
+            <div className="flex items-center gap-xxs">
               {variant === 'secondary' && <Icon name="access-time" size="24px" color="light-grey" />}
-              {readingTime && <Text as="span">{`${readingTime}mn`}</Text>}
-            </Flex>
+              {readingTime && <span>{`${readingTime}mn`}</span>}
+            </div>
           </Skeleton>
         );
         break;
@@ -71,8 +70,8 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
             {variant === 'secondary' && <Icon name="person" size="24px" color="light-grey" />}
             {authors.map(({ username, name, link }, authorIndex) => (
               <Fragment key={username}>
-                {link ? <Link {...link}>{name}</Link> : <Text as="span">{name}</Text>}
-                {authorIndex !== authors.length - 1 && <Text as="span">{' & '}</Text>}
+                {link ? <Link {...link}>{name}</Link> : <span>{name}</span>}
+                {authorIndex !== authors.length - 1 && <span>{' & '}</span>}
               </Fragment>
             ))}
           </>
@@ -81,13 +80,11 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
           <Skeleton
             key={displayedField}
             isLoading={isLoading}
-            display="inline-block"
+            className="inline-block"
             style={{ minWidth: 50, minHeight: 16 }}
           >
             {variant === 'secondary' ? (
-              <Flex alignContent="center" alignItems="center" gap="xxs" className="post-metadata__authors">
-                {authorChildren}
-              </Flex>
+              <div className="post-metadata__authors flex items-center gap-xxs">{authorChildren}</div>
             ) : (
               <>{authorChildren}</>
             )}
@@ -98,26 +95,24 @@ export const PostMetadata: React.FC<PostMetadataProps> = ({
     }
 
     if (variant !== 'secondary' && index !== displayedFields.length - 1) {
-      currentFields.push(
-        <Text key={`circle-${displayedField}`} as="span">
-          •
-        </Text>
-      );
+      currentFields.push(<span key={`circle-${displayedField}`}>•</span>);
     }
 
     return currentFields;
   }, []);
 
   return (
-    <Flex
+    <div
       {...props}
-      alignItems="center"
-      textSize="s"
-      flexWrap="wrap"
-      gap={variant === 'secondary' ? 's' : 'xxs'}
-      className={classNames('post-metadata', { [`post-metadata--${variant}`]: variant })}
+      className={cn(
+        'post-metadata flex flex-wrap items-center typography-text-s',
+        variant === 'secondary' ? 'gap-s' : 'gap-xxs',
+        variant === 'primary' && 'font-heading font-bold tracking-[0.5px] text-info uppercase',
+        variant === 'secondary' && 'font-semibold text-primary',
+        className
+      )}
     >
       {fields}
-    </Flex>
+    </div>
   );
 };

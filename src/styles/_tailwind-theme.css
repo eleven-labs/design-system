@@ -1,0 +1,45 @@
+/**
+ * Do not edit directly
+ * Generated on Mon, 09 Mar 2026 13:48:09 GMT
+ */
+
+
+@theme {
+  --breakpoint-sm: 571px;
+  --breakpoint-md: 1001px;
+  --breakpoint-lg: 1201px;
+  --breakpoint-xl: initial;
+  --breakpoint-2xl: initial;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-very-dark: var(--color-primary-very-dark);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-info: var(--color-info);
+  --color-accent: var(--color-accent);
+  --color-ultra-light-grey: var(--color-ultra-light-grey);
+  --color-light-grey: var(--color-light-grey);
+  --color-grey: var(--color-grey);
+  --color-dark-grey: var(--color-dark-grey);
+  --color-ultra-dark-grey: var(--color-ultra-dark-grey);
+  --color-black: var(--color-black);
+  --color-white: var(--color-white);
+  --radius-xs: var(--radius-xs);
+  --radius-s: var(--radius-s);
+  --radius-full-rounded: var(--radius-full-rounded);
+  --spacing-0: var(--spacing-0);
+  --spacing-xxs-3: var(--spacing-xxs-3);
+  --spacing-xxs-2: var(--spacing-xxs-2);
+  --spacing-xxs: var(--spacing-xxs);
+  --spacing-xs: var(--spacing-xs);
+  --spacing-s: var(--spacing-s);
+  --spacing-m: var(--spacing-m);
+  --spacing-l: var(--spacing-l);
+  --spacing-xl: var(--spacing-xl);
+  --spacing-xxl: var(--spacing-xxl);
+  --spacing-xxl-2: var(--spacing-xxl-2);
+  --spacing-xxl-3: var(--spacing-xxl-3);
+}

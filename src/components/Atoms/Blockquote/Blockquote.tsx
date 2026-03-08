@@ -1,15 +1,25 @@
-import classNames from 'classnames';
 import React from 'react';
 
-import { Text } from '@/components';
-import type { ComponentPropsWithoutRef, MarginSystemProps } from '@/types';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-import './Blockquote.scss';
-
-export interface BlockquoteProps extends MarginSystemProps, Omit<ComponentPropsWithoutRef<'blockquote'>, 'align'> {}
+export interface BlockquoteProps extends Omit<ComponentPropsWithoutRef<'blockquote'>, 'align'> {}
 
 export const Blockquote: React.FC<BlockquoteProps> = ({ children, className, ...props }) => (
-  <Text as="blockquote" {...props} pl="m" size="m" italic className={classNames('blockquote', className)}>
+  <blockquote
+    {...props}
+    className={cn(
+      `
+        relative pl-m font-[Georgia,var(--font-family-blockquote)]
+        typography-text-m italic
+        before:block before:h-20 before:text-[8rem] before:font-medium
+        before:text-primary before:content-["“"]
+        after:block after:h-20 after:rotate-180 after:text-[8rem]
+        after:font-medium after:text-primary after:content-["“"]
+      `,
+      className
+    )}
+  >
     {children}
-  </Text>
+  </blockquote>
 );

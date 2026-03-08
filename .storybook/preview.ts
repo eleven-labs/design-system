@@ -1,6 +1,7 @@
-import '../src/styles/common.scss';
+import '../src/styles/tailwind.css';
+import '../src/styles/global.css';
 
-import { tokenVariables } from '../src/constants';
+import { tokenVariables } from '../src/tokens';
 
 const customViewports = {
   extraSmallScreen: {
@@ -30,12 +31,12 @@ const customViewports = {
 };
 
 export const parameters = {
+  layout: 'centered',
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-    exclude: ['as'],
   },
   viewport: {
     viewports: customViewports,

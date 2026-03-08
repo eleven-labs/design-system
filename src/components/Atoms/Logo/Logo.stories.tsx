@@ -1,13 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { Logo, logoName } from '@/components';
-import { marginSystemPropsControls } from '@/constants/storybook';
+import { Logo, logoName } from './Logo';
 
 export default {
   component: Logo,
   argTypes: {
-    ...marginSystemPropsControls,
     name: {
       control: 'select',
       options: logoName,
@@ -18,11 +16,8 @@ export default {
   },
   args: {
     name: 'blog',
-    color: 'primary',
+    className: 'text-primary',
     size: '10em',
-  },
-  parameters: {
-    layout: 'centered',
   },
 } as Meta<typeof Logo>;
 

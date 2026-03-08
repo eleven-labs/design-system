@@ -1,23 +1,21 @@
+import classNames from 'classnames';
 import React from 'react';
 
-import type { AuthorCardProps, BoxProps } from '@/components';
+import type { AuthorCardProps } from '@/components';
 import { AuthorCard } from '@/components';
-import { Box, Flex, Heading } from '@/components';
 
-export interface PostFooterProps extends BoxProps {
+export interface PostFooterProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   title: React.ReactNode;
   authors: AuthorCardProps[];
 }
 
-export const PostFooter: React.FC<PostFooterProps> = ({ title, authors, ...props }) => (
-  <Box {...props}>
-    <Heading mb="xxs" size="m" color="primary">
-      {title}
-    </Heading>
-    <Flex mt="l" flexDirection="column" gap="s">
+export const PostFooter: React.FC<PostFooterProps> = ({ title, authors, className, ...props }) => (
+  <div {...props} className={classNames(className)}>
+    <h2 className="mb-xxs typography-heading-m text-primary">{title}</h2>
+    <div className="mt-l flex flex-col gap-s">
       {authors.map((author, authorIndex) => (
         <AuthorCard key={authorIndex} {...author} />
       ))}
-    </Flex>
-  </Box>
+    </div>
+  </div>
 );

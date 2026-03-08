@@ -1,8 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { Heading, Text } from '@/components';
-
 import { Link } from './Link';
 
 export default {
@@ -12,23 +10,20 @@ export default {
     href: 'https://eleven-labs.com/',
     target: '_blank',
   },
-  parameters: {
-    layout: 'centered',
-  },
 } as Meta<typeof Link>;
 
 const Template: StoryFn<typeof Link> = (args) => <Link {...args} />;
 
 export const LinkWithText = Template.bind({});
 LinkWithText.args = {
-  as: Text,
-  size: 'm',
+  className: 'typography-text-m',
+  children: 'Link Label',
 };
 
 export const LinkWithHeading = Template.bind({});
 LinkWithHeading.args = {
-  as: Heading,
-  size: 'l',
+  className: 'typography-heading-l',
+  children: 'Link Label',
 };
 
 export const LinkWithIcon = Template.bind({});

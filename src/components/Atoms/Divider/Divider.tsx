@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Box } from '@/components';
-import type { ComponentPropsWithoutRef, MarginSystemProps } from '@/types';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-import './Divider.scss';
+export interface DividerProps extends ComponentPropsWithoutRef<'hr'> {}
 
-export interface DividerProps extends ComponentPropsWithoutRef<'hr'>, MarginSystemProps {}
-
-export const Divider: React.FC<DividerProps> = (props) => <Box {...props} as="hr" className="divider" />;
+export const Divider: React.FC<DividerProps> = (props) => (
+  <hr {...props} className={cn('h-px w-full border-none bg-secondary-dark', props.className)} />
+);

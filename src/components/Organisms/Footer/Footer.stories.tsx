@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Text } from '@/components';
-
 import { Footer } from './Footer';
 
 const meta: Meta<typeof Footer> = {
@@ -37,7 +35,7 @@ const meta: Meta<typeof Footer> = {
       description: (
         <>
           {address.map((line, index) => (
-            <Text key={index}>{line}</Text>
+            <p key={index}>{line}</p>
           ))}
         </>
       ),

@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { Layout, Table } from '@/storybook/components';
-import { Text } from '@/components';
-import { tokenVariables } from '@/constants';
+import { tokenVariables } from '@/tokens';
 
 <Meta
     title="Foundations/Design Tokens/Typography/FontFamily"
@@ -46,22 +45,18 @@ import { tokenVariables } from '@/constants';
         rows={Object.entries(tokenVariables["font-family"]).reduce((rows, [tokenName, token]) => {
             const rowsByWeight = token.weights.map(weight => ({
                 name: (
-                    <Text>{tokenName} - {weight}</Text>
+                    <span>{tokenName} - {weight}</span>
                 ),
                 preview: (
-                    <Text style={{ fontFamily: token.value }} fontWeight={weight}>
+                    <span style={{ fontFamily: token.value, fontWeight: tokenVariables['font-weight'][weight].value }}>
                         {token.name} {weight}
-                    </Text>
+                    </span>
                 ),
                 weight_name: (
-                    <Text>
-                        {weight}
-                    </Text>
+                    <span>{weight}</span>
                 ),
                 weight_value: (
-                    <Text>
-                        {tokenVariables['font-weight'][weight].value}
-                    </Text>
+                    <span>{tokenVariables['font-weight'][weight].value}</span>
                 ),
             }));
 

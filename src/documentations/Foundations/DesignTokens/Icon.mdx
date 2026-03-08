@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { Layout, Table } from '@/storybook/components';
-import { Text, Icon } from '@/components';
-import { iconTokenNameList } from '@/constants';
+import { Icon } from '@/components';
+import { iconTokenNameList } from '@/tokens';
 
 <Meta
     title="Foundations/Design Tokens/Icon"
@@ -37,7 +37,7 @@ import { iconTokenNameList } from '@/constants';
         ]}
         rows={iconTokenNameList.map((iconName) => ({
           name: (
-              <Text fontWeight="medium">{iconName}</Text>
+              <span className="font-medium">{iconName}</span>
           ),
           preview: <Icon name={iconName} width="5rem" height="5rem" color="navy" size="5rem" />,
         }))}

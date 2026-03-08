@@ -1,10 +1,9 @@
 import React from 'react';
 
 import type { PictureProps } from '@/components';
-import { Box, Breadcrumb, type BreadcrumbProps, Picture, SummaryCard } from '@/components';
+import { Breadcrumb, type BreadcrumbProps, Picture, SummaryCard } from '@/components';
 import { LayoutContentWithSidebar } from '@/templates/LayoutContentWithSidebar';
 
-import './PostPage.scss';
 import { PostPageContent } from './PostPageContent';
 
 import type { PostPageContentProps } from './PostPageContent';
@@ -22,16 +21,38 @@ export const PostPage: React.FC<PostPageProps> = ({
   children,
   ...postPageContent
 }) => (
-  <Box mx="auto" className="post-page">
-    <Breadcrumb mx={{ xs: 'xs', md: '0' }} {...breadcrumb} />
-    <Picture {...cover} mx={{ xs: 'xs', md: '0' }} img={{ className: 'post-page__cover', ...cover?.img }} />
+  <div className="post-page mx-auto">
+    <Breadcrumb
+      {...breadcrumb}
+      className="
+        mx-xs my-s
+        md:mx-0
+      "
+    />
+    <Picture
+      {...cover}
+      className="
+        mx-xs
+        md:mx-0
+      "
+      img={{ className: 'h-[160px] w-full rounded-xs object-cover md:h-[330px]', ...cover?.img }}
+    />
     <LayoutContentWithSidebar
       content={
         <PostPageContent {...postPageContent} variant={variant} summary={summary}>
           {children}
         </PostPageContent>
       }
-      sidebar={<SummaryCard hiddenBelow="md" variant={variant === 'tutorial' ? 'secondary' : 'primary'} {...summary} />}
+      sidebar={
+        <SummaryCard
+          variant={variant === 'tutorial' ? 'secondary' : 'primary'}
+          className="
+            hidden
+            md:block
+          "
+          {...summary}
+        />
+      }
     />
-  </Box>
+  </div>
 );

@@ -1,0 +1,86 @@
+/**
+ * Do not edit directly
+ * Generated on Mon, 09 Mar 2026 13:48:09 GMT
+ */
+
+:root
+{
+		--font-family-base: 'Montserrat', sans-serif;
+		--font-family-heading: 'Agdasima', sans-serif;
+		--font-family-blockquote: Georgia, 'Times New Roman', Times, serif;
+		--font-weight-regular: 400;
+		--font-weight-medium: 500;
+		--font-weight-semi-bold: 600;
+		--font-weight-bold: 700;
+		--typography-heading-markup-base-line-height: 1.2;
+		--typography-heading-markup-base-font-weight: 400;
+		--typography-heading-markup-base-margin-top: 32px;
+		--typography-heading-markup-s-font-size: 16px;
+		--typography-heading-markup-s-margin-bottom: 8px;
+		--typography-heading-markup-m-font-size: 18px;
+		--typography-heading-markup-m-margin-bottom: 12px;
+		--typography-heading-markup-l-font-size: 20px;
+		--typography-heading-markup-l-font-weight: 500;
+		--typography-heading-markup-l-margin-bottom: 16px;
+		--typography-heading-markup-xl-font-size: 22px;
+		--typography-heading-markup-xl-font-weight: 600;
+		--typography-heading-markup-xl-margin-bottom: 24px;
+		--typography-heading-base-font-family: 'Agdasima', sans-serif;
+		--typography-heading-base-line-height: 1.2;
+		--typography-heading-base-letter-spacing: 0px;
+		--typography-heading-xs-font-family: 'Montserrat', sans-serif;
+		--typography-heading-xs-font-size: 16px;
+		--typography-heading-xs-font-weight: 600;
+		--typography-heading-s-font-size: 16px;
+		--typography-heading-s-font-weight: 700;
+		--typography-heading-m-font-size: 24px;
+		--typography-heading-m-font-weight: 700;
+		--typography-heading-l-font-size: 32px;
+		--typography-heading-xl-font-size: 40px;
+		--typography-heading-xl-font-weight: 400;
+		--typography-heading-xl-text-transform: uppercase;
+		--typography-heading-xl-letter-spacing: 2px;
+		--typography-text-base-line-height: 1.5;
+		--typography-text-xs-font-size: 12px;
+		--typography-text-xs-icon-size: 14;
+		--typography-text-s-font-size: 14px;
+		--typography-text-s-icon-size: 16;
+		--typography-text-m-font-size: 18px;
+		--typography-text-m-icon-size: 20;
+		--line-height-base: 1.2;
+		--line-height-medium: 1.2;
+		--line-height-large: 1.5;
+		--color-primary: #0A4084;
+		--color-primary-dark: #194180;
+		--color-primary-very-dark: #093670;
+		--color-secondary: #E9F1F8;
+		--color-secondary-dark: #C5D3E9;
+		--color-info: #DD3156; /* Used to provide additional information to the user without conveying any particular level of importance. */
+		--color-accent: #F8FA9B; /* A distinct accent color for content. */
+		--color-ultra-light-grey: #EDEDED;
+		--color-light-grey: #C4C4C4;
+		--color-grey: #9B9B9B;
+		--color-dark-grey: #757575;
+		--color-ultra-dark-grey: #333333;
+		--color-black: #000;
+		--color-white: #FFF;
+		--height-full: 100%;
+		--height-screen: 100vh;
+		--radius-xs: 4px; /* Extra small border radius */
+		--radius-s: 4px; /* Small border radius */
+		--radius-full-rounded: 50%; /* Pill-shaped border radius (for fully rounded corners) */
+		--spacing-0: 0px;
+		--spacing-xxs-3: 4px;
+		--spacing-xxs-2: 6px;
+		--spacing-xxs: 8px;
+		--spacing-xs: 12px;
+		--spacing-s: 16px;
+		--spacing-m: 24px;
+		--spacing-l: 32px;
+		--spacing-xl: 42px;
+		--spacing-xxl: 64px;
+		--spacing-xxl-2: 128px;
+		--spacing-xxl-3: 164px;
+		--width-full: 100%;
+		--width-screen: 100vw;
+}

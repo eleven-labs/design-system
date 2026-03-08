@@ -1,13 +1,9 @@
-import classNames from 'classnames';
 import React from 'react';
 
-import type { BoxProps } from '@/components';
 import { PostMetadata } from '@/components';
-import { Box, Flex, Heading, Link, Text, TextHighlight } from '@/components';
-import { polyRef } from '@/helpers';
-import type { ComponentPropsWithoutRef } from '@/types';
-
-import './AutocompleteResult.scss';
+import { Link, TextHighlight } from '@/components';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
 export interface AutocompleteItem {
   slug: string;
@@ -29,9 +25,9 @@ export type AutocompleteResultOptions = {
   highlightedIndex?: number;
 };
 
-export type AutocompleteResultProps = BoxProps & AutocompleteResultOptions;
+export interface AutocompleteResultProps extends React.ComponentPropsWithoutRef<'div'>, AutocompleteResultOptions {}
 
-export const AutocompleteResult = polyRef<'div', AutocompleteResultProps>(
+export const AutocompleteResult = React.forwardRef<HTMLDivElement, AutocompleteResultProps>(
   (
     {
       isOpen = false,
@@ -44,62 +40,77 @@ export const AutocompleteResult = polyRef<'div', AutocompleteResultProps>(
     },
     ref
   ) => (
-    <Box className={classNames('autocomplete-result', props.className)} ref={ref} hidden={!isOpen}>
+    <div
+      {...props}
+      className={cn(
+        `
+          absolute left-0 z-2 mt-s w-screen bg-white px-s pt-s
+          filter-[drop-shadow(0_4px_14px_rgb(0_0_0/25%))]
+          md:mt-[-24px] md:w-full md:rounded-b-xs md:px-0 md:pt-l
+        `,
+        props.className
+      )}
+      ref={ref}
+      hidden={!isOpen}
+    >
       {items.length > 0 && (
         <>
           {items.map(({ slug, title, date, authors, link }, index) => {
             const isHighlighted = highlightedIndex === index;
             return (
               <React.Fragment key={slug}>
-                <Flex
-                  alignItems="center"
-                  gap="xxs"
-                  pt={{ xs: 'xxs' }}
-                  pb={{ xs: 'xs' }}
-                  px={{ xs: 'm' }}
-                  className={classNames('autocomplete-result__item', {
-                    'autocomplete-result__item--is-highlighted': isHighlighted,
-                  })}
+                <div
+                  className={cn(
+                    'relative flex items-center gap-xxs px-m pt-xxs pb-xs',
+                    isHighlighted && 'bg-secondary'
+                  )}
                 >
-                  <TextHighlight
-                    as="a"
+                  <Link
                     {...link}
-                    size="s"
-                    text={title}
-                    textQuery={searchValue}
-                    lineClamp={{ xs: 4, md: 2 }}
-                    className="autocomplete-result__link"
+                    className="
+                      relative line-clamp-4 text-black
+                      before:absolute before:top-0 before:left-0 before:z-1
+                      before:block before:size-full before:content-['']
+                      md:line-clamp-2
+                    "
+                  >
+                    <TextHighlight size="s" text={title} textQuery={searchValue} />
+                  </Link>
+                  <PostMetadata
+                    className="mt-xxs-3"
+                    date={date}
+                    authors={authors}
+                    displayedFields={['date', 'authors']}
                   />
-                  <PostMetadata mt="xxs-3" date={date} authors={authors} displayedFields={['date', 'authors']} />
-                </Flex>
+                </div>
               </React.Fragment>
             );
           })}
           {searchLinkProps && searchLinkLabel && (
-            <Box
-              pt={{ xs: 's', md: 'm' }}
-              pb={{ xs: 'm', md: 'l' }}
-              textSize="s"
-              fontWeight="medium"
-              textAlign="center"
+            <div
+              className="
+                pt-s pb-m text-center typography-text-s font-medium
+                md:pt-m md:pb-l
+              "
             >
               <Link {...searchLinkProps}>{searchLinkLabel}</Link>
-            </Box>
+            </div>
           )}
         </>
       )}
       {items.length === 0 && searchNotFound && (
-        <Box textAlign="center" px="xl" py="m">
-          <div className="autocomplete-result__background-not-found" />
-          <Heading size="m" mt="s">
-            {searchNotFound.title}
-          </Heading>
-          <Text size="xs" mt="xxs">
-            {searchNotFound.description}
-          </Text>
-        </Box>
+        <div className="px-xl py-m text-center">
+          <div
+            className="
+              h-[135px] w-full bg-[url('/imgs/not-found.png')] bg-center
+              bg-no-repeat
+            "
+          />
+          <p className="mt-s typography-heading-m">{searchNotFound.title}</p>
+          <p className="mt-xxs typography-text-xs">{searchNotFound.description}</p>
+        </div>
       )}
-    </Box>
+    </div>
   )
 );
 

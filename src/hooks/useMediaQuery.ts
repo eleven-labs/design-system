@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import { matchMediaQueryList } from '@/constants';
 import { useLayoutEffect } from '@/hooks/useLayoutEffect';
-import type { MatchBreakpointsType } from '@/types';
+import { matchMediaQueryList } from '@/tokens';
 
-export const useMediaQuery = (query: MatchBreakpointsType): boolean => {
+export const useMediaQuery = (query: keyof typeof matchMediaQueryList): boolean => {
   const [matches, setMatches] = React.useState<boolean>(false);
 
   useLayoutEffect((): (() => void) => {

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import type { PostCardListProps } from '@/components';
-import { Box } from '@/components';
 import * as PostCardStories from '@/components/Molecules/Cards/PostCard/PostCard.stories';
 import PaginationStories from '@/components/Molecules/Pagination/Pagination.stories';
 
@@ -22,9 +21,9 @@ const meta: Meta<typeof PostCardList> = {
   },
   decorators: [
     (Story): React.ReactElement => (
-      <Box p="s" mx="auto" style={{ maxWidth: '764px' }}>
+      <div className="mx-auto p-s" style={{ maxWidth: '764px' }}>
         <Story />
-      </Box>
+      </div>
     ),
   ],
 };

@@ -1,16 +1,22 @@
 import React from 'react';
 
-import { Box } from '@/components';
-import type { SpacingSystemProps } from '@/types';
+import { cn } from '@/helpers';
 
-export interface PictureProps extends SpacingSystemProps {
+export interface PictureProps extends React.ComponentPropsWithoutRef<'picture'> {
   img: React.ComponentPropsWithoutRef<'img'> & { fetchPriority?: 'high' | 'low' | 'auto' };
   sources?: React.ComponentPropsWithoutRef<'source'>[];
 }
 
-export const Picture: React.FC<PictureProps> = ({ img, sources, ...props }) => (
-  <Box as="picture" display="block" {...props}>
-    {sources?.map((source, key) => <source key={key} {...source} />)}
-    <img {...img} alt={img.alt} />
-  </Box>
-);
+export const Picture: React.FC<PictureProps> = ({ img, sources, className, ...props }) => {
+  const { fetchPriority, ...imgProps } = img;
+  const fetchPriorityProps = fetchPriority ? ({ fetchpriority: fetchPriority } as Record<string, string>) : {};
+
+  return (
+    <picture {...props} className={cn('block', className)}>
+      {sources?.map((source, key) => (
+        <source key={key} {...source} />
+      ))}
+      <img {...imgProps} {...fetchPriorityProps} alt={img.alt} />
+    </picture>
+  );
+};

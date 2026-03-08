@@ -1,9 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { Layout, Table } from '@/storybook/components';
-import { Heading, Text } from '@/components';
-import { tokenVariables, headingSizeTokenNameList } from '@/constants';
-import { getValueOfCssPropertyInDesignTokens } from '@/helpers/storybookHelper';
-import { get } from '@/helpers/objectHelper';
+import { tokenVariables, headingSizeTokenNameList, tokenVariablesDesktop } from '@/tokens';
 
 <Meta
     title="Foundations/Design Tokens/Typography/Heading"
@@ -53,34 +50,16 @@ import { get } from '@/helpers/objectHelper';
           .filter(tokenName => tokenName !== 'base')
           .map(tokenName => ({
             name: (
-                <Text fontWeight="medium">heading-{tokenName}</Text>
+                <span className="font-medium">typography-heading-{tokenName}</span>
             ),
             preview: (
-                <Heading size={tokenName}>
+                <p className={`typography-heading-${tokenName}`}>
                     Title
-                </Heading>
+                </p>
             ),
-            fontFamily: get(tokenVariables, 'typography.heading.base.font-family.value'),
-            mobile: `${getValueOfCssPropertyInDesignTokens({
-                path: 'typography.heading',
-                tokenName,
-                propertyCSS: 'font-size'
-            })} / ${getValueOfCssPropertyInDesignTokens({
-              path: 'typography.heading',
-              tokenName,
-              propertyCSS: 'line-height'
-            })}`,
-            desktop: `${getValueOfCssPropertyInDesignTokens({
-                path: 'typography.heading',
-                tokenName,
-                propertyCSS: 'font-size',
-                isDesktop: true,
-            })} / ${getValueOfCssPropertyInDesignTokens({
-              path: 'typography.heading',
-              tokenName,
-              propertyCSS: 'line-height',
-              isDesktop: true,
-            })}`,
+            fontFamily: tokenVariables.typography.heading.base['font-family'].value,
+            mobile: `${tokenVariables.typography.heading[tokenName]['font-size']?.value || tokenVariables.typography.heading.base['font-size']?.value || '-'} / ${tokenVariables.typography.heading[tokenName]['line-height']?.value || tokenVariables.typography.heading.base['line-height']?.value || '-'}`,
+            desktop: `${tokenVariablesDesktop.typography?.heading?.[tokenName]?.['font-size']?.value || tokenVariables.typography.heading[tokenName]['font-size']?.value || tokenVariables.typography.heading.base['font-size']?.value || '-'} / ${tokenVariablesDesktop.typography?.heading?.[tokenName]?.['line-height']?.value || tokenVariables.typography.heading[tokenName]['line-height']?.value || tokenVariables.typography.heading.base['line-height']?.value || '-'}`,
         }))}
     />
 </Layout>

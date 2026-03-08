@@ -1,15 +1,12 @@
 'use client';
 
-import classNames from 'classnames';
 import type { UseComboboxProps } from 'downshift';
 import { useCombobox } from 'downshift';
 import React from 'react';
 
-import type { BoxProps, SearchFieldProps } from '@/components';
-import { Box, SearchField } from '@/components';
-import { polyRef } from '@/helpers';
+import { Icon, SearchField } from '@/components';
+import { cn } from '@/helpers';
 
-import './Autocomplete.scss';
 import { AutocompleteResult } from './AutocompleteResult';
 
 import type { AutocompleteItem, AutocompleteResultOptions } from './AutocompleteResult';
@@ -21,12 +18,12 @@ export type AutocompleteOptions = {
   onEnter?: (value: string) => void;
 };
 
-export type AutocompleteProps = BoxProps &
+export type AutocompleteProps = React.ComponentPropsWithoutRef<'div'> &
   AutocompleteOptions &
   Omit<AutocompleteResultOptions, 'highlightedIndex' | 'searchLink'> &
   Pick<UseComboboxProps<AutocompleteItem>, 'onInputValueChange' | 'onSelectedItemChange' | 'isOpen'>;
 
-export const Autocomplete = polyRef<'div', AutocompleteProps>(
+export const Autocomplete = React.forwardRef<HTMLDivElement, AutocompleteProps>(
   (
     {
       placeholder,
@@ -70,12 +67,19 @@ export const Autocomplete = polyRef<'div', AutocompleteProps>(
     );
 
     return (
-      <Box {...props} className={classNames('autocomplete', props.className)} ref={ref}>
+      <div {...props} className={cn('md:relative', props.className)} ref={ref}>
         <SearchField
           input={getInputProps({ placeholder, onKeyDown: handleKeyDown })}
-          buttonSearch={{ as: 'a', ...searchLinkProps } as unknown as SearchFieldProps['buttonSearch']}
+          buttonSearch={{
+            asChild: true,
+            children: (
+              <a {...searchLinkProps}>
+                <Icon name="search" color="primary" size="2.5rem" className="mx-xs" />
+              </a>
+            ),
+          }}
           buttonClose={{ onClick: onClose }}
-          className="autocomplete__input"
+          className="autocomplete__input z-10"
         />
         <AutocompleteResult
           isOpen={isOpen && inputValue.length > 0}
@@ -90,7 +94,7 @@ export const Autocomplete = polyRef<'div', AutocompleteProps>(
           }}
           searchNotFound={searchNotFound}
         />
-      </Box>
+      </div>
     );
   }
 );

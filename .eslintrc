@@ -6,6 +6,12 @@
     "@eleven-labs/eslint-config/typescript",
     "@eleven-labs/eslint-config/react"
   ],
+  "plugins": [
+    "better-tailwindcss"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "overrides": [
     {
       "files": ["playwright.config.ts", "__tests__/visual-regression/**/*.ts"],
@@ -24,6 +30,47 @@
   "rules": {
     "unicorn/prevent-abbreviations": "off",
     "no-unused-vars": "off",
-    "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}]
+    "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}],
+    "better-tailwindcss/enforce-consistent-class-order": [
+      "warn",
+      {
+        "entryPoint": "src/styles/tailwind.css",
+        "tsconfig": "tsconfig.json",
+        "messageStyle": "compact"
+      }
+    ],
+    "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+    "better-tailwindcss/no-deprecated-classes": [
+      "warn",
+      {
+        "entryPoint": "src/styles/tailwind.css",
+        "tsconfig": "tsconfig.json",
+        "messageStyle": "compact"
+      }
+    ],
+    "better-tailwindcss/no-duplicate-classes": [
+      "warn",
+      {
+        "entryPoint": "src/styles/tailwind.css",
+        "tsconfig": "tsconfig.json",
+        "messageStyle": "compact"
+      }
+    ],
+    "better-tailwindcss/no-unnecessary-whitespace": [
+      "warn",
+      {
+        "entryPoint": "src/styles/tailwind.css",
+        "tsconfig": "tsconfig.json",
+        "messageStyle": "compact"
+      }
+    ],
+    "better-tailwindcss/enforce-canonical-classes": [
+      "warn",
+      {
+        "entryPoint": "src/styles/tailwind.css",
+        "tsconfig": "tsconfig.json",
+        "messageStyle": "compact"
+      }
+    ]
   }
 }

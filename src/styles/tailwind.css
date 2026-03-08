@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+@layer utilities {
+  .container-content {
+    width: calc(100vw - var(--spacing-s) * 2);
+    margin-left: var(--spacing-s);
+    margin-right: var(--spacing-s);
+  }
+
+  @media (width >= 1001px) {
+    .container-content {
+      max-width: 85vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+/* ─── Custom utilities: compound text/heading classes ─────────────────────── */
+
+@utility font-heading {
+  font-family: var(--typography-heading-base-font-family);
+}
+
+@utility typography-text-xs {
+  font-size: var(--typography-text-xs-font-size);
+  line-height: var(--typography-text-base-line-height);
+}
+
+@utility typography-text-s {
+  font-size: var(--typography-text-s-font-size);
+  line-height: var(--typography-text-base-line-height);
+}
+
+@utility typography-text-m {
+  font-size: var(--typography-text-m-font-size);
+  line-height: var(--typography-text-base-line-height);
+}
+
+@utility typography-heading-xs {
+  font-family: var(--typography-heading-xs-font-family);
+  font-size: var(--typography-heading-xs-font-size);
+  font-weight: var(--typography-heading-xs-font-weight);
+  line-height: var(--typography-heading-base-line-height);
+  letter-spacing: var(--typography-heading-base-letter-spacing);
+}
+
+@utility typography-heading-s {
+  font-family: var(--typography-heading-base-font-family);
+  font-size: var(--typography-heading-s-font-size);
+  font-weight: var(--typography-heading-s-font-weight);
+  line-height: var(--typography-heading-base-line-height);
+  letter-spacing: var(--typography-heading-base-letter-spacing);
+}
+
+@utility typography-heading-m {
+  font-family: var(--typography-heading-base-font-family);
+  font-size: var(--typography-heading-m-font-size);
+  font-weight: var(--typography-heading-m-font-weight);
+  line-height: var(--typography-heading-base-line-height);
+  letter-spacing: var(--typography-heading-base-letter-spacing);
+}
+
+@utility typography-heading-l {
+  font-family: var(--typography-heading-base-font-family);
+  font-size: var(--typography-heading-l-font-size);
+  font-weight: var(--typography-heading-m-font-weight);
+  line-height: var(--typography-heading-base-line-height);
+  letter-spacing: var(--typography-heading-base-letter-spacing);
+}
+
+@utility typography-heading-xl {
+  font-family: var(--typography-heading-base-font-family);
+  font-size: var(--typography-heading-xl-font-size);
+  font-weight: var(--typography-heading-xl-font-weight);
+  text-transform: var(--typography-heading-xl-text-transform);
+  line-height: var(--typography-heading-base-line-height);
+  letter-spacing: var(--typography-heading-xl-letter-spacing);
+}
+
+/* ─── Pulse animation (from existing SASS utilities) ────────────────────────── */
+
+@utility animate-pulse {
+  animation: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}

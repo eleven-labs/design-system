@@ -1,17 +1,22 @@
 import React from 'react';
 
-import type { FlexProps } from '@/components';
-import { Box, Flex } from '@/components';
-import type { ComponentPropsWithoutRef } from '@/types';
+import { cn } from '@/helpers';
 
-import './BurgerButton.scss';
-
-export interface BurgerButtonProps extends FlexProps, ComponentPropsWithoutRef<'button'> {}
+export interface BurgerButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export const BurgerButton: React.FC<BurgerButtonProps> = (props) => (
-  <Flex as="button" flexDirection="column" gap="xxs" className="burger-button" {...props}>
-    <Box className="burger-button__line" />
-    <Box className="burger-button__line" />
-    <Box className="burger-button__line" />
-  </Flex>
+  <button
+    {...props}
+    className={cn(
+      `
+        inline-flex flex-col items-start justify-start gap-xxs border-none
+        bg-transparent px-xxs-2 py-px leading-none text-primary
+      `,
+      props.className
+    )}
+  >
+    <div className="h-[2px] w-[30px] bg-current" />
+    <div className="h-[2px] w-[30px] bg-current" />
+    <div className="h-[2px] w-[30px] bg-current" />
+  </button>
 );

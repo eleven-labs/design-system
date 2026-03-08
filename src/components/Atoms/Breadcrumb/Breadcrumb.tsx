@@ -1,45 +1,36 @@
-import classNames from 'classnames';
 import React, { Fragment } from 'react';
 
-import { Flex, Link, Text } from '@/components';
-import type { ComponentPropsWithoutRef, MarginSystemProps } from '@/types';
+import { Link } from '@/components';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-import './Breadcrumb.scss';
-
-export interface BreadcrumbProps extends MarginSystemProps {
+export interface BreadcrumbProps extends Omit<ComponentPropsWithoutRef<'ol'>, 'children'> {
   items: ({ label: string } & ComponentPropsWithoutRef<'a'>)[];
-  className?: string;
 }
 
-export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, ...props }) => (
-  <Flex
+export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className, ...props }) => (
+  <ol
     {...props}
-    as="ol"
     itemScope
     itemType="https://schema.org/BreadcrumbList"
-    p="0"
-    gap="xxs-3"
-    fontWeight="semi-bold"
-    className={classNames('breadcrumb', props.className)}
+    className={cn('m-0 flex list-none gap-xxs-3 p-0 typography-text-s font-semibold', className)}
   >
     {items.map(({ label, ...itemLink }, index) => (
       <Fragment key={index}>
         <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
           {itemLink.href ? (
             <Link itemProp="item" {...itemLink}>
-              <Text as="span" itemProp="name">
-                {label}
-              </Text>
+              <span itemProp="name">{label}</span>
             </Link>
           ) : (
-            <Text as="span" itemProp="name" fontWeight="regular">
+            <span itemProp="name" className="font-normal">
               {label}
-            </Text>
+            </span>
           )}
           <meta itemProp="position" content={(index + 1).toString()} />
         </li>
-        {index < items.length - 1 && <Text as="span">{'>'}</Text>}
+        {index < items.length - 1 && <span>{'>'}</span>}
       </Fragment>
     ))}
-  </Flex>
+  </ol>
 );

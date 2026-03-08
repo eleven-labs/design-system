@@ -1,13 +1,10 @@
-import classNames from 'classnames';
 import React from 'react';
 
-import type { FlexProps } from '@/components';
-import { Box, Button, Flex, Heading, Text } from '@/components';
-import type { ComponentPropsWithoutRef } from '@/types';
+import { Button } from '@/components';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-import './HomeIntroBlock.scss';
-
-export interface HomeIntroBlockProps extends FlexProps {
+export interface HomeIntroBlockProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   intro: React.ReactNode;
   title: React.ReactNode;
   description: React.ReactNode;
@@ -19,27 +16,38 @@ export const HomeIntroBlock: React.FC<HomeIntroBlockProps> = ({
   title,
   description,
   elevenLabsLink: { label: elevelLabsLinkLabel, ...elevenLabsLink },
+  className,
   ...props
 }) => (
-  <Flex {...props} className={classNames('home-intro-block', props.className)}>
-    <Flex
-      alignItems="baseline"
-      flexDirection="column"
-      className="home-intro-block__container"
-      flex="1"
-      py={{ xs: '0', md: 'xl' }}
+  <div
+    {...props}
+    className={cn(
+      `
+        bg-white
+        md:flex
+      `,
+      className
+    )}
+  >
+    <div
+      className="
+        mx-auto flex max-w-[90vw] flex-1 flex-col items-baseline
+        md:ml-[5vw] md:max-w-none md:py-xl
+      "
     >
-      <Heading size="s" color="info" textTransform="uppercase">
-        {intro}
-      </Heading>
-      <Heading as="h1" size="xl" mt="m" color="primary">
-        {title}
-      </Heading>
-      <Text mt="l">{description}</Text>
-      <Button {...elevenLabsLink} as="a" mt="l">
-        {elevelLabsLinkLabel}
+      <p className="typography-heading-s text-info uppercase">{intro}</p>
+      <h1 className="mt-m typography-heading-xl text-primary">{title}</h1>
+      <p className="mt-l">{description}</p>
+      <Button asChild className="mt-l">
+        <a {...elevenLabsLink}>{elevelLabsLinkLabel}</a>
       </Button>
-    </Flex>
-    <Box flex="1" className="home-intro-block__background" hiddenBelow="md" />
-  </Flex>
+    </div>
+    <div
+      className="
+        hidden flex-1 bg-contain bg-top-right bg-no-repeat
+        md:block
+      "
+      style={{ backgroundImage: "url('/imgs/home-intro-block.png')" }}
+    />
+  </div>
 );

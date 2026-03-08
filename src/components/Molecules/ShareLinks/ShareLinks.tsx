@@ -1,11 +1,9 @@
 import React from 'react';
 
-import { Flex, Icon } from '@/components';
-import type { MarginSystemProps } from '@/types';
+import { Icon } from '@/components';
+import { cn } from '@/helpers';
 
-import './ShareLinks.scss';
-
-export interface ShareLinksProps extends MarginSystemProps {
+export interface ShareLinksProps extends React.ComponentPropsWithoutRef<'div'> {
   urlToShare: string;
   shares: {
     twitter?: boolean;
@@ -22,19 +20,15 @@ const objectToGetParams = (object: { [key: string]: string | number | undefined 
   return params.length > 0 ? `?${params.join('&')}` : '';
 };
 
-export const ShareLinks: React.FC<ShareLinksProps> = ({ urlToShare, shares, ...flexProps }) => (
-  <Flex {...flexProps} alignItems="center" gap="xs" className="share-links">
+export const ShareLinks: React.FC<ShareLinksProps> = ({ urlToShare, shares, className, ...props }) => (
+  <div {...props} className={cn('flex items-center gap-xs', className)}>
     {shares.twitter && (
       <a
         href={`https://twitter.com/intent/tweet${objectToGetParams({ url: urlToShare })}`}
         target="_blank"
         rel="noreferrer"
       >
-        <Icon
-          name="twitter"
-          className="share-links__social-media-icon share-links__social-media-icon--twitter"
-          size="36px"
-        />
+        <Icon name="twitter" className="text-black" size="36px" />
       </a>
     )}
     {shares.facebook && (
@@ -43,7 +37,7 @@ export const ShareLinks: React.FC<ShareLinksProps> = ({ urlToShare, shares, ...f
         target="_blank"
         rel="noreferrer"
       >
-        <Icon name="facebook" className="share-links__social-media-icon" size="36px" />
+        <Icon name="facebook" size="36px" />
       </a>
     )}
     {shares.linkedIn && (
@@ -52,8 +46,8 @@ export const ShareLinks: React.FC<ShareLinksProps> = ({ urlToShare, shares, ...f
         target="_blank"
         rel="noreferrer"
       >
-        <Icon name="linkedin" className="share-links__social-media-icon" size="36px" />
+        <Icon name="linkedin" size="36px" />
       </a>
     )}
-  </Flex>
+  </div>
 );

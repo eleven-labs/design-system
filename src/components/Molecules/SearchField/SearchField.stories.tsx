@@ -2,14 +2,10 @@ import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 import { fn } from 'storybook/test';
 
-import { SearchField } from '@/components';
-import { systemPropsControls } from '@/constants/storybook';
+import { SearchField } from './SearchField';
 
 export default {
   component: SearchField,
-  argTypes: {
-    ...systemPropsControls,
-  },
   args: {
     input: {
       placeholder: 'Nom d’article, auteur ...',
@@ -22,14 +18,17 @@ export default {
     },
   },
   parameters: {
-    layout: 'centered',
     backgrounds: {
       default: 'ultra-light-grey',
     },
   },
 } as Meta<typeof SearchField>;
 
-const Template: StoryFn<typeof SearchField> = (args) => <SearchField {...args} />;
+const Template: StoryFn<typeof SearchField> = (args) => (
+  <div className="w-[343px]">
+    <SearchField {...args} className="w-full" />
+  </div>
+);
 
 export const Overview = Template.bind({});
 

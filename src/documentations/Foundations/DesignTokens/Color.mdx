@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { Layout, Table } from '@/storybook/components';
-import { Box, Text } from '@/components';
-import { tokenVariables } from '@/constants';
+import { tokenVariables } from '@/tokens';
 
 <Meta
   title="Foundations/Design Tokens/Color"
@@ -44,16 +43,14 @@ import { tokenVariables } from '@/constants';
     ]}
     rows={Object.entries(tokenVariables.color).map(([tokenName, token]) => ({
       name: (
-        <Text
-          weight="medium"
-        >
+        <span className="font-medium">
           {tokenName}
-        </Text>
+        </span>
       ),
       preview: (
-        <Box
-          bg={tokenName}
+        <div
           style={{
+            backgroundColor: token?.value,
             boxSizing: 'border-box',
             width: '200px',
             height: '50px',

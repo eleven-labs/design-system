@@ -29,9 +29,7 @@ storybook-static
 public/svgs
 src/components/Atoms/Svgs
 src/styles/_token-custom-properties.scss
-src/styles/_token-custom-properties-desktop.scss
-src/styles/abstracts/variables/_token-variables.scss
-src/styles/abstracts/variables/_variables.scss
+src/styles/_token-custom-properties-desktop.css
 src/styles/_fonts.scss
-src/constants/tokenVariables.ts
-src/constants/tokenVariablesDesktop.ts
+src/tokens/tokenVariables.ts
+src/tokens/tokenVariablesDesktop.ts

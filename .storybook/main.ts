@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,6 +29,7 @@ const config: StorybookConfig = {
 
     return mergeConfig(config, {
       plugins: [
+        tailwindcss(),
         {
           name: 'fix-storybook-file-url',
           enforce: 'post' as const,
@@ -50,13 +52,6 @@ const config: StorybookConfig = {
           },
         },
       ],
-      css: {
-        preprocessorOptions: {
-          scss: {
-            api: 'modern-compiler',
-          },
-        },
-      },
       resolve: {
         alias: [
           {
@@ -73,6 +68,9 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true,
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
 };
 export default config;

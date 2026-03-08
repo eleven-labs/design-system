@@ -1,3 +1,3 @@
 import './css/variables';
-import './scss/map-deep-with-css-variables';
+import './css/tailwind-theme';
 import './typescript/object';

@@ -18,8 +18,9 @@
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.cjs"
     },
-    "./style.css": "./dist/style.css",
-    "./scss/abstracts": "./dist/scss/abstracts/_index.scss"
+    "./global.css": "./dist/global.css",
+    "./theme.css": "./dist/theme.css",
+    "./tailwind.css": "./dist/tailwind.css"
   },
   "files": [
     "dist"
@@ -28,23 +29,23 @@
     "prepare": "husky install && pnpm optimize:svgs && pnpm build:icons && pnpm build:design-tokens",
     "optimize:svgs": "svgo --config svgo.config.cjs -f src/assets/svgs -o ./public/svgs",
     "build:icons": "svgr --config-file svgr.config.cjs --typescript -d src/components/Atoms/Svgs public/svgs",
-    "build:design-tokens": "tsx -r dotenv/config bin/build-design-tokens",
-    "build": "vite build",
+    "build:design-tokens": "tsx bin/build-design-tokens",
+    "build": "vite build && node bin/copy-style-assets.js",
     "start:storybook": "storybook dev -p 6009",
     "build:storybook": "storybook build",
-    "lint:style": "stylelint 'src/**/*.scss'",
+    "lint:style": "stylelint 'src/**/*.css'",
     "lint:es": "eslint --ext .ts,.tsx src",
     "lint": "npm run lint:style && npm run lint:es",
-    "test": "vitest --coverage",
-    "test:visual:storybook": "playwright test",
-    "test:visual:storybook:update": "playwright test --update-snapshots",
-    "test:visual:storybook:story": "playwright test --grep @visual-regression"
+    "test": "vitest run --coverage",
+    "test:visual:storybook": "start-server-and-test \"storybook dev -p 6109 --exact-port --no-open\" http://127.0.0.1:6109 \"test-storybook --url http://127.0.0.1:6109 --maxWorkers=1\"",
+    "test:visual:storybook:update": "start-server-and-test \"storybook dev -p 6109 --exact-port --no-open\" http://127.0.0.1:6109 \"test-storybook --url http://127.0.0.1:6109 --maxWorkers=1 -u\"",
+    "test:visual:storybook:story": "start-server-and-test \"storybook dev -p 6109 --exact-port --no-open\" http://127.0.0.1:6109 \"test-storybook --url http://127.0.0.1:6109 --maxWorkers=1\""
   },
   "lint-staged": {
     "*.(ts|tsx)": [
       "eslint --fix"
     ],
-    "*.scss": [
+    "*.css": [
       "stylelint --fix"
     ]
   },
@@ -61,16 +62,19 @@
   },
   "prettier": "@eleven-labs/prettier-config",
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
     "autosuggest-highlight": "^3.3.4",
+    "class-variance-authority": "^0.7.1",
     "classnames": "^2.3.2",
     "copy-to-clipboard": "^3.3.3",
     "downshift": "^8.3.1",
-    "react-polymorphed": "^2.2.1",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "tailwind-merge": "^3.5.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
@@ -82,40 +86,49 @@
     "@storybook/addon-links": "^10.0.0",
     "@storybook/react": "^10.0.0",
     "@storybook/react-vite": "^10.0.0",
+    "@storybook/test-runner": "^0.24.2",
     "@svgr/cli": "^8.0.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.2.0",
-    "@testing-library/react": "^14.1.2",
+    "@testing-library/react": "^16.3.2",
     "@types/autosuggest-highlight": "^3.2.0",
-    "@types/react": "^18.2.13",
-    "@types/react-dom": "^18.2.6",
+    "@types/jest-image-snapshot": "^6.4.1",
+    "@types/node": "^25.3.5",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@types/react-syntax-highlighter": "^15.5.7",
-    "@vitejs/plugin-react": "^4.0.1",
-    "@vitest/coverage-v8": "^1.1.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "autoprefixer": "^10.4.14",
+    "deep-equal": "^2.2.3",
     "eslint": "^8.52.0",
+    "eslint-plugin-better-tailwindcss": "^4.3.2",
     "husky": "^8.0.3",
+    "is-arguments": "^1.2.0",
+    "jest-image-snapshot": "^6.5.2",
     "jsdom": "^23.2.0",
     "lint-staged": "^13.2.2",
+    "object-is": "^1.1.6",
     "postcss": "^8.4.24",
     "postcss-normalize": "^10.0.1",
-    "postcss-scss": "^4.0.6",
     "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-visualizer": "^5.9.2",
-    "sass": "^1.69.7",
+    "start-server-and-test": "^2.1.5",
     "storybook": "^10.0.0",
     "style-dictionary": "^3.8.0",
     "stylelint": "^15.8.0",
-    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "svgo": "^3.0.2",
+    "tailwindcss": "^4.2.1",
     "tsx": "^4.7.0",
-    "typescript": "^4.9.5",
-    "vite": "^5.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
     "vite-plugin-dts": "^4.0.0",
-    "vite-plugin-static-copy": "^3.0.0",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "^1.1.3"
+    "vitest": "^4.0.18"
   }
 }
