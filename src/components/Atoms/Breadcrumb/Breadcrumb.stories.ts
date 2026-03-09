@@ -1,14 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { marginSystemPropsControls } from '@/constants/storybook';
-
 import { Breadcrumb } from './Breadcrumb';
 
 const meta: Meta<typeof Breadcrumb> = {
   component: Breadcrumb,
-  argTypes: {
-    ...marginSystemPropsControls,
-  },
   args: {
     items: [
       {
@@ -19,9 +14,6 @@ const meta: Meta<typeof Breadcrumb> = {
         label: 'JavaScript',
       },
     ],
-  },
-  parameters: {
-    layout: 'centered',
   },
 };
 

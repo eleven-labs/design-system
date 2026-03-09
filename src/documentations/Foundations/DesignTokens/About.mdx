@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Design Tokens/About" />
+
+# Design Tokens
+
+Design tokens are the abstract concepts our system is built on: color, spacing, typography and the like.
+
+They are represented as data, in our case JSON, and are used instead of hard-coded values to ensure consistency across the system.
+
+The editable token source lives in `src/designTokens`. We keep **Style Dictionary** to generate the artifacts consumed by the library:
+
+- CSS custom properties
+- Tailwind v4 theme mapping
+- TypeScript token objects
+
+## Directory and file architecture of the Design Tokens
+
+```text
+design_system
+└───src
+│   └───designTokens
+│   │   └───asset
+│   │   └───typography
+│   │   └───breakpoint.tokens.json
+│   │   └───color.tokens.json
+│   │   └───spacing.tokens.json
+│   └───styles
+│   │   └───_token-custom-properties.css
+│   │   └───_token-custom-properties-desktop.css
+│   │   └───_tailwind-theme.css
+│   │   └───theme.css
+│   │   └───tailwind.css
+│   └───tokens
+│   │   └───tokenVariables.ts
+│   │   └───tokenVariablesDesktop.ts
+```
+
+`src/designTokens` contains the editable token source.
+
+`pnpm build:design-tokens` generates the token artifacts consumed by the library.
+
+`src/styles/_token-custom-properties.css`, `src/styles/_token-custom-properties-desktop.css` and `src/styles/_tailwind-theme.css` contain the committed CSS artifacts used at runtime.
+
+`src/styles/theme.css` exposes the generated token variables and Tailwind theme mapping.
+
+`src/styles/tailwind.css` is the raw Tailwind entry that must be compiled by the consuming application so its own sources and the design system sources can be scanned together.
+
+`src/tokens` contains the committed generated TypeScript token objects.
+
+`src/tokens.ts` contains the runtime token helpers, derived lists and token-derived types used by the library, hooks and Storybook documentation.
+
+Legacy Sass token outputs and Sass utility layers are no longer generated.

@@ -1,14 +1,13 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { Icon } from '@/components';
-import { iconTokenNameList } from '@/constants';
-import { marginSystemPropsControls } from '@/constants/storybook';
+import { iconTokenNameList } from '@/tokens';
+
+import { Icon } from './Icon';
 
 export default {
   component: Icon,
   argTypes: {
-    ...marginSystemPropsControls,
     name: {
       control: 'select',
       options: iconTokenNameList,
@@ -21,9 +20,6 @@ export default {
     size: '10rem',
     color: 'primary',
     name: 'access-time',
-  },
-  parameters: {
-    layout: 'centered',
   },
 } as Meta<typeof Icon>;
 

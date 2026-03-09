@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Layout, Table } from '@/storybook/components';
+import { tokenVariables } from '@/tokens';
+
+<Meta
+    title="Foundations/Design Tokens/Typography/FontWeight"
+    parameters={{
+        viewMode: 'docs',
+        previewTabs: {
+            canvas: { hidden: true }
+        },
+        backgrounds: {
+            disable: true,
+            grid: {
+                disable: true,
+            }
+        },
+    }}
+/>
+
+<Layout
+    title="Typography"
+    description="Font weight token scales"
+>
+    <Table
+        title="Font Weight"
+        columns={[
+            {
+                name: 'name',
+                label: 'Name',
+            },
+            {
+                name: 'value',
+                label: 'Value',
+            },
+        ]}
+        rows={Object.entries(tokenVariables['font-weight']).map(([tokenName, token]) => ({
+            name: (
+                <span className="font-medium">{tokenName}</span>
+            ),
+            value: token.value,
+        }))}
+    />
+</Layout>

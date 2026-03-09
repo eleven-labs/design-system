@@ -1,32 +1,36 @@
-import classNames from 'classnames';
+'use client';
+
 import React, { Fragment } from 'react';
 
-import type { BoxProps } from '@/components';
-import { Box, Flex, Icon } from '@/components';
+import { Icon } from '@/components';
+import { cn } from '@/helpers';
 import { DOTS, usePagination } from '@/hooks/usePagination';
-import type { ComponentPropsWithoutRef, SpacingSystemProps } from '@/types';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-import './Pagination.scss';
-
-export interface PaginationProps extends SpacingSystemProps {
+export interface PaginationProps extends React.ComponentPropsWithoutRef<'nav'> {
   currentPage: number;
   totalPages: number;
   getLink: (page: number) => ComponentPropsWithoutRef<'a'>;
   siblingCount?: number;
 }
 
+const paginationItemClassName =
+  'flex size-12 items-center justify-center border-y border-r border-secondary-dark text-primary-dark';
+
 const getPaginationItem = (options: {
   currentPage: number;
   getLink: (currentPage: number) => ComponentPropsWithoutRef<'a'>;
   disabled?: boolean;
   active?: boolean;
-}): BoxProps => ({
-  ...(options.disabled ? { as: 'span' } : { as: 'a', ...options.getLink(options.currentPage) }),
-  className: classNames(
-    'pagination__item',
-    { 'pagination__item--disabled': options.disabled },
-    { 'pagination__item--active': options.active }
-  ),
+}): {
+  element: 'a' | 'span';
+  props: React.HTMLAttributes<HTMLSpanElement> | ComponentPropsWithoutRef<'a'>;
+} => ({
+  element: options.disabled ? 'span' : 'a',
+  props: {
+    ...(options.disabled ? {} : options.getLink(options.currentPage)),
+    className: cn(paginationItemClassName, options.disabled && 'text-grey', options.active && 'text-info'),
+  },
 });
 
 export const Pagination: React.FC<PaginationProps> = ({
@@ -34,45 +38,43 @@ export const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   getLink,
   siblingCount = 0,
+  className,
   ...props
 }) => {
   const pagination = usePagination({ currentPage, totalPages, siblingCount });
+  const previousPageItem = getPaginationItem({
+    currentPage,
+    disabled: currentPage === 1,
+    getLink,
+  });
+  const nextPageItem = getPaginationItem({
+    currentPage: currentPage + 1,
+    disabled: currentPage === totalPages,
+    getLink,
+  });
+
   return (
-    <Flex {...props} className="pagination">
-      <Box
-        {...getPaginationItem({
-          currentPage: currentPage,
-          disabled: currentPage === 1,
-          getLink,
-        })}
-      >
-        <Icon name="arrow" />
-      </Box>
+    <nav {...props} className={cn('flex', className)}>
+      {React.createElement(
+        previousPageItem.element,
+        { ...previousPageItem.props, className: cn('border-l', previousPageItem.props.className) },
+        <Icon name="arrow" style={{ transform: 'rotate(180deg)' }} />
+      )}
       {pagination.map((page: number, index: number) => (
         <Fragment key={index}>
-          {page === DOTS && <Box className={classNames('pagination__item')}>...</Box>}
-          {page !== DOTS && (
-            <Box
-              {...getPaginationItem({
+          {page === DOTS && <span className={paginationItemClassName}>...</span>}
+          {page !== DOTS &&
+            (() => {
+              const item = getPaginationItem({
                 currentPage: page,
                 active: currentPage === page,
                 getLink,
-              })}
-            >
-              {page}
-            </Box>
-          )}
+              });
+              return React.createElement(item.element, item.props, page);
+            })()}
         </Fragment>
       ))}
-      <Box
-        {...getPaginationItem({
-          currentPage: currentPage + 1,
-          disabled: currentPage === totalPages,
-          getLink,
-        })}
-      >
-        <Icon name="arrow" />
-      </Box>
-    </Flex>
+      {React.createElement(nextPageItem.element, nextPageItem.props, <Icon name="arrow" />)}
+    </nav>
   );
 };

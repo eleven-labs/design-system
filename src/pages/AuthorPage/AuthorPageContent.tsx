@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { Box, Divider, Flex, Icon, Link, Text } from '@/components';
-
-import './AuthorPage.scss';
+import { Divider, Icon, Link } from '@/components';
 
 export type SocialNetworkName = 'github' | 'twitter' | 'linkedin';
 
@@ -24,53 +22,48 @@ export type AuthorPageContentProps = {
 
 export const AuthorPageContent: React.FC<AuthorPageContentProps> = ({ author, title, postCardList }) => (
   <>
-    <Flex
-      flexDirection={{ xs: 'column', md: 'row' }}
-      justifyContent="center"
-      alignItems="center"
-      textAlign={{ xs: 'center', md: 'left' }}
+    <div
+      className="
+        flex flex-col items-center justify-center text-center
+        md:flex-row md:text-left
+      "
     >
       {author.avatarImageUrl ? (
-        <img src={author.avatarImageUrl} alt={author.name} className="author-page__avatar-img" />
+        <img src={author.avatarImageUrl} alt={author.name} className="size-[120px] rounded-full object-cover" />
       ) : (
-        <div className="author-page__avatar-img author-page__avatar-img--empty" />
+        <div
+          className="size-[120px] rounded-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/imgs/astronaut.png')" }}
+        />
       )}
-      <Box mt="s" ml="s">
-        <Text size="m" fontWeight="medium" color="info">
-          {author.name}
-        </Text>
-        <Box>{author.content}</Box>
+      <div className="mt-s ml-s">
+        <p className="typography-text-m font-medium text-info">{author.name}</p>
+        <div>{author.content}</div>
         {author.socialNetworks && (
-          <Flex
-            flexDirection={{ xs: 'column', sm: 'row' }}
-            mt="s"
-            alignItems="center"
-            justifyContent={{ xs: 'center', md: 'start' }}
-            className="author-page__social_networks"
+          <div
+            className="
+              author-page__social_networks mt-s flex flex-col items-center
+              sm:flex-row
+              md:justify-start
+            "
           >
             {author.socialNetworks.map((socialNetwork, index) => (
               <React.Fragment key={socialNetwork.name}>
-                <Text>
+                <div className="flex gap-1">
                   <Icon name={socialNetwork.name} size="24px" />{' '}
                   <Link href={socialNetwork.url} target="_blank">
                     {socialNetwork.username}
                   </Link>
-                </Text>
-                {index !== (author.socialNetworks?.length ?? 0) - 1 && (
-                  <Text as="span" mx="xxs">
-                    •
-                  </Text>
-                )}
+                </div>
+                {index !== (author.socialNetworks?.length ?? 0) - 1 && <span className="mx-xxs">•</span>}
               </React.Fragment>
             ))}
-          </Flex>
+          </div>
         )}
-      </Box>
-    </Flex>
-    <Divider className="author-page__divider" />
-    <Text size="m" fontWeight="medium">
-      {title}
-    </Text>
+      </div>
+    </div>
+    <Divider />
+    <p className="typography-text-m font-medium">{title}</p>
     {postCardList}
   </>
 );

@@ -2,10 +2,9 @@ import classNames from 'classnames';
 import React from 'react';
 
 import type { AutocompleteProps } from '@/components';
-import { Autocomplete, Box, BurgerButton, Button, CloseButton, Flex, Link, Logo } from '@/components';
-import type { ComponentPropsWithoutRef } from '@/types';
-
-import './Header.scss';
+import { Autocomplete, BurgerButton, Button, CloseButton, Link, Logo } from '@/components';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
 export interface HeaderProps {
   homeLink: ComponentPropsWithoutRef<'a'>;
@@ -30,35 +29,79 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleMenu,
   menuIsOpen = false,
 }) => (
-  <Flex as="header" justifyContent="between" alignItems="center" bg="white" p="m" className="header">
-    <Box as="a" {...homeLink} color="primary">
-      <Logo name="blog" className="header__logo" />
-    </Box>
-    <Box className={classNames('header__menu', { 'header__menu--is-open': menuIsOpen })}>
+  <header
+    className="
+      relative flex items-center justify-between border-b
+      border-ultra-light-grey bg-white px-m py-l
+      md:[--header-logo-size:3.5rem]
+    "
+  >
+    <a {...homeLink} className="text-primary">
+      <Logo name="blog" className="text-(--header-logo-size,2rem)" />
+    </a>
+    <div
+      className={cn(
+        `
+          hidden font-heading font-bold tracking-[0.5px] uppercase
+          md:mx-xs md:flex md:gap-m
+          lg:mx-0 lg:gap-xl
+        `,
+        `
+          max-md:fixed max-md:inset-x-0 max-md:top-[80px] max-md:bottom-0
+          max-md:z-10 max-md:flex-col max-md:border-t
+          max-md:border-secondary-dark max-md:bg-white
+        `,
+        menuIsOpen && 'max-md:flex'
+      )}
+    >
       {categories.map(({ label, ...categoryLink }, index) => (
-        <Link as="a" key={index} {...categoryLink} data-internal-link="category" className="header__menu-item">
+        <Link
+          key={index}
+          {...categoryLink}
+          data-internal-link="category"
+          className="
+            self-center font-bold text-info no-underline
+            hover:text-primary hover:no-underline
+            max-md:border-b max-md:border-secondary-dark max-md:px-m
+            max-md:py-xs
+          "
+        >
           {label}
         </Link>
       ))}
       {hasTutorial && (
         <>
-          <Box className="header__separator" />
-          <Box as="a" {...tutorialLink} data-internal-link="category" className="header__menu-item">
+          <div className="w-px bg-primary" />
+          <a
+            {...tutorialLink}
+            data-internal-link="category"
+            className="
+              self-center font-bold text-info no-underline
+              hover:text-primary hover:no-underline
+              max-md:border-b max-md:border-secondary-dark max-md:px-m
+              max-md:py-xs
+            "
+          >
             {tutorialLinkLabel}
-          </Box>
+          </a>
         </>
       )}
-      <Flex justifyContent="center" alignItems="center" mt="m" hiddenAbove="md">
-        <Button as="a" {...contactLink}>
-          {contactLinkLabel}
+      <div
+        className="
+          mt-m flex items-center justify-center
+          md:hidden
+        "
+      >
+        <Button asChild>
+          <a {...contactLink}>{contactLinkLabel}</a>
         </Button>
-      </Flex>
-    </Box>
-    <Autocomplete hiddenBelow="md" {...autocomplete} />
+      </div>
+    </div>
+    <Autocomplete {...autocomplete} className={classNames('hidden md:block', autocomplete.className)} />
     {menuIsOpen ? (
-      <CloseButton hiddenAbove="md" onClick={onToggleMenu} />
+      <CloseButton className="md:hidden" onClick={onToggleMenu} />
     ) : (
-      <BurgerButton hiddenAbove="md" onClick={onToggleMenu} />
+      <BurgerButton className="md:hidden" onClick={onToggleMenu} />
     )}
-  </Flex>
+  </header>
 );

@@ -12,9 +12,6 @@ const meta: Meta<typeof Pagination> = {
       href: `#pagination?page=${page}`,
     }),
   },
-  parameters: {
-    layout: 'centered',
-  },
 };
 
 export default meta;

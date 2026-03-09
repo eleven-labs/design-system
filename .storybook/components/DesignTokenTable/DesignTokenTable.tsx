@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Text } from '@/components';
-
 import { Table } from '../Table';
 
 export interface DesignTokenTableProps {
@@ -24,7 +22,7 @@ export const DesignTokenTable: React.FC<DesignTokenTableProps> = ({ title, token
         },
       ]}
       rows={Object.entries(tokenVariables).map(([tokenName, token]) => ({
-        name: <Text fontWeight="medium">{tokenName}</Text>,
+        name: <span className="font-medium">{tokenName}</span>,
         value: token.value,
       }))}
     />

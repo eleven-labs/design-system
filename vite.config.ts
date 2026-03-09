@@ -4,7 +4,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 import packageJson from './package.json';
@@ -14,13 +13,19 @@ export default defineConfig({
     peerDepsExternal(),
     react(),
     tsconfigPaths(),
-    dts({ insertTypesEntry: true }),
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'src/styles/abstracts',
-          dest: 'scss',
-        },
+    dts({
+      tsconfigPath: './tsconfig.build.json',
+      include: ['src'],
+      exclude: [
+        'src/**/*.stories.ts',
+        'src/**/*.stories.tsx',
+        'src/**/*.test.ts',
+        'src/**/*.test.tsx',
+        'src/**/*.spec.ts',
+        'src/**/*.spec.tsx',
+        'src/documentations/**',
+        '__tests__/**',
+        '.storybook/**',
       ],
     }),
     visualizer({ filename: `reports/bundle-stats.html`, gzipSize: true }),

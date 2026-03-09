@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Text } from '@/components';
-
 import { ContactCard } from './ContactCard';
 
 const meta: Meta<typeof ContactCard> = {
@@ -11,9 +9,7 @@ const meta: Meta<typeof ContactCard> = {
     title: (
       <>
         Vous souhaitez en savoir plus sur le sujet ?<br />
-        <Text as="span" fontWeight="bold">
-          Organisons un échange !
-        </Text>
+        <span className="font-bold">Organisons un échange !</span>
       </>
     ),
     description: "Notre équipe d'experts répond à toutes vos questions.",

@@ -1,9 +1,7 @@
 import React from 'react';
 
 import type { FooterProps } from '@/components';
-import { Flex, Footer } from '@/components';
-
-import './LayoutTemplate.scss';
+import { Footer } from '@/components';
 
 export type LayoutTemplateProps = {
   header: React.ReactNode;
@@ -12,9 +10,9 @@ export type LayoutTemplateProps = {
 };
 
 export const LayoutTemplate: React.FC<LayoutTemplateProps> = ({ header, footer, children }) => (
-  <Flex flexDirection="column" className="layout-template">
+  <div className="flex min-h-(--height-screen) flex-col">
     {header}
     {children}
     <Footer {...footer} />
-  </Flex>
+  </div>
 );

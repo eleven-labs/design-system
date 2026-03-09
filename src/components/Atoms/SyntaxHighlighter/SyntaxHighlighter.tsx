@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import type { SyntaxHighlighterProps as SyntaxHighlighterBaseProps } from 'react-syntax-highlighter';
 import { Light as SyntaxHighlighterBase } from 'react-syntax-highlighter';
@@ -12,9 +13,9 @@ import typescript from 'react-syntax-highlighter/dist/esm/languages/hljs/typescr
 import xml from 'react-syntax-highlighter/dist/esm/languages/hljs/xml';
 import yaml from 'react-syntax-highlighter/dist/esm/languages/hljs/yaml';
 
-import type { MarginSystemProps } from '@/types';
-
-export type SyntaxHighlighterProps = MarginSystemProps & Pick<SyntaxHighlighterBaseProps, 'language' | 'children'>;
+export type SyntaxHighlighterProps = Pick<SyntaxHighlighterBaseProps, 'language' | 'children'> & {
+  className?: string;
+};
 
 SyntaxHighlighterBase.registerLanguage('sh', shell);
 SyntaxHighlighterBase.registerLanguage('shell', shell);
@@ -31,11 +32,12 @@ SyntaxHighlighterBase.registerLanguage('javascript', js);
 SyntaxHighlighterBase.registerLanguage('ts', typescript);
 SyntaxHighlighterBase.registerLanguage('typescript', typescript);
 
-export const SyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({ language, children, ...props }) => (
+export const SyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({ language, children, className, ...props }) => (
   <SyntaxHighlighterBase
     {...props}
     language={language}
     style={githubGist}
+    className={classNames('my-m', className)}
     customStyle={{
       padding: 'var(--spacing-s)',
       borderRadius: '4px',

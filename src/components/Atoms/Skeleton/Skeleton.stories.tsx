@@ -1,20 +1,13 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { Skeleton, Text } from '@/components';
-import { marginSystemPropsControls } from '@/constants/storybook';
+import { Skeleton } from './Skeleton';
 
 export default {
   component: Skeleton,
-  argTypes: {
-    ...marginSystemPropsControls,
-  },
   args: {
     isLoading: true,
-    children: <Text>Hello world !</Text>,
-  },
-  parameters: {
-    layout: 'centered',
+    children: <p>Hello world !</p>,
   },
 } as Meta<typeof Skeleton>;
 

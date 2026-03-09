@@ -1,36 +1,39 @@
+'use client';
+
+import { Slot } from '@radix-ui/react-slot';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import * as React from 'react';
 
-import type { TextProps } from '@/components';
-import { Text } from '@/components';
-import { polyRef } from '@/helpers/polyRef';
+import { cn } from '@/helpers';
+import type { TextSizeType } from '@/tokens';
 
-export interface TextHighlightProps extends TextProps {
+export interface TextHighlightProps extends React.HTMLAttributes<HTMLSpanElement> {
+  asChild?: boolean;
+  size?: TextSizeType;
   text: string;
   textQuery?: string;
 }
 
-export const TextHighlight = polyRef<'p', TextHighlightProps>(({ text, textQuery = '', ...props }, ref) => {
-  const parts = React.useMemo(() => {
-    const matches = match(text, textQuery, { findAllOccurrences: true });
-    return parse(text, matches);
-  }, [text, textQuery]);
+export const TextHighlight = React.forwardRef<HTMLSpanElement, TextHighlightProps>(
+  ({ asChild = false, text, textQuery = '', size, className, ...props }, ref) => {
+    const parts = React.useMemo(() => {
+      const matches = match(text, textQuery, { findAllOccurrences: true });
+      return parse(text, matches);
+    }, [text, textQuery]);
 
-  return (
-    <Text {...props} ref={ref}>
-      {parts.map((part, index) => (
-        <Text
-          as="span"
-          key={index}
-          fontWeight={part.highlight ? 'medium' : 'regular'}
-          color={part.highlight ? 'info' : 'black'}
-        >
-          {part.text}
-        </Text>
-      ))}
-    </Text>
-  );
-});
+    const Comp = asChild ? Slot : 'span';
+
+    return (
+      <Comp {...props} ref={ref} className={cn(size && `text-${size}`, className)}>
+        {parts.map((part, index) => (
+          <span key={index} className={cn(part.highlight ? 'font-medium text-info' : 'font-normal text-black')}>
+            {part.text}
+          </span>
+        ))}
+      </Comp>
+    );
+  }
+);
 
 TextHighlight.displayName = 'TextHighlight';

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import type { BoxProps } from '@/components';
-import { Box, Button, Text } from '@/components';
-import type { ComponentPropsWithoutRef } from '@/types';
+import { Button } from '@/components';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-export interface CategoryEndingBlockProps extends BoxProps {
+export interface CategoryEndingBlockProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   title: React.ReactNode;
   description: React.ReactNode;
   expertiseLink?: { label: string } & ComponentPropsWithoutRef<'a'>;
@@ -14,17 +14,16 @@ export const CategoryEndingBlock: React.FC<CategoryEndingBlockProps> = ({
   title,
   description,
   expertiseLink: { label: expertiseLinkLabel, ...expertiseLink } = {},
+  className,
   ...props
 }) => (
-  <Box {...props}>
-    <Text size="m" fontWeight="bold">
-      {title}
-    </Text>
-    <Text mt="m">{description}</Text>
+  <div {...props} className={cn(className)}>
+    <p className="typography-text-m font-bold">{title}</p>
+    <p className="mt-m">{description}</p>
     {expertiseLinkLabel && (
-      <Button as="a" mt="l" {...expertiseLink}>
-        {expertiseLinkLabel}
+      <Button asChild className="mt-l">
+        <a {...expertiseLink}>{expertiseLinkLabel}</a>
       </Button>
     )}
-  </Box>
+  </div>
 );

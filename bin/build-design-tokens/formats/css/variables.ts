@@ -2,9 +2,10 @@ import StyleDictionary from 'style-dictionary';
 
 StyleDictionary.registerFormat({
   name: 'css/variables',
-  formatter: ({ dictionary, file, options = {}  }) => {
+  formatter: ({ dictionary, file, options = {} }) => {
     let output = '';
-    if (options?.showFileHeader !== false) {
+
+    if (options.showFileHeader !== false) {
       output += StyleDictionary.formatHelpers.fileHeader({ file });
     }
 
@@ -15,24 +16,18 @@ StyleDictionary.registerFormat({
       formatting: {
         prefix: '--',
         indentation: '\t\t',
-        separator: ':'
-      }
+        separator: ':',
+      },
     });
 
-    if (options.mediaQuery) {
-      output += `@use './abstracts' as *;\n\n`;
+    const rootBlock = [options.selector ?? ':root', '{', variables, '}'].join('\n');
+
+    if (options.mediaQueryMinWidth) {
+      output += `@media (min-width: ${options.mediaQueryMinWidth}px) {\n${rootBlock}\n}\n`;
+      return output;
     }
 
-    output += [
-      `${options.selector ? options.selector : `:root`} {`,
-      options.mediaQuery ? [
-        `\t@include create-media-queries('${options.mediaQuery}') {`,
-        variables,
-        `\t}`,
-      ].join('\n') : variables,
-      '}'
-    ].join('\n');
-
+    output += `${rootBlock}\n`;
     return output;
   },
 });

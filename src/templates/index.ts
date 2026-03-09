@@ -1,2 +1,2 @@
-export * from './LayoutTemplate';
 export * from './LayoutContentWithSidebar';
+export * from './LayoutTemplate';

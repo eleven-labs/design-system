@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type { PaginationProps, PostCardProps } from '@/components';
-import { Flex, Pagination, PostCard } from '@/components';
+import { Pagination, PostCard } from '@/components';
 
 export interface PostCardListProps {
   posts: Partial<PostCardProps>[];
@@ -11,13 +11,13 @@ export interface PostCardListProps {
 
 export const PostCardList: React.FC<PostCardListProps> = ({ posts, pagination, isLoading = false }) => (
   <>
-    <Flex flexDirection="column" gap="m">
+    <div className="flex min-w-0 flex-col gap-m">
       {posts.map((post, index) => (
         <React.Fragment key={post?.slug ?? index}>
           <PostCard {...(post || {})} isLoading={isLoading} />
         </React.Fragment>
       ))}
-      {pagination && pagination?.totalPages > 1 && <Pagination mx="auto" {...pagination} />}
-    </Flex>
+      {pagination && pagination?.totalPages > 1 && <Pagination className="mx-auto" {...pagination} />}
+    </div>
   </>
 );

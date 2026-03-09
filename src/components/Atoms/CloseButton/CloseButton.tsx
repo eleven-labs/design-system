@@ -1,28 +1,42 @@
-import classNames from 'classnames';
 import React from 'react';
 
-import type { FlexProps } from '@/components';
-import { Box, Flex } from '@/components';
-import type { ComponentPropsWithoutRef } from '@/types';
-
-import './CloseButton.scss';
+import { cn } from '@/helpers';
 
 export const closeButtonVariant = ['primary', 'secondary'] as const;
 export type CloseButtonVariantType = (typeof closeButtonVariant)[number];
 
-export interface CloseButtonProps extends FlexProps, ComponentPropsWithoutRef<'button'> {
+export interface CloseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: CloseButtonVariantType;
 }
 
-export const CloseButton: React.FC<CloseButtonProps> = ({ variant, ...props }) => (
-  <Flex
-    as="button"
+const variantClassName: Record<CloseButtonVariantType, string> = {
+  primary: 'size-[30px] text-primary',
+  secondary: 'size-[20px] text-grey',
+};
+
+export const CloseButton: React.FC<CloseButtonProps> = ({ variant = 'primary', ...props }) => (
+  <button
     {...props}
-    flexDirection="column"
-    gap="xxs"
-    className={classNames('close-button', { [`close-button--${variant}`]: variant })}
+    className={cn(
+      `
+        relative inline-flex items-center justify-center border-none
+        bg-transparent p-0
+      `,
+      variantClassName[variant],
+      props.className
+    )}
   >
-    <Box className="close-button__line close-button__line--horizontal" />
-    <Box className="close-button__line close-button__line--vertical" />
-  </Flex>
+    <span
+      className="
+        absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 rotate-45
+        bg-current
+      "
+    />
+    <span
+      className="
+        absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 -rotate-45
+        bg-current
+      "
+    />
+  </button>
 );

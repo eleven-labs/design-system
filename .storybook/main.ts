@@ -1,23 +1,20 @@
+import tailwindcss from '@tailwindcss/vite';
 import type { StorybookConfig } from '@storybook/react-vite';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { mergeConfig } from 'vite';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-links',
-    '@storybook/addon-mdx-gfm'
+    '@storybook/addon-docs',
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
-  },
-  core: {},
-  features: {
-    storyStoreV7: true,
   },
   viteFinal: (config, { configType }) => {
     if (configType === 'PRODUCTION') {
@@ -31,6 +28,30 @@ const config: StorybookConfig = {
     }
 
     return mergeConfig(config, {
+      plugins: [
+        tailwindcss(),
+        {
+          name: 'fix-storybook-file-url',
+          enforce: 'post' as const,
+          resolveId(id: string) {
+            if (id.startsWith('file:///')) {
+              return { id: id.slice('file://'.length), external: false };
+            }
+            if (id.startsWith('file://./')) {
+              return { id: resolve(process.cwd(), id.slice('file://./'.length)), external: false };
+            }
+          },
+          transform(code: string) {
+            if (!code.includes('file://')) return null;
+            const cwd = process.cwd();
+            const fixed = code
+              .replace(/(['"])file:\/\/\//g, '$1/')
+              .replace(/(['"])file:\/\/\.\//g, `$1${cwd}/`);
+            if (fixed === code) return null;
+            return { code: fixed, map: null };
+          },
+        },
+      ],
       resolve: {
         alias: [
           {
@@ -47,6 +68,9 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true,
+  },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
   },
 };
 export default config;

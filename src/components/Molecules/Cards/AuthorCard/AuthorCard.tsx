@@ -1,12 +1,10 @@
 import React from 'react';
 
-import type { FlexProps } from '@/components';
-import { Box, Flex, Link, Text } from '@/components';
-import type { ComponentPropsWithoutRef } from '@/types';
+import { Link } from '@/components';
+import { cn } from '@/helpers';
+import type { ComponentPropsWithoutRef } from '@/tokens';
 
-import './AuthorCard.scss';
-
-export interface AuthorCardProps extends FlexProps {
+export interface AuthorCardProps extends React.ComponentPropsWithoutRef<'div'> {
   name: string;
   description: React.ReactNode;
   avatarImageUrl?: string;
@@ -20,36 +18,39 @@ export const AuthorCard: React.FC<AuthorCardProps> = ({
   link: { label: linkLabel, ...link },
   ...props
 }) => (
-  <Flex {...props} alignItems="center" gap="s" px="s" py="m" bg="white" className="author-card">
+  <div {...props} className={cn('relative flex items-center gap-s rounded-xs bg-white px-s py-m', props.className)}>
     {avatarImageUrl ? (
-      <img src={avatarImageUrl} alt={name} className="author-card__avatar-img" />
+      <img src={avatarImageUrl} alt={name} className="size-[72px] rounded-[50px]" />
     ) : (
-      <div className="author-card__avatar-img author-card__avatar-img--empty" />
+      <div
+        className="
+          size-[72px] rounded-[50px] bg-[url('/imgs/astronaut.png')] bg-cover
+          bg-no-repeat
+        "
+      />
     )}
-    <Flex
-      flexDirection={{ xs: 'column', md: 'row' }}
-      flex="1"
-      justifyContent="between"
-      alignItems={{ xs: 'start', md: 'center' }}
-      gap="s"
+    <div
+      className="
+        flex min-w-0 flex-1 flex-col items-start justify-between gap-s
+        md:flex-row md:items-center
+      "
     >
-      <Box>
-        <Text color="primary" size="m" fontWeight="semi-bold">
-          {name}
-        </Text>
-        <Text as="div" size="xs" mt="xxs-3" italic>
-          {description}
-        </Text>
-      </Box>
+      <div className="min-w-0">
+        <p className="typography-text-m font-semibold text-primary">{name}</p>
+        <div className="mt-xxs-3 min-w-0 typography-text-xs italic">{description}</div>
+      </div>
       <Link
         {...link}
-        px={{ xs: '0', md: 'm' }}
-        textTransform="uppercase"
         data-internal-link="author"
-        className="author-card__link"
+        className="
+          relative shrink-0 font-heading tracking-[1px] uppercase
+          before:absolute before:top-0 before:left-0 before:z-1 before:block
+          before:size-full before:content-['']
+          md:px-m
+        "
       >
         {linkLabel}
       </Link>
-    </Flex>
-  </Flex>
+    </div>
+  </div>
 );
