@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import refractor from 'refractor/core';
 
 import { SyntaxHighlighter } from './SyntaxHighlighter';
 
@@ -78,6 +79,12 @@ describe('SyntaxHighlighter', () => {
     const { container } = render(<SyntaxHighlighter language="rust">{'fn main() { let a = 1; }'}</SyntaxHighlighter>);
 
     expect(container.querySelectorAll('span[style*="color"]')).toHaveLength(0);
+  });
+
+  it('leaves the prism automatic browser highlighting disarmed', () => {
+    // Armed, prism rewrites every `code[class*="language-"]` of the host page on DOMContentLoaded,
+    // replacing the server rendered snippets with `[object Object],[object Object],…`.
+    expect((Object.getPrototypeOf(refractor) as { manual: boolean }).manual).toBe(true);
   });
 
   it('highlights an http request line written without its version', () => {
