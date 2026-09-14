@@ -35,6 +35,7 @@ import SyntaxHighlighterBase from 'react-syntax-highlighter/dist/esm/prism-light
 
 import type { MarginSystemProps } from '@/types';
 
+import './disablePrismAutoHighlight';
 import { githubGistTheme } from './githubGistTheme';
 import { httpLanguage } from './httpLanguage';
 

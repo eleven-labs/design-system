@@ -21,3 +21,8 @@ declare module 'react-syntax-highlighter/dist/esm/languages/prism/uri' {
   const language: unknown;
   export default language;
 }
+
+declare module 'refractor/core' {
+  const refractor: unknown;
+  export default refractor;
+}
