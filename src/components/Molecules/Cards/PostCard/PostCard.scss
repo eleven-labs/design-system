@@ -1,111 +1,62 @@
 @use '@/styles/abstracts' as *;
 
-@mixin cover-image-square($isDesktop: false) {
-  $size: var(--cover-size-square-mobile-post-card);
-  $margin: #{map-get-strict($token-variables, 'spacing', 's')} #{map-get-strict($token-variables, 'spacing', 's')} 0 0;
-  $border-radius: #{map-get-strict($token-variables, 'radius', 's')};
-
-  @if $isDesktop {
-    $margin: 0;
-    $size: var(--cover-size-square-desktop-post-card);
-    $border-radius: #{map-get-strict($token-variables, 'radius', 's')} 0 0 #{map-get-strict($token-variables, 'radius', 's')};
-  }
-
-  margin: $margin;
-  width: $size;
-  height: $size;
-  border-radius: $border-radius;
-}
-
-@mixin cover-image-horizontal($height) {
-  margin: 0;
-  width: 100%;
-  height: $height;
-  border-radius: 0;
-}
-
 .post-card {
   $this: &;
 
   --background-color-post-card: white;
-  --cover-size-square-mobile-post-card: 67px;
-  --cover-size-square-desktop-post-card: 190px;
-  --cover-height-horizontal-mobile-post-card: 130px;
-  --cover-height-horizontal-medium-desktop-post-card: 175px;
-  --cover-height-horizontal-large-desktop-post-card: 245px;
-  --max-height-post-card: auto;
-
+  --cover-width-post-card: 100%;
 
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: #{map-get-strict($token-variables, 'spacing', 's')};
+  padding: #{map-get-strict($token-variables, 'spacing', 's')};
   background-color: var(--background-color-post-card);
   border-radius: #{map-get-strict($token-variables, 'radius', 's')};
-  max-height: var(--max-height-post-card);
 
-  #{$this}__cover {
-    width: 100%;
-    object-fit: cover;
+  // Holds the cover and carries its width: a percentage set on the <img> cannot
+  // resolve against the card.
+  &__media {
+    flex: none;
+    width: var(--cover-width-post-card);
+
+    > picture, > .skeleton {
+      display: block;
+      width: 100%;
+    }
   }
 
-  &--highlight-light {
-    flex-direction: row-reverse;
-    #{$this}__cover {
-      @include cover-image-square;
-    }
-
-    @include create-media-queries('md') {
-      flex-direction: column;
-      #{$this}__cover {
-        @include cover-image-horizontal(var(--cover-height-horizontal-medium-desktop-post-card));
-      }
-    }
+  // Every variant, at every breakpoint, renders the cover in the same 16/9 box:
+  // a single source image framed once is enough for all of them.
+  &__cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: #{map-get-strict($token-variables, 'radius', 'xs')};
   }
 
   &--highlight-dark {
-    flex-direction: column;
-
     --background-color-post-card: rgb(0 0 0 / 15%);
 
     color: white;
-    #{$this}__cover {
-      height: var(--cover-height-horizontal-mobile-post-card);
-    }
+
     #{$this}__link {
       color: white;
     }
-
-    @include create-media-queries('md') {
-      #{$this}__cover {
-        @include cover-image-horizontal(var(--cover-height-horizontal-large-desktop-post-card));
-      }
-    }
   }
 
+  // Only variant to put the cover aside the text, and only once the card is wide
+  // enough for it: below that the cover would be too small to carry anything.
   &--side-image {
-    flex-direction: row-reverse;
-
-    @include create-media-queries('md') {
-      --max-height-post-card: var(--cover-size-square-desktop-post-card);
+    @include create-media-queries('sm') {
+      --cover-width-post-card: clamp(160px, 32%, 288px);
 
       flex-direction: row;
-    }
-    #{$this}__cover {
-      @include cover-image-square;
-
-      @include create-media-queries('md') {
-        @include cover-image-square(true);
-      }
-    }
-
-    &#{$this}--with-tutorial {
-      #{$this}__heading {
-        @include create-media-queries('md') {
-          width: calc(100% - 55px);
-        }
-      }
+      align-items: center;
     }
   }
-
 
   &__link {
     color: black;
@@ -121,10 +72,15 @@
     }
   }
 
+  // Sits on the title line rather than being pinned to the card corner, where
+  // it would overlap the cover now that the thumbnail fills its box.
+  &__heading, &__heading-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
   &__tutoriel-tag {
-    position: absolute;
-    top: #{map-get-strict($token-variables, 'spacing', 's')};
-    right: #{map-get-strict($token-variables, 'spacing', 's')};
+    flex: none;
     font-family: #{map-get-strict($token-variables, 'font-family', 'heading')};
     letter-spacing: 0.5px;
     background-color: #{map-get-strict($token-variables, 'color', 'accent')};
