@@ -1,7 +1,7 @@
 import React from 'react';
 
-import type { ContactCardProps } from '@/components';
-import { SummaryCard, type SummaryCardProps } from '@/components';
+import type { ContactCardProps, PictureProps } from '@/components';
+import { Picture, SummaryCard, type SummaryCardProps } from '@/components';
 import { Button, Flex } from '@/components';
 import { Box } from '@/components';
 import { ContactCard, Divider } from '@/components';
@@ -21,6 +21,7 @@ export type PostPageVariantType = (typeof postPageVariant)[number];
 export interface PostPageContentProps {
   variant: PostPageVariantType;
   summary: SummaryCardProps;
+  cover?: PictureProps;
   header: Omit<PostHeaderProps, 'contentType'>;
   children: React.ReactNode;
   footer: PostFooterProps;
@@ -35,6 +36,7 @@ export const PostPageContent: React.FC<PostPageContentProps> = ({
   variant = 'article',
 
   summary,
+  cover,
   header,
   children,
   footer,
@@ -47,6 +49,7 @@ export const PostPageContent: React.FC<PostPageContentProps> = ({
     <Box>
       <PostHeader {...header} />
       <Divider mt="m" />
+      {cover && <Picture {...cover} mt="l" img={{ ...cover.img, className: 'post-page__cover' }} />}
       <SummaryCard mt="l" hiddenAbove="md" variant={variant === 'tutorial' ? 'secondary' : 'primary'} {...summary} />
       <Box mt={{ xs: 'l', md: 'm' }} className="post-page__content">
         {children}

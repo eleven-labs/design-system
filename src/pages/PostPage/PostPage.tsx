@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type { PictureProps } from '@/components';
-import { Box, Breadcrumb, type BreadcrumbProps, Picture, SummaryCard } from '@/components';
+import { Box, Breadcrumb, type BreadcrumbProps, SummaryCard } from '@/components';
 import { LayoutContentWithSidebar } from '@/templates/LayoutContentWithSidebar';
 
 import './PostPage.scss';
@@ -24,10 +24,9 @@ export const PostPage: React.FC<PostPageProps> = ({
 }) => (
   <Box mx="auto" className="post-page">
     <Breadcrumb mx={{ xs: 'xs', md: '0' }} {...breadcrumb} />
-    <Picture {...cover} mx={{ xs: 'xs', md: '0' }} img={{ className: 'post-page__cover', ...cover?.img }} />
     <LayoutContentWithSidebar
       content={
-        <PostPageContent {...postPageContent} variant={variant} summary={summary}>
+        <PostPageContent {...postPageContent} variant={variant} summary={summary} cover={cover}>
           {children}
         </PostPageContent>
       }

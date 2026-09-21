@@ -28,17 +28,19 @@ $headings-by-compoent-variant-name: (
 }
 
 .post-page {
-  --height-cover-post-page: 160px;
-
   &__cover {
+    display: block;
     object-fit: cover;
     width: 100%;
-    height: var(--height-cover-post-page);
-    border-radius: #{map-get-strict($token-variables, 'radius', 'xs')};
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: #{map-get-strict($token-variables, 'radius', 's')};
+  }
 
-    @include create-media-queries('md') {
-      --height-cover-post-page: 330px;
-    }
+  // Scrolls on itself so a wide table never widens the document on a phone.
+  &__table {
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   &__content {
@@ -110,6 +112,46 @@ $headings-by-compoent-variant-name: (
 
         tr:nth-child(even) {
           background-color: map-get-strict($token-variables, 'color', 'secondary-dark');
+        }
+      }
+
+      // On a phone the table is stacked into one block per row, each cell
+      // prefixed by its column header, so nothing has to scroll sideways.
+      @include create-media-queries('sm', 'max') {
+        thead {
+          display: none;
+        }
+
+        tbody, tr, td {
+          display: block;
+        }
+
+        tbody tr, tbody tr:nth-child(even) {
+          margin-bottom: #{map-get-strict($token-variables, 'spacing', 'xs')};
+          background-color: map-get-strict($token-variables, 'color', 'white');
+        }
+
+        // Stays a block: turning the cell into a flex container would make every
+        // inline element it holds, such as a code span, its own flex item.
+        td {
+          border-width: 0 0 1px;
+
+          // Overrides the inline text-align that GFM sets on aligned columns:
+          // once stacked, a right aligned label and value read badly.
+          text-align: left !important;
+          overflow-wrap: anywhere;
+
+          &:last-child {
+            border-bottom-width: 0;
+          }
+
+          &[data-label]::before {
+            content: attr(data-label);
+            display: block;
+            margin-bottom: #{map-get-strict($token-variables, 'spacing', 'xxs-3')};
+            font-weight: #{map-get-strict($token-variables, 'font-weight', 'bold')};
+            color: map-get-strict($token-variables, 'color', 'primary');
+          }
         }
       }
     }
